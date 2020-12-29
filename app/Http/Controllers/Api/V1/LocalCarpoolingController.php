@@ -18,16 +18,16 @@ class LocalCarpoolingController extends Controller
     // 发布(车找人和车找货是需要认证的) todo 后端配合
     public function store(LocalCarpoolingRequest $request)
     {
-        if (auth('api')->user()->is_certification == 1 || $request->type == 'person_looking_car' || $request->type == 'good_looking_car') {
-            $requestData = $request->only(['phone','name_car','capacity','go','end','departure_time','seat','other_need','is_go','type']);
-            $requestData['user_id'] = auth('api')->id();
-            LocalCarpooling::create($requestData);
-            return $this->response->created();
-        }else {
+        if (auth('api')->user()->is_certification == 0 && $request->type == 'car_looking_person' || auth('api')->user()->is_certification == 0 && $request->type == 'car_looking_good') {
             return [
                 'message' => '您尚未通过认证，请先去认证通过！',
                 'status_code' => 4001
             ];
+        }else {
+            $requestData = $request->only(['phone','name_car','capacity','go','end','departure_time','seat','other_need','is_go','type']);
+            $requestData['user_id'] = auth('api')->id();
+            LocalCarpooling::create($requestData);
+            return $this->response->created();
         }
     }
 

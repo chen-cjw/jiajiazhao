@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Model\DriverCertification;
 use App\Model\LocalCarpooling;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -64,5 +65,10 @@ class User extends Authenticatable implements JWTSubject
     public function local()
     {
         return $this->hasMany(LocalCarpooling::class);
+    }
+
+    public function certification()
+    {
+        return $this->hasOne(DriverCertification::class);
     }
 }
