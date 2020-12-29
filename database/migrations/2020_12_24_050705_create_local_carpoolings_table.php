@@ -24,15 +24,17 @@ class CreateLocalCarpoolingsTable extends Migration
             $table->string('seat')->comment('剩余座位');
             $table->string('other_need')->comment('其他需求');
             $table->boolean('is_go')->comment('是否出发');
-
-            $table->enum('type',['person_looking_car','car_person_looking','good_looking_car','car_good_looking'])->comment('');
+            $table->enum('type',['person_looking_car','car_looking_person','good_looking_car','car_looking_good'])->comment('类目');
 
             // 支付
-            $table->string('no')->unique()->comment('订单流水号');
-            $table->decimal('amount', 10, 2)->comment('服务金额');
-            $table->dateTime('paid_at')->nullable()->comment('支付时间');
-            $table->string('payment_method')->default('wechat')->nullable()->comment('支付方式');
-            $table->string('payment_no')->nullable()->comment('支付平台订单号');
+//            $table->string('no')->unique()->comment('订单流水号');
+//            $table->decimal('amount', 10, 2)->comment('服务金额');
+//            $table->dateTime('paid_at')->nullable()->comment('支付时间');
+//            $table->string('payment_method')->default('wechat')->nullable()->comment('支付方式');
+//            $table->string('payment_no')->nullable()->comment('支付平台订单号');
+            // 发布人
+            $table->unsignedBigInteger('user_id')->comment('发布人');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
         });

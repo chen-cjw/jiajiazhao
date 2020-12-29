@@ -23,7 +23,7 @@ class CreateShopsTable extends Migration
             $table->string('detailed_address')->comment('详细地址');// 这里等下会也会存坐标
             $table->string('contact_phone')->comment('联系方式');// 验证手机号码
             $table->string('wechat')->comment('个人微信');// 验证手机号码
-            $table->string('wechat')->comment('商户认证');// 图片上传
+            $table->string('logo')->comment('商户认证');// 图片上传
             $table->string('service_price')->comment('服务价格');
             $table->string('merchant_introduction')->comment('商户介绍');
             $table->bigInteger('platform_licensing')->comment('平台使用费');

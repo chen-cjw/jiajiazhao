@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('parent_id')->nullable()->comment('邀请人');
             //$table->nestedSet();
             $table->boolean('is_member')->default(1)->comment('商家0/会员1');
+            $table->boolean('is_certification')->default(0)->comment('拼车司机是否认证！');
 
             $table->timestamps();
         });

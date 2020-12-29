@@ -19,6 +19,11 @@ class CreateDriverCertificationsTable extends Migration
             $table->string('driver')->comment('驾驶证');
             $table->string('action')->comment('行驶证');
             $table->string('car')->comment('车辆照片');
+            $table->boolean('is_display')->comment('是否显示');
+
+            $table->unsignedBigInteger('user_id')->comment('认证人');
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }

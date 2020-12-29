@@ -17,8 +17,8 @@ class CreateConvenientInformationCommentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->comment('举报人ID');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('convenient_information_id')->comment('帖子ID');
-            $table->foreign('convenient_information_id')->references('id')->on('convenient_information');
+            $table->unsignedBigInteger('information_id')->comment('帖子ID');
+            $table->foreign('information_id')->references('id')->on('convenient_information');
             $table->string('remarks')->comment('备注为何举报');
             $table->timestamps();
         });

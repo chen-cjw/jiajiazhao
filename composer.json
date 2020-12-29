@@ -9,14 +9,18 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5|^8.0",
+        "dingo/api": "^3.0",
         "encore/laravel-admin": "1.7.15",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
+        "liyu/dingo-serializer-switch": "^0.3.2",
         "overtrue/laravel-lang": "~3.0",
-        "overtrue/wechat": "~5.0"
+        "overtrue/laravel-wechat": "~5.0",
+        "overtrue/wechat": "~5.0",
+        "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
