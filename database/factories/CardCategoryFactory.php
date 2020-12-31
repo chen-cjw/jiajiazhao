@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(CardCategory::class, function (Faker $faker) {
     return [
-        //
+        'name'=>$faker->name,
+        'sort'=>$faker->randomFloat()
     ];
 });

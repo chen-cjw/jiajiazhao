@@ -17,6 +17,7 @@ class CreateCardCategoriesTable extends Migration
             $table->id();
             $table->string('name')->comment('发布帖子/分类名称');
             $table->bigInteger('sort')->comment('排序');
+            $table->boolean('is_display')->default(1)->comment('是否显示');
             $table->timestamps();
         });
     }

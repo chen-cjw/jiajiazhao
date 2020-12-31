@@ -15,9 +15,10 @@ class CreateShopsTable extends Migration
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
-            $table->string('one_abbr')->comment('行业分类/一级分类');
             // 由于后台可能会乱修改，目前就是存的文字，不是id
-            $table->string('two_abbr')->comment('行业分类/二级分类(数组序列化)');
+            $table->unsignedBigInteger('one_abbr')->comment('行业分类/一级分类');
+
+            $table->json('two_abbr')->comment('行业分类/二级分类(数组序列化)');
             $table->string('name')->comment('店铺名');
             $table->string('area')->comment('自动获取所在地区');// 这里等下会也会存坐标
             $table->string('detailed_address')->comment('详细地址');// 这里等下会也会存坐标
@@ -29,13 +30,13 @@ class CreateShopsTable extends Migration
             $table->bigInteger('platform_licensing')->comment('平台使用费');
             $table->boolean('is_top')->default(0)->comment('是否置顶');
 
-            $table->string('no')->unique()->comment('订单流水号');
-            $table->decimal('amount', 10, 2)->comment('服务金额');
+//            $table->string('no')->unique()->comment('订单流水号');
+//            $table->decimal('amount', 10, 2)->comment('服务金额');
 
-            $table->dateTime('paid_at')->nullable()->comment('支付时间');
-            $table->string('payment_method')->default('wechat')->nullable()->comment('支付方式');
-            $table->string('payment_no')->nullable()->comment('支付平台订单号');
-            $table->dateTime('due_date')->nullable()->comment('到期时间');
+//            $table->dateTime('paid_at')->nullable()->comment('支付时间');
+//            $table->string('payment_method')->default('wechat')->nullable()->comment('支付方式');
+//            $table->string('payment_no')->nullable()->comment('支付平台订单号');
+//            $table->dateTime('due_date')->nullable()->comment('到期时间');
 
             $table->timestamps();
         });
