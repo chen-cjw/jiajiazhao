@@ -18,7 +18,9 @@ class CreateShopsTable extends Migration
             // 由于后台可能会乱修改，目前就是存的文字，不是id
             $table->unsignedBigInteger('one_abbr')->comment('行业分类/一级分类');
 
-            $table->json('two_abbr')->comment('行业分类/二级分类(数组序列化)');
+            $table->string('two_abbr0')->comment('行业分类/二级分类()');
+            $table->string('two_abbr1')->comment('行业分类/二级分类()');
+            $table->string('two_abbr2')->comment('行业分类/二级分类()');
             $table->string('name')->comment('店铺名');
             $table->string('area')->comment('自动获取所在地区');// 这里等下会也会存坐标
             $table->string('detailed_address')->comment('详细地址');// 这里等下会也会存坐标

@@ -62,13 +62,13 @@ $api->version('v1', [
         $api->get('/convenient_information/{id}', 'ConvenientInformationController@show')->name('api.convenient_information.index'); // 认证
 
         // 入住
-        $api->get('/shop', 'ShopController@index')->name('api.shop.index'); // 认证
         $api->post('/shop', 'ShopController@store')->name('api.shop.store'); // 认证
         $api->post('/shop_upload_img', 'ShopController@uploadImg')->name('api.shop.uploadImg'); // 单图片上传
         // 分类
         $api->get('/abbr_category', 'AbbrCategoryController@index')->name('api.abbr_category.index');
 
     });
+    $api->get('/shop', 'ShopController@index')->name('api.shop.index'); // 认证
 
     $api->get('/card_category', 'CardCategoryController@index')->name('api.card_category.index'); // 认证
 

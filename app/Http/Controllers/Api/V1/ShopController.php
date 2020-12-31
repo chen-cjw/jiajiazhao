@@ -14,17 +14,25 @@ class ShopController extends Controller
     // 商户列表
     public function index()
     {
-        return $this->response->collection(Shop::orderBy('is_top','desc')->get(),new ShopTransformer());
+        $shop = Shop::orderBy('is_top','desc')->where('one_abbr', \request()->one_abbr)
+            ->where(function ($query) {
+                $query->orWhere('two_abbr0',\request()->two_abbr)
+                    ->orWhere('two_abbr1',\request()->two_abbr)
+                    ->orWhere('two_abbr2',\request()->two_abbr);
+            })->get();
+        return $this->response->collection($shop,new ShopTransformer());
     }
     
     // 入住
     public function store(ShopRequest $request)
     {
         $data = $request->only([
-            'one_abbr' ,'two_abbr','name','area','detailed_address','contact_phone','wechat',
+            'one_abbr' ,'two_abbr0','two_abbr1','two_abbr2','name','area','detailed_address','contact_phone','wechat',
             'logo','service_price','merchant_introduction','platform_licensing','is_top',
         ]);
-        $data['two_abbr'] = json_encode($request->two_abbr);
+        for ($i=0;$i<count($request->two_abbr);$i++) {
+            $data['two_abbr'.$i] = $request->two_abbr[$i];
+        }
         $data['logo'] = json_encode($request->logo);
         Shop::create($data);
         return $this->response->created();
