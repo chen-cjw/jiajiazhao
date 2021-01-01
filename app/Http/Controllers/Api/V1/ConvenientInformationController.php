@@ -20,7 +20,7 @@ class ConvenientInformationController extends Controller
     {
         //  'title','content','location','view','card_id','user_id','no',
         //        'card_fee','top_fee','paid_at','payment_method','payment_no'
-        $data = $request->only(['card_id','title','content','location']);
+        $data = $request->only(['card_id','title','content','location','lnt','lat']);
         $data['user_id'] = auth()->id();
 
         // 支付 todo

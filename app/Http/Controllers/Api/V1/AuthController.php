@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\AuthMlOpenidStoreRequest;
+use App\Http\Requests\AuthPhoneStoreRequest;
+use App\Transformers\UserTransformer;
 use App\User;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -30,9 +32,6 @@ class AuthController extends Controller
     // 获取用户的openid
     public function mlOpenidStore(AuthMlOpenidStoreRequest $request)
     {
-
-        $token = \Auth::guard('api')->fromUser($user = User::find(1));
-        return $this->respondWithToken($token,1, $user);
 
         $app = app('wechat.mini_program');
         $code = $request->code;

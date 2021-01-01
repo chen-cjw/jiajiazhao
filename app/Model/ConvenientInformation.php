@@ -23,7 +23,7 @@ class ConvenientInformation extends Model
 //            $table->string('payment_no')->nullable()->comment('支付平台订单号');
     // 便民信息
     protected $fillable = [
-        'title','content','location','view','card_id','user_id','no',
+        'title','content','location','lnt','lat','view','card_id','user_id','no',
         'card_fee','top_fee','paid_at','payment_method','payment_no'
     ];
 }

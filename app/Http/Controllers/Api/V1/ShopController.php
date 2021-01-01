@@ -6,6 +6,7 @@ use App\Http\Requests\ShopRequest;
 use App\Model\Shop;
 use App\Transformers\ShopTransformer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -14,6 +15,8 @@ class ShopController extends Controller
     // 商户列表
     public function index()
     {
+
+        return $this->qw();
         $shop = Shop::orderBy('is_top','desc')->where('one_abbr', \request()->one_abbr)
             ->where(function ($query) {
                 $query->orWhere('two_abbr0',\request()->two_abbr)
@@ -37,6 +40,7 @@ class ShopController extends Controller
         Shop::create($data);
         return $this->response->created();
     }
+
 
     public function uploadImg(Request $request)
     {
@@ -70,4 +74,17 @@ class ShopController extends Controller
         return \Storage::disk('public')->url($path);
     }
 
+    // （当前纬度,当前经度）
+    public function lat_lng($lng,$lat)
+    {
+        $res = DB::select("select * from shops where 
+            (acos(sin(({$lat}*3.1415)/180)
+            * sin((lat*3.1415)/180)
+            + cos(({$lat}*3.1415)/180)
+            * cos((lat*3.1415)/180)
+            * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
+            * 6370.996) <= 5"
+        );
+        return $res;
+    }
 }

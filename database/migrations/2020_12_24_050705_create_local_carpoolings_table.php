@@ -26,6 +26,9 @@ class CreateLocalCarpoolingsTable extends Migration
             $table->boolean('is_go')->comment('是否出发');
             $table->enum('type',['person_looking_car','car_looking_person','good_looking_car','car_looking_good'])->comment('类目');
 
+            $table->decimal('lng',20,10)->comment('当前纬度');
+            $table->decimal('lat',20,10)->comment('当前经度');
+            $table->string('area')->comment('自动获取所在地区');
             // 支付
 //            $table->string('no')->unique()->comment('订单流水号');
 //            $table->decimal('amount', 10, 2)->comment('服务金额');

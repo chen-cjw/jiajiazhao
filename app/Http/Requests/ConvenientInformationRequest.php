@@ -17,10 +17,12 @@ class ConvenientInformationRequest extends FormRequest
         return [
             'title' => 'string|required',
             'content' => 'string|required',
+            'lnt' => 'required',
+            'lat' => 'required',
             'card_id' => ['required',
                 function ($attribute, $value, $fail) {
                     if (!CardCategory::find($value)) {
-                        return $fail('此用户没有权限！');
+                        return $fail('未发现有此分类！');
                     }
                 },
             ],
