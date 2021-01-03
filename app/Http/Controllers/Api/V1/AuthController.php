@@ -76,7 +76,7 @@ class AuthController extends Controller
         $decryptedData = $app->encryptor->decryptData($session['session_key'], $request->iv, $request->encrypted_data);
 
         if (empty($decryptedData)) {
-            throw new \Exception('操作失败!321');
+            throw new \Exception('解析号码失败!321');
         }
 
         $user = User::where('ml_openid',$session['ml_openid'])->firstOrFail();
