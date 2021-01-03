@@ -54,6 +54,7 @@ class AuthController extends Controller
                     $token = \Auth::guard('api')->fromUser($user);
                     return $this->respondWithToken($token, $openid, $user);
                 }
+                return $this->oauthNo();
             }
 
             Log::info('创建用户', $this->createUser($sessionUser, $request));
