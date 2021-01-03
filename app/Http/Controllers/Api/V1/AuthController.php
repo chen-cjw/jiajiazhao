@@ -98,7 +98,9 @@ class AuthController extends Controller
     {
 
         return $this->response->array([
-            'oauth'=>'未授权手机号码'
+            'code'=> '40001',
+            'data'=>[],
+            'msg'=>'未授权手机号码'
         ]);
     }
 
