@@ -22,6 +22,7 @@ class ShopTransformer extends TransformerAbstract
             'merchant_introduction' => $shop->merchant_introduction,
             'platform_licensing' => $shop->platform_licensing,
             'is_top' => $shop->is_top,
+            'view' => $shop->view, // 浏览量==人气
             'no' => $shop->no,
             'amount' => $shop->amount,
             'created_at' => $shop->created_at->toDateTimeString(),

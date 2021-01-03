@@ -34,7 +34,10 @@ class LocalCarpoolingController extends Controller
     // 车辆是否已经出发了
     public function update($id)
     {
-        return auth('api')->user();//->local()->where('id',$id)->update(['is_go'=>true]);
+        return auth('api')->user()->local()->where('id',$id)->update(['is_go'=>true]);
         return $this->response->created();
     }
+
+
+
 }

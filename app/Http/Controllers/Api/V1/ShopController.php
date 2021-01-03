@@ -15,14 +15,19 @@ class ShopController extends Controller
     // 商户列表
     public function index()
     {
+        $shopQuery = Shop::query();
 
-        return $this->qw();
-        $shop = Shop::orderBy('is_top','desc')->where('one_abbr', \request()->one_abbr)
+        $shopQuery->where('one_abbr', \request()->one_abbr)
             ->where(function ($query) {
                 $query->orWhere('two_abbr0',\request()->two_abbr)
                     ->orWhere('two_abbr1',\request()->two_abbr)
                     ->orWhere('two_abbr2',\request()->two_abbr);
-            })->get();
+            });
+        // 人气 == 浏览量
+        $shopQuery->orderBy('view','desc');
+
+        $shop = $shopQuery->get();
+
         return $this->response->collection($shop,new ShopTransformer());
     }
     
@@ -37,10 +42,16 @@ class ShopController extends Controller
             $data['two_abbr'.$i] = $request->two_abbr[$i];
         }
         $data['logo'] = json_encode($request->logo);
+        $data['user_id'] = auth('api')->id();
         Shop::create($data);
         return $this->response->created();
     }
 
+    public function show($id)
+    {
+        Shop::where('id',$id)->increment('view');
+        return $this->response->item(Shop::findOrFail($id),new ShopTransformer());
+    }
 
     public function uploadImg(Request $request)
     {

@@ -32,7 +32,13 @@ class CreateShopsTable extends Migration
             $table->string('service_price')->comment('服务价格');
             $table->string('merchant_introduction')->comment('商户介绍');
             $table->bigInteger('platform_licensing')->comment('平台使用费');
+            $table->bigInteger('view')->default(0)->comment('浏览量==人气');
             $table->boolean('is_top')->default(0)->comment('是否置顶');
+            $table->boolean('is_accept')->default(0)->comment('是否通过');
+
+            // 申请人
+            $table->unsignedBigInteger('user_id')->comment('申请人');
+            $table->foreign('user_id')->references('id')->on('users');
 
 //            $table->string('no')->unique()->comment('订单流水号');
 //            $table->decimal('amount', 10, 2)->comment('服务金额');

@@ -26,4 +26,5 @@ class LocalCarpooling extends Model
     ];
 
 
+
 }

@@ -27,6 +27,14 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - composer require overtrue/wechat:~5.0 -vvv
 - composer require "overtrue/laravel-lang:~3.0"
 
+## https://packagist.org/ 依赖包
+- 跨源资源共享 composer require fruitcake/laravel-cors  | 全局
+- 样式输出统一 liyu/dingo-serializer-switch
+## jwt 
+- composer require tymon/jwt-auth
+- php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+- php artisan jwt:secret
+
 
 
 
@@ -35,7 +43,11 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
 - php artisan jwt:secret
 
-## Code of Conduct
+## 项目部署注意项
+- cp .env. .env
+- composer intall
+- php artisan key:generate
+- php artisan jwt:secret
 
 In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 

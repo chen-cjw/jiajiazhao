@@ -66,9 +66,14 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(LocalCarpooling::class);
     }
-
+    //
     public function certification()
     {
         return $this->hasOne(DriverCertification::class);
+    }
+    //
+    public function localCarpool()
+    {
+        return $this->hasMany(LocalCarpooling::class);
     }
 }
