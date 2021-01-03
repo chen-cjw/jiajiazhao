@@ -20,6 +20,9 @@ class AuthController extends Controller
     // 创建一个测试用户
     public function createTestUser()
     {
+        $user = User::findOrFail(1);
+        $token = \Auth::guard('api')->fromUser($user);
+        return $this->respondWithToken($token,1,$user)->setStatusCode(201);
         return User::create([
             'ml_openid' => 1,
             'nickname' => 'nickName',

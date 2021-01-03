@@ -26,7 +26,7 @@ $api->version('v1', [
 ], function ($api) {
 
     $api->get('auth','AuthController@index')->name('api.auth.index');
-//    $api->post('auth','AuthController@store')->name('api.auth.store');
+    $api->post('test','AuthController@createTestUser')->name('api.auth.createTestUser');
 
     // 获取openid
     $api->post('/auth/ml_openid_store','AuthController@mlOpenidStore')->name('api.auth.mlOpenidStore');
