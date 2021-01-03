@@ -24,6 +24,7 @@ $factory->define(User::class, function (Faker $faker) {
         'nickname' => $faker->name,
         'avatar' => 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1654242150,297019303&fm=26&gp=0.jpg',
         'sex' => 1,
-        'parent_id' =>  null
+        'parent_id' =>  null,
+        'city_partner' => 0
     ];
 });
