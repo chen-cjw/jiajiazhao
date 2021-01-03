@@ -67,6 +67,12 @@ $api->version('v1', [
         // 分类
         $api->get('/abbr_category', 'AbbrCategoryController@index')->name('api.abbr_category.index');
 
+
+
+        //我的 userFavoriteShop
+        $api->post('/user_favorite_shop/{id}', 'PersonalController@userFavoriteShop')->name('api.personal.userFavoriteShop');
+        $api->post('/shop_del', 'PersonalController@shopDel')->name('api.personal.shop_del');
+
     });
     $api->get('/shop', 'ShopController@index')->name('api.shop.index'); // 认证
 

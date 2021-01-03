@@ -4,6 +4,7 @@ namespace App;
 
 use App\Model\DriverCertification;
 use App\Model\LocalCarpooling;
+use App\Model\Shop;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -76,4 +77,13 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(LocalCarpooling::class);
     }
+
+    // 收藏商铺
+    public function favoriteShops()
+    {
+        return $this->belongsToMany(Shop::class, 'user_favorite_shops')
+            ->withTimestamps()
+            ->orderBy('user_favorite_shops.created_at', 'desc');
+    }
+
 }
