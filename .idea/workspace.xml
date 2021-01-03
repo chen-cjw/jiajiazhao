@@ -55,8 +55,8 @@
       <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="100" selection-start-line="100" selection-end-line="100" />
+            <state relative-caret-position="220">
+              <caret line="50" column="90" selection-start-line="50" selection-start-column="90" selection-end-line="50" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -340,7 +340,7 @@
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="797" />
+    <option name="height" value="798" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -477,12 +477,12 @@
       <option name="presentableId" value="Default" />
       <updated>1608545973270</updated>
       <workItem from="1608545980625" duration="16952000" />
-      <workItem from="1609067027348" duration="68045000" />
+      <workItem from="1609067027348" duration="68695000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84997000" />
+    <option name="totallyTimeSpent" value="85647000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -916,8 +916,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        <state relative-caret-position="220">
+          <caret line="50" column="90" selection-start-line="50" selection-start-column="90" selection-end-line="50" selection-end-column="90" />
         </state>
       </provider>
     </entry>
