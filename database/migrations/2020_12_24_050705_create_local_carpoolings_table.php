@@ -30,11 +30,12 @@ class CreateLocalCarpoolingsTable extends Migration
             $table->decimal('lat',20,10)->comment('当前经度');
             $table->string('area')->comment('自动获取所在地区');
             // 支付
-//            $table->string('no')->unique()->comment('订单流水号');
-//            $table->decimal('amount', 10, 2)->comment('服务金额');
-//            $table->dateTime('paid_at')->nullable()->comment('支付时间');
-//            $table->string('payment_method')->default('wechat')->nullable()->comment('支付方式');
-//            $table->string('payment_no')->nullable()->comment('支付平台订单号');
+            $table->string('no')->unique()->comment('订单流水号');
+            $table->decimal('amount', 10, 2)->comment('服务金额');
+            $table->dateTime('paid_at')->nullable()->comment('支付时间');
+            $table->string('payment_method')->default('wechat')->nullable()->comment('支付方式');
+            $table->string('payment_no')->nullable()->comment('支付平台订单号');
+            $table->boolean('closed')->default(false)->comment('收否关闭订单');
             // 发布人
             $table->unsignedBigInteger('user_id')->comment('发布人');
             $table->foreign('user_id')->references('id')->on('users');

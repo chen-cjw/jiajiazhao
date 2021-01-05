@@ -69,14 +69,28 @@ $api->version('v1', [
 
 
 
-        //我的 userFavoriteShop
-        $api->post('/user_favorite_shop/{id}', 'PersonalController@userFavoriteShop')->name('api.personal.userFavoriteShop');
-        $api->post('/shop_del', 'PersonalController@shopDel')->name('api.personal.shop_del');
+        $api->post('/user_favorite_shop/{id}', 'PersonalController@userFavoriteShop')->name('api.personal.userFavoriteShop'); // 收藏店铺
+        $api->post('/shop_del', 'PersonalController@shopDel')->name('api.personal.shop_del'); // 删除收藏
+
+
+        $api->post('/user_favorite_card/{id}', 'PersonalController@userFavoriteCard')->name('api.personal.userFavoriteCard'); // 收藏帖子
+        $api->post('/card_del', 'PersonalController@cardDel')->name('api.personal.cardDel'); // 删除收藏帖子
+
+        // 我发布本地拼车列表 localCarpool
+        $api->post('/local_carpool', 'PersonalController@localCarpool')->name('api.personal.localCarpool');
+
+        // 我发布本地拼车-管理(删除) localCarpoolIndex
+        $api->get('/local_carpool_index/', 'PersonalController@localCarpoolIndex')->name('api.personal.localCarpoolIndex');
+
+        //// 我收藏帖子列表
+        $api->get('/user_favorite_card_index', 'PersonalController@userFavoriteCardIndex')->name('api.personal.userFavoriteCardIndex');
+        // 我收藏商户列表
+        $api->get('/user_favorite_shop_index', 'PersonalController@userFavoriteShopIndex')->name('api.personal.userFavoriteShopIndex');
 
     });
-    $api->get('/shop', 'ShopController@index')->name('api.shop.index'); // 认证
+    $api->get('/shop', 'ShopController@index')->name('api.shop.index'); // 商户
 
-    $api->get('/card_category', 'CardCategoryController@index')->name('api.card_category.index'); // 认证
+    $api->get('/card_category', 'CardCategoryController@index')->name('api.card_category.index'); // 帖子分类
 
 
 

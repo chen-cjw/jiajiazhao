@@ -2,67 +2,72 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Model\ConvenientInformation;
 use App\Model\LocalCarpooling;
 use App\Model\Shop;
+use App\Transformers\ConvenientInformationTransformer;
+use App\Transformers\LocalCarpoolingTransformer;
+use App\Transformers\ShopTransformer;
 use Illuminate\Http\Request;
 
 class PersonalController extends Controller
 {
-    // 我发布本地拼车管理
+    // 我发布本地拼车管理-删除
     public function localCarpool()
     {
-        $this->user()->localCarpool()->whereIn('id',request('ids'))->delete();
+        $user = auth('api')->user();
+        $user->localCarpool()->whereIn('id',request('ids'))->delete();
         return $this->response->noContent();
     }
 
     // 我发布本地拼车列表
     public function localCarpoolIndex()
     {
-        return $this->response->paginator($this->user()->localCarpool()->orderBy()->paginate(),new LocalCarpooling());
+        $user = auth('api')->user();
+        $localCarpool = $user->localCarpool()->orderBy('created_at','desc')->paginate();
+        return $this->response->paginator($localCarpool,new LocalCarpoolingTransformer());
     }
 
-    // 我的收藏(商品)
-    public function favorite($id)
+    // 我收藏帖子列表
+    public function userFavoriteCardIndex()
     {
-
+        return $this->response->paginator(auth()->user()->favoriteCards()->paginate(),new ConvenientInformationTransformer());
     }
-
-    // 我的收藏管理(商品)
-    public function favoriteDel()
+    // 我收藏商户列表
+    public function userFavoriteShopIndex()
     {
-
+        return $this->response->paginator(auth()->user()->favoriteShops()->paginate(),new ShopTransformer());
     }
-
-
     // 收藏帖子
-    public function userFavoriteCard()
+    public function userFavoriteCard($id)
     {
-        
-    }
-    // 我发布的帖子
-    public function cardIndex()
-    {
-        
+        $user = auth('api')->user();
+        if ($user->favoriteCards()->find($id)) {
+            return $this->response->created();
+        }
+
+        $user->favoriteCards()->attach(ConvenientInformation::findOrFail($id));
+        return $this->response->created();
     }
 
-    // 我浏览的帖子
-    public function browseCard()
+    // 收藏帖子-管理
+    public function cardDel(Request $request)
     {
-        
+        $user = auth('api')->user();
+        $user->favoriteCards()->detach($request->ids);
+        return $this->response->noContent();
     }
 
     // 收藏商户
     public function userFavoriteShop($id)
     {
-
         $user = auth('api')->user();
         if ($user->favoriteShops()->find($id)) {
-            return [];
+            return $this->response->created();
         }
 
-        $user->favoriteShops()->attach(Shop::find($id));
-
-        return [];
+        $user->favoriteShops()->attach(Shop::findOrFail($id));
+        return $this->response->created();
     }
 
     // 收藏商户-管理
@@ -71,8 +76,21 @@ class PersonalController extends Controller
         $user = auth('api')->user();
 
         $user->favoriteShops()->detach($request->ids);
-
-        return [];
+        return $this->response->noContent();
     }
     //
+
+
+    // 我的收藏(商品) todo 暂未开放
+    public function favorite($id)
+    {
+
+    }
+
+    // 我的收藏管理(商品) todo 暂未开放
+    public function favoriteDel()
+    {
+
+    }
+
 }

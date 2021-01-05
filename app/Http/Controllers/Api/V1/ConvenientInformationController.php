@@ -20,7 +20,7 @@ class ConvenientInformationController extends Controller
     {
         //  'title','content','location','view','card_id','user_id','no',
         //        'card_fee','top_fee','paid_at','payment_method','payment_no'
-        $data = $request->only(['card_id','title','content','location','lnt','lat']);
+        $data = $request->only(['card_id','title','content','location','lng','lat']);
         $data['user_id'] = auth()->id();
 
         // 支付 todo
@@ -35,6 +35,14 @@ class ConvenientInformationController extends Controller
     {
         $query = ConvenientInformation::where('id',$id);
         $query->increment('view');
+
+        $user = auth('api')->user();
+        if ($user->browseCards()->find($id)) {
+            ConvenientInformation::where('id',$id)->update(['created_at'=>date('Y:m:d H:i:s')]);
+        }else {
+            $user->browseCards()->attach(ConvenientInformation::find($id));
+        }
+
         $convenientInformation = $query->firstOrFail();
         return $this->response->item($convenientInformation,new ConvenientInformationTransformer());
     }

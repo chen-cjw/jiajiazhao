@@ -9,6 +9,14 @@ class Controller extends BaseController
 {
     use Helpers;
 
+    public function responseStyle($message,$code,$data)
+    {
+        return [
+            'message'=> $message,
+            'code' => $code,
+            'data' => $data,
+        ];
+    }
     public function upload_img($file)
     {
         if (!empty($file)) {

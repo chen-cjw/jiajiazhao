@@ -21,10 +21,26 @@ class LocalCarpooling extends Model
 
     // 本地拼车
     protected $fillable = [
-        'phone', 'name_car','capacity','go','end','departure_time','seat','user_id',
-        'other_need','is_go','type','no','amount','paid_at','payment_method','payment_no'
+        'phone', 'name_car','capacity','go','end','departure_time','seat','user_id','lng','lat',
+        'other_need','is_go','type','no','amount','paid_at','payment_method','payment_no','closed','area'
     ];
 
+    public static function findAvailableNo()
+    {
+        // 订单流水号前缀
+        $prefix = date('YmdHis');
+        for ($i = 0; $i < 10; $i++) {
+            // 随机生成 6 位的数字
+            $no = $prefix.str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
+            // 判断是否已经存在
+            if (!static::query()->where('out_trade_no', $no)->exists()) {
+                return $no;
+            }
+        }
+        \Log::warning('find order no failed');
+
+        return false;
+    }
 
 
 }

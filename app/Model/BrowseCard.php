@@ -4,8 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserFavoriteCard extends Model
+class BrowseCard extends Model
 {
-
-
+    //
 }

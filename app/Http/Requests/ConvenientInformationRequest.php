@@ -17,7 +17,7 @@ class ConvenientInformationRequest extends FormRequest
         return [
             'title' => 'string|required',
             'content' => 'string|required',
-            'lnt' => 'required',
+            'lng' => 'required',
             'lat' => 'required',
             'card_id' => ['required',
                 function ($attribute, $value, $fail) {

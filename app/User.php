@@ -2,9 +2,11 @@
 
 namespace App;
 
+use App\Model\ConvenientInformation;
 use App\Model\DriverCertification;
 use App\Model\LocalCarpooling;
 use App\Model\Shop;
+use EasyWeChat\Kernel\Messages\Card;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -85,5 +87,22 @@ class User extends Authenticatable implements JWTSubject
             ->withTimestamps()
             ->orderBy('user_favorite_shops.created_at', 'desc');
     }
+
+    // 收藏的帖子
+    public function favoriteCards()
+    {
+        return $this->belongsToMany(ConvenientInformation::class, 'user_favorite_cards','user_id','information_id')
+            ->withTimestamps()
+            ->orderBy('user_favorite_cards.created_at', 'desc');
+    }
+
+    // 浏览的帖子
+    public function browseCards()
+    {
+        return $this->belongsToMany(ConvenientInformation::class, 'browse_cards')
+            ->withTimestamps()
+            ->orderBy('user_favorite_cards.created_at', 'desc');
+    }
+
 
 }
