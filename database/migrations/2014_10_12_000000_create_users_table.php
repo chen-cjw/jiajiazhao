@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->boolean('is_member')->default(1)->comment('商家0/会员1');
             $table->boolean('is_certification')->default(0)->comment('拼车司机是否认证！');
 
-            $table->unsignedDecimal('balance',10,3)->comment('城市合伙人可提现的额度');
+            $table->unsignedDecimal('balance',10,3)->default(0)->comment('城市合伙人可提现的额度');
             $table->boolean('city_partner')->default(0)->comment('城市合伙人');
             $table->string('ref_code')->unique()->comment('邀请码');
 

@@ -6,6 +6,8 @@ use App\Http\Requests\LocalCarpoolingRequest;
 use App\Model\LocalCarpooling;
 use App\Model\Setting;
 use App\Transformers\LocalCarpoolingTransformer;
+use App\User;
+use Carbon\Carbon;
 use Dingo\Api\Exception\ResourceException;
 use Illuminate\Support\Facades\Log;
 
@@ -27,7 +29,8 @@ class LocalCarpoolingController extends Controller
             $requestData = $request->only(['phone','name_car','capacity','go','end','departure_time','seat','other_need','is_go','type','lng','lat','area']);
             $requestData['user_id'] = auth('api')->id();
             // 流水订单号
-            $requestData['out_trade_no'] = LocalCarpooling::findAvailableNo();
+
+            $requestData['no'] = LocalCarpooling::findAvailableNo();
             $requestData['amount'] = 0.01;//Setting::where('key','localCarpoolingAmount')->value('value');
             LocalCarpooling::create($requestData);
             return $this->response->created();
@@ -66,11 +69,11 @@ class LocalCarpoolingController extends Controller
 
     public function wechatNotify()
     {
-        Log::info('进入');
+        Log::info('进入发送通知');
         $response = $this->app->handlePaidNotify(function($message, $fail){
             Log::info('微信支付订单号');
             // 使用通知里的 "微信支付订单号" 或者 "商户订单号" 去自己的数据库找到订单
-            $order = LocalCarpooling::where('out_trade_no',$message['out_trade_no'])->first();
+            $order = LocalCarpooling::where('no',$message['out_trade_no'])->first();
             if (!$order) {
                 Log::error('订单不存在则告知微信支付');
                 return $this->responseStyle('订单不存在则告知微信支付',200,'');
@@ -110,21 +113,9 @@ class LocalCarpoolingController extends Controller
                 return $fail('通信失败，请稍后再通知我');
             }
             $order->save(); // 保存订单
-            $team = $order->user->team->first();
-            $team->update(['is_probation_period'=>false]); // todo 只要付款了，就不是试用期间了
-            if($order->day == 0) {
-                // 未添加成功的ID
-                Log::info('未添加成功的ID:'.$order->id);
-                $order->user->team()->increment('number_count',$order->number);
-            }else {
-                Log::info('未添加成功的ID:'.$order->id);
-                $team->update(['close_time'=>date('Y-m-d', strtotime('+'.($order->day*365).' day', strtotime($team->close_time)))]);
-            }
-            $order->id;
             // todo 订单支付成功通知,支付平台的订单号
             $user = User::find($order->user_id);
             order_wePay_success_notification($user->ml_openid,$order->payment_no,$order->paid_at,$order->total_fee,$order->body,'');
-
             return true; // 返回处理完成
         });
 
