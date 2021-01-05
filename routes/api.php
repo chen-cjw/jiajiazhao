@@ -53,7 +53,7 @@ $api->version('v1', [
         $api->post('/local_carpooling', 'LocalCarpoolingController@store')->name('api.local_carpooling.store'); // 发布
         $api->put('/local_carpooling/{id}', 'LocalCarpoolingController@update')->name('api.local_carpooling.update'); // 确认发车
 
-        $api->post('/pay_by_wechat/{id}', 'LocalCarpoolingController@payByWechat')->name('api.local_carpooling.payByWechat'); // 发布
+        $api->get('/pay_by_wechat/{id}', 'LocalCarpoolingController@payByWechat')->name('api.local_carpooling.payByWechat'); // 发布
         $api->post('/wechat_notify', 'LocalCarpoolingController@wechatNotify')->name('api.local_carpooling.wechatNotify'); // 发布
 
 
