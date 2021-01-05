@@ -17,7 +17,7 @@ class FormRequest extends \Dingo\Api\Http\FormRequest
     public function failedValidation($validator)
     {
         $error= $validator->errors()->all();
-        throw new HttpResponseException(response()->json(['status_code'=>422,'message'=>$error[0]]));
+        throw new HttpResponseException(response()->json(['code'=>422,'msg'=>$error[0],'data'=>'']));
     }
 
 }

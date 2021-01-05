@@ -13,14 +13,13 @@ class ConvenientInformationController extends Controller
     public function index()
     {
         $res = ConvenientInformation::where('card_id',\request('card_id'))->paginate();
+        return $this->responseStyle('ok',200,$res);
         return $this->response->paginator($res,new ConvenientInformationTransformer());
     }
 
     // 发布
     public function store(ConvenientInformationRequest $request)
     {
-        //  'title','content','location','view','card_id','user_id','no',
-        //        'card_fee','top_fee','paid_at','payment_method','payment_no'
         $data = $request->only(['card_id','title','content','location','lng','lat']);
         $data['user_id'] = auth()->id();
         // 发帖的时候，有一部分的钱是到了邀请人哪里去了
@@ -37,8 +36,9 @@ class ConvenientInformationController extends Controller
 
 
         // 支付 todo
-        ConvenientInformation::create($data);
+        $res = ConvenientInformation::create($data);
 
+        return $this->responseStyle('ok',200,$res);
 
         return $this->response->created();
     }
@@ -57,6 +57,8 @@ class ConvenientInformationController extends Controller
         }
 
         $convenientInformation = $query->firstOrFail();
+        return $this->responseStyle('ok',200,$convenientInformation);
+
         return $this->response->item($convenientInformation,new ConvenientInformationTransformer());
     }
 

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class DriverCertificationController extends Controller
 {
+    // 司机认证
     public function index()
     {
         return $this->response->item(auth('api')->user()->certification,new DriverCertificationTransformer());
@@ -24,7 +25,7 @@ class DriverCertificationController extends Controller
             $driverFile = $this->upload_img($_FILES['driver']);
             $actionFile = $this->upload_img($_FILES['action']);
             $carFile = $this->upload_img($_FILES['car']);
-            DriverCertification::create([
+            $res = DriverCertification::create([
                 'id_card' => $idCardFile,
                 'driver' => $driverFile,
                 'action' => $actionFile,
@@ -36,6 +37,8 @@ class DriverCertificationController extends Controller
                 'is_certification' => true
             ]);
             DB::commit();
+            return $this->responseStyle('ok',200,$res);
+
             return $this->response->created();
 
         } catch (\Exception $ex) {

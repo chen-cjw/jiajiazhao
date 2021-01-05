@@ -27,6 +27,7 @@ class ShopController extends Controller
         $shopQuery->orderBy('view','desc');
 
         $shop = $shopQuery->get();
+        return $this->responseStyle('ok',200,$shop);
 
         return $this->response->collection($shop,new ShopTransformer());
     }
@@ -43,14 +44,17 @@ class ShopController extends Controller
         }
         $data['logo'] = json_encode($request->logo);
         $data['user_id'] = auth('api')->id();
-        Shop::create($data);
+        $res = Shop::create($data);
+        return $this->responseStyle('ok',200,$res);
+
         return $this->response->created();
     }
 
     public function show($id)
     {
         Shop::where('id',$id)->increment('view');
-        return $this->response->item(Shop::findOrFail($id),new ShopTransformer());
+        $shop = Shop::findOrFail($id);
+        return $this->responseStyle('ok',200,$shop);
     }
 
     public function uploadImg(Request $request)

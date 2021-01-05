@@ -17,7 +17,7 @@ class PersonalController extends Controller
     {
         $user = auth('api')->user();
         $user->localCarpool()->whereIn('id',request('ids'))->delete();
-        return $this->response->noContent();
+        return $this->responseStyle('ok',200,'');
     }
 
     // 我发布本地拼车列表
@@ -25,29 +25,31 @@ class PersonalController extends Controller
     {
         $user = auth('api')->user();
         $localCarpool = $user->localCarpool()->orderBy('created_at','desc')->paginate();
-        return $this->response->paginator($localCarpool,new LocalCarpoolingTransformer());
+        return $this->responseStyle('ok',200,$localCarpool);
     }
 
     // 我收藏帖子列表
     public function userFavoriteCardIndex()
     {
-        return $this->response->paginator(auth()->user()->favoriteCards()->paginate(),new ConvenientInformationTransformer());
+        $paginate = auth()->user()->favoriteCards()->paginate();
+        return $this->responseStyle('ok',200,$paginate);
     }
     // 我收藏商户列表
     public function userFavoriteShopIndex()
     {
-        return $this->response->paginator(auth()->user()->favoriteShops()->paginate(),new ShopTransformer());
+        $paginate = auth()->user()->favoriteShops()->paginate();
+        return $this->responseStyle('ok',200,$paginate);
     }
     // 收藏帖子
     public function userFavoriteCard($id)
     {
         $user = auth('api')->user();
         if ($user->favoriteCards()->find($id)) {
-            return $this->response->created();
+            return $this->responseStyle('ok',200,'');
         }
 
         $user->favoriteCards()->attach(ConvenientInformation::findOrFail($id));
-        return $this->response->created();
+        return $this->responseStyle('ok',200,'');
     }
 
     // 收藏帖子-管理
@@ -55,7 +57,7 @@ class PersonalController extends Controller
     {
         $user = auth('api')->user();
         $user->favoriteCards()->detach($request->ids);
-        return $this->response->noContent();
+        return $this->responseStyle('ok',200,'');
     }
 
     // 收藏商户
@@ -63,11 +65,11 @@ class PersonalController extends Controller
     {
         $user = auth('api')->user();
         if ($user->favoriteShops()->find($id)) {
-            return $this->response->created();
+            return $this->responseStyle('ok',200,'');
         }
 
         $user->favoriteShops()->attach(Shop::findOrFail($id));
-        return $this->response->created();
+        return $this->responseStyle('ok',200,'');
     }
 
     // 收藏商户-管理
@@ -76,7 +78,7 @@ class PersonalController extends Controller
         $user = auth('api')->user();
 
         $user->favoriteShops()->detach($request->ids);
-        return $this->response->noContent();
+        return $this->responseStyle('ok',200,'');
     }
     //
 

@@ -25,17 +25,15 @@ class LocalCarpoolingController extends Controller
     {
         if (auth('api')->user()->is_certification == 0 && $request->type == 'car_looking_person' || auth('api')->user()->is_certification == 0 && $request->type == 'car_looking_good') {
             throw new ResourceException('您尚未通过认证，请先去认证通过！');
-//            return $this->responseStyle('您尚未通过认证，请先去认证通过！',422,'');
         }else {
             $requestData = $request->only(['phone','name_car','capacity','go','end','departure_time','seat','other_need','is_go','type','lng','lat','area']);
             $requestData['user_id'] = auth('api')->id();
             // 流水订单号
-
             $requestData['no'] = LocalCarpooling::findAvailableNo();
-            $requestData['amount'] = 0.01;//Setting::where('key','localCarpoolingAmount')->value('value');
-//            return $requestData;
-            LocalCarpooling::create($requestData);
-            return $this->response->created();
+            $requestData['amount'] = 0.01; //Setting::where('key','localCarpoolingAmount')->value('value');
+
+            return LocalCarpooling::create($requestData);
+            return $this->responseStyle('ok',200,'');
         }
     }
 
@@ -48,7 +46,6 @@ class LocalCarpoolingController extends Controller
         $localCarpool = auth('api')->user()->localCarpool()->where('id',$id)->firstOrFail();
         // bcsub — 减法
         if (bcsub(strtotime($localCarpool->created_at),time()) > 3600) {
-
             throw new ResourceException('此订单已过期，请删除此订单重新付款！');
         }
         // 校验订单状态
@@ -79,13 +76,13 @@ class LocalCarpoolingController extends Controller
             $order = LocalCarpooling::where('no',$message['out_trade_no'])->first();
             if (!$order) {
                 Log::error('订单不存在则告知微信支付');
-                return $this->responseStyle('订单不存在则告知微信支付',200,'');
+                throw new ResourceException('订单不存在则告知微信支付');
                 return 'fail';
             }
             // 订单已支付
             if ($order->paid_at) {
                 Log::error('告知微信支付此订单已处理');
-                return $this->responseStyle('告知微信支付此订单已处理',200,'');
+                throw new ResourceException('告知微信支付此订单已处理');
 
                 return app('wechat_pay')->success();
             }

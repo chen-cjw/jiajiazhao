@@ -10,11 +10,15 @@ class NoticeController extends Controller
     // 公告有分页的
     public function index()
     {
-        return $this->response->paginator(Notice::orderBy('sort','desc')->where('is_display',1)->paginate(),new NoticeTransformer());
+        $notice = Notice::orderBy('sort','desc')->where('is_display',1)->paginate();
+        return $this->responseStyle('ok',200,$notice);
+
     }
 
     public function show($id)
     {
-        return $this->response->paginator(Notice::where('is_display',1)->findOrFail($id),new NoticeTransformer());
+        $notice = Notice::where('is_display',1)->findOrFail($id);
+        return $this->responseStyle('ok',200,$notice);
+
     }
 }

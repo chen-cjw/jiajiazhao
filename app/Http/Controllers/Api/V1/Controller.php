@@ -4,18 +4,17 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller as BaseController;
 use Dingo\Api\Routing\Helpers;
+use Illuminate\Http\Exceptions\HttpResponseException;
+
 
 class Controller extends BaseController
 {
     use Helpers;
 
+    // 统一返回的报错样式
     public function responseStyle($message,$code,$data)
     {
-        return [
-            'message'=> $message,
-            'code' => $code,
-            'data' => $data,
-        ];
+        throw new HttpResponseException(response()->json(['code'=>$code,'msg'=>$message,'data'=>$data]));
     }
     public function upload_img($file)
     {
