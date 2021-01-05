@@ -17,11 +17,11 @@ class CreateLocalCarpoolingsTable extends Migration
             $table->id();
             $table->string('phone')->comment('手机号');
             $table->string('name_car')->comment('车主姓名');
-            $table->string('capacity')->comment('承载重量');
+            $table->string('capacity')->nullable()->comment('承载重量');
             $table->string('go')->comment('出发地');
             $table->string('end')->comment('目的地');
             $table->string('departure_time')->comment('出发时间');
-            $table->string('seat')->comment('剩余座位');
+            $table->string('seat')->nullable()->comment('剩余座位');
             $table->string('other_need')->nullable()->comment('其他需求');
             $table->boolean('is_go')->default(0)->comment('是否出发');
             $table->enum('type',['person_looking_car','car_looking_person','good_looking_car','car_looking_good'])->comment('类目');
