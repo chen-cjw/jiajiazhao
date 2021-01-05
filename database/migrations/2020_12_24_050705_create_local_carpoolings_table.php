@@ -22,8 +22,8 @@ class CreateLocalCarpoolingsTable extends Migration
             $table->string('end')->comment('目的地');
             $table->string('departure_time')->comment('出发时间');
             $table->string('seat')->comment('剩余座位');
-            $table->string('other_need')->comment('其他需求');
-            $table->boolean('is_go')->comment('是否出发');
+            $table->string('other_need')->nullable()->comment('其他需求');
+            $table->boolean('is_go')->default(0)->comment('是否出发');
             $table->enum('type',['person_looking_car','car_looking_person','good_looking_car','car_looking_good'])->comment('类目');
 
             $table->decimal('lng',20,10)->comment('当前纬度');
