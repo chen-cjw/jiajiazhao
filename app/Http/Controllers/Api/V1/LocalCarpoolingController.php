@@ -22,17 +22,13 @@ class LocalCarpoolingController extends Controller
     public function store(LocalCarpoolingRequest $request)
     {
         if (auth('api')->user()->is_certification == 0 && $request->type == 'car_looking_person' || auth('api')->user()->is_certification == 0 && $request->type == 'car_looking_good') {
-            return [
-                'message' => '您尚未通过认证，请先去认证通过！',
-                'code' => 4001,
-                'data' => ''
-            ];
+            return $this->responseStyle('您尚未通过认证，请先去认证通过！',422,'');
         }else {
             $requestData = $request->only(['phone','name_car','capacity','go','end','departure_time','seat','other_need','is_go','type','lng','lat','area']);
             $requestData['user_id'] = auth('api')->id();
             // 流水订单号
-            $requestData['out_trade_no'] = 1;//LocalCarpooling::findAvailableNo();
-            //$requestData['amount'] = 1;//Setting::where('key','localCarpoolingAmount')->value('value');
+            $requestData['out_trade_no'] = LocalCarpooling::findAvailableNo();
+            $requestData['amount'] = 0.01;//Setting::where('key','localCarpoolingAmount')->value('value');
             LocalCarpooling::create($requestData);
             return $this->response->created();
         }

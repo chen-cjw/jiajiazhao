@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\ConvenientInformationRequest;
 use App\Model\ConvenientInformation;
 use App\Transformers\ConvenientInformationTransformer;
+use App\User;
 
 class ConvenientInformationController extends Controller
 {
@@ -22,6 +23,18 @@ class ConvenientInformationController extends Controller
         //        'card_fee','top_fee','paid_at','payment_method','payment_no'
         $data = $request->only(['card_id','title','content','location','lng','lat']);
         $data['user_id'] = auth()->id();
+        // 发帖的时候，有一部分的钱是到了邀请人哪里去了
+        $parentId = $this->user()->parent_id;
+        $userParent = User::where('parent_id',$parentId)->first();
+        if ($userParent) {
+            if($userParent->city_partner== 1) {
+                // 数据库的邀请人的额度就是增加百分之 50
+                $balanceCount = bcadd($request->card_fee,$request->top_fee,3);
+                $balance = bcdiv($balanceCount,2,3);
+                $userParent->update(['balance'=>$balance]);// 分一半给邀请人，这个只是积分，其实所有的钱是到了商户里面。
+            }
+        }
+
 
         // 支付 todo
         ConvenientInformation::create($data);

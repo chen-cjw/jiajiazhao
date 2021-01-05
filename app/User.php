@@ -6,6 +6,7 @@ use App\Model\ConvenientInformation;
 use App\Model\DriverCertification;
 use App\Model\LocalCarpooling;
 use App\Model\Shop;
+use EasyWeChat\Kernel\Exceptions\BadRequestException;
 use EasyWeChat\Kernel\Messages\Card;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -43,7 +44,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'ml_openid','phone','avatar','nickname','sex','parent_id','is_member','is_certification'
+        'ml_openid','phone','avatar','nickname','sex','parent_id','is_member','is_certification','ref_code'
     ];
 
     /**
@@ -103,6 +104,19 @@ class User extends Authenticatable implements JWTSubject
             ->withTimestamps()
             ->orderBy('user_favorite_cards.created_at', 'desc');
     }
-
+    // 邀请码
+    public function generateRefCode($length = 6)
+    {
+        $refCode = \substr(\str_shuffle(\str_repeat(config('app.refCodeCharacters'), $length)), 0, $length);
+        $count = 0;
+        while (!\is_null(User::where('ref_code', $refCode)->first())) {
+            $count++;
+            $refCode = \substr(\str_shuffle(\str_repeat(config('app.refCodeCharacters'), $length)), 0, $length);
+            if ($count == 100) {
+                throw new BadRequestException();
+            }
+        }
+        return $refCode;
+    }
 
 }

@@ -58,6 +58,7 @@ class AuthController extends Controller
             }
 
             Log::info('创建用户', $this->createUser($sessionUser, $request));
+
             User::create($this->createUser($sessionUser, $request));
 
             DB::commit();
@@ -106,12 +107,14 @@ class AuthController extends Controller
 
     protected function createUser($sessionUser,$request)
     {
+        $user = new User();
         return [ // 不存在此用户添加
             'ml_openid' => $sessionUser['openid'],
             'nickname' => $request->nickName,
             'avatar' => $request->avatarUrl,
             'sex' => $request->sex,
-            'parent_id' => $request->parent_id ? $request->parent_id : null
+            'parent_id' => $request->ref_code ? User::where('ref_code',$request->ref_code)->value('parent_id') : null,
+            'ref_code' => $user->generateRefCode()
         ];
     }
 

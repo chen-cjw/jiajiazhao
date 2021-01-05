@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    $user = new User();
     return [
         'phone' => 18361771543,
         'ml_openid' => $faker->name,
@@ -25,6 +26,7 @@ $factory->define(User::class, function (Faker $faker) {
         'avatar' => 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1654242150,297019303&fm=26&gp=0.jpg',
         'sex' => 1,
         'parent_id' =>  null,
-        'city_partner' => 0
+        'city_partner' => 0,
+        'ref_code'=>$user->generateRefCode()
     ];
 });
