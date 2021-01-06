@@ -12,7 +12,7 @@ class LocalCarpoolingRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone' => 'regex:/^1[23456789][0-9]{9}$/', // 一个车主可以发很多条信息
+            'phone' => 'required|regex:/^1[23456789][0-9]{9}$/', // 一个车主可以发很多条信息
             'name_car' => 'required|string',
             'type' => ['required','in:type,person_looking_car,car_looking_person,good_looking_car,car_looking_good'],
 //            'capacity' => 'required|string',
