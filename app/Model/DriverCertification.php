@@ -3,7 +3,6 @@
 namespace App\Model;
 
 use App\User;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class DriverCertification extends Model

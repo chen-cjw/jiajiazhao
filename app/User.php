@@ -119,4 +119,13 @@ class User extends Authenticatable implements JWTSubject
         return $refCode;
     }
 
+    public function getCreatedAtAttribute()
+    {
+        return $this->attributes['created_at'];//->toDateTimeString();
+    }
+    public function getUpdatedAtAttribute()
+    {
+        return $this->attributes['updated_at'];//->toDateTimeString();
+    }
+
 }

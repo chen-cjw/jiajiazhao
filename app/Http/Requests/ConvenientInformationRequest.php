@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use App\Model\CardCategory;
-use Illuminate\Foundation\Http\FormRequest;
 
 class ConvenientInformationRequest extends FormRequest
 {

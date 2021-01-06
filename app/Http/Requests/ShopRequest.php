@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use App\Model\AbbrCategory;
-use Illuminate\Foundation\Http\FormRequest;
 
 class ShopRequest extends FormRequest
 {

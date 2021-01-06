@@ -36,9 +36,13 @@ class DriverCertificationController extends Controller
             auth('api')->user()->update([
                 'is_certification' => true
             ]);
+//            $res = $this->responseStyle('ok',200,'');
             DB::commit();
-            return $this->responseStyle('ok',200,$res);
-
+            return [
+                'msg'=>'ok',
+                'code' => 200,
+                'data'=>''
+            ];
             return $this->response->created();
 
         } catch (\Exception $ex) {

@@ -2,8 +2,6 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
-
 class LocalCarpooling extends Model
 {
     // 栏目 'person_looking_car','car_person_looking','good_looking_car','car_good_looking'
@@ -42,10 +40,11 @@ class LocalCarpooling extends Model
         return false;
     }
 
-    public function getCloseAttribute()
+    public function getClosedAttribute()
     {
-        return bcsub(strtotime($this->attributes['created_at']), time()) > 3600 ? 1 : 0;
+        return bcsub(time(),strtotime($this->attributes['created_at'])) > 3600 ? 1 : 0;
     }
+
 
 
 }
