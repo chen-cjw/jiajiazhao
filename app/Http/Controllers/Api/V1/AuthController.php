@@ -91,6 +91,13 @@ class AuthController extends Controller
         return $this->respondWithToken($token,$phoneNumber,$user)->setStatusCode(201);
     }
 
+    public function refresh()
+    {
+        $token = auth('api')->refresh();
+        $user = auth()->user();
+        return $this->respondWithToken($token, $user->ml_openid,$user);
+    }
+
     public function show()
     {
         return $this->response->item($this->user(),new UserTransformer());

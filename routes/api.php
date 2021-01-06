@@ -49,6 +49,8 @@ $api->version('v1', [
 
     // 必须登陆以后才有的操作
     $api->group(['middleware' => ['auth:api']], function ($api) {
+        // refresh
+        $api->post('/auth/refresh','AuthController@refresh')->name('api.auth.refresh');
 
         $api->post('/local_carpooling', 'LocalCarpoolingController@store')->name('api.local_carpooling.store'); // 发布
         $api->put('/local_carpooling/{id}', 'LocalCarpoolingController@update')->name('api.local_carpooling.update'); // 确认发车
