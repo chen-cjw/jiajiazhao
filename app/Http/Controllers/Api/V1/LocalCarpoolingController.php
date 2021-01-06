@@ -37,8 +37,8 @@ class LocalCarpoolingController extends Controller
             $requestData['no'] = LocalCarpooling::findAvailableNo();
             $requestData['amount'] = 0.01; //Setting::where('key','localCarpoolingAmount')->value('value');
 
-            return LocalCarpooling::create($requestData);
-            return $this->responseStyle('ok',200,'');
+            $res = LocalCarpooling::create($requestData);
+            return $this->responseStyle('ok',200,$res);
         }
     }
 

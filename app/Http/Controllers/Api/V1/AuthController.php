@@ -121,11 +121,14 @@ class AuthController extends Controller
     protected function respondWithToken($token,$mlOpenid,$user)
     {
         return $this->response->array([
-            'ml_openid' => $mlOpenid,
-            'access_token' => $token,
-            'token_type' => 'Bearer',
-            'user'=>$user,
-            'expires_in' => Auth::guard('api')->factory()->getTTL() * 1200
+            'code' => 200,
+            'msg'=>'ok',
+            'data' => [
+                'ml_openid' => $mlOpenid,
+                'access_token' => $token,
+                'token_type' => 'Bearer',
+                'expires_in' => Auth::guard('api')->factory()->getTTL() * 1200
+            ]
         ]);
     }
 }
