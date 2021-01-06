@@ -45,11 +45,12 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 
 ## 项目部署注意项
 - cp .env. .env
-- composer intall
+- composer install
 - php artisan key:generate
 - php artisan jwt:secret
 - php artisan migrate 配置数据库
 - composer dump-autoload 添加了一个助手函数
+- storage/public 添加一个 public 文件
 
 In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
