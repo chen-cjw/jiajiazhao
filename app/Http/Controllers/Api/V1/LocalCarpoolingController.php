@@ -51,6 +51,7 @@ class LocalCarpoolingController extends Controller
 
             // 校验权限
             $localCarpool = auth('api')->user()->localCarpool()->where('id', $id)->firstOrFail();
+            return $localCarpool;
             // bcsub — 减法
             if (bcsub(strtotime($localCarpool->created_at), time()) > 3600) {
                 throw new ResourceException('此订单已过期，请删除此订单重新付款！');
