@@ -42,5 +42,10 @@ class LocalCarpooling extends Model
         return false;
     }
 
+    public function getCloseAttribute()
+    {
+        return bcsub(strtotime($this->attributes['created_at']), time()) > 3600 ? 1 : 0;
+    }
+
 
 }

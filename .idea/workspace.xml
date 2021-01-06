@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/LocalCarpooling.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/LocalCarpooling.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,20 +20,8 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="56" column="33" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="224">
-              <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-              <folding>
-                <element signature="e#47#81#0#PHP" expanded="true" />
-              </folding>
+              <caret line="47" column="32" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -47,7 +35,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VerifyCsrfToken.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VerifyCsrfToken.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -59,11 +47,20 @@
       <file leaf-file-name="LocalCarpoolingController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+            <state relative-caret-position="85">
+              <caret line="55" column="74" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="74" />
               <folding>
                 <element signature="e#47#92#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocalCarpooling.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Model/LocalCarpooling.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="46" column="87" selection-start-line="46" selection-start-column="87" selection-end-line="46" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -120,8 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Tymon\JWTAuth\Providers\LaravelServiceProvider</find>
-      <find>paginator</find>
       <find>$_FILES['id_card']</find>
       <find>uploadImages</find>
       <find>city_partner</find>
@@ -147,9 +142,11 @@
       <find>$json</find>
       <find>bridgeConfig</find>
       <find>payment</find>
-      <find>prepay_id</find>
       <find>图说密码</find>
+      <find>wechat_notify</find>
       <find>payByWechat</find>
+      <find>local_carpooling</find>
+      <find>prepay_id</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -189,7 +186,6 @@
         <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-        <option value="$PROJECT_DIR$/app/Model/LocalCarpooling.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" />
@@ -210,8 +206,9 @@
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/bootstrap/helpers.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php" />
+        <option value="$PROJECT_DIR$/app/Model/LocalCarpooling.php" />
       </list>
     </option>
   </component>
@@ -514,12 +511,12 @@
       <updated>1608545973270</updated>
       <workItem from="1608545980625" duration="16952000" />
       <workItem from="1609067027348" duration="69522000" />
-      <workItem from="1609679025110" duration="27746000" />
+      <workItem from="1609679025110" duration="28584000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114220000" />
+    <option name="totallyTimeSpent" value="115058000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -692,13 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="27" column="62" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/LocalCarpooling.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="35" column="43" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -892,16 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
-          <folding>
-            <element signature="e#47#92#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/OrderController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -912,17 +892,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="56" column="33" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="22" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="47" column="32" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="55" column="74" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="74" />
+          <folding>
+            <element signature="e#47#92#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/LocalCarpooling.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="46" column="87" selection-start-line="46" selection-start-column="87" selection-end-line="46" selection-end-column="87" />
         </state>
       </provider>
     </entry>

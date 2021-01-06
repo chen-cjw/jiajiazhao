@@ -21,7 +21,7 @@ class LocalCarpoolingController extends Controller
     // 本地拼车
     public function index()
     {
-        $local= LocalCarpooling::paginate();
+        $local= LocalCarpooling::where('created_at','desc')->paginate();
         return $this->response->paginator($local,new LocalCarpoolingTransformer());
     }
 
