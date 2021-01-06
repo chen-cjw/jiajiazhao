@@ -10,9 +10,14 @@ use App\User;
 use Carbon\Carbon;
 use Dingo\Api\Exception\ResourceException;
 use Illuminate\Support\Facades\Log;
+use EasyWeChat\Factory;
 
 class LocalCarpoolingController extends Controller
 {
+    public function __construct()
+    {
+        $this->app = app('wechat.payment');
+    }
     // 本地拼车
     public function index()
     {
@@ -42,28 +47,44 @@ class LocalCarpoolingController extends Controller
      * JSAPI--JSAPI支付（或小程序支付）、NATIVE--Native支付、APP--app支付，MWEB--H5支付，
      **/
     public function payByWechat($id) {
-        // 校验权限
-        $localCarpool = auth('api')->user()->localCarpool()->where('id',$id)->firstOrFail();
-        // bcsub — 减法
-        if (bcsub(strtotime($localCarpool->created_at),time()) > 3600) {
-            throw new ResourceException('此订单已过期，请删除此订单重新付款！');
-        }
-        // 校验订单状态
-        if ($localCarpool->paid_at || $localCarpool->closed) {
-            throw new ResourceException('订单状态不正确');
-        }
+        try {
 
-        $result = $this->app->order->unify([
-            'body' => '支付会员版订单：'.$localCarpool->no,
-            'out_trade_no' => $localCarpool->no,
-            'total_fee' => $localCarpool->amount,//$wechatPay->total_fee * 100,
-            'notify_url' => config('wechat.payment.default.notify_url'), // 支付结果通知网址，如果不设置则会使用配置里的默认地址
-            'openid' => auth('api')->user()->ml_openid,
-            'trade_type' => 'JSAPI', // 请对应换成你的支付方式对应的值类型
-        ]);
-        $jssdk = $this->app->jssdk;
-        $json = $jssdk->bridgeConfig($result['prepay_id'],false);
-        return $json;
+            // 校验权限
+            $localCarpool = auth('api')->user()->localCarpool()->where('id', $id)->firstOrFail();
+            // bcsub — 减法
+            if (bcsub(strtotime($localCarpool->created_at), time()) > 3600) {
+                throw new ResourceException('此订单已过期，请删除此订单重新付款！');
+            }
+            // 校验订单状态
+            if ($localCarpool->paid_at || $localCarpool->closed) {
+                throw new ResourceException('订单状态不正确');
+            }
+
+            $result = $this->app->order->unify([
+                'body' => '支付会员版订单：' . $localCarpool->no,
+                'out_trade_no' => $localCarpool->no,
+                'total_fee' => $localCarpool->amount * 100,//$wechatPay->total_fee * 100,
+                'notify_url' => config('wechat.payment.default.notify_url'), // 支付结果通知网址，如果不设置则会使用配置里的默认地址
+                'openid' => auth('api')->user()->ml_openid,
+                'trade_type' => 'JSAPI', // 请对应换成你的支付方式对应的值类型
+            ]);
+//            $app = Factory::payment($this->config);
+//            $jssdk = $app->jssdk;
+            $jssdk = $this->app->jssdk;
+            $json = $jssdk->bridgeConfig($result['prepay_id'], false);
+            return response()->json([
+                'code' => 200,
+                'data' => $json,
+                'order' => $localCarpool,
+                'msg' => 'ok'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'code' => 422,
+                "msg" => $e->getMessage(),
+                'data' => ''
+            ]);
+        }
     }
 
 

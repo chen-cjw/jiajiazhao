@@ -27,22 +27,19 @@ function order_wePay_success_notification($receiver,$payment_no,$paid_at,$total_
     $data = [
         'template_id' => config('app.order_wePay_success_notification'), // 所需下发的订阅模板id
         'touser' => $receiver,     // 接收者（用户）的 openid
-        'page' => '/pages/task/task',       // 点击模板卡片后的跳转页面，仅限本小程序内的页面。支持带参数,（示例index?foo=bar）。该字段不填则模板无跳转。
+        'page' => '/local_carpool_index',       // 点击模板卡片后的跳转页面，仅限本小程序内的页面。支持带参数,（示例index?foo=bar）。该字段不填则模板无跳转。
         'data' => [         // 模板内容，格式形如 { "key1": { "value": any }, "key2": { "value": any } }
-            'character_string1' => [ //订单编号
+            'character_string4' => [ //订单编号
                 'value' => $payment_no,
             ],
-            'time2' => [ // 支付时间
+            'time3' => [ // 支付时间
                 'value' => $paid_at,
             ],
-            'amount8' => [ // 支付金额
+            'amount2' => [ // 支付金额
                 'value' => $total_fee,
             ],
-            'thing4' => [ // 商品名称
+            'thing1' => [ // 商品名称
                 'value' => $body,
-            ],
-            'thing6' => [ // 备注
-                'value' => $remark,
             ],
         ],
     ];
