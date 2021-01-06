@@ -20,7 +20,7 @@ class LocalCarpoolingRequest extends FormRequest
             'end' => 'required|string',
             'departure_time' => 'required|date',
             'seat' => 'integer',
-            'other_need' => 'required|string',
+            'other_need' => 'string',
             'is_go' => 'boolean',
 
         ];
