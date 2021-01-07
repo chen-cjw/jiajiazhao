@@ -65,7 +65,7 @@ class ShopController extends Controller
     public function uploadImages($request)
     {
         if ($request->isMethod('post')) {
-            $file = $request->file('logo')['store_logo'];
+            $file = $request->file('logo');
             if($file->isValid()){
                 $path = Storage::disk('public')->putFile(date('Ymd') , $file);
                 if($path) {
