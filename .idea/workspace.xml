@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/LocalCarpoolingRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/LocalCarpoolingRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,68 +26,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DriverCertificationRequest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/DriverCertificationRequest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="61" column="68" selection-start-line="61" selection-start-column="55" selection-end-line="61" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="626">
-              <caret line="93" column="27" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="27" />
+            <state relative-caret-position="180">
+              <caret line="115" column="5" lean-forward="true" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LocalCarpoolingRequest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LocalCarpoolingRequest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Requests/LocalCarpoolingRequest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+              <caret line="22" column="23" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShopRequest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopRequest.php">
+      <file leaf-file-name="2020_12_24_050705_create_local_carpoolings_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_24_050705_create_local_carpoolings_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="150">
-                <caret line="47" column="14" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+            <state relative-caret-position="267">
+              <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -94,8 +56,8 @@
       <file leaf-file-name="LocalCarpoolingController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="28" column="35" lean-forward="true" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+            <state relative-caret-position="250">
+              <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
               <folding>
                 <element signature="e#47#92#0#PHP" expanded="true" />
               </folding>
@@ -103,17 +65,61 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="laravel.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="CardCategoryController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="14" selection-start-line="14" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="11" selection-start-line="11" selection-end-line="12" />
+              <folding>
+                <element signature="e#47#98#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2020_12_21_112435_create_shops_table.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="33" column="63" selection-start-line="33" selection-start-column="63" selection-end-line="33" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShopRequest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopRequest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-176">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="44" column="44" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="44" />
+              <folding>
+                <element signature="e#47#81#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>city_partner</find>
-      <find>createTestUser</find>
       <find>获取用户的openid操作失败</find>
       <find>mini_program</find>
       <find>favoriteShops</find>
@@ -142,6 +148,8 @@
       <find>is_display</find>
       <find>wechatNotify</find>
       <find>wechat_notify</find>
+      <find>other_need</find>
+      <find>platform_licensing</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -153,7 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2021_01_03_221024_create_user_favorite_shops_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_01_03_121055_create_user_favorite_cards_table.php" />
         <option value="$PROJECT_DIR$/database/factories/LocalCarpoolingFactory.php" />
         <option value="$PROJECT_DIR$/database/factories/NoticeFactory.php" />
@@ -199,11 +206,12 @@
         <option value="$PROJECT_DIR$/app/Http/Requests/ShopRequest.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/storage/logs/laravel.log" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php" />
         <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/LocalCarpoolingRequest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php" />
       </list>
     </option>
   </component>
@@ -518,12 +526,12 @@
       <updated>1608545973270</updated>
       <workItem from="1608545980625" duration="16952000" />
       <workItem from="1609067027348" duration="69522000" />
-      <workItem from="1609679025110" duration="34048000" />
+      <workItem from="1609679025110" duration="35204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120522000" />
+    <option name="totallyTimeSpent" value="121678000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -587,20 +595,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_24_050705_create_local_carpoolings_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/league/fractal/src/TransformerAbstract.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="181" column="74" selection-start-line="181" selection-start-column="70" selection-end-line="181" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Transformers/LocalCarpoolingTransformer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
@@ -620,13 +614,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/factories/AbbrCategoryFactory.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="14" selection-start-line="14" selection-end-line="15" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bootstrap/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -778,32 +765,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-847">
-          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-          <folding>
-            <element signature="e#47#81#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" selection-start-line="19" selection-end-line="20" />
           <folding>
             <element signature="e#47#83#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="59" selection-start-line="59" selection-end-line="60" />
-          <folding>
-            <element signature="e#47#98#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -879,13 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -927,27 +887,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/LocalCarpoolingRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_24_050705_create_local_carpoolings_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="626">
-          <caret line="93" column="27" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="27" />
+        <state relative-caret-position="180">
+          <caret line="115" column="5" lean-forward="true" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="28" column="35" lean-forward="true" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+        <state relative-caret-position="250">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
           <folding>
             <element signature="e#47#92#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/LocalCarpoolingRequest.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+        <state relative-caret-position="195">
+          <caret line="14" selection-start-line="14" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="11" selection-start-line="11" selection-end-line="12" />
+          <folding>
+            <element signature="e#47#98#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="44" column="44" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="44" />
+          <folding>
+            <element signature="e#47#81#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="33" column="63" selection-start-line="33" selection-start-column="63" selection-end-line="33" selection-end-column="63" />
         </state>
       </provider>
     </entry>

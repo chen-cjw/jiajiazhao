@@ -18,7 +18,7 @@ class LocalCarpoolingController extends Controller
     {
         $this->app = app('wechat.payment');
     }
-    // 本地拼车
+    // 本地拼车 todo 只有支付了才可以显示出来
     public function index()
     {
         $local= LocalCarpooling::where('created_at','desc')->paginate();

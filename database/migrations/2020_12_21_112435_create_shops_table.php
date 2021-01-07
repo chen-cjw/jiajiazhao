@@ -31,7 +31,7 @@ class CreateShopsTable extends Migration
             $table->text('logo')->comment('商户认证');// 图片上传
             $table->string('service_price')->comment('服务价格');
             $table->string('merchant_introduction')->comment('商户介绍');
-            $table->bigInteger('platform_licensing')->comment('平台使用费');
+            $table->bigInteger('platform_licensing')->default(0)->comment('平台使用费');
             $table->bigInteger('view')->default(0)->comment('浏览量==人气');
             $table->boolean('is_top')->default(0)->comment('是否置顶');
             $table->boolean('is_accept')->default(0)->comment('是否通过');
