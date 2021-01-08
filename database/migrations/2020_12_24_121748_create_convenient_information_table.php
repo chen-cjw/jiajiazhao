@@ -28,12 +28,12 @@ class CreateConvenientInformationTable extends Migration
             $table->unsignedBigInteger('user_id')->comment('发布人');
             $table->foreign('user_id')->references('id')->on('users');
 
-//            $table->string('no')->unique()->comment('订单流水号');
-//            $table->decimal('card_fee', 10, 2)->comment('发帖费用');
-//            $table->decimal('top_fee', 10, 2)->comment('置顶费用');
-//            $table->dateTime('paid_at')->nullable()->comment('支付时间');
-//            $table->string('payment_method')->default('wechat')->nullable()->comment('支付方式');
-//            $table->string('payment_no')->nullable()->comment('支付平台订单号');
+            $table->string('no')->unique()->comment('订单流水号');
+            $table->decimal('card_fee', 10, 2)->comment('发帖费用');
+            $table->decimal('top_fee', 10, 2)->comment('置顶费用');
+            $table->dateTime('paid_at')->nullable()->comment('支付时间');
+            $table->string('payment_method')->default('wechat')->nullable()->comment('支付方式');
+            $table->string('payment_no')->nullable()->comment('支付平台订单号');
 
             $table->timestamps();
         });

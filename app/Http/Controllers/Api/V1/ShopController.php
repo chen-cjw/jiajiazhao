@@ -32,7 +32,7 @@ class ShopController extends Controller
         return $this->response->collection($shop,new ShopTransformer());
     }
     
-    // 入住
+    // 入住 service_price 这个是一个图片
     public function store(ShopRequest $request)
     {
         $data = $request->only([
@@ -42,6 +42,7 @@ class ShopController extends Controller
         for ($i=0;$i<count($request->two_abbr);$i++) {
             $data['two_abbr'.$i] = $request->two_abbr[$i];
         }
+
         $data['logo'] = json_encode($request->logo);
         $data['user_id'] = auth('api')->id();
         $res = Shop::create($data);
