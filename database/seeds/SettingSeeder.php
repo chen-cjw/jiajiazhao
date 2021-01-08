@@ -12,8 +12,17 @@ class SettingSeeder extends Seeder
     public function run()
     {
         \App\Model\Setting::create([
-            'localCarpoolingAmount'=>'0',
-            ''=>'',
+            'key'=>'localCarpoolingAmount',
+            'value'=>0.01,
         ]);
+        \App\Model\Setting::create([
+            'key'=>'information_card_fee',
+            'value'=>0.01,
+        ]);
+        \App\Model\Setting::create([
+            'key'=>'information_top_fee',
+            'value'=>0.01,
+        ]);
+
     }
 }

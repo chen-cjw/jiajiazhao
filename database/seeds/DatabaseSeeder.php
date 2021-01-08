@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
 //         $this->call(NoticeSeeder::class);
 //         $this->call(BannerSeeder::class);
 //         $this->call(ConvenientInformationSeeder::class);
-         $this->call(ShopSeeder::class);
+//         $this->call(ShopSeeder::class);
+         $this->call(SettingSeeder::class);
     }
 }

@@ -134,7 +134,7 @@ class AuthController extends Controller
                 'ml_openid' => $mlOpenid,
                 'access_token' => $token,
                 'token_type' => 'Bearer',
-                'expires_in' => Auth::guard('api')->factory()->getTTL() * 1200
+                'expires_in' => Auth::guard('api')->factory()->getTTL() * 1
             ]
         ]);
     }

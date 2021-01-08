@@ -68,21 +68,18 @@ class LocalCarpoolingController extends Controller
             }
 
             $result = $this->app->order->unify([
-                'body' => '支付会员版订单：' . $localCarpool->no,
+                'body' => '订单：' . $localCarpool->no,
                 'out_trade_no' => $localCarpool->no,
                 'total_fee' => $localCarpool->amount * 100,//$wechatPay->total_fee * 100,
                 'notify_url' => config('wechat.payment.default.notify_url'), // 支付结果通知网址，如果不设置则会使用配置里的默认地址
                 'openid' => auth('api')->user()->ml_openid,
                 'trade_type' => 'JSAPI', // 请对应换成你的支付方式对应的值类型
             ]);
-//            $app = Factory::payment($this->config);
-//            $jssdk = $app->jssdk;
             $jssdk = $this->app->jssdk;
             $json = $jssdk->bridgeConfig($result['prepay_id'], false);
             return response()->json([
                 'code' => 200,
                 'data' => $json,
-                'order' => $localCarpool,
                 'msg' => 'ok'
             ]);
         } catch (\Exception $e) {
@@ -104,13 +101,11 @@ class LocalCarpoolingController extends Controller
             $order = LocalCarpooling::where('no',$message['out_trade_no'])->first();
             if (!$order) {
                 Log::error('订单不存在则告知微信支付');
-                throw new ResourceException('订单不存在则告知微信支付');
                 return 'fail';
             }
             // 订单已支付
             if ($order->paid_at) {
                 Log::error('告知微信支付此订单已处理');
-                throw new ResourceException('告知微信支付此订单已处理');
 
                 return app('wechat_pay')->success();
             }
@@ -126,7 +121,7 @@ class LocalCarpoolingController extends Controller
 
                 // 用户是否支付成功
                 if (array_get($message, 'result_code') === 'SUCCESS') {
-                    Log::info('用户是否支付成功');
+                    Log::info('用户支付成功');
 
 //                    $order->status = 'paid';
                     $order->paid_at = Carbon::now(); // 更新支付时间为当前时间
@@ -143,7 +138,7 @@ class LocalCarpoolingController extends Controller
             $order->save(); // 保存订单
             // todo 订单支付成功通知,支付平台的订单号
             $user = User::find($order->user_id);
-            order_wePay_success_notification($user->ml_openid,$order->payment_no,$order->paid_at,$order->total_fee,$order->body,'');
+//            order_wePay_success_notification($user->ml_openid,$order->payment_no,$order->paid_at,$order->amount,$order->name_car,'');
             return true; // 返回处理完成
         });
 

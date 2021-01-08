@@ -81,6 +81,16 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(LocalCarpooling::class);
     }
 
+    public function shop()
+    {
+        return $this->hasOne(Shop::class);
+    }
+
+    public function convenientInformation()
+    {
+        return $this->hasMany(ConvenientInformation::class);
+    }
+
     // 收藏商铺
     public function favoriteShops()
     {

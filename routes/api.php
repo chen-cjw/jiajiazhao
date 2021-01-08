@@ -47,16 +47,19 @@ $api->version('v1', [
     // 本地拼车
     $api->get('/local_carpooling','LocalCarpoolingController@index')->name('api.local_carpooling.index');
     $api->any('/wechat_notify', 'LocalCarpoolingController@wechatNotify')->name('api.local_carpooling.wechatNotify'); // 发布
+    $api->group(['middleware' => ['refreshtoken']], function ($api) {
+        // refresh
+        $api->post('/auth/refresh','AuthController@refresh')->name('api.auth.refresh');
+
+    });
 
     // 必须登陆以后才有的操作
     $api->group(['middleware' => ['auth:api']], function ($api) {
-        // refresh
-        $api->post('/auth/refresh','AuthController@refresh')->name('api.auth.refresh');
 
         $api->post('/local_carpooling', 'LocalCarpoolingController@store')->name('api.local_carpooling.store'); // 发布
         $api->put('/local_carpooling/{id}', 'LocalCarpoolingController@update')->name('api.local_carpooling.update'); // 确认发车
 
-        $api->get('/pay_by_wechat/{id}', 'LocalCarpoolingController@payByWechat')->name('api.local_carpooling.payByWechat'); // 发布
+        $api->get('/pay_by_wechat/{id}', 'LocalCarpoolingController@payByWechat')->name('api.local_carpooling.payByWechat'); // 发起支付
 
 
         $api->get('/driver_certification', 'DriverCertificationController@index')->name('api.driver_certification.index'); // 查看认证
@@ -66,6 +69,9 @@ $api->version('v1', [
         $api->get('/convenient_information', 'ConvenientInformationController@index')->name('api.convenient_information.index'); // 认证
         $api->post('/convenient_information', 'ConvenientInformationController@store')->name('api.convenient_information.index'); // 认证
         $api->get('/convenient_information/{id}', 'ConvenientInformationController@show')->name('api.convenient_information.index'); // 认证
+        // 发布信息唤起支付页面
+        $api->get('/convenient_information/pay_by_wechat/{id}', 'ConvenientInformationController@payByWechat')->name('api.local_carpooling.payByWechat'); // 发布
+
 
         // 入住
         $api->post('/shop', 'ShopController@store')->name('api.shop.store'); // 认证
