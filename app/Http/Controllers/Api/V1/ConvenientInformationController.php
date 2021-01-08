@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\ConvenientInformationRequest;
+use App\Model\AdvertisingSpace;
+use App\Model\Banner;
+use App\Model\CardCategory;
 use App\Model\ConvenientInformation;
+use App\Model\PostDescription;
 use App\Model\Setting;
+use App\Model\Shop;
 use App\Transformers\ConvenientInformationTransformer;
 use App\User;
 use Carbon\Carbon;
@@ -20,10 +25,34 @@ class ConvenientInformationController extends Controller
     // 便民信息列表
     public function index()
     {
-        $res = ConvenientInformation::where('card_id',\request('card_id')?:1)->paginate();
-        return $this->responseStyle('ok',200,$res);
-        return $this->response->paginator($res,new ConvenientInformationTransformer());
+        // 第一部分的轮播图
+        $bannerOne = Banner::where('type','index_one')->where('is_display',1)->orderBy('sort','desc')->get();
+
+        // 发帖说明
+        $post = PostDescription::first();
+
+        //第一部分的商户
+        $shopOne = Shop::where('type','one')->where('is_accept',1)->get();
+
+        // 广告位
+        $advertisingSpace = AdvertisingSpace::orderBy('sort','desc')->take(3)->get();
+
+        // 帖子分类
+        $cardCategory = CardCategory::orderBy('sort','desc')->get();
+        $cardIdDefault = \request('card_id')?:1;
+
+        $convenientInformation = ConvenientInformation::where('card_id',$cardIdDefault)->paginate();
+
+        return $this->responseStyle('ok',200,[
+            'bannerOne'=>$bannerOne,
+            'post'=>$post,
+            'shopOne'=>$shopOne,
+            'advertisingSpace'=>$advertisingSpace,
+            'cardCategory'=>$cardCategory,
+            'convenientInformation'=>$convenientInformation,
+        ]);
     }
+
 
     // 发布
     public function store(ConvenientInformationRequest $request)

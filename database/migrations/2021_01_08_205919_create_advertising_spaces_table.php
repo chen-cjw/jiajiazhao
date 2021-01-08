@@ -4,23 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBannersTable extends Migration
+class CreateAdvertisingSpacesTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * 广告位
      * @return void
      */
     public function up()
     {
-        Schema::create('banners', function (Blueprint $table) {
+        Schema::create('advertising_spaces', function (Blueprint $table) {
             $table->id();
             $table->string('image')->comment('图片');
             $table->text('link')->nullable()->comment('跳转的链接');
             $table->boolean('is_display')->default(1)->comment('是否显示');
-            $table->integer('sort')->default(0)->comment('排序');
-            $table->enum('type',['index_one','index_two'])->comment('index_one(首页第一部分轮播图)|index_two(首页第二部分轮播图)');
-
+            $table->integer('sort')->comment('排序');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateBannersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('banners');
+        Schema::dropIfExists('advertising_spaces');
     }
 }
