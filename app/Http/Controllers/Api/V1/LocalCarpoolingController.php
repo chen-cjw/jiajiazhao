@@ -35,13 +35,13 @@ class LocalCarpoolingController extends Controller
             $requestData['user_id'] = auth('api')->id();
             // 流水订单号
             $requestData['no'] = LocalCarpooling::findAvailableNo();
-            if (Setting::where('key','localCarpoolingAmount')->value('value')==0) {
-                $requestData['status'] = 'paid';
-                $requestData['paid_at'] = Carbon::now(); // 更新支付时间为当前时间
-                $requestData['payment_no'] = ''; // 支付平台订单号
-            }else {
-                $requestData['amount'] = Setting::where('key','localCarpoolingAmount')->value('value');
-            }
+//            if (Setting::where('key','localCarpoolingAmount')->value('value')==0) {
+//                $requestData['status'] = 'paid';
+//                $requestData['paid_at'] = Carbon::now(); // 更新支付时间为当前时间
+//                $requestData['payment_no'] = ''; // 支付平台订单号
+//            }else {
+//            }
+            $requestData['amount'] = 0.01;//Setting::where('key','localCarpoolingAmount')->value('value');
 
             $res = LocalCarpooling::create($requestData);
             return $this->responseStyle('ok',200,$res);
