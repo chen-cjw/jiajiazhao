@@ -8,7 +8,7 @@ class CreateUserFavoriteShopsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * 收藏的商铺
      * @return void
      */
     public function up()

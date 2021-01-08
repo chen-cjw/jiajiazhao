@@ -77,6 +77,7 @@ $api->version('v1', [
 
         // 入住
         $api->post('/shop', 'ShopController@store')->name('api.shop.store'); // 认证
+        $api->get('/shop/{id}', 'ShopController@show')->name('api.shop.show'); // 商户详情
         $api->post('/shop_upload_img', 'ShopController@uploadImg')->name('api.shop.uploadImg'); // 单图片上传
         $api->get('/shop/pay_by_wechat/{id}', 'ShopController@payByWechat')->name('api.shop.payByWechat'); // 发布
 

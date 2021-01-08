@@ -20,7 +20,7 @@ class ConvenientInformationController extends Controller
     // 便民信息列表
     public function index()
     {
-        $res = ConvenientInformation::where('card_id',\request('card_id'))->paginate();
+        $res = ConvenientInformation::where('card_id',\request('card_id')?:1)->paginate();
         return $this->responseStyle('ok',200,$res);
         return $this->response->paginator($res,new ConvenientInformationTransformer());
     }
@@ -155,12 +155,7 @@ class ConvenientInformationController extends Controller
         $query = ConvenientInformation::where('id',$id);
         $query->increment('view');
 
-        $user = auth('api')->user();
-        if ($user->browseCards()->find($id)) {
-            ConvenientInformation::where('id',$id)->update(['created_at'=>date('Y:m:d H:i:s')]);
-        }else {
-            $user->browseCards()->attach(ConvenientInformation::find($id));
-        }
+
 
         $convenientInformation = $query->firstOrFail();
         return $this->responseStyle('ok',200,$convenientInformation);
