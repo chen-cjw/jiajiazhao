@@ -98,7 +98,6 @@ class LocalCarpoolingController extends Controller
     public function wechatNotify()
     {
         Log::info('进入发送通知');
-        dd(123);
         $response = $this->app->handlePaidNotify(function($message, $fail){
             Log::info('微信支付订单号');
             // 使用通知里的 "微信支付订单号" 或者 "商户订单号" 去自己的数据库找到订单
