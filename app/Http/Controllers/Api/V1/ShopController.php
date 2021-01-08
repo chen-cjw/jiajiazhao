@@ -101,6 +101,8 @@ class ShopController extends Controller
             * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
             * 6370.996) <= 5"
         );
-        return $res;
+        return $this->responseStyle('ok',200,$res);
+
+        // return $res;
     }
 }
