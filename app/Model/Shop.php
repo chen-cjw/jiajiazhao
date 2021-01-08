@@ -2,6 +2,8 @@
 
 namespace App\Model;
 
+use Illuminate\Support\Str;
+
 class Shop extends Model
 {
     // 商户
@@ -10,4 +12,19 @@ class Shop extends Model
         'logo','service_price','merchant_introduction','platform_licensing','is_top','view',
         'no','amount','lng','lat','user_id'
     ];
+    //             'logo' => json_decode($shop->logo),
+    public function getLogoAttribute()
+    {
+        return json_decode($this->attributes['logo']);
+    }
+
+    public function getServicePriceAttribute($image)
+    {
+        // 如果 image 字段本身就已经是完整的 url 就直接返回
+        if (Str::startsWith($image, ['http://', 'https://'])) {
+            return $image;
+        }
+        return \Storage::disk('public')->url($image);
+    }
+
 }

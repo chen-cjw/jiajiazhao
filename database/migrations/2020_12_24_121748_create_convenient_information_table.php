@@ -34,6 +34,8 @@ class CreateConvenientInformationTable extends Migration
             $table->dateTime('paid_at')->nullable()->comment('支付时间');
             $table->string('payment_method')->default('wechat')->nullable()->comment('支付方式');
             $table->string('payment_no')->nullable()->comment('支付平台订单号');
+            $table->unsignedInteger('sort')->default(0)->comment('排序');
+            $table->boolean('is_display')->default(1)->comment('是否显示');
 
             $table->timestamps();
         });

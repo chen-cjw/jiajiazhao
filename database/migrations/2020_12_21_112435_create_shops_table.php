@@ -24,17 +24,19 @@ class CreateShopsTable extends Migration
             $table->string('name')->comment('店铺名');
             $table->decimal('lng',20,10)->comment('当前纬度');
             $table->decimal('lat',20,10)->comment('当前经度');
-            $table->string('area')->comment('自动获取所在地区');// 这里等下会也会存坐标
-            $table->string('detailed_address')->comment('详细地址');// 这里等下会也会存坐标
+            $table->string('area')->nullable()->comment('自动获取所在地区');// todo 这里是必须有值的
+            $table->string('detailed_address')->nullable()->comment('详细地址');// 这里等下会也会存坐标
             $table->string('contact_phone')->comment('联系方式');// 验证手机号码
-            $table->string('wechat')->comment('个人微信');// 验证手机号码
+            $table->string('wechat')->nullable()->comment('个人微信');// 验证手机号码
             $table->text('logo')->comment('商户认证');// 图片上传
             $table->string('service_price')->comment('服务价格表是一张图片');
             $table->string('merchant_introduction')->comment('商户介绍');
             $table->bigInteger('platform_licensing')->default(0)->comment('平台使用费');
+            $table->bigInteger('sort')->default(0)->comment('排序');
             $table->bigInteger('view')->default(0)->comment('浏览量==人气');
             $table->boolean('is_top')->default(0)->comment('是否置顶');
             $table->boolean('is_accept')->default(0)->comment('是否通过');
+            $table->enum('type',['one','two'])->comment('one(第一部分九宫格)|two(第二部分九宫格)');
 
             // 申请人
             $table->unsignedBigInteger('user_id')->comment('申请人');

@@ -37,6 +37,8 @@ class ShopRequest extends FormRequest
             'logo' =>'required',
             'service_price' =>'required',
             'merchant_introduction' =>'required',
+            'lng' =>'required',
+            'lat' =>'required',
         ];
     }
 }

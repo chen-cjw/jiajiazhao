@@ -39,6 +39,8 @@ $factory->define(Shop::class, function (Faker $faker) {
         'lng'=>$faker->randomFloat(),
         'lat'=>$faker->randomFloat(),
         'user_id'=>1,
-//        'no'=>\App\Model\LocalCarpooling::findAvailableNo()
+        'no'=>Shop::findAvailableNo(),
+        'amount' => 0.01,
+        'is_accept'=>1
     ];
 });

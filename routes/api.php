@@ -55,6 +55,8 @@ $api->version('v1', [
 
     // 必须登陆以后才有的操作
     $api->group(['middleware' => ['auth:api']], function ($api) {
+        // 首页
+        $api->get('/index', 'IndexController@index')->name('api.index.index'); // 发起支付
 
         $api->post('/local_carpooling', 'LocalCarpoolingController@store')->name('api.local_carpooling.store'); // 发布
         $api->put('/local_carpooling/{id}', 'LocalCarpoolingController@update')->name('api.local_carpooling.update'); // 确认发车
@@ -70,12 +72,14 @@ $api->version('v1', [
         $api->post('/convenient_information', 'ConvenientInformationController@store')->name('api.convenient_information.index'); // 认证
         $api->get('/convenient_information/{id}', 'ConvenientInformationController@show')->name('api.convenient_information.index'); // 认证
         // 发布信息唤起支付页面
-        $api->get('/convenient_information/pay_by_wechat/{id}', 'ConvenientInformationController@payByWechat')->name('api.local_carpooling.payByWechat'); // 发布
+        $api->get('/convenient_information/pay_by_wechat/{id}', 'ConvenientInformationController@payByWechat')->name('api.convenient_information.payByWechat'); // 发布
 
 
         // 入住
         $api->post('/shop', 'ShopController@store')->name('api.shop.store'); // 认证
         $api->post('/shop_upload_img', 'ShopController@uploadImg')->name('api.shop.uploadImg'); // 单图片上传
+        $api->get('/shop/pay_by_wechat/{id}', 'ShopController@payByWechat')->name('api.shop.payByWechat'); // 发布
+
         // 分类
         $api->get('/abbr_category', 'AbbrCategoryController@index')->name('api.abbr_category.index');
 
