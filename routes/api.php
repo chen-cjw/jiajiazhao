@@ -74,6 +74,8 @@ $api->version('v1', [
         // 发布信息唤起支付页面
         $api->get('/convenient_information/pay_by_wechat/{id}', 'ConvenientInformationController@payByWechat')->name('api.convenient_information.payByWechat'); // 发布
 
+        // 评论 CommentController
+        $api->post('/comment', 'CommentController@store')->name('api.comment.store'); // 认证
 
         // 入住
         $api->post('/shop', 'ShopController@store')->name('api.shop.store'); // 认证

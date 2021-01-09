@@ -6,6 +6,7 @@ use App\Http\Requests\ConvenientInformationRequest;
 use App\Model\AdvertisingSpace;
 use App\Model\Banner;
 use App\Model\CardCategory;
+use App\Model\Comment;
 use App\Model\ConvenientInformation;
 use App\Model\PostDescription;
 use App\Model\Setting;
@@ -184,10 +185,12 @@ class ConvenientInformationController extends Controller
         $query = ConvenientInformation::where('id',$id);
         $query->increment('view');
 
-
-
         $convenientInformation = $query->firstOrFail();
-        return $this->responseStyle('ok',200,$convenientInformation);
+        $comment = Comment::where('information_id',$convenientInformation->id)->orderBy('created_at','desc')->paginate();
+        return $this->responseStyle('ok',200,[
+            'convenientInformation'=>$convenientInformation,
+            'comment'=>$comment
+        ]);
 
         return $this->response->item($convenientInformation,new ConvenientInformationTransformer());
     }

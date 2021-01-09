@@ -20,7 +20,7 @@ use Illuminate\Support\Str;
 $factory->define(User::class, function (Faker $faker) {
     $user = new User();
     return [
-        'phone' => 18361771542,
+        'phone' => '1836177154'.rand(4,9),
         'ml_openid' => $faker->name,
         'nickname' => $faker->name,
         'avatar' => 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1654242150,297019303&fm=26&gp=0.jpg',

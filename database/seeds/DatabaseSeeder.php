@@ -20,8 +20,9 @@ class DatabaseSeeder extends Seeder
 //         $this->call(ConvenientInformationSeeder::class);
 //         $this->call(ShopSeeder::class);
 //         $this->call(SettingSeeder::class);
-         $this->call(BannerSeeder::class);
-         $this->call(AdvertisingSpaceSeeder::class);
-         $this->call(PostDescriptionSeeder::class);
+//         $this->call(BannerSeeder::class);
+//         $this->call(AdvertisingSpaceSeeder::class);
+//         $this->call(PostDescriptionSeeder::class);
+         $this->call(CommentSeed::class);
     }
 }
