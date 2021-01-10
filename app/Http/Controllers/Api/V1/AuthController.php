@@ -143,6 +143,7 @@ class AuthController extends Controller
                 'ml_openid' => $mlOpenid,
                 'access_token' => $token,
                 'token_type' => 'Bearer',
+                'phone'=>$user->phone,
                 'expires_in' => Auth::guard('api')->factory()->getTTL() * 1
             ]
         ]);
