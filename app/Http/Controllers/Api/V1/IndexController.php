@@ -28,9 +28,9 @@ class IndexController extends Controller
         // 帖子分类
         $cardCategory = CardCategory::orderBy('sort','desc')->get();
 
-        $cardIdDefault = \request('card_id')?:1;
-
-        $convenientInformation = ConvenientInformation::where('card_id',$cardIdDefault)->paginate();
+//        $cardIdDefault = \request('card_id')?:1;
+        $cardIdDefault = CardCategory::orderBy('sort','desc')->first();
+        $convenientInformation = ConvenientInformation::where('card_id',$cardIdDefault->id)->paginate();
         return [
             'code'=>200,
             'msg'=>'ok',

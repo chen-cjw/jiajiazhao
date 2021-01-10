@@ -2,10 +2,317 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Admin/Controllers/AuthController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Admin/Controllers/ExampleController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Admin/Controllers/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Admin/bootstrap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2016_01_04_173148_create_admin_tables.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/css/AdminLTE.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/css/skins/_all-skins.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/css/skins/skin-black-light.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/css/skins/skin-black.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/css/skins/skin-blue-light.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/css/skins/skin-blue.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/css/skins/skin-green-light.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/css/skins/skin-green.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/css/skins/skin-purple-light.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/css/skins/skin-purple.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/css/skins/skin-red-light.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/css/skins/skin-red.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/css/skins/skin-yellow-light.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/css/skins/skin-yellow.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/img/boxed-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/img/boxed-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/img/default-50x50.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/img/icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/img/user2-160x160.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/dist/js/app.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/bootstrap-slider/bootstrap-slider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/bootstrap-slider/slider.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/colorpicker/bootstrap-colorpicker.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/colorpicker/bootstrap-colorpicker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/colorpicker/img/alpha-horizontal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/colorpicker/img/alpha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/colorpicker/img/hue-horizontal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/colorpicker/img/hue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/colorpicker/img/saturation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/_all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/aero.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/aero.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/aero@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/blue.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/blue@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/flat.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/flat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/flat@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/green.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/green@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/grey.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/grey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/grey@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/orange.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/orange.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/orange@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/pink.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/pink.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/pink@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/purple.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/purple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/purple@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/red.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/red@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/yellow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/flat/yellow@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/futurico/futurico.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/futurico/futurico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/futurico/futurico@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/icheck.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/line/_all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/line/aero.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/line/blue.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/line/green.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/line/grey.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/line/line.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/line/line.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/line/line@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/line/orange.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/line/pink.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/line/purple.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/line/red.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/line/yellow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/_all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/aero.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/aero.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/aero@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/blue.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/blue@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/green.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/green@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/grey.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/grey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/grey@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/minimal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/minimal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/minimal@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/orange.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/orange.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/orange@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/pink.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/pink.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/pink@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/purple.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/purple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/purple@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/red.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/red@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/yellow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/minimal/yellow@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/polaris/polaris.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/polaris/polaris.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/polaris/polaris@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/_all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/aero.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/aero.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/aero@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/blue.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/blue@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/green.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/green@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/grey.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/grey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/grey@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/orange.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/orange.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/orange@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/pink.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/pink.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/pink@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/purple.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/purple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/purple@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/red.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/red@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/square.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/square.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/square@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/yellow.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/iCheck/square/yellow@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/input-mask/jquery.inputmask.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/input-mask/phone-codes/phone-be.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/input-mask/phone-codes/phone-codes.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/input-mask/phone-codes/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/ionslider/img/sprite-skin-flat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/ionslider/img/sprite-skin-nice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/ionslider/ion.rangeSlider.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/ionslider/ion.rangeSlider.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/ionslider/ion.rangeSlider.skinFlat.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/ionslider/ion.rangeSlider.skinNice.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/az.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/he.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/hi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/is.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/km.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/lt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/lv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/mk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/ms.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/pt-BR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/sr-Cyrl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/sr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/th.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/zh-CN.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/i18n/zh-TW.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/select2.full.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/select2/select2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-duallistbox/dist/bootstrap-duallistbox.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-fileinput/css/fileinput.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-fileinput/img/loading-sm.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-fileinput/img/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-fileinput/js/fileinput.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-fileinput/js/plugins/canvas-to-blob.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-fileinput/js/plugins/piexif.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-fileinput/js/plugins/piexif.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-fileinput/js/plugins/purify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-fileinput/js/plugins/purify.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-fileinput/js/plugins/sortable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-fileinput/js/plugins/sortable.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap-switch/dist/js/bootstrap-switch.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap3-editable/css/bootstrap-editable.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap3-editable/img/clear.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap3-editable/img/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/bootstrap3-editable/js/bootstrap-editable.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/font-awesome/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/font-awesome/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/fontawesome-iconpicker/dist/css/fontawesome-iconpicker.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/fontawesome-iconpicker/dist/js/fontawesome-iconpicker.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Bold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Bold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Italic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Light-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Light-Italic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Light-Italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Light.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Light.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Semibold-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Semibold-Italic.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Semibold-Italic.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Semibold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Semibold.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro-Semibold.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/google-fonts/fonts/Source-Sans-Pro.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/jquery-pjax/jquery.pjax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/laravel-admin/laravel-admin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/laravel-admin/laravel-admin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/moment/min/moment-with-locales.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/nestable/jquery.nestable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/nestable/nestable.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/nprogress/nprogress.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/nprogress/nprogress.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/number-input/bootstrap-number-input.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/sweetalert2/dist/sweetalert2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/sweetalert2/dist/sweetalert2.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/toastr/build/toastr.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/laravel-admin/toastr/build/toastr.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ar/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/az/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/en/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/es/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/fa/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/fr/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/he/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/id/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ja/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ko/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ms/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/nl/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/pl/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/pt-BR/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/pt/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/tr/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/uk/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ur/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/zh-CN/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/zh-TW/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,83 +327,90 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PostDescriptionFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/factories/PostDescriptionFactory.php">
+      <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="7" column="32" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NoticeFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/factories/NoticeFactory.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="LocalCarpoolingFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/factories/LocalCarpoolingFactory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="15" selection-start-line="15" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/factories/CommentFactory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="11" column="28" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="11" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentSeed.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/seeds/CommentSeed.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Comment.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Model/Comment.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="9" column="53" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="53" />
+            <state relative-caret-position="285">
+              <caret line="19" column="37" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="37" />
               <folding>
-                <element signature="e#29#42#0#PHP" expanded="true" />
+                <element signature="e#47#98#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseSeeder.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <file leaf-file-name="admin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+            <state relative-caret-position="195">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SettlementAgreementFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/factories/SettlementAgreementFactory.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="SettingFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/factories/SettingFactory.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="ShopFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/factories/ShopFactory.php">
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+            <state relative-caret-position="141">
+              <caret line="51" column="41" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VerifyCsrfToken.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="71" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/IndexController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="31" column="55" lean-forward="true" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="409">
+              <caret line="108" column="24" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbbrCategory.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Model/AbbrCategory.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="CardCategoryController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="163" column="32" selection-start-line="163" selection-start-column="20" selection-end-line="163" selection-end-column="32" />
+              <folding>
+                <element signature="e#47#81#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,7 +419,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ref_code</find>
       <find>amount</find>
       <find>out_trade_no</find>
       <find>handle_paid_notifies</find>
@@ -117,8 +430,6 @@
       <find>图说密码</find>
       <find>local_carpooling</find>
       <find>is_display</find>
-      <find>wechatNotify</find>
-      <find>wechat_notify</find>
       <find>other_need</find>
       <find>platform_licensing</find>
       <find>payment</find>
@@ -135,6 +446,9 @@
       <find>browseCards</find>
       <find>ShopController</find>
       <find>information_id</find>
+      <find>wechat_notify</find>
+      <find>shop_wechat_notify</find>
+      <find>wechatNotify</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -146,8 +460,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Requests/LocalCarpoolingRequest.php" />
-        <option value="$PROJECT_DIR$/config/wechat.php" />
         <option value="$PROJECT_DIR$/database/seeds/NoticeSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/LocalCarpoolingSeeder.php" />
         <option value="$PROJECT_DIR$/database/factories/NoticeFactory.php" />
@@ -161,7 +473,6 @@
         <option value="$PROJECT_DIR$/database/seeds/ShopSeeder.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/RefreshToken.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" />
         <option value="$PROJECT_DIR$/app/Model/LocalCarpooling.php" />
         <option value="$PROJECT_DIR$/database/seeds/SettingSeeder.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
@@ -171,7 +482,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php" />
         <option value="$PROJECT_DIR$/app/Model/ConvenientInformation.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_12_24_121748_create_convenient_information_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/IndexController.php" />
         <option value="$PROJECT_DIR$/database/factories/ShopFactory.php" />
         <option value="$PROJECT_DIR$/app/Model/DriverCertification.php" />
         <option value="$PROJECT_DIR$/app/Model/Model.php" />
@@ -189,7 +499,6 @@
         <option value="$PROJECT_DIR$/database/seeds/PostDescriptionSeeder.php" />
         <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CommentController.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/CommentRequest.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_01_09_113911_create_comments_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" />
@@ -197,6 +506,11 @@
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/factories/CommentFactory.php" />
         <option value="$PROJECT_DIR$/database/seeds/CommentSeed.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/IndexController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -412,53 +726,17 @@
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="factories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="seeds" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -507,12 +785,12 @@
       <workItem from="1608545980625" duration="16952000" />
       <workItem from="1609067027348" duration="69522000" />
       <workItem from="1609679025110" duration="62612000" />
-      <workItem from="1610168842854" duration="2184000" />
+      <workItem from="1610168842854" duration="5939000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151270000" />
+    <option name="totallyTimeSpent" value="155025000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -524,9 +802,9 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49928468" visible="true" weight="0.45333335" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49928468" visible="true" weight="0.36363637" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29828325" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29828325" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -576,62 +854,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="37" column="38" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Transformers/ShopTransformer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="19" selection-start-line="19" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/LocalCarpooling.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/DriverCertification.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="33" column="3" selection-start-line="33" selection-start-column="3" selection-end-line="40" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/LocalCarpoolingSeeder.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="94" column="33" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AbbrCategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -660,13 +886,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/IndexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="17" selection-start-line="17" selection-end-line="18" />
         </state>
       </provider>
     </entry>
@@ -733,16 +952,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="312">
-            <caret line="51" column="2" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="24" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2021_01_08_205919_create_advertising_spaces_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -771,13 +980,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="77" column="82" selection-start-line="77" selection-start-column="82" selection-end-line="77" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/CommentRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -791,16 +993,6 @@
           <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
           <folding>
             <element signature="e#47#84#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="188" column="23" selection-start-line="188" selection-start-column="23" selection-end-line="188" selection-end-column="23" />
-          <folding>
-            <element signature="e#47#98#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -898,7 +1090,7 @@
     <entry file="file://$PROJECT_DIR$/database/factories/CommentFactory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="11" column="28" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="11" selection-end-column="28" />
+          <caret line="11" column="28" selection-start-line="9" selection-start-column="6" selection-end-line="11" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -906,6 +1098,87 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
           <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="127">
+            <caret line="24" column="39" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="39" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="163" column="32" selection-start-line="163" selection-start-column="20" selection-end-line="163" selection-end-column="32" />
+          <folding>
+            <element signature="e#47#81#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="37" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="37" />
+          <folding>
+            <element signature="e#47#98#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="51" column="41" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="71" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/AbbrCategory.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="31" column="55" lean-forward="true" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="108" column="24" selection-start-line="108" selection-start-column="24" selection-end-line="108" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
         </state>
       </provider>
     </entry>

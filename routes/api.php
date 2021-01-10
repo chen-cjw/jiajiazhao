@@ -46,7 +46,11 @@ $api->version('v1', [
 
     // 本地拼车
     $api->get('/local_carpooling','LocalCarpoolingController@index')->name('api.local_carpooling.index');
+    // 回调通知
     $api->any('/wechat_notify', 'LocalCarpoolingController@wechatNotify')->name('api.local_carpooling.wechatNotify'); // 发布
+    $api->any('/shop_wechat_notify', 'ShopController@wechatNotify')->name('api.shop_wechat_notify.wechatNotify'); // 发布
+    $api->any('/information_wechat_notify', 'ConvenientInformationController@wechatNotify')->name('api.information_wechat_notify.wechatNotify'); // 发布
+
     $api->group(['middleware' => ['refreshtoken']], function ($api) {
         // refresh
         $api->post('/auth/refresh','AuthController@refresh')->name('api.auth.refresh');
