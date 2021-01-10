@@ -42,12 +42,12 @@ class ShopController extends Controller
     {
         $data = $request->only([
             'one_abbr' ,'two_abbr0','two_abbr1','two_abbr2','name','area','detailed_address','contact_phone','wechat',
-            'logo','service_price','merchant_introduction','platform_licensing','is_top','lng','lat'
+            'logo','service_price','merchant_introduction','is_top','lng','lat'
         ]);
         for ($i=0;$i<count($request->two_abbr);$i++) {
             $data['two_abbr'.$i] = $request->two_abbr[$i];
         }
-
+        $data['platform_licensing'] = 0.01;
         $data['logo'] = json_encode($request->logo);
         $data['user_id'] = auth('api')->id();
         $res = Shop::create($data);

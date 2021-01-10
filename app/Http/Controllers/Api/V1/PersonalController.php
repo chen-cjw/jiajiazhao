@@ -80,8 +80,20 @@ class PersonalController extends Controller
         $user->favoriteShops()->detach($request->ids);
         return $this->responseStyle('ok',200,'');
     }
-    //
-
+    // 我发布的帖子
+    public function userCard()
+    {
+        $convenientInformation = auth('api')->user()->convenientInformation()->where('paid_at','!=',null)->orderBy('created_at','desc')->paginate();
+        return $this->responseStyle('ok',200,$convenientInformation);
+    }
+    // 我发布帖子-管理
+    public function userCardDel(Request $request)
+    {
+        foreach($request->ids as $v){
+            auth('api')->user()->convenientInformation()->where('id',$v)->delete();
+        }
+        return $this->responseStyle('ok',200,[]);
+    }
 
     // 我的收藏(商品) todo 暂未开放
     public function favorite($id)

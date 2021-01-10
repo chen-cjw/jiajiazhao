@@ -106,6 +106,10 @@ $api->version('v1', [
         $api->get('/user_favorite_card_index', 'PersonalController@userFavoriteCardIndex')->name('api.personal.userFavoriteCardIndex');
         // 我收藏商户列表
         $api->get('/user_favorite_shop_index', 'PersonalController@userFavoriteShopIndex')->name('api.personal.userFavoriteShopIndex');
+        // 我发布帖子
+        $api->post('/user_card_del', 'PersonalController@userCardDel')->name('api.personal.userCardDel');
+
+        $api->get('/user_card', 'PersonalController@userCard')->name('api.personal.userCard');
 
     });
     $api->get('/shop', 'ShopController@index')->name('api.shop.index'); // 商户

@@ -37,10 +37,11 @@ class AuthController extends Controller
     {
 
         $app = app('wechat.mini_program');
+
         $code = $request->code;
         Log::info($code);
         $sessionUser = $app->auth->session($code);
-
+        Log::info($sessionUser);
         if (!empty($sessionUser['errcode'])) {
             throw new \Exception('获取用户的openid操作失败!');
         }
