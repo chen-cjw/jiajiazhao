@@ -17,12 +17,13 @@ class DatabaseSeeder extends Seeder
 //         $this->call(LocalCarpoolingSeeder::class);
 //         $this->call(NoticeSeeder::class);
 //         $this->call(BannerSeeder::class);
-         $this->call(ConvenientInformationSeeder::class);
+//         $this->call(ConvenientInformationSeeder::class);
 //         $this->call(ShopSeeder::class);
 //         $this->call(SettingSeeder::class);
 //         $this->call(BannerSeeder::class);
 //         $this->call(AdvertisingSpaceSeeder::class);
 //         $this->call(PostDescriptionSeeder::class);
 //         $this->call(CommentSeed::class);
+        $this->call(CarpoolingSeed::class);
     }
 }

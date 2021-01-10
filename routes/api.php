@@ -114,6 +114,7 @@ $api->version('v1', [
 
     });
     $api->get('/shop', 'ShopController@index')->name('api.shop.index'); // 商户
+    $api->get('/carpooling', 'CarpoolingController@index')->name('api.carpooling.index'); // 拼车协议
 
     $api->get('/card_category', 'CardCategoryController@index')->name('api.card_category.index'); // 帖子分类
     $api->get('/card_category/{id}/convenient_information', 'CardCategoryController@cardInformation')->name('api.card_category.cardInformation'); // 帖子分类
