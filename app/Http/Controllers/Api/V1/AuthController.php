@@ -38,6 +38,7 @@ class AuthController extends Controller
 
         $app = app('wechat.mini_program');
         $code = $request->code;
+        Log::info($code);
         $sessionUser = $app->auth->session($code);
 
         if (!empty($sessionUser['errcode'])) {
@@ -46,17 +47,25 @@ class AuthController extends Controller
         DB::beginTransaction();
         try {
             $openid = $sessionUser['openid'];
+            Log::info($openid);
+
             $session_key = $sessionUser['session_key'];
             $user = User::where('ml_openid', $openid)->first();
+            Log::info($user);
+
             Cache::put($code, ['session_key' => $session_key, 'ml_openid' => $openid], 3000);
             if ($user) { // 手机好存在直接登陆
+                Log::info(1);
                 if($user->phone) {
+                    Log::info(2);
+
                     $token = \Auth::guard('api')->fromUser($user);
                     return $this->respondWithToken($token, $openid, $user);
                 }
+                Log::info(3);
+
                 return $this->oauthNo();
             }
-
             Log::info('创建用户', $this->createUser($sessionUser, $request));
 
             User::create($this->createUser($sessionUser, $request));
