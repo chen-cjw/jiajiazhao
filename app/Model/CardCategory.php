@@ -8,4 +8,6 @@ class CardCategory extends Model
     protected $fillable = [
         'name','sort'
     ];
+
+
 }

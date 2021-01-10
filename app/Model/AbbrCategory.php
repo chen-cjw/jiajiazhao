@@ -11,4 +11,10 @@ class AbbrCategory extends Model
     {
         return $this->hasMany(AbbrCategory::class,'parent_id','id');
     }
+    public function getSubCollectionAttribute()
+    {
+        $cardCategory = AbbrCategory::where('parent_id',$this->attributes['id'])->get();
+        return $cardCategory;
+    }
+    protected $appends = ['sub_collection'];
 }
