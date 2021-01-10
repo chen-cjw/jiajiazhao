@@ -41,6 +41,8 @@ $factory->define(Shop::class, function (Faker $faker) {
         'user_id'=>1,
         'no'=>Shop::findAvailableNo(),
         'amount' => 0.01,
-        'is_accept'=>1
+        'is_accept'=>1,
+        'type'=>array_rand(["one"=>1, "two"=>1], 1),
+
     ];
 });
