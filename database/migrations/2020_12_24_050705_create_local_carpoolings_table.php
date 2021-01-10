@@ -28,7 +28,7 @@ class CreateLocalCarpoolingsTable extends Migration
 
             $table->decimal('lng',20,10)->comment('当前纬度');
             $table->decimal('lat',20,10)->comment('当前经度');
-            $table->string('area')->comment('自动获取所在地区');
+            $table->string('area')->nullable()->comment('自动获取所在地区');
             // 支付
             $table->string('no')->unique()->comment('订单流水号');
             $table->decimal('amount', 10, 2)->comment('服务金额');

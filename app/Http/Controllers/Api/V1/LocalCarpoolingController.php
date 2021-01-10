@@ -42,7 +42,7 @@ class LocalCarpoolingController extends Controller
 //            }else {
 //            }
             $requestData['amount'] = 0.01;//Setting::where('key','localCarpoolingAmount')->value('value');
-
+            return $requestData;
             $res = LocalCarpooling::create($requestData);
             return $this->responseStyle('ok',200,$res);
         }
