@@ -90,11 +90,8 @@ $api->version('v1', [
         // 分类
         $api->get('/abbr_category', 'AbbrCategoryController@index')->name('api.abbr_category.index');
 
-
-
         $api->post('/user_favorite_shop/{id}', 'PersonalController@userFavoriteShop')->name('api.personal.userFavoriteShop'); // 收藏店铺
         $api->post('/shop_del', 'PersonalController@shopDel')->name('api.personal.shop_del'); // 删除收藏
-
 
         $api->post('/user_favorite_card/{id}', 'PersonalController@userFavoriteCard')->name('api.personal.userFavoriteCard'); // 收藏帖子
         $api->post('/card_del', 'PersonalController@cardDel')->name('api.personal.cardDel'); // 删除收藏帖子
@@ -114,7 +111,6 @@ $api->version('v1', [
     $api->get('/shop', 'ShopController@index')->name('api.shop.index'); // 商户
 
     $api->get('/card_category', 'CardCategoryController@index')->name('api.card_category.index'); // 帖子分类
-
-
+    $api->get('/card_category/{id}/convenient_information', 'CardCategoryController@cardInformation')->name('api.card_category.cardInformation'); // 帖子分类
 
 });

@@ -17,7 +17,7 @@ class CreateAbbrCategoriesTable extends Migration
             $table->id();
             $table->string('abbr')->nullable()->comment('分类');
             $table->bigInteger('sort')->default(0)->comment('排序大的在上');
-            $table->string('logo')->default(0)->comment('首页分类logo');
+            $table->text('logo')->default(0)->comment('首页分类logo');
             $table->bigInteger('parent_id')->nullable()->comment('父级');
             $table->timestamps();
         });

@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // 轮播图
         $bannerOne = Banner::where('type','index_one')->where('is_display',1)->orderBy('sort','desc')->get();
@@ -29,8 +29,9 @@ class IndexController extends Controller
         $cardCategory = CardCategory::orderBy('sort','desc')->get();
 
 //        $cardIdDefault = \request('card_id')?:1;
-        $cardIdDefault = CardCategory::orderBy('sort','desc')->first();
-        $convenientInformation = ConvenientInformation::where('card_id',$cardIdDefault->id)->paginate();
+//        $cardIdDefault = CardCategory::orderBy('sort','desc')->first();
+//        $cardId = $request->card_id ?: $cardIdDefault->id;
+//        $convenientInformation = ConvenientInformation::where('card_id',$cardId)->paginate();
         return [
             'code'=>200,
             'msg'=>'ok',
@@ -41,7 +42,7 @@ class IndexController extends Controller
                 'shopOne'=>$shopOne,
                 'shopTwo'=>$shopTwo,
                 'cardCategory'=>$cardCategory,
-                'convenientInformation'=>$convenientInformation,
+//                'convenientInformation'=>$convenientInformation,
             ]
         ];
     }
