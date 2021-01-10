@@ -40,9 +40,9 @@ class ConvenientInformationController extends Controller
 
         // 帖子分类
         $cardCategory = CardCategory::orderBy('sort','desc')->get();
-        $cardIdDefault = \request('card_id')?:1;
-
-        $convenientInformation = ConvenientInformation::where('card_id',$cardIdDefault)->paginate();
+//        $cardIdDefault = \request('card_id')?:1;
+//
+//        $convenientInformation = ConvenientInformation::where('card_id',$cardIdDefault)->paginate();
 
         return $this->responseStyle('ok',200,[
             'bannerOne'=>$bannerOne,
@@ -50,7 +50,7 @@ class ConvenientInformationController extends Controller
             'shopOne'=>$shopOne,
             'advertisingSpace'=>$advertisingSpace,
             'cardCategory'=>$cardCategory,
-            'convenientInformation'=>$convenientInformation,
+//            'convenientInformation'=>$convenientInformation,
         ]);
     }
 
