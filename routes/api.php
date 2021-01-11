@@ -74,8 +74,8 @@ $api->version('v1', [
 
 
         $api->get('/convenient_information', 'ConvenientInformationController@index')->name('api.convenient_information.index'); // 认证
-        $api->post('/convenient_information', 'ConvenientInformationController@store')->name('api.convenient_information.index'); // 认证
-        $api->get('/convenient_information/{id}', 'ConvenientInformationController@show')->name('api.convenient_information.index'); // 认证
+        $api->post('/convenient_information', 'ConvenientInformationController@store')->name('api.convenient_information.store'); // 认证
+        $api->get('/convenient_information/{id}', 'ConvenientInformationController@show')->name('api.convenient_information.show'); // 认证
         // 发布信息唤起支付页面
         $api->get('/convenient_information/pay_by_wechat/{id}', 'ConvenientInformationController@payByWechat')->name('api.convenient_information.payByWechat'); // 发布
 

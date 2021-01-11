@@ -20,5 +20,16 @@ class Comment extends Model
 
         return $this->attributes['comment_user_id'] ? $userReply .'回复'.$userComment : $userReply;
     }
+
+    public function getCommentUserIdAttribute()
+    {
+        return User::find($this->attributes['comment_user_id']);
+    }
+
+    public function getReplyUserIdAttribute()
+    {
+        return User::find($this->attributes['reply_user_id']);
+
+    }
     protected $appends = ['comment_reply'];
 }

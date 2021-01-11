@@ -36,7 +36,7 @@ class CreateConvenientInformationTable extends Migration
             $table->string('payment_no')->nullable()->comment('支付平台订单号');
             $table->unsignedInteger('sort')->default(0)->comment('排序');
             $table->boolean('is_display')->default(1)->comment('是否显示');
-
+            $table->string('comment_count')->default(0)->comment('评论数量');
             $table->timestamps();
         });
     }
