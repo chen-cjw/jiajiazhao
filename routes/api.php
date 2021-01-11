@@ -34,6 +34,9 @@ $api->version('v1', [
     // 获取手机号
     $api->post('/auth/phone_store','AuthController@phoneStore')->name('api.auth.phone_store');
 
+    // 获取用户信息
+    $api->post('/auth/user_info', 'AuthController@userInfo')->name('api.auth.userInfo');
+
     // 个人信息
     $api->get('/meShow','AuthController@meShow')->name('api.auth.meShow');
 

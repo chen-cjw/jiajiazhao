@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\AuthMlOpenidStoreRequest;
 use App\Http\Requests\AuthPhoneStoreRequest;
+use App\Http\Requests\AuthUserInfoRequest;
 use App\Transformers\UserTransformer;
 use App\User;
 use Illuminate\Support\Facades\Cache;
@@ -101,6 +102,24 @@ class AuthController extends Controller
         return $this->respondWithToken($token,$phoneNumber,$user)->setStatusCode(201);
     }
 
+    // 获取用户信息
+    public function userInfo(AuthUserInfoRequest $request)
+    {
+        $session = Cache::get($request->code);// 解析的问题
+        if(!$session) {
+            Log::error('用户code：'.$request->code);
+            throw new \Exception('code 和第一次的不一致'.$request->code);
+        }
+        $user = User::where('ml_openid',$session['ml_openid'])->firstOrFail();
+        $user->update([
+            'avatar'=>$request->avatar,
+            'nickname'=>$request->nickname,
+            'city'=>$request->city,
+            'sex'=>$request->sex,
+        ]);
+        $token = \Auth::guard('api')->fromUser($user);
+        return $this->respondWithToken($token,$user->phone,$user)->setStatusCode(201);
+    }
     public function refresh()
     {
         $token = auth('api')->refresh();
@@ -145,7 +164,7 @@ class AuthController extends Controller
                 'access_token' => $token,
                 'token_type' => 'Bearer',
                 'phone'=>$user->phone,
-                'expires_in' => Auth::guard('api')->factory()->getTTL() * 1
+                'expires_in' => Auth::guard('api')->factory()->getTTL() * 1200
             ]
         ]);
     }
