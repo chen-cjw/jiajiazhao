@@ -116,6 +116,7 @@ $api->version('v1', [
         $api->get('/user_card', 'PersonalController@userCard')->name('api.personal.userCard');
 
     });
+    $api->get('/setting', 'SettingController@index')->name('api.setting.index'); // 默认配置
     $api->get('/shop', 'ShopController@index')->name('api.shop.index'); // 商户
     $api->get('/carpooling', 'CarpoolingController@index')->name('api.carpooling.index'); // 拼车协议
 

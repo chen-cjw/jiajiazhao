@@ -37,6 +37,7 @@ class CreateConvenientInformationTable extends Migration
             $table->unsignedInteger('sort')->default(0)->comment('排序');
             $table->boolean('is_display')->default(1)->comment('是否显示');
             $table->string('comment_count')->default(0)->comment('评论数量');
+            $table->boolean('is_top')->default(0)->comment('是否置顶');
             $table->timestamps();
         });
     }

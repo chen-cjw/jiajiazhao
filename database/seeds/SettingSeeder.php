@@ -23,6 +23,14 @@ class SettingSeeder extends Seeder
             'key'=>'information_top_fee',
             'value'=>0.01,
         ]);
+        \App\Model\Setting::create([
+            'key'=>'shop_fee',
+            'value'=>0.01,
+        ]);
+        \App\Model\Setting::create([
+            'key'=>'shop_top_fee',
+            'value'=>0.01,
+        ]);
 
     }
 }

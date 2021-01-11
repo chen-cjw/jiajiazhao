@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\Controller;
+use App\Model\Setting;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
@@ -11,6 +11,11 @@ class SettingController extends Controller
 
     public function index()
     {
-        
+        $res = Setting::get();
+        $data = [];
+        foreach ($res as $re) {
+            $data[$re->key] = $re->value;
+        }
+        return $this->responseStyle('ok',200,$data);
     }
 }
