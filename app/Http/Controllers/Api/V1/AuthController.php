@@ -41,8 +41,6 @@ class AuthController extends Controller
         $code = $request->code;
         Log::info($code);
         $sessionUser = $app->auth->session($code);
-        $userSession = session('wechat.oauth_user.default');
-        Log::error($userSession);
         Log::info($sessionUser);
         if (!empty($sessionUser['errcode'])) {
             throw new \Exception('获取用户的openid操作失败!');
