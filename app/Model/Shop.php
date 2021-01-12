@@ -27,4 +27,8 @@ class Shop extends Model
         return \Storage::disk('public')->url($image);
     }
 
+    public function getPlatformLicensingAttribute()
+    {
+        return bcadd($this->attributes['amount'],$this->attributes['top_amount'],2);
+    }
 }
