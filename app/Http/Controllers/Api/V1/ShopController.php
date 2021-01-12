@@ -22,8 +22,7 @@ class ShopController extends Controller
     {
         $shopQuery = Shop::query();
 
-        $shopQuery->where('one_abbr', \request()->one_abbr)
-            ->where(function ($query) {
+        $shopQuery->where(function ($query) {
                 $query->orWhere('two_abbr0',\request()->two_abbr)
                     ->orWhere('two_abbr1',\request()->two_abbr)
                     ->orWhere('two_abbr2',\request()->two_abbr);
@@ -41,7 +40,7 @@ class ShopController extends Controller
     public function store(ShopRequest $request)
     {
         $data = $request->only([
-            'one_abbr' ,'two_abbr0','two_abbr1','two_abbr2','name','area','detailed_address','contact_phone','wechat',
+            'two_abbr0','two_abbr1','two_abbr2','name','area','detailed_address','contact_phone','wechat',
             'logo','service_price','merchant_introduction','is_top','lng','lat'
         ]);
         for ($i=0;$i<count($request->two_abbr);$i++) {

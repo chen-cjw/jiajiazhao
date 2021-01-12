@@ -14,7 +14,6 @@ class ShopRequest extends FormRequest
     public function rules()
     {
         return [
-            'one_abbr' =>'required',
             'two_abbr' =>['required',
                 function ($attribute, $value, $fail) {
                     $arrLength = count($value);
