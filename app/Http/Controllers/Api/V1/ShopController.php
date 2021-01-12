@@ -46,6 +46,9 @@ class ShopController extends Controller
         for ($i=0;$i<count($request->two_abbr);$i++) {
             $data['two_abbr'.$i] = $request->two_abbr[$i];
         }
+        $data['no'] = Shop::findAvailableNo();
+        $data['amount'] = 0.01;
+        $data['top_amount'] = 0.01;
         $data['platform_licensing'] = 0.01;
         $data['logo'] = json_encode($request->logo);
         $data['user_id'] = auth('api')->id();
