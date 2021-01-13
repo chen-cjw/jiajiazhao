@@ -48,8 +48,8 @@ class ShopController extends Controller
             $data['two_abbr'.$i] = $request->two_abbr[$i];
         }
         $data['no'] = Shop::findAvailableNo();
-        $data['amount'] = $request->shop_fee == 0 ? Setting::where('key','shop_fee_two')->value('value') : $request->shop_fee;
-        $data['top_amount'] = $request->shop_top_fee == 0 ? $request->shop_top_fee_two : $request->shop_top_fee;
+        $data['amount'] = $request->shop_fee == 0 ? Setting::where('key','shop_fee_two')->value('value') : Setting::where('key','shop_fee')->value('value') ;
+        $data['top_amount'] = $request->shop_top_fee == 0 ? Setting::where('key','shop_top_fee_two')->value('value') : Setting::where('key','shop_top_fee')->value('value');
         $data['platform_licensing'] = 0.01;
         $data['logo'] = json_encode($request->logo);
         $data['user_id'] = auth('api')->id();

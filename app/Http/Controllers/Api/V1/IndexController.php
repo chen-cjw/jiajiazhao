@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Model\AbbrCategory;
+use App\Model\AbbrTwoCategory;
 use App\Model\Banner;
 use App\Model\CardCategory;
 use App\Model\ConvenientInformation;
@@ -23,9 +24,10 @@ class IndexController extends Controller
         $notice = Notice::where('is_display',1)->orderBy('sort','desc')->get();
 
         // 商户
-        $abbrCategory = AbbrCategory::where('parent_id',null)->orderBy('sort','desc')->get();
-        $shopOne = Shop::where('type','one')->where('is_accept',1)->get();
-        $shopTwo = Shop::where('type','two')->where('is_accept',1)->get();
+        $shopOne = AbbrCategory::where('parent_id',null)->take(10)->orderBy('sort','desc')->get();
+        $shopTwo = AbbrTwoCategory::orderBy('sort','desc')->take(7)->get();
+//        $shopOne = Shop::where('type','one')->where('is_accept',1)->get();
+//        $shopTwo = Shop::where('type','two')->where('is_accept',1)->get();
 
         // 帖子分类
         $cardCategory = CardCategory::orderBy('sort','desc')->get();
@@ -37,7 +39,6 @@ class IndexController extends Controller
             'code'=>200,
             'msg'=>'ok',
             'data' => [
-                'abbrCategory'=>$abbrCategory,
                 'bannerOne'=>$bannerOne,
                 'bannerTwo'=>$bannerTwo,
                 'notice'=>$notice,

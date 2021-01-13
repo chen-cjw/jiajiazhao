@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
 //         $this->call(CommentSeed::class);
 //        $this->call(CarpoolingSeed::class);
 //        $this->call(AdminTablesSeeder::class);
-        $this->call(DialingSeed::class);
+//        $this->call(DialingSeed::class);
+        $this->call(AbbrTwoCategorySeeder::class);
     }
 }
