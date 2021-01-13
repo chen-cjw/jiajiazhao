@@ -119,15 +119,28 @@ class AuthController extends Controller
             Log::error('用户code：'.$request->code);
             throw new \Exception('code 和第一次的不一致'.$request->code);
         }
+        $app = app('wechat.mini_program');
+        $decryptedData = $app->encryptor->decryptData($session['session_key'], $request->iv, $request->encrypted_data);
+        Log::info(111111111111);
+        Log::error($decryptedData);
+        Log::info(111111111111);
+
+        if (empty($decryptedData)) {
+            throw new \Exception('解析号码失败!321');
+        }
+
         $user = User::where('ml_openid',$session['ml_openid'])->firstOrFail();
+        $phoneNumber = $decryptedData['phoneNumber'];
         $user->update([
+//            'phone'=>$phoneNumber,
             'avatar'=>$request->avatar,
             'nickname'=>$request->nickname,
             'city'=>$request->city,
             'sex'=>$request->sex,
         ]);
+
         $token = \Auth::guard('api')->fromUser($user);
-        return $this->respondWithToken($token,$user->phone,$user)->setStatusCode(201);
+        return $this->respondWithToken($token,$phoneNumber,$user)->setStatusCode(201);
     }
     public function refresh()
     {
