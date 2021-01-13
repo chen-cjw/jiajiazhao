@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Model\ConvenientInformation;
+use App\Model\Dialing;
 use App\Model\DriverCertification;
 use App\Model\LocalCarpooling;
 use App\Model\Shop;
@@ -97,6 +98,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(Shop::class, 'user_favorite_shops')
             ->withTimestamps()
             ->orderBy('user_favorite_shops.created_at', 'desc');
+    }
+    // 我拨打的换号码
+    public function dialing()
+    {
+        return $this->hasMany(Dialing::class);
     }
 
     // 收藏的帖子

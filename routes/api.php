@@ -115,6 +115,11 @@ $api->version('v1', [
 
         $api->get('/user_card', 'PersonalController@userCard')->name('api.personal.userCard');
 
+        //我拨打的号码
+        $api->get('/dialing', 'DialingController@index')->name('api.dialing.index');
+        $api->post('/dialing', 'DialingController@store')->name('api.dialing.store');
+
+
     });
     $api->get('/setting', 'SettingController@index')->name('api.setting.index'); // 默认配置
     $api->get('/shop', 'ShopController@index')->name('api.shop.index'); // 商户
