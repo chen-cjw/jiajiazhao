@@ -78,23 +78,35 @@ class ShopController extends Controller
     // 单图片上传
     public function uploadImages($request)
     {
-        if ($request->isMethod('post')) {
-            $file = $request->file('logo');
-            Log::error('logo');
-            Log::error($file);
-            Log::error('logo');
-            if($file->isValid()){
-                $path = Storage::disk('public')->putFile('' , $file);
-                if($path) {
-                    return ['code' => 0 , 'msg' => '上传成功' , 'data' => $this->imagePath($path)];
-                }
-                else {
-                    return ['code' => 400 , 'msg' => '上传失败'];
-                }
-            }
-        } else {
-            return ['code' => 400, 'msg' => '非法请求'];
+
+        $url_path = 'uploads';
+        $file = $request->file('logo');
+
+        if ($file->isValid()) {
+            $clientName = $file->getClientOriginalName();
+            $entension = $file->getClientOriginalExtension();
+            $newName = md5(date("Y-m-d H:i:s") . $clientName) . "." . $entension;
+            $path = $file->move($url_path, $newName);
+            return env('APP_URL').$path;
+            return $path;
         }
+//        if ($request->isMethod('post')) {
+//            $file = $request->file('logo');
+//            Log::error('logo');
+//            Log::error($file);
+//            Log::error('logo');
+//            if($file->isValid()){
+//                $path = Storage::disk('public')->putFile(date('Ymd') , $file);
+//                if($path) {
+//                    return ['code' => 0 , 'msg' => '上传成功' , 'data' => $this->imagePath($path)];
+//                }
+//                else {
+//                    return ['code' => 400 , 'msg' => '上传失败'];
+//                }
+//            }
+//        } else {
+//            return ['code' => 400, 'msg' => '非法请求'];
+//        }
     }
 
     public function imagePath($path)
