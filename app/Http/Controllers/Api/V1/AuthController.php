@@ -89,6 +89,9 @@ class AuthController extends Controller
         }
         $app = app('wechat.mini_program');
         $decryptedData = $app->encryptor->decryptData($session['session_key'], $request->iv, $request->encrypted_data);
+        Log::info(111111111111);
+        Log::error($decryptedData);
+        Log::info(111111111111);
 
         if (empty($decryptedData)) {
             throw new \Exception('解析号码失败!321');
