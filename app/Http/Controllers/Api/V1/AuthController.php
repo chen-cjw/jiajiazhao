@@ -58,7 +58,7 @@ class AuthController extends Controller
             Cache::put($code, ['session_key' => $session_key, 'ml_openid' => $openid], 3000);
             if ($user) { // 手机好存在直接登陆
                 Log::info(1);
-                if($user->phone || $user->nickname) {
+                if($user->nickname) {
                     Log::info(2);
 
                     $token = \Auth::guard('api')->fromUser($user);
@@ -133,7 +133,7 @@ class AuthController extends Controller
         $user->update([
             'avatar'=>$decryptedData['avatarUrl'],
             'nickname'=>$decryptedData['nickName'],
-            'city'=>$decryptedData['Wuxi'],
+            'city'=>$decryptedData['city'],
             'sex'=>$decryptedData['gender'],
         ]);
 
@@ -157,7 +157,7 @@ class AuthController extends Controller
         return $this->response->array([
             'code'=> 200,
             'data'=>[],
-            'msg'=>'未授权手机号码'
+            'msg'=>'未授权用户信息'
         ]);
     }
 
