@@ -84,7 +84,7 @@ class ShopController extends Controller
             Log::error($file);
             Log::error('logo');
             if($file->isValid()){
-                $path = Storage::disk('public')->putFile(date('Ymd') , $file);
+                $path = Storage::disk('public')->putFile('' , $file);
                 if($path) {
                     return ['code' => 0 , 'msg' => '上传成功' , 'data' => $this->imagePath($path)];
                 }

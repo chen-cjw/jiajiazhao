@@ -96,8 +96,8 @@
       <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="85" selection-start-line="85" selection-end-line="85" />
+            <state relative-caret-position="271">
+              <caret line="86" column="58" selection-start-line="86" selection-start-column="58" selection-end-line="86" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -437,12 +437,6 @@
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -492,12 +486,12 @@
       <workItem from="1608545980625" duration="16952000" />
       <workItem from="1609067027348" duration="69522000" />
       <workItem from="1609679025110" duration="62612000" />
-      <workItem from="1610168842854" duration="36560000" />
+      <workItem from="1610168842854" duration="37206000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185646000" />
+    <option name="totallyTimeSpent" value="186292000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -895,8 +889,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="271">
+          <caret line="86" column="58" selection-start-line="86" selection-start-column="58" selection-end-line="86" selection-end-column="58" />
         </state>
       </provider>
     </entry>
