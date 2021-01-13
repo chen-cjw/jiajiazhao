@@ -58,7 +58,7 @@ class AuthController extends Controller
             Cache::put($code, ['session_key' => $session_key, 'ml_openid' => $openid], 3000);
             if ($user) { // 手机好存在直接登陆
                 Log::info(1);
-                if($user->phone) {
+                if($user->phone || $user->nickname) {
                     Log::info(2);
 
                     $token = \Auth::guard('api')->fromUser($user);
