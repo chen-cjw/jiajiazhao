@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\ShopRequest;
+use App\Model\Setting;
 use App\Model\Shop;
 use App\Model\UserFavoriteShop;
 use App\Transformers\ShopTransformer;
@@ -47,8 +48,8 @@ class ShopController extends Controller
             $data['two_abbr'.$i] = $request->two_abbr[$i];
         }
         $data['no'] = Shop::findAvailableNo();
-        $data['amount'] = 0.01;
-        $data['top_amount'] = 0.01;
+        $data['amount'] = $request->shop_fee == 0 ? Setting::where('key','shop_fee_two')->value('value') : $request->shop_fee;
+        $data['top_amount'] = $request->shop_top_fee == 0 ? $request->shop_top_fee_two : $request->shop_top_fee;
         $data['platform_licensing'] = 0.01;
         $data['logo'] = json_encode($request->logo);
         $data['user_id'] = auth('api')->id();
