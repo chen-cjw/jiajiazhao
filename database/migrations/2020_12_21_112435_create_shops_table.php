@@ -18,9 +18,9 @@ class CreateShopsTable extends Migration
             // 由于后台可能会乱修改，目前就是存的文字，不是id
 //            $table->unsignedBigInteger('one_abbr')->comment('行业分类/一级分类');
 
-            $table->string('two_abbr0')->comment('行业分类/二级分类()');
-            $table->string('two_abbr1')->comment('行业分类/二级分类()');
-            $table->string('two_abbr2')->comment('行业分类/二级分类()');
+            $table->string('two_abbr0')->nullable()->comment('行业分类/二级分类()');
+            $table->string('two_abbr1')->nullable()->comment('行业分类/二级分类()');
+            $table->string('two_abbr2')->nullable()->comment('行业分类/二级分类()');
             $table->string('name')->comment('店铺名');
             $table->decimal('lng',20,10)->comment('当前纬度');
             $table->decimal('lat',20,10)->comment('当前经度');
@@ -29,7 +29,7 @@ class CreateShopsTable extends Migration
             $table->string('contact_phone')->comment('联系方式');// 验证手机号码
             $table->string('wechat')->nullable()->comment('个人微信');// 验证手机号码
             $table->text('logo')->comment('商户认证');// 图片上传
-            $table->string('service_price')->comment('服务价格表是一张图片');
+            $table->string('service_price')->nullable()->comment('服务价格表是一张图片');
             $table->string('merchant_introduction')->comment('商户介绍');
             $table->bigInteger('sort')->default(0)->comment('排序');
             $table->bigInteger('view')->default(0)->comment('浏览量==人气');
