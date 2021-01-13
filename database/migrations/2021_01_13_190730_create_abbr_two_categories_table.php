@@ -18,6 +18,8 @@ class CreateAbbrTwoCategoriesTable extends Migration
             $table->string('abbr')->nullable()->comment('分类');
             $table->bigInteger('sort')->default(0)->comment('排序大的在上');
             $table->text('logo')->comment('首页分类logo');
+            $table->enum('type',['other','shop'])->comment('shop店铺');
+
             $table->timestamps();
         });
     }
