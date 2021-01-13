@@ -121,26 +121,24 @@ class AuthController extends Controller
         }
         $app = app('wechat.mini_program');
         $decryptedData = $app->encryptor->decryptData($session['session_key'], $request->iv, $request->encrypted_data);
-        Log::info(111111111111);
+        Log::info(22222222222);
         Log::error($decryptedData);
-        Log::info(111111111111);
+        Log::info(22222222222);
 
         if (empty($decryptedData)) {
             throw new \Exception('解析号码失败!321');
         }
 
         $user = User::where('ml_openid',$session['ml_openid'])->firstOrFail();
-        $phoneNumber = $decryptedData['phoneNumber'];
         $user->update([
-//            'phone'=>$phoneNumber,
-            'avatar'=>$request->avatar,
-            'nickname'=>$request->nickname,
-            'city'=>$request->city,
-            'sex'=>$request->sex,
+            'avatar'=>$decryptedData['avatarUrl'],
+            'nickname'=>$decryptedData['nickName'],
+            'city'=>$decryptedData['Wuxi'],
+            'sex'=>$decryptedData['gender'],
         ]);
 
         $token = \Auth::guard('api')->fromUser($user);
-        return $this->respondWithToken($token,$phoneNumber,$user)->setStatusCode(201);
+        return $this->respondWithToken($token,'',$user)->setStatusCode(201);
     }
     public function refresh()
     {
