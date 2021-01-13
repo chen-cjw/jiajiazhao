@@ -15,9 +15,18 @@ class AuthUserInfoRequest extends FormRequest
     {
         return [
             'code'=>'required',
-            'nickname'=>'required',
-            'sex'=>'required',
-            'avatar'=>'required',
+            'encrypted_data'=>'required',
+            'iv'=>'required',
         ];
+    }
+
+    public function messages()
+    {
+        return [
+            'code.require'           => '缺少参数code!',
+            'encrypted_data.require' => '缺少参数encrypted_data!',
+            'iv.require'             => '缺少参数iv!',
+        ];
+
     }
 }

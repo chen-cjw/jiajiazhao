@@ -98,13 +98,13 @@ class AuthController extends Controller
         }
 
         $user = User::where('ml_openid',$session['ml_openid'])->firstOrFail();
-//        $phoneNumber = $decryptedData['phoneNumber'];
+        $phoneNumber = $decryptedData['phoneNumber'];
         $user->update([
-//            'phone'=>$phoneNumber,
-            'avatar'=>$request->avatar,
-            'nickname'=>$request->nickname,
-            'city'=>$request->city,
-            'sex'=>$request->sex,
+            'phone'=>$phoneNumber,
+//            'avatar'=>$request->avatar,
+//            'nickname'=>$request->nickname,
+//            'city'=>$request->city,
+//            'sex'=>$request->sex,
         ]);
 
         $token = \Auth::guard('api')->fromUser($user);
