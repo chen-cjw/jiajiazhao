@@ -86,7 +86,6 @@ $api->version('v1', [
         $api->post('/comment', 'CommentController@store')->name('api.comment.store'); // 认证
 
         // 入住
-        $api->post('/shop', 'ShopController@store')->name('api.shop.store'); // 认证
         $api->get('/shop/{id}', 'ShopController@show')->name('api.shop.show'); // 商户详情
         $api->post('/shop_upload_img', 'ShopController@uploadImg')->name('api.shop.uploadImg'); // 单图片上传
         $api->get('/shop/pay_by_wechat/{id}', 'ShopController@payByWechat')->name('api.shop.payByWechat'); // 发布
@@ -100,8 +99,7 @@ $api->version('v1', [
         $api->post('/user_favorite_card/{id}', 'PersonalController@userFavoriteCard')->name('api.personal.userFavoriteCard'); // 收藏帖子
         $api->post('/card_del', 'PersonalController@cardDel')->name('api.personal.cardDel'); // 删除收藏帖子
 
-        // 我发布本地拼车列表 localCarpool
-        $api->post('/local_carpool', 'PersonalController@localCarpool')->name('api.personal.localCarpool');
+
 
         // 我发布本地拼车-管理(删除) localCarpoolIndex
         $api->get('/local_carpool_index/', 'PersonalController@localCarpoolIndex')->name('api.personal.localCarpoolIndex');
@@ -119,6 +117,13 @@ $api->version('v1', [
         $api->get('/dialing', 'DialingController@index')->name('api.dialing.index');
         $api->post('/dialing', 'DialingController@store')->name('api.dialing.store');
 
+        $api->group(['middleware' => ['phone.verify']], function ($api) {
+
+            // 操作之前要获取手机号
+            $api->post('/shop', 'ShopController@store')->name('api.shop.store'); // 入住
+            // 我发布本地拼车列表 localCarpool
+            $api->post('/local_carpool', 'PersonalController@localCarpool')->name('api.personal.localCarpool');
+        });
 
     });
     $api->get('/setting', 'SettingController@index')->name('api.setting.index'); // 默认配置
