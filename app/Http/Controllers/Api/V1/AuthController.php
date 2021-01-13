@@ -98,10 +98,10 @@ class AuthController extends Controller
         $phoneNumber = $decryptedData['phoneNumber'];
         $user->update([
             'phone'=>$phoneNumber,
-            'avatar'=>$request->avatar,
-            'nickname'=>$request->nickname,
-            'city'=>$request->city,
-            'sex'=>$request->sex,
+//            'avatar'=>$request->avatar,
+//            'nickname'=>$request->nickname,
+//            'city'=>$request->city,
+//            'sex'=>$request->sex,
         ]);
 
         $token = \Auth::guard('api')->fromUser($user);
