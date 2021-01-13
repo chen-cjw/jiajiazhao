@@ -98,7 +98,7 @@ class AuthController extends Controller
         }
 
         $user = User::where('ml_openid',$session['ml_openid'])->firstOrFail();
-        $phoneNumber = $decryptedData['phoneNumber'];
+//        $phoneNumber = $decryptedData['phoneNumber'];
         $user->update([
 //            'phone'=>$phoneNumber,
             'avatar'=>$request->avatar,
@@ -108,7 +108,7 @@ class AuthController extends Controller
         ]);
 
         $token = \Auth::guard('api')->fromUser($user);
-        return $this->respondWithToken($token,$phoneNumber,$user)->setStatusCode(201);
+        return $this->respondWithToken($token,'',$user)->setStatusCode(201);
     }
 
     // 获取用户信息
