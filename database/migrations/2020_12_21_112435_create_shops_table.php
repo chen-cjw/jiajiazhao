@@ -49,7 +49,7 @@ class CreateShopsTable extends Migration
             $table->dateTime('paid_at')->nullable()->comment('支付时间');
             $table->string('payment_method')->default('wechat')->nullable()->comment('支付方式');
             $table->string('payment_no')->nullable()->comment('支付平台订单号');
-
+            $table->dateTime('due_date')->nullable()->comment('到期时间');
             $table->timestamps();
         });
     }
