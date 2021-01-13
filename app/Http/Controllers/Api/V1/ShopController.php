@@ -80,6 +80,9 @@ class ShopController extends Controller
     {
         if ($request->isMethod('post')) {
             $file = $request->file('logo');
+            Log::error('logo');
+            Log::error($file);
+            Log::error('logo');
             if($file->isValid()){
                 $path = Storage::disk('public')->putFile(date('Ymd') , $file);
                 if($path) {
