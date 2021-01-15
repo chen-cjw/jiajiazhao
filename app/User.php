@@ -7,6 +7,7 @@ use App\Model\Dialing;
 use App\Model\DriverCertification;
 use App\Model\LocalCarpooling;
 use App\Model\Shop;
+use App\Model\Suggestions;
 use EasyWeChat\Kernel\Exceptions\BadRequestException;
 use EasyWeChat\Kernel\Messages\Card;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -119,6 +120,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(ConvenientInformation::class, 'browse_cards')
             ->withTimestamps()
             ->orderBy('user_favorite_cards.created_at', 'desc');
+    }
+    // 我的投诉
+    public function suggestions()
+    {
+        return $this->hasMany(Suggestions::class);
     }
     // 邀请码
     public function generateRefCode($length = 6)

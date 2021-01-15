@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         // 轮播图
         $bannerOne = Banner::where('type','index_one')->where('is_display',1)->orderBy('sort','desc')->get();
@@ -24,17 +24,11 @@ class IndexController extends Controller
         $notice = Notice::where('is_display',1)->orderBy('sort','desc')->get();
 
         // 商户
-        $shopOne = AbbrCategory::where('parent_id',null)->take(10)->orderBy('sort','desc')->get();
-        $shopTwo = AbbrTwoCategory::orderBy('sort','desc')->take(7)->get();
-//        $shopOne = Shop::where('type','one')->where('is_accept',1)->get();
-//        $shopTwo = Shop::where('type','two')->where('is_accept',1)->get();
+        $shopOne = AbbrCategory::where('parent_id',null)->where('local','one')->orderBy('sort','desc')->take(10)->get();
+        $shopTwo = AbbrCategory::where('parent_id',null)->where('local','two')->orderBy('sort','desc')->take(7)->get();
 
         // 帖子分类
-        $cardCategory = CardCategory::orderBy('sort','desc')->get();
-//        $cardIdDefault = \request('card_id')?:1;
-//        $cardIdDefault = CardCategory::orderBy('sort','desc')->first();
-//        $cardId = $request->card_id ?: $cardIdDefault->id;
-//        $convenientInformation = ConvenientInformation::where('card_id',$cardId)->paginate();
+        $cardCategory = CardCategory::where('is_display',1)->orderBy('sort','desc')->get();
         return [
             'code'=>200,
             'msg'=>'ok',
@@ -45,7 +39,6 @@ class IndexController extends Controller
                 'shopOne'=>$shopOne,
                 'shopTwo'=>$shopTwo,
                 'cardCategory'=>$cardCategory,
-//                'convenientInformation'=>$convenientInformation,
             ]
         ];
     }

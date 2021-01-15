@@ -21,7 +21,7 @@ class LocalCarpoolingController extends Controller
     // 本地拼车 todo 只有支付了才可以显示出来
     public function index()
     {
-        $local= LocalCarpooling::orderBy('created_at','desc')->paginate();
+        $local= LocalCarpooling::where('paid_at','!=',null)->orderBy('created_at','desc')->paginate();
         return $this->responseStyle('ok',200,$local);
         return $this->response->paginator($local,new LocalCarpoolingTransformer());
     }
@@ -36,13 +36,7 @@ class LocalCarpoolingController extends Controller
             $requestData['user_id'] = auth('api')->id();
             // 流水订单号
             $requestData['no'] = LocalCarpooling::findAvailableNo();
-//            if (Setting::where('key','localCarpoolingAmount')->value('value')==0) {
-//                $requestData['status'] = 'paid';
-//                $requestData['paid_at'] = Carbon::now(); // 更新支付时间为当前时间
-//                $requestData['payment_no'] = ''; // 支付平台订单号
-//            }else {
-//            }
-            $requestData['amount'] = 0.01;//Setting::where('key','localCarpoolingAmount')->value('value');
+            $requestData['amount'] = Setting::where('key','localCarpoolingAmount')->value('value');
             $res = LocalCarpooling::create($requestData);
             return $this->responseStyle('ok',200,$res);
         }
@@ -54,7 +48,6 @@ class LocalCarpoolingController extends Controller
      **/
     public function payByWechat($id) {
         try {
-            Log::error(123);
 
             // 校验权限
             $localCarpool = auth('api')->user()->localCarpool()->where('id', $id)->firstOrFail();

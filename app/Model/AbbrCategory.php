@@ -5,7 +5,7 @@ namespace App\Model;
 class AbbrCategory extends Model
 {
     // 行业分类(后台)
-    protected $fillable = [];
+    protected $fillable = ['abbr','sort','logo','parent_id','type','local'];
 
     public function abbr()
     {

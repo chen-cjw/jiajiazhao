@@ -11,7 +11,9 @@ class AbbrTwoCategorySeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Model\AbbrTwoCategory::class, 7)->create();
+        factory(\App\Model\AbbrCategory::class, 10)->create();
+
+//        factory(\App\Model\AbbrTwoCategory::class, 7)->create();
 
     }
 }

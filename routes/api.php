@@ -117,6 +117,10 @@ $api->version('v1', [
         $api->get('/dialing', 'DialingController@index')->name('api.dialing.index');
         $api->post('/dialing', 'DialingController@store')->name('api.dialing.store');
 
+        // 我的投诉
+        $api->get('/suggestion', 'SuggestionController@index')->name('api.suggestion.index');
+        $api->post('/suggestion', 'SuggestionController@store')->name('api.suggestion.store');
+
         $api->group(['middleware' => ['phone.verify']], function ($api) {
 
             // 操作之前要获取手机号

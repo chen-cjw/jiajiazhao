@@ -23,7 +23,7 @@ class ShopController extends Controller
     {
         $shopQuery = Shop::query();
 
-        $shopQuery->where(function ($query) {
+        $shopQuery->where('is_accept',1)->where('due_date','>',date('Y-m-d H:i:s'))->where(function ($query) {
                 $query->orWhere('two_abbr0',\request()->two_abbr)
                     ->orWhere('two_abbr1',\request()->two_abbr)
                     ->orWhere('two_abbr2',\request()->two_abbr);
@@ -33,8 +33,6 @@ class ShopController extends Controller
 
         $shop = $shopQuery->get();
         return $this->responseStyle('ok',200,$shop);
-
-        return $this->response->collection($shop,new ShopTransformer());
     }
     
     // 入住 service_price 这个是一个图片
@@ -50,13 +48,10 @@ class ShopController extends Controller
         $data['no'] = Shop::findAvailableNo();
         $data['amount'] = $request->shop_fee == 0 ? Setting::where('key','shop_fee_two')->value('value') : Setting::where('key','shop_fee')->value('value') ;
         $data['top_amount'] = $request->shop_top_fee == 0 ? Setting::where('key','shop_top_fee_two')->value('value') : Setting::where('key','shop_top_fee')->value('value');
-        $data['platform_licensing'] = 0.01;
         $data['logo'] = json_encode($request->logo);
         $data['user_id'] = auth('api')->id();
         $res = Shop::create($data);
         return $this->responseStyle('ok',200,$res);
-
-        return $this->response->created();
     }
 
     public function show($id)

@@ -11,6 +11,7 @@ class AbbrCategorySeeder extends Seeder
      */
     public function run()
     {
+
 //        $table->string('abbr')->nullable()->comment('分类');
 //        $table->bigInteger('sort')->default(0)->comment('排序大的在上');
 //        $table->bigInteger('parent_id')->nullable()->comment('父级');
@@ -423,6 +424,9 @@ class AbbrCategorySeeder extends Seeder
             'sort'=>'12',
             'parent_id'=>$res10->id,
         ]);
+
+
+
     }
 
 }

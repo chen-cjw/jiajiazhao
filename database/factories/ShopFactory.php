@@ -6,19 +6,8 @@ use App\Model\Shop;
 use Faker\Generator as Faker;
 
 
-//$data = $request->only([
-//    'one_abbr' ,'two_abbr0','two_abbr1','two_abbr2','name','area','detailed_address','contact_phone','wechat',
-//    'logo','service_price','merchant_introduction','platform_licensing','is_top','lng','lat'
-//]);
-//for ($i=0;$i<count($request->two_abbr);$i++) {
-//    $data['two_abbr'.$i] = $request->two_abbr[$i];
-//}
-//$data['logo'] = json_encode($request->logo);
-//$data['user_id'] = auth('api')->id();
-
 $factory->define(Shop::class, function (Faker $faker) {
     return [
-        'one_abbr'=>rand(1,5),
         'two_abbr0'=>rand(1,5),
         'two_abbr1'=>rand(1,5),
         'two_abbr2'=>rand(1,5),
@@ -43,6 +32,7 @@ $factory->define(Shop::class, function (Faker $faker) {
         'amount' => 0.01,
         'is_accept'=>1,
         'type'=>array_rand(["one"=>1, "two"=>1], 1),
+        'top_amount'=>0.01,
 
     ];
 });
