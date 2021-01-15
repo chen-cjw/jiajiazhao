@@ -9,12 +9,12 @@ use Faker\Generator as Faker;
 $factory->define(Shop::class, function (Faker $faker) {
     return [
 
-        'one_abbr0'=>rand(1,5),
-        'one_abbr1'=>rand(1,5),
-        'one_abbr2'=>rand(1,5),
-        'two_abbr0'=>rand(1,5),
-        'two_abbr1'=>rand(1,5),
-        'two_abbr2'=>rand(1,5),
+        'one_abbr0'=>1,
+        'one_abbr1'=>7,
+        'one_abbr2'=>13,
+        'two_abbr0'=>rand(2,6),
+        'two_abbr1'=>rand(8,11),
+        'two_abbr2'=>rand(14,18),
         'name'=>$faker->name,
         'area'=>$faker->address,
         'detailed_address'=>$faker->address,

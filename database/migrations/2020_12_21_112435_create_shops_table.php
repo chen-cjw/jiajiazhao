@@ -16,9 +16,9 @@ class CreateShopsTable extends Migration
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
             // 由于后台可能会乱修改，目前就是存的文字，不是id
-            $table->unsignedBigInteger('one_abbr0')->comment('行业分类/一级分类');
-            $table->unsignedBigInteger('one_abbr1')->comment('行业分类/一级分类');
-            $table->unsignedBigInteger('one_abbr2')->comment('行业分类/一级分类');
+            $table->unsignedBigInteger('one_abbr0')->nullable()->comment('行业分类/一级分类');
+            $table->unsignedBigInteger('one_abbr1')->nullable()->comment('行业分类/一级分类');
+            $table->unsignedBigInteger('one_abbr2')->nullable()->comment('行业分类/一级分类');
 
             $table->string('two_abbr0')->nullable()->comment('行业分类/二级分类');
             $table->string('two_abbr1')->nullable()->comment('行业分类/二级分类');
