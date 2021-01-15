@@ -22,8 +22,35 @@ class ShopController extends Controller
     // 商户列表
     public function index()
     {
+//        return 123;
         $shopQuery = Shop::query();
+        $lat = \request('lat');
+        $lng = \request('lng');
+//        $res = $this->lat_lng($lng,$lat);
 
+
+//        $res = DB::select("select * from shops where
+//            (acos(sin(({$lat}*3.1415)/180)
+//            * sin((lat*3.1415)/180)
+//            + cos(({$lat}*3.1415)/180)
+//            * cos((lat*3.1415)/180)
+//            * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
+//            * 6370.996) <= 5 where "
+//        );
+
+//        $users = DB::table('users')
+//            ->select(DB::raw('count(*) as user_count, status'))
+//            ->where('status', '<>', 1)
+//            ->groupBy('status')
+//            ->get();
+
+        $res = DB::table('shops')->select(DB::raw("(acos(sin(({$lat}*3.1415)/180)
+            * sin((lat*3.1415)/180)
+            + cos(({$lat}*3.1415)/180)
+            * cos((lat*3.1415)/180)
+            * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
+            * 6370.996) <= 5"))->get();
+        return $res;
         if (\request()->two_abbr) {
             $shopQuery->where(function ($query) {
                 $query->orWhere('two_abbr0',\request()->two_abbr)
@@ -37,9 +64,12 @@ class ShopController extends Controller
                     ->orWhere('one_abbr2',\request()->one_abbr);
             });
         }
+        if (\request()->view) {
+            $shopQuery->orderBy('view','desc');
+        }
 
         // 人气 == 浏览量
-        $shopQuery->where('is_accept',1)->where('due_date','>',date('Y-m-d H:i:s'))->orderBy('view','desc');
+        $shopQuery->where('is_accept',1)->where('due_date','>',date('Y-m-d H:i:s'));
 
         $shop = $shopQuery->paginate();
         return $this->responseStyle('ok',200,$shop);
