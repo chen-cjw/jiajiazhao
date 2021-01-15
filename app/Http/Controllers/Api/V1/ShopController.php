@@ -30,28 +30,21 @@ class ShopController extends Controller
         $lat = \request('lat');
         $lng = \request('lng');
 //        $res = $this->lat_lng($lng,$lat);
+        $one_abbr = \request()->one_abbr;
+//
+//        $res = DB::select("select * from shops where (one_abbr0={$one_abbr} OR one_abbr1={$one_abbr} OR one_abbr2={$one_abbr})");
+//        return $res;
+        if ($lat && $lng) {
 
-
-//        $res = DB::select("select * from shops where
-//            (acos(sin(({$lat}*3.1415)/180)
-//            * sin((lat*3.1415)/180)
-//            + cos(({$lat}*3.1415)/180)
-//            * cos((lat*3.1415)/180)
-//            * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
-//            * 6370.996) <= 5 where "
-//        );
-
-//        $users = DB::table('users')
-//            ->select(DB::raw('count(*) as user_count, status'))
-//            ->where('status', '<>', 1)
-//            ->groupBy('status')
-//            ->get();
-        $res = DB::table('shops')->select(DB::raw("(acos(sin(({$lat}*3.1415)/180)
+        }
+        $res = DB::select("select * from shops where
+            (acos(sin(({$lat}*3.1415)/180)
             * sin((lat*3.1415)/180)
             + cos(({$lat}*3.1415)/180)
             * cos((lat*3.1415)/180)
             * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
-            * 6370.996) <= 5"))->get();
+            * 6370.996) <= 5 and (one_abbr0={$one_abbr} OR one_abbr1={$one_abbr} OR one_abbr2={$one_abbr}) order by view desc"
+        );
         return $res;
         if (\request()->two_abbr) {
             $shopQuery->where(function ($query) {
@@ -97,6 +90,16 @@ class ShopController extends Controller
         $data['top_amount'] = $request->shop_top_fee == 0 ? Setting::where('key','shop_top_fee_two')->value('value') : Setting::where('key','shop_top_fee')->value('value');
         $data['logo'] = json_encode($request->logo);
         $data['user_id'] = auth('api')->id();
+        if($request->shop_top_fee!=0 || $request->shop_top_fee_two!=0) {
+            $shop = Shop::orderBy('sort','desc')->first();
+            if($shop) {
+
+                $data['sort'] = bcadd( $shop->sort,1);
+
+            }else {
+                $data['sort'] = 1;
+            }
+        }
         $res = Shop::create($data);
 
         return $this->responseStyle('ok',200,$res);
@@ -188,7 +191,7 @@ class ShopController extends Controller
             $result = $this->app->order->unify([
                 'body' => '支付会员版订单：' . $shop->no,
                 'out_trade_no' => $shop->no,
-                'total_fee' => $shop->amount * 100,//$wechatPay->total_fee * 100,
+                'total_fee' => $shop->platform_licensing * 100,//$wechatPay->total_fee * 100,
                 'notify_url' => "https://api.dengshishequ.com/shop_wechat_notify", // 支付结果通知网址，如果不设置则会使用配置里的默认地址
                 'openid' => auth('api')->user()->ml_openid,
                 'trade_type' => 'JSAPI', // 请对应换成你的支付方式对应的值类型

@@ -38,6 +38,7 @@ class CreateShopsTable extends Migration
             $table->boolean('is_top')->default(0)->comment('是否置顶');
             $table->boolean('is_accept')->default(0)->comment('是否通过');
             $table->enum('type',['one','two'])->comment('one(第一部分九宫格)|two(第二部分九宫格)');
+            $table->string('comment_count')->default(0)->comment('评论数量');
 
             // 申请人
             $table->unsignedBigInteger('user_id')->comment('申请人');
