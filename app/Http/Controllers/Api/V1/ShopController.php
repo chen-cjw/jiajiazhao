@@ -18,18 +18,28 @@ use Illuminate\Support\Str;
 
 class ShopController extends Controller
 {
+
     // 商户列表
     public function index()
     {
         $shopQuery = Shop::query();
 
-        $shopQuery->where('is_accept',1)->where('due_date','>',date('Y-m-d H:i:s'))->where(function ($query) {
+        if (\request()->two_abbr) {
+            $shopQuery->where(function ($query) {
                 $query->orWhere('two_abbr0',\request()->two_abbr)
                     ->orWhere('two_abbr1',\request()->two_abbr)
                     ->orWhere('two_abbr2',\request()->two_abbr);
             });
+        }else if (\request()->one_abbr) {
+            $shopQuery->where(function ($query) {
+                $query->orWhere('one_abbr0',\request()->one_abbr)
+                    ->orWhere('one_abbr1',\request()->one_abbr)
+                    ->orWhere('one_abbr2',\request()->one_abbr);
+            });
+        }
+
         // 人气 == 浏览量
-        $shopQuery->orderBy('view','desc');
+        $shopQuery->where('is_accept',1)->where('due_date','>',date('Y-m-d H:i:s'))->orderBy('view','desc');
 
         $shop = $shopQuery->get();
         return $this->responseStyle('ok',200,$shop);
@@ -39,18 +49,24 @@ class ShopController extends Controller
     public function store(ShopRequest $request)
     {
         $data = $request->only([
+            'one_abbr0','one_abbr1','one_abbr2',
             'two_abbr0','two_abbr1','two_abbr2','name','area','detailed_address','contact_phone','wechat',
             'logo','service_price','merchant_introduction','is_top','lng','lat'
         ]);
+        for ($i=0;$i<count($request->one_abbr);$i++) {
+            $data['one_abbr'.$i] = $request->one_abbr[$i];
+        }
         for ($i=0;$i<count($request->two_abbr);$i++) {
             $data['two_abbr'.$i] = $request->two_abbr[$i];
         }
+
         $data['no'] = Shop::findAvailableNo();
         $data['amount'] = $request->shop_fee == 0 ? Setting::where('key','shop_fee_two')->value('value') : Setting::where('key','shop_fee')->value('value') ;
         $data['top_amount'] = $request->shop_top_fee == 0 ? Setting::where('key','shop_top_fee_two')->value('value') : Setting::where('key','shop_top_fee')->value('value');
         $data['logo'] = json_encode($request->logo);
         $data['user_id'] = auth('api')->id();
         $res = Shop::create($data);
+
         return $this->responseStyle('ok',200,$res);
     }
 

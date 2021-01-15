@@ -18,6 +18,7 @@ class CreateCardCategoriesTable extends Migration
             $table->string('name')->comment('发布帖子/分类名称');
             $table->bigInteger('sort')->comment('排序');
             $table->boolean('is_display')->default(1)->comment('是否显示');
+            $table->string('logo')->default('https://app-api.hanbinsite.top/storage/20210115/4ciZapXlBxYJYHSyBqwQwuIruFjc5AckWiKb81QJ.jpg')->comment('首页分类logo');
             $table->timestamps();
         });
     }
