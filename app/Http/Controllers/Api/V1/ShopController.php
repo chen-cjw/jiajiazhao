@@ -25,48 +25,51 @@ class ShopController extends Controller
     // 商户列表
     public function index()
     {
-//        return 123;
-        $shopQuery = Shop::query();
+        $name = \request()->name;
         $lat = \request('lat');
         $lng = \request('lng');
-//        $res = $this->lat_lng($lng,$lat);
         $one_abbr = \request()->one_abbr;
-//
-//        $res = DB::select("select * from shops where (one_abbr0={$one_abbr} OR one_abbr1={$one_abbr} OR one_abbr2={$one_abbr})");
-//        return $res;
-        if ($lat && $lng) {
+        $two_abbr = \request()->two_abbr;
+        $view = \request()->view;
+        $comment_count = \request()->comment_count;
+        $start = \request()->page ?: 0;
+        $limit = 15;
+        $sql = "select * from shops";
 
+        // 搜索
+        if($name) {
+            $sql = $sql." where name LIKE '%".$name."%'";
         }
-        $res = DB::select("select * from shops where
+        // 一级
+        if($one_abbr) {
+            $sql = $sql." and (one_abbr0={$one_abbr} OR one_abbr1={$one_abbr} OR one_abbr2={$one_abbr})";
+        }
+        // 二级
+        if($two_abbr) {
+            $sql = $sql."and (two_abbr0={$two_abbr} OR two_abbr1={$two_abbr} OR two_abbr2={$two_abbr})";
+        }
+        // 附近
+        if ($lat && $lng) {
+            $sql = $sql."and
             (acos(sin(({$lat}*3.1415)/180)
             * sin((lat*3.1415)/180)
             + cos(({$lat}*3.1415)/180)
             * cos((lat*3.1415)/180)
             * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
-            * 6370.996) <= 5 and (one_abbr0={$one_abbr} OR one_abbr1={$one_abbr} OR one_abbr2={$one_abbr}) order by view desc"
-        );
-        return $res;
-        if (\request()->two_abbr) {
-            $shopQuery->where(function ($query) {
-                $query->orWhere('two_abbr0',\request()->two_abbr)
-                    ->orWhere('two_abbr1',\request()->two_abbr)
-                    ->orWhere('two_abbr2',\request()->two_abbr);
-            });
-        }else if (\request()->one_abbr) {
-            $shopQuery->where(function ($query) {
-                $query->orWhere('one_abbr0',\request()->one_abbr)
-                    ->orWhere('one_abbr1',\request()->one_abbr)
-                    ->orWhere('one_abbr2',\request()->one_abbr);
-            });
+            * 6370.996) <= 5";
         }
-        if (\request()->view) {
-            $shopQuery->orderBy('view','desc');
+        // 人气
+        if ($view) {
+            $sql = $sql." order by view desc";
+        }
+        // 评论
+        if ($comment_count) {
+            $sql = $sql." order by comment_count desc";
         }
 
-        // 人气 == 浏览量
-        $shopQuery->where('is_accept',1)->where('due_date','>',date('Y-m-d H:i:s'));
-
-        $shop = $shopQuery->paginate();
+        $limit = $sql." LIMIT ".$start.",".$limit;
+        $query = DB::select($limit);
+        $shop['data'] = $query;
         return $this->responseStyle('ok',200,$shop);
     }
     
