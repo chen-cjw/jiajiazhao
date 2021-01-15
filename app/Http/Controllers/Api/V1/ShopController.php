@@ -18,7 +18,10 @@ use Illuminate\Support\Str;
 
 class ShopController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->app = app('wechat.payment');
+    }
     // 商户列表
     public function index()
     {
@@ -43,7 +46,6 @@ class ShopController extends Controller
 //            ->where('status', '<>', 1)
 //            ->groupBy('status')
 //            ->get();
-
         $res = DB::table('shops')->select(DB::raw("(acos(sin(({$lat}*3.1415)/180)
             * sin((lat*3.1415)/180)
             + cos(({$lat}*3.1415)/180)

@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->unsignedDecimal('balance',10,3)->default(0)->comment('城市合伙人可提现的额度');
             $table->boolean('city_partner')->default(0)->comment('城市合伙人');
             $table->string('ref_code')->unique()->comment('邀请码');
+            $table->string('code')->nullable()->comment('邀请码');
 
             $table->timestamps();
         });
