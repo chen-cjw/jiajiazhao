@@ -37,6 +37,7 @@ $factory->define(Shop::class, function (Faker $faker) {
         'is_accept'=>1,
         'type'=>array_rand(["one"=>1, "two"=>1], 1),
         'top_amount'=>0.01,
+        'due_date'=>'2022-01-15 19:04:30'
 
     ];
 });
