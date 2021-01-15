@@ -41,7 +41,7 @@ class ShopController extends Controller
         // 人气 == 浏览量
         $shopQuery->where('is_accept',1)->where('due_date','>',date('Y-m-d H:i:s'))->orderBy('view','desc');
 
-        $shop = $shopQuery->get();
+        $shop = $shopQuery->paginate();
         return $this->responseStyle('ok',200,$shop);
     }
     

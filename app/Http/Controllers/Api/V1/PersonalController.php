@@ -8,6 +8,7 @@ use App\Model\Shop;
 use App\Transformers\ConvenientInformationTransformer;
 use App\Transformers\LocalCarpoolingTransformer;
 use App\Transformers\ShopTransformer;
+use App\User;
 use Illuminate\Http\Request;
 
 class PersonalController extends Controller
@@ -79,6 +80,12 @@ class PersonalController extends Controller
 
         $user->favoriteShops()->detach($request->ids);
         return $this->responseStyle('ok',200,'');
+    }
+    // 我邀请的商户
+    public function userInvitationShop()
+    {
+        $res = User::where('parent_id',auth('api')->id())->paginate();
+
     }
     // 我发布的帖子
     public function userCard()
