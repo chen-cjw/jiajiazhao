@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\ConvenientInformationRequest;
+use App\Model\AbbrCategory;
 use App\Model\AdvertisingSpace;
 use App\Model\Banner;
 use App\Model\CardCategory;
@@ -33,7 +34,8 @@ class ConvenientInformationController extends Controller
         $post = PostDescription::first();
 
         //第一部分的商户
-        $shopOne = Shop::where('type','one')->where('is_accept',1)->get();
+        //$shopOne = Shop::where('type','one')->where('is_accept',1)->get();
+        $shopOne = AbbrCategory::where('parent_id',null)->where('local','one')->orderBy('sort','desc')->take(10)->get();
 
         // 广告位
         $advertisingSpace = AdvertisingSpace::orderBy('sort','desc')->take(3)->get();
