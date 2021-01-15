@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
 //         $this->call(UserSeeder::class);
 //         $this->call(CardCategorySeeder::class);
-         $this->call(AbbrCategorySeeder::class);
+//         $this->call(AbbrCategorySeeder::class);
 //         $this->call(LocalCarpoolingSeeder::class);
 //         $this->call(NoticeSeeder::class);
 //         $this->call(BannerSeeder::class);
@@ -27,6 +27,6 @@ class DatabaseSeeder extends Seeder
 //        $this->call(CarpoolingSeed::class);
 //        $this->call(AdminTablesSeeder::class);
 //        $this->call(DialingSeed::class);
-//        $this->call(AbbrTwoCategorySeeder::class);
+        $this->call(AbbrTwoCategorySeeder::class);
     }
 }
