@@ -34,19 +34,20 @@ class ShopController extends Controller
         $comment_count = \request()->comment_count;
         $start = \request()->page ?: 0;
         $limit = 15;
-        $sql = "select * from shops";
+        $sql = "select * from shops ";
 
-        // 搜索
-        if($name) {
-            $sql = $sql." where name LIKE '%".$name."%'";
-        }
+
         // 一级
         if($one_abbr) {
-            $sql = $sql." and (one_abbr0={$one_abbr} OR one_abbr1={$one_abbr} OR one_abbr2={$one_abbr})";
+            $sql = $sql."where (one_abbr0={$one_abbr} OR one_abbr1={$one_abbr} OR one_abbr2={$one_abbr})";
+        }
+        // 搜索
+        if($name) {
+            $sql = $sql."and name LIKE '%".$name."%'";
         }
         // 二级
         if($two_abbr) {
-            $sql = $sql."and (two_abbr0={$two_abbr} OR two_abbr1={$two_abbr} OR two_abbr2={$two_abbr})";
+            $sql = $sql." and (two_abbr0={$two_abbr} OR two_abbr1={$two_abbr} OR two_abbr2={$two_abbr})";
         }
         // 附近
         if ($lat && $lng) {
