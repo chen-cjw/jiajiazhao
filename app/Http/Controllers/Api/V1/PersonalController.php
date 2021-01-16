@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Requests\WithdrawalRequest;
 use App\Model\ConvenientInformation;
 use App\Model\LocalCarpooling;
 use App\Model\Shop;
+use App\Model\Withdrawal;
 use App\Transformers\ConvenientInformationTransformer;
 use App\Transformers\LocalCarpoolingTransformer;
 use App\Transformers\ShopTransformer;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PersonalController extends Controller
 {
@@ -101,7 +104,41 @@ class PersonalController extends Controller
         }
         return $this->responseStyle('ok',200,[]);
     }
+    // 提现
+    public function userWithdrawal(WithdrawalRequest $request)
+    {
 
+        $user = auth('api')->user();
+        $amount = $request->amount;
+        DB::beginTransaction();
+        try {
+            if (bccomp($user->balance, $amount, 3) == -1) {
+                return $this->responseStyle('余额不足', 200, []);
+            }
+
+            $res = Withdrawal::create([
+                'amount' => $amount,
+                'user_id' => auth()->id()
+            ]);
+            User::where('id', $user->id)->decrement('balance', $amount);
+            DB::commit();
+
+        } catch (\Exception $ex) {
+            DB::rollback();
+            \Log::error('提现出错', ['error' => $ex->getMessage()]);
+            return $this->responseStyle('提现出错',200,[]);
+        }
+        return $this->responseStyle('ok',200,$res);
+
+    }
+    // 提现列表
+
+    public function userWithdrawalIndex()
+    {
+        $user = auth('api')->user();
+        $res = $user->withdrawals()->paginate();
+        return $this->responseStyle('ok',200,$res);
+    }
     // 我的收藏(商品) todo 暂未开放
     public function favorite($id)
     {

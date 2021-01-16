@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(UserFavoriteCard::class, function (Faker $faker) {
     return [
-        //
+        'user_id'=>1,
+        'information_id'=>rand(1,10)
     ];
 });

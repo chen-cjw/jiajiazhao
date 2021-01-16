@@ -112,10 +112,14 @@ $api->version('v1', [
         $api->post('/user_card_del', 'PersonalController@userCardDel')->name('api.personal.userCardDel');
 
         $api->get('/user_card', 'PersonalController@userCard')->name('api.personal.userCard');
+        // 提现
+        $api->get('/user_withdrawal', 'PersonalController@userWithdrawalIndex')->name('api.user_withdrawal.index');
+        $api->post('/user_withdrawal', 'PersonalController@userWithdrawal')->name('api.user_withdrawal.store');
 
         //我拨打的号码
         $api->get('/dialing', 'DialingController@index')->name('api.dialing.index');
         $api->post('/dialing', 'DialingController@store')->name('api.dialing.store');
+
 
         // 我的投诉
         $api->get('/suggestion', 'SuggestionController@index')->name('api.suggestion.index');

@@ -112,12 +112,18 @@ class ShopController extends Controller
     {
         Shop::where('id',$id)->increment('view');
         $shop = Shop::findOrFail($id);
+
         $user = auth('api')->user();
-        if ($user->favoriteShops()->find($id)) {
-            UserFavoriteShop::where('id',$id)->update(['created_at'=>date('Y:m:d H:i:s')]);
+        if($user->favoriteShops()->where('shop_id',$shop->id)->first()) {
+            $shop['favoriteShops'] = 1;
         }else {
-            $user->favoriteShops()->attach(Shop::find($id));
+            $shop['favoriteShops'] = 0;
         }
+//        if ($user->favoriteShops()->find($id)) {
+//            UserFavoriteShop::where('id',$id)->update(['created_at'=>date('Y:m:d H:i:s')]);
+//        }else {
+//            $user->favoriteShops()->attach(Shop::find($id));
+//        }
         return $this->responseStyle('ok',200,$shop);
     }
 

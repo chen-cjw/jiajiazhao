@@ -8,6 +8,7 @@ use App\Model\DriverCertification;
 use App\Model\LocalCarpooling;
 use App\Model\Shop;
 use App\Model\Suggestions;
+use App\Model\Withdrawal;
 use EasyWeChat\Kernel\Exceptions\BadRequestException;
 use EasyWeChat\Kernel\Messages\Card;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -46,7 +47,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'ml_openid','phone','avatar','nickname','sex','parent_id','is_member','is_certification','ref_code'
+        'ml_openid','phone','avatar','nickname','sex','parent_id','is_member','is_certification','ref_code','balance'
     ];
 
     /**
@@ -126,6 +127,12 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(Suggestions::class);
     }
+    // 提现
+    public function withdrawals()
+    {
+        return $this->hasMany(Withdrawal::class);
+    }
+
     // 邀请码
     public function generateRefCode($length = 6)
     {

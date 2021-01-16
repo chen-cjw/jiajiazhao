@@ -8,6 +8,7 @@ use App\Model\Suggestions;
 
 class SuggestionController extends Controller
 {
+    // 投诉建议
     public function index()
     {
         return $this->responseStyle('ok',200,auth('api')->user()->suggestions()->paginate());

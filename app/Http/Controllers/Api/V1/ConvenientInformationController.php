@@ -186,15 +186,20 @@ class ConvenientInformationController extends Controller
     {
         $query = ConvenientInformation::where('id',$id);
         $query->increment('view');
+        $user = auth('api')->user();
 
         $convenientInformation = $query->firstOrFail();
+        if($user->favoriteCards()->where('information_id',$convenientInformation->id)->first()) {
+            $convenientInformation['favoriteCards'] = 1;
+        }else {
+            $convenientInformation['favoriteCards'] = 0;
+        }
         $comment = Comment::where('information_id',$convenientInformation->id)->orderBy('created_at','desc')->paginate();
         return $this->responseStyle('ok',200,[
             'convenientInformation'=>$convenientInformation,
             'comment'=>$comment
         ]);
 
-        return $this->response->item($convenientInformation,new ConvenientInformationTransformer());
     }
 
 }

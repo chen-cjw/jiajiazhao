@@ -8,6 +8,7 @@ use App\Model\Dialing;
 
 class DialingController extends Controller
 {
+    // 我的拨号
     public function index()
     {
         $res = auth('api')->user()->dialing()->orderBy('created_at','desc')->paginate();
