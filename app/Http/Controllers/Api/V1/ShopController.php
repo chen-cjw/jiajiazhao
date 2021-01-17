@@ -36,7 +36,6 @@ class ShopController extends Controller
         $limit = 15;
         $sql = "select * from shops ";
 
-
         // 一级
         if($one_abbr) {
             $sql = $sql."where (one_abbr0={$one_abbr} OR one_abbr1={$one_abbr} OR one_abbr2={$one_abbr})";

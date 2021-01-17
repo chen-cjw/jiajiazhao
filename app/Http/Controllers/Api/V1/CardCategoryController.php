@@ -19,7 +19,11 @@ class CardCategoryController extends Controller
     // 帖子下便民信息
     public function cardInformation($id)
     {
-        $information = ConvenientInformation::where('card_id',$id)->orderBy('sort','desc')->paginate();
+        $information = ConvenientInformation::where('card_id',$id);
+        if($title = request('title')) {
+            $information->where('title','like','%'.$title.'%');
+        }
+        $information = $information->orderBy('sort','desc')->paginate();
         return $this->responseStyle('ok',200,$information);
     }
 }
