@@ -176,7 +176,7 @@ class ShopController extends Controller
         // 收藏数
         $shop['favoriteShopCounts'] = ShopComment::where('shop_id',$id)->count();
         // 平均星级
-        $shop['favoriteShopStarSvg'] = ShopComment::where('shop_id',$id)->avg('star') ;
+        $shop['favoriteShopStarSvg'] = number_format(ShopComment::where('shop_id',$id)->avg('star'),1) ;
 //        if ($user->favoriteShops()->find($id)) {
 //            UserFavoriteShop::where('id',$id)->update(['created_at'=>date('Y:m:d H:i:s')]);
 //        }else {
