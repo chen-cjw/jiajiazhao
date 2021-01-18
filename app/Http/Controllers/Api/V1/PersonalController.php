@@ -146,8 +146,9 @@ class PersonalController extends Controller
     public function refUser()
     {
         $user = User::where('parent_id',auth('api')->id())->paginate();
-//        $user['ref_user_count']=User::where('parent_id',auth('api')->id())->count();
-        return $this->responseStyle('ok',200,[$user,['ref_user_count'=>User::where('parent_id',auth('api')->id())->count()]]);
+        $user['ref_user_count']=User::where('parent_id',auth('api')->id())->count();
+
+        return $this->responseStyle('ok',200,$user);
     }
     // 我的收藏(商品) todo 暂未开放
     public function favorite($id)
