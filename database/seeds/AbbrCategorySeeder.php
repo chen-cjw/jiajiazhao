@@ -20,6 +20,8 @@ class AbbrCategorySeeder extends Seeder
             'sort'=>'1',
             'logo'=>'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F21%2F20200321022745_H4EYd.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612854885&t=ac6503c120691baed4a1d3f3ce337363',
             'parent_id'=>null,
+            'image'=>'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1592300431,450815993&fm=26&gp=0.jpg'
+
         ]);
         \App\Model\AbbrCategory::create([
             'abbr'=>'冰箱维修',
@@ -53,7 +55,9 @@ class AbbrCategorySeeder extends Seeder
              'logo'=>'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F21%2F20200321022745_H4EYd.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612854885&t=ac6503c120691baed4a1d3f3ce337363',
 
              'parent_id'=>null,
-        ]);
+             'image'=>'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1592300431,450815993&fm=26&gp=0.jpg'
+
+         ]);
 
         \App\Model\AbbrCategory::create([
             'abbr'=>'家政服务1',
@@ -87,6 +91,8 @@ class AbbrCategorySeeder extends Seeder
             'logo'=>'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F21%2F20200321022745_H4EYd.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612854885&t=ac6503c120691baed4a1d3f3ce337363',
 
             'parent_id'=>null,
+            'image'=>'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1592300431,450815993&fm=26&gp=0.jpg'
+
 
         ]);
 
@@ -124,6 +130,8 @@ class AbbrCategorySeeder extends Seeder
             'logo'=>'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F21%2F20200321022745_H4EYd.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612854885&t=ac6503c120691baed4a1d3f3ce337363',
 
             'parent_id'=>null,
+            'image'=>'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1592300431,450815993&fm=26&gp=0.jpg'
+
         ]);
         \App\Model\AbbrCategory::create([
             'abbr'=>'搬家拉货1',
@@ -158,6 +166,8 @@ class AbbrCategorySeeder extends Seeder
             'logo'=>'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F21%2F20200321022745_H4EYd.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612854885&t=ac6503c120691baed4a1d3f3ce337363',
 
             'parent_id'=>null,
+            'image'=>'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1592300431,450815993&fm=26&gp=0.jpg'
+
         ]);
         \App\Model\AbbrCategory::create([
             'abbr'=>'家电清洗1',
@@ -193,6 +203,8 @@ class AbbrCategorySeeder extends Seeder
             'logo'=>'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F21%2F20200321022745_H4EYd.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612854885&t=ac6503c120691baed4a1d3f3ce337363',
 
             'parent_id'=>null,
+            'image'=>'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1592300431,450815993&fm=26&gp=0.jpg'
+
         ]);
 
         \App\Model\AbbrCategory::create([
@@ -228,6 +240,8 @@ class AbbrCategorySeeder extends Seeder
             'logo'=>'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F21%2F20200321022745_H4EYd.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612854885&t=ac6503c120691baed4a1d3f3ce337363',
 
             'parent_id'=>null,
+            'image'=>'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1592300431,450815993&fm=26&gp=0.jpg'
+
         ]);
         \App\Model\AbbrCategory::create([
             'abbr'=>'服装1',
@@ -262,6 +276,8 @@ class AbbrCategorySeeder extends Seeder
             'logo'=>'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F21%2F20200321022745_H4EYd.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612854885&t=ac6503c120691baed4a1d3f3ce337363',
 
             'parent_id'=>null,
+            'image'=>'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1592300431,450815993&fm=26&gp=0.jpg'
+
 
         ]);
         \App\Model\AbbrCategory::create([
@@ -297,6 +313,8 @@ class AbbrCategorySeeder extends Seeder
             'logo'=>'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F21%2F20200321022745_H4EYd.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612854885&t=ac6503c120691baed4a1d3f3ce337363',
 
             'parent_id'=>null,
+            'image'=>'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1592300431,450815993&fm=26&gp=0.jpg'
+
         ]);
         \App\Model\AbbrCategory::create([
             'abbr'=>'开锁配钥1',
@@ -332,6 +350,8 @@ class AbbrCategorySeeder extends Seeder
             'logo'=>'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F21%2F20200321022745_H4EYd.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612854885&t=ac6503c120691baed4a1d3f3ce337363',
 
             'parent_id'=>null,
+            'image'=>'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1592300431,450815993&fm=26&gp=0.jpg'
+
         ]);
         \App\Model\AbbrCategory::create([
             'abbr'=>'开锁配钥1',
@@ -365,6 +385,8 @@ class AbbrCategorySeeder extends Seeder
             'sort'=>'1',
             'logo'=>'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F21%2F20200321022745_H4EYd.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612854885&t=ac6503c120691baed4a1d3f3ce337363',
             'parent_id'=>null,
+            'image'=>'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1592300431,450815993&fm=26&gp=0.jpg'
+
         ]);
         \App\Model\AbbrCategory::create([
             'abbr'=>'开锁配钥1',
@@ -398,6 +420,8 @@ class AbbrCategorySeeder extends Seeder
             'sort'=>'12',
             'logo'=>'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F21%2F20200321022745_H4EYd.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612854885&t=ac6503c120691baed4a1d3f3ce337363',
             'parent_id'=>null,
+            'image'=>'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1592300431,450815993&fm=26&gp=0.jpg'
+
         ]);
         \App\Model\AbbrCategory::create([
             'abbr'=>'开锁配钥1',
