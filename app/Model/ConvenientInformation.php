@@ -13,6 +13,15 @@ class ConvenientInformation extends Model
         'card_fee','top_fee','paid_at','payment_method','payment_no','sort'
     ];
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class,'information_id','id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function getUserIdAttribute()
     {
         return User::find( $this->attributes['user_id']);

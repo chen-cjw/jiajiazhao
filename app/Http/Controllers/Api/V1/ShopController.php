@@ -78,7 +78,6 @@ class ShopController extends Controller
             $range = $this->getDistance($lat,$lng,$lat1,$lng1);
             $query[$item]->range=$range;
         }
-        return $query;
 
         $shop['data'] = $query;
         return $this->responseStyle('ok',200,$shop);
