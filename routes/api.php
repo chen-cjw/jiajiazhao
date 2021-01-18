@@ -29,7 +29,7 @@ $api->version('v1', [
     $api->post('test','AuthController@createTestUser')->name('api.auth.createTestUser');
 //    $api->group(['middleware' => ['wechat.oauth']], function ($api) {
         // 获取openid
-        $api->post('/auth/ml_openid_store', 'AuthController@mlOpenidStore')->name('api.auth.mlOpenidStore');
+        $api->any('/auth/ml_openid_store', 'AuthController@mlOpenidStore')->name('api.auth.mlOpenidStore');
 //    });
     // 获取手机号
     $api->post('/auth/phone_store','AuthController@phoneStore')->name('api.auth.phone_store');
