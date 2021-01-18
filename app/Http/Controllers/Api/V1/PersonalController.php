@@ -135,8 +135,11 @@ class PersonalController extends Controller
 
     public function userWithdrawalIndex()
     {
-        $user = auth('api')->user();
-        $res = $user->withdrawals()->paginate();
+        $query = auth('api')->user()->withdrawals();
+        if($is_accept = \request('is_accept')) {
+            $query = $query->where('is_accept',$is_accept);
+        }
+        $res = $query->paginate();
         return $this->responseStyle('ok',200,$res);
     }
     // 我的收藏(商品) todo 暂未开放
