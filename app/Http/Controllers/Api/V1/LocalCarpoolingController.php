@@ -21,8 +21,20 @@ class LocalCarpoolingController extends Controller
     // 本地拼车 todo 只有支付了才可以显示出来
     public function index()
     {
-        $local= LocalCarpooling::where('paid_at','!=',null)->orderBy('created_at','desc')->paginate();
-        return $this->responseStyle('ok',200,$local);
+        $query = LocalCarpooling::orderBy('created_at','desc');
+        if($type = request('type')) {
+            $query = $query->where('type',$type);
+        }
+        if($go = request('go')) {
+            $query = $query->where('go',$go);
+
+        }
+        if($end = request('end')) {
+            $query = $query->where('end',$end);
+
+        }
+        $query = $query->paginate();// todo where('paid_at','!=',null)->
+        return $this->responseStyle('ok',200,$query);
         return $this->response->paginator($local,new LocalCarpoolingTransformer());
     }
 

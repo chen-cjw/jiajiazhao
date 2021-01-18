@@ -15,28 +15,10 @@ class DialingController extends Controller
     public function index()
     {
         if(request('type')=='shop') {
-            $res = auth('api')->user()->dialing()->orderBy('created_at','desc')->paginate();
-//            foreach ($res as $k=>$v) {
-//                $shop = Shop::where('id',$v->model_id)->first();
-////                return $shop->id;
-//                $res[$k]->shop=$shop;
-//                // 几公里
-//                $lat = \request('lat');
-//                $lng = \request('lng');
-//                if ($lat&&$lng) {
-//                    $range = $this->getDistance($lat,$lng,$lat1=$shop->lat,$lng1=$shop->lng);
-//                }else {
-//                    $range = '未知';
-//                }
-//                $res[$k]->range=$range;
-//                // 平均星级
-//                $shopId = $shop->id;
-//                $res[$k]->favoriteShopStarSvg = number_format(ShopComment::where('shop_id',$shopId)->avg('star'),1);
-//            }// ShopComment::where('shop_id',$shopId)->avg('star'),1
-
+            $res = auth('api')->user()->dialing()->where('model_type',Shop::class)->orderBy('created_at','desc')->paginate();
         }
         if(request('type')=='local') {
-            $res = auth('api')->user()->dialing()->orderBy('created_at','desc')->paginate();
+            $res = auth('api')->user()->dialing()->where('model_type',LocalCarpooling::class)->orderBy('created_at','desc')->paginate();
         }
         return $this->responseStyle('ok',200,$res);
     }
