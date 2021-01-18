@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\ShopRequest;
+use App\Model\AbbrCategory;
 use App\Model\Setting;
 use App\Model\Shop;
 use App\Model\ShopComment;
@@ -83,6 +84,7 @@ class ShopController extends Controller
         }
 
         $shop['data'] = $query;
+        $shop['image'] = AbbrCategory::where('id',$one_abbr)->value('image');
         return $this->responseStyle('ok',200,$shop);
     }
 
