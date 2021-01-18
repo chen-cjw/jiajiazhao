@@ -147,7 +147,7 @@ class PersonalController extends Controller
     {
         $user = User::where('parent_id',auth('api')->id())->paginate();
 //        $user['ref_user_count']=User::where('parent_id',auth('api')->id())->count();
-        return $this->responseStyle('ok',200,[$user,User::where('parent_id',auth('api')->id())->count()]);
+        return $this->responseStyle('ok',200,[$user,'ref_user_count'=>User::where('parent_id',auth('api')->id())->count()]);
     }
     // 我的收藏(商品) todo 暂未开放
     public function favorite($id)
