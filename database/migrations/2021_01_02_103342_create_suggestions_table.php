@@ -20,6 +20,7 @@ class CreateSuggestionsTable extends Migration
             $table->unsignedBigInteger('user_id')->comment('申请人');
             $table->foreign('user_id')->references('id')->on('users');
             $table->boolean('is_accept')->default(0)->comment('是否采纳');
+            $table->unsignedBigInteger('localCarpooling_id')->default(null)->comment('有这个id，就是举报帖子，没有就是个人中心的举报');
             $table->timestamps();
         });
     }

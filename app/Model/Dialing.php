@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Dialing extends Model
 {
     protected $fillable = ['phone','model_type','model_id','user_id'];
+
 }

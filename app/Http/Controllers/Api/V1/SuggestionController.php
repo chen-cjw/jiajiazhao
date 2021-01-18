@@ -13,12 +13,13 @@ class SuggestionController extends Controller
     {
         return $this->responseStyle('ok',200,auth('api')->user()->suggestions()->paginate());
     }
-
+    //  有id 就是举报的帖子，没有就是个人中心的举报
     public function store(SuggestionRequest $request)
     {
         $res = Suggestions::create([
             'content'=>$request->input('content'),
-            'user_id'=>auth('api')->id()
+            'user_id'=>auth('api')->id(),
+            'localCarpooling_id'=>$request->id
         ]);
         return $this->responseStyle('ok',200,$res);
     }

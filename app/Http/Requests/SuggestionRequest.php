@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 
+use App\Model\LocalCarpooling;
+
 class SuggestionRequest extends FormRequest
 {
     /**
@@ -13,7 +15,15 @@ class SuggestionRequest extends FormRequest
     public function rules()
     {
         return [
-            'content'=>'required'
+            'content'=>'required',
+            'id'=>[
+                function ($attribute, $value, $fail) {
+                    if (!LocalCarpooling::where('id',$value)->first()) {
+                        return $fail('举报不明确！');
+                    }
+
+                },
+            ]
         ];
     }
 }

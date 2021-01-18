@@ -18,7 +18,7 @@ class CreateWithdrawalsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedDecimal('amount',10,2)->comment('提现金额');
-            $table->boolean('is_accept')->default(0)->comment('提现是否通过审核');
+            $table->enum('is_accept',[0,1,2])->default(0)->comment('提现是否通过审核');
             $table->timestamps();
         });
     }
