@@ -63,11 +63,11 @@ class ShopController extends Controller
         }
         // 人气
         if ($view) {
-            $sql = $sql." order by view desc";
+            $sql = $sql." order by view ".$view;
         }
         // 评论
         if ($comment_count) {
-            $sql = $sql." order by comment_count desc";
+            $sql = $sql." order by comment_count ".$comment_count;
         }
 
         $limit = $sql." LIMIT ".$start.",".$limit;
