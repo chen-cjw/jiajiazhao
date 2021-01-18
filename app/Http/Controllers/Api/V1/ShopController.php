@@ -76,7 +76,10 @@ class ShopController extends Controller
             $lat1 = $value->lat;
             $lng1 = $value->lng;
             $range = $this->getDistance($lat,$lng,$lat1,$lng1);
+            // 几公里
             $query[$item]->range=$range;
+            // 平均星级
+            $query[$item]->favoriteShopStarSvg=number_format(ShopComment::where('shop_id',$value->id)->avg('star'),1) ;
         }
 
         $shop['data'] = $query;
