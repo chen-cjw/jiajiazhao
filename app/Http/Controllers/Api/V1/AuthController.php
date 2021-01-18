@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\AuthMlOpenidStoreRequest;
 use App\Http\Requests\AuthPhoneStoreRequest;
 use App\Http\Requests\AuthUserInfoRequest;
+use App\Model\Withdrawal;
 use App\Transformers\UserTransformer;
 use App\User;
 use Illuminate\Support\Facades\Cache;
@@ -150,8 +151,8 @@ class AuthController extends Controller
     public function meShow()
     {
         $res = auth('api')->user();
+        $res['with_balance']=Withdrawal::where('user_id',$res->id)->sum('amount');
         return $this->responseStyle('ok',200,$res);
-        return $this->response->item($this->user(),new UserTransformer());
     }
     protected function oauthNo()
     {

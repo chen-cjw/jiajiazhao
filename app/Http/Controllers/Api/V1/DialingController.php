@@ -14,7 +14,7 @@ class DialingController extends Controller
     public function index()
     {
         if(request('type')=='shop') {
-            $res = auth('api')->user()->dialing()->orderBy('created_at','desc')->paginate();
+            $res = auth('api')->user()->dialing()->with('shops')->orderBy('created_at','desc')->paginate();
         }
         if(request('type')=='local') {
             $res = auth('api')->user()->dialing()->orderBy('created_at','desc')->paginate();
