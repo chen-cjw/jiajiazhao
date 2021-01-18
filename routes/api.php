@@ -75,6 +75,9 @@ $api->version('v1', [
         $api->get('/driver_certification', 'DriverCertificationController@index')->name('api.driver_certification.index'); // 查看认证
         $api->post('/driver_certification', 'DriverCertificationController@store')->name('api.driver_certification.store'); // 认证
 
+        // 发帖提示
+        $api->get('/post_tip', 'PostTipController@index')->name('api.post_tip.index'); // 认证
+
 
         $api->get('/convenient_information', 'ConvenientInformationController@index')->name('api.convenient_information.index'); // 认证
         $api->post('/convenient_information', 'ConvenientInformationController@store')->name('api.convenient_information.store'); // 认证
