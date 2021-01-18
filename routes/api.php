@@ -99,6 +99,8 @@ $api->version('v1', [
         $api->post('/user_favorite_card/{id}', 'PersonalController@userFavoriteCard')->name('api.personal.userFavoriteCard'); // 收藏帖子
         $api->post('/card_del', 'PersonalController@cardDel')->name('api.personal.cardDel'); // 删除收藏帖子
 
+        // 我邀请的用户 refUser
+        $api->get('/ref_user', 'PersonalController@refUser')->name('api.personal.refUser'); // 删除收藏
 
 
         // 我发布本地拼车-管理(删除) localCarpoolIndex

@@ -142,6 +142,12 @@ class PersonalController extends Controller
         $res = $query->paginate();
         return $this->responseStyle('ok',200,$res);
     }
+    // 我邀请的人
+    public function refUser()
+    {
+        $user = User::where('parent_id',auth('api')->id())->paginate();
+        return $this->responseStyle('ok',200,$user);
+    }
     // 我的收藏(商品) todo 暂未开放
     public function favorite($id)
     {

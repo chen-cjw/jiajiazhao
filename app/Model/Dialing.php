@@ -10,7 +10,7 @@ class Dialing extends Model
 
     public function shops()
     {
-        return $this->morphTo(Shop::class);
+        return $this->morphTo(Shop::class,'model_type','model_id');
     }
 
 }
