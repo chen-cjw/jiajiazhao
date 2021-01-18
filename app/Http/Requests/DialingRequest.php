@@ -14,7 +14,9 @@ class DialingRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone'=>'required'
+            'phone'=>'required',
+            'type'=>['required','in:type,shop,local'],
+            'id'=>['required']
         ];
     }
 }

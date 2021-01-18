@@ -147,8 +147,10 @@ class AuthController extends Controller
         return $this->respondWithToken($token, $user->ml_openid,$user);
     }
 
-    public function show()
+    public function meShow()
     {
+        $res = auth('api')->user();
+        return $this->responseStyle('ok',200,$res);
         return $this->response->item($this->user(),new UserTransformer());
     }
     protected function oauthNo()
