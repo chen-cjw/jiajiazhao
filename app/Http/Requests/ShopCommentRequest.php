@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Model\Shop;
+
 class ShopCommentRequest extends FormRequest
 {
 
@@ -14,7 +16,14 @@ class ShopCommentRequest extends FormRequest
     {
         return [
             'content'=>'required',
-            'star'=>'required'
+            'star'=>['required','in:star,1,2,3,4,5'],
+            'shop_id'=>['required',
+                function ($attribute, $value, $fail) {
+                    if (!Shop::where('id',$value)->first()) {
+                        return $fail('分类有问题！');
+                    }
+                },
+            ]
         ];
     }
 }
