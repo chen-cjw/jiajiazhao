@@ -32,4 +32,5 @@ class Shop extends Model
     {
         return bcadd($this->attributes['amount'],$this->attributes['top_amount'],2);
     }
+
 }
