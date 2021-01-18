@@ -76,12 +76,21 @@ class ConvenientInformationController extends Controller
             }
         }
         $data['no'] = ConvenientInformation::findAvailableNo();
-        $data['card_fee'] = Setting::where('key','information_card_fee')->value('value');
-        $data['top_fee'] = Setting::where('key','information_top_fee')->value('value');
-        if (bccomp(bcadd($data['card_fee'],$data['top_fee'],2),0,2)!=1) {
-            $data['paid_at'] = Carbon::now(); // 更新支付时间为当前时间
-            $data['payment_no'] = ''; // 支付平台订单号
+        if($request->card_fee==1) {
+            $data['card_fee'] = Setting::where('key','information_card_fee')->value('value');
+        }else {
+            $data['card_fee'] = 0;
         }
+
+        if ( $request->top_fee == 1) {
+            $data['top_fee'] = Setting::where('key','information_top_fee')->value('value');
+        }else {
+            $data['top_fee'] = 0;
+        }
+//        if (bccomp(bcadd($data['card_fee'],$data['top_fee'],2),0,2)!=1) {
+//            $data['paid_at'] = Carbon::now(); // 更新支付时间为当前时间
+//            $data['payment_no'] = ''; // 支付平台订单号
+//        }
         $res = ConvenientInformation::create($data);
         return $this->responseStyle('ok',200,$res);
     }
