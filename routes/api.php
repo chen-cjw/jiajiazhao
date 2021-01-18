@@ -125,6 +125,9 @@ $api->version('v1', [
         $api->get('/suggestion', 'SuggestionController@index')->name('api.suggestion.index');
         $api->post('/suggestion', 'SuggestionController@store')->name('api.suggestion.store');
 
+        // ShopCommentController
+        $api->post('/shop/{id}/shop_comment', 'ShopCommentController@store')->name('api.shop_comment.store'); // 入住
+
         $api->group(['middleware' => ['phone.verify']], function ($api) {
 
             // 操作之前要获取手机号

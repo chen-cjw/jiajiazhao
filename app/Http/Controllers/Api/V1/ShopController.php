@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\ShopRequest;
 use App\Model\Setting;
 use App\Model\Shop;
+use App\Model\ShopComment;
 use App\Model\UserFavoriteShop;
 use App\Transformers\ShopTransformer;
 use App\User;
@@ -157,7 +158,7 @@ class ShopController extends Controller
     public function show($id)
     {
         Shop::where('id',$id)->increment('view');
-        $shop = Shop::findOrFail($id);
+        $shop = Shop::with('shopComments','shopComments.user')->findOrFail($id);
 
         $user = auth('api')->user();
         if($user->favoriteShops()->where('shop_id',$shop->id)->first()) {
@@ -165,11 +166,21 @@ class ShopController extends Controller
         }else {
             $shop['favoriteShops'] = 0;
         }
+        if($lat = \request('lat') && $lng = \request('lng')) {
+            $shop['range'] = $this->getDistance($lat,$lng,$shop->lat,$shop->lng);
+        }else {
+            $shop['range']="未知";
+        }
+        // 收藏数
+        $shop['favoriteShopCounts'] = ShopComment::where('shop_id',$id)->count();
+        // 平均星级
+        $shop['favoriteShopStarSvg'] = ShopComment::where('shop_id',$id)->avg('star') ;
 //        if ($user->favoriteShops()->find($id)) {
 //            UserFavoriteShop::where('id',$id)->update(['created_at'=>date('Y:m:d H:i:s')]);
 //        }else {
 //            $user->favoriteShops()->attach(Shop::find($id));
 //        }
+
         return $this->responseStyle('ok',200,$shop);
     }
 
