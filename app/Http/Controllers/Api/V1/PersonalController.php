@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\WithdrawalRequest;
+use App\Model\BannerPerson;
 use App\Model\ConvenientInformation;
 use App\Model\LocalCarpooling;
 use App\Model\Shop;
@@ -150,6 +151,13 @@ class PersonalController extends Controller
 
         return $this->responseStyle('ok',200,$user);
     }
+
+    public function banner()
+    {
+        $res = BannerPerson::where('is_display',1)->orderBy('sort','desc')->get();
+        return $this->responseStyle('ok',200,$res);
+    }
+
     // 我的收藏(商品) todo 暂未开放
     public function favorite($id)
     {

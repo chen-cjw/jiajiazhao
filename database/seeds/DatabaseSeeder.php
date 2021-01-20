@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder
 //        $this->call(AbbrTwoCategorySeeder::class);
 //        $this->call(UserFavoriteCardSeeder::class);
 //        $this->call(UserFavoriteShopSeeder::class);
-        $this->call(PostTipSeeder::class);
+//        $this->call(PostTipSeeder::class);
+        $this->call(BannerInformationShowSeeder::class);
+        $this->call(BannerPersonSeeder::class);
     }
 }

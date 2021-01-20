@@ -47,6 +47,11 @@ $api->version('v1', [
     $api->get('/notice','NoticeController@index')->name('api.auth.index');
     $api->get('/notice/{id}','NoticeController@show')->name('api.auth.show');
 
+    // 帖子详情下轮播图
+    $api->get('/banner_information_show','BannerInformationShowController@index')->name('api.banner_information_show.index');
+    // 个人中心轮播图
+    $api->get('/personal/banner','PersonalController@banner')->name('api.personal.banner');
+
 
     // 本地拼车
     $api->get('/local_carpooling','LocalCarpoolingController@index')->name('api.local_carpooling.index');
