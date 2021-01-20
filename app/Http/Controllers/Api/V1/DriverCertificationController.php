@@ -51,15 +51,15 @@ class DriverCertificationController extends Controller
     // 认证修改
     public function update($id)
     {
-        $idCardFile = $this->upload_img($_FILES['id_card']); // 图片上传
-        $driverFile = $this->upload_img($_FILES['driver']);
-        $actionFile = $this->upload_img($_FILES['action']);
-        $carFile = $this->upload_img($_FILES['car']);
+//        $idCardFile = $this->upload_img($_FILES['id_card']); // 图片上传
+//        $driverFile = $this->upload_img($_FILES['driver']);
+//        $actionFile = $this->upload_img($_FILES['action']);
+//        $carFile = $this->upload_img($_FILES['car']);
         $res = DriverCertification::where('id',$id)->where('user_id',auth('api')->id())->update([
-            'id_card' => $idCardFile,
-            'driver' => $driverFile,
-            'action' => $actionFile,
-            'car' => $carFile,
+            'id_card' => request()->id_card,
+            'driver' => request()->driver,
+            'action' => request()->action,
+            'car' => request()->car,
         ]);
         return $this->responseStyle('ok',200,$res);
     }
