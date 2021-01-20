@@ -15,7 +15,7 @@ class CreateBannerInformationShowsTable extends Migration
     {
         Schema::create('banner_information_shows', function (Blueprint $table) {
             $table->id();
-            $table->text('content')->comment('介绍');
+            $table->text('content')->nullable()->comment('介绍');
             $table->string('image')->comment('图片');
             $table->text('link')->nullable()->comment('跳转的链接');
             $table->boolean('is_display')->default(1)->comment('是否显示');
