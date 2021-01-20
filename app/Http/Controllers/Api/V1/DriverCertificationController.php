@@ -23,17 +23,13 @@ class DriverCertificationController extends Controller
         DB::beginTransaction();
 
         try {
-            $idCardFile = $this->upload_img($_FILES['id_card']); // 图片上传
-            $driverFile = $this->upload_img($_FILES['driver']);
-            $actionFile = $this->upload_img($_FILES['action']);
-            $carFile = $this->upload_img($_FILES['car']);
-            $res = DriverCertification::create([
-                'id_card' => $idCardFile,
-                'driver' => $driverFile,
-                'action' => $actionFile,
-                'car' => $carFile,
-                'user_id' => auth('api')->id()
-            ]);
+//            $idCardFile = $this->upload_img($_FILES['id_card']); // 图片上传
+//            $driverFile = $this->upload_img($_FILES['driver']);
+//            $actionFile = $this->upload_img($_FILES['action']);
+//            $carFile = $this->upload_img($_FILES['car']);
+            $data = $certification->only(['id_card','driver','action','car']);
+            $data['user_id'] = auth('api')->id();
+            $res = DriverCertification::create($data);
             //
             auth('api')->user()->update([
                 'is_certification' => true

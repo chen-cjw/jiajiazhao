@@ -59,9 +59,12 @@
   "Platform licensing":"平台使用费",
   "Due date":"过期时间",
   "Payment method":"支付方式",
-  "Closed":"过期",
-  "Closed":"过期",
-  "Closed":"过期",
+  "One abbr0":"一级分类",
+  "One abbr1":"一级分类",
+  "One abbr2":"一级分类",
+  "Two abbr0":"二级分类",
+  "Two abbr1":"二级分类",
+  "Two abbr2":"二级分类",
   "Closed":"过期",
   "Abbr":"分类名"
 }

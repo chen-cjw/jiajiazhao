@@ -30,7 +30,7 @@ class SettlementAgreementController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('introduction', __('Introduction'))->display(function ($content) {
             return Str::limit($content, 50, '....');
-        });;
+        });
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 

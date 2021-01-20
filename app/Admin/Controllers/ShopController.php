@@ -2,11 +2,14 @@
 
 namespace App\Admin\Controllers;
 
+use App\Model\AbbrCategory;
 use App\Model\Shop;
+use App\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\Str;
 
 class ShopController extends AdminController
 {
@@ -15,7 +18,7 @@ class ShopController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\Shop';
+    protected $title = '商铺';
 
     /**
      * Make a grid builder.
@@ -25,42 +28,56 @@ class ShopController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Shop());
+        $grid->model()->orderBy('id','desc');
 
         $grid->column('id', __('Id'));
-        $grid->column('one_abbr0', __('One abbr0'));
-        $grid->column('one_abbr1', __('One abbr1'));
-        $grid->column('one_abbr2', __('One abbr2'));
-        $grid->column('two_abbr0', __('Two abbr0'));
-        $grid->column('two_abbr1', __('Two abbr1'));
-        $grid->column('two_abbr2', __('Two abbr2'));
+        $grid->column('user_id', __('User id'))->display(function ($userId) {
+            return User::where('id',$userId)->value('nickname');
+        });
+        $grid->column('two_abbr0', __('行业'))->display(function () {
+            $query = AbbrCategory::where('id',$this->two_abbr0)->value('abbr');
+            if($this->two_abbr1) {
+                $query = $query.'/'.AbbrCategory::where('id',$this->two_abbr1)->value('abbr');
+            }
+            if ($this->two_abbr2) {
+                $query = $query.'/'.AbbrCategory::where('id',$this->two_abbr2)->value('abbr');
+            }
+            return $query;
+        });
+//        $grid->column('two_abbr1', __('Two abbr1'));
+//        $grid->column('two_abbr2', __('Two abbr2'));
         $grid->column('name', __('店铺名'));
 //        $grid->column('lng', __('Lng'));
 //        $grid->column('lat', __('Lat'));
         $grid->column('area', __('Area'));
-        $grid->column('detailed_address', __('Detailed address'));
+//        $grid->column('detailed_address', __('Detailed address'));
         $grid->column('contact_phone', __('Contact phone'));
-        $grid->column('wechat', __('Wechat'));
+//        $grid->column('wechat', __('Wechat'));
 //        $grid->column('logo', __('Logo'));
-        $grid->column('service_price', __('Service price'));
-        $grid->column('merchant_introduction', __('Merchant introduction'));
+        $grid->column('service_price', __('Service price'))->image('',25,25);
+        $grid->column('merchant_introduction', __('Merchant introduction'))->display(function ($content) {
+            return Str::limit($content, 50, '....');
+        });
         $grid->column('sort', __('Sort'));
         $grid->column('view', __('View'));
-        $grid->column('is_top', __('Is top'));
-        $grid->column('is_accept', __('Is accept'));
-        $grid->column('type', __('Type'));
+        $grid->column('is_top', __('Is top'))->using([1 => '是', 0 => '否']);
+        $grid->column('is_accept', __('Is accept'))->using([1 => '是', 0 => '否']);
+        $grid->column('type', __('Type'))->display(function ($type) {
+            return $type == 'one' ? '第一部分':'第二部分';
+        });
         $grid->column('comment_count', __('Comment count'));
         $grid->column('good_comment_count', __('Good comment count'));
-        $grid->column('user_id', __('User id'));
+
         $grid->column('no', __('No'));
         $grid->column('amount', __('Amount'));
         $grid->column('top_amount', __('Top amount'));
         $grid->column('platform_licensing', __('Platform licensing'));
         $grid->column('paid_at', __('Paid at'));
-        $grid->column('payment_method', __('Payment method'));
+//        $grid->column('payment_method', __('Payment method'));
         $grid->column('payment_no', __('Payment no'));
         $grid->column('due_date', __('Due date'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+//        $grid->column('created_at', __('Created at'));
+//        $grid->column('updated_at', __('Updated at'));
 
         return $grid;
     }
@@ -89,7 +106,7 @@ class ShopController extends AdminController
         $show->field('detailed_address', __('Detailed address'));
         $show->field('contact_phone', __('Contact phone'));
         $show->field('wechat', __('Wechat'));
-        $show->field('logo', __('Logo'));
+//        $show->field('logo', __('Logo'));
         $show->field('service_price', __('Service price'));
         $show->field('merchant_introduction', __('Merchant introduction'));
         $show->field('sort', __('Sort'));
