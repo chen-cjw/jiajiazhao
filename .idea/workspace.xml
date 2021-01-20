@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/BannerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/BannerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/CardCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/CardCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/CarpoolingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/CarpoolingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/DriverCertificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/DriverCertificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/LocalCarpoolingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/LocalCarpoolingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/NoticeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/NoticeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/SettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/SettingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/SettlementAgreementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/SettlementAgreementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/ShopController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/SuggestionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/SuggestionsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/DriverCertificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/DriverCertificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/AbbrCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/AbbrCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/AdvertisingSpace.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/BrowseCard.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/zh-CN.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-CN.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -111,8 +92,8 @@
       <file leaf-file-name="DriverCertificationController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/DriverCertificationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="45" column="46" lean-forward="true" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+            <state relative-caret-position="180">
+              <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -203,7 +184,6 @@
         <option value="$PROJECT_DIR$/app/Admin/Controllers/CardCategoryController.php" />
         <option value="$PROJECT_DIR$/app/Model/BrowseCard.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/CarpoolingController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/DriverCertificationController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/DriverCertificationController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/SettlementAgreementController.php" />
@@ -213,6 +193,7 @@
         <option value="$PROJECT_DIR$/app/Admin/Controllers/SettingController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/ShopController.php" />
         <option value="$PROJECT_DIR$/resources/lang/zh-CN.json" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/DriverCertificationController.php" />
       </list>
     </option>
   </component>
@@ -502,12 +483,12 @@
       <workItem from="1609067027348" duration="69522000" />
       <workItem from="1609679025110" duration="62612000" />
       <workItem from="1610168842854" duration="48302000" />
-      <workItem from="1610620421674" duration="67255000" />
+      <workItem from="1610620421674" duration="67469000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="264643000" />
+    <option name="totallyTimeSpent" value="264857000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -909,8 +890,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/DriverCertificationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="45" column="46" lean-forward="true" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+        <state relative-caret-position="180">
+          <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
         </state>
       </provider>
     </entry>
