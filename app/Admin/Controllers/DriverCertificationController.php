@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Model\DriverCertification;
+use App\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -15,7 +16,7 @@ class DriverCertificationController extends AdminController
      * 司机身份认证
      * @var string
      */
-    protected $title = 'App\Model\DriverCertification';
+    protected $title = '司机身份认证';
 
     /**
      * Make a grid builder.
@@ -27,12 +28,15 @@ class DriverCertificationController extends AdminController
         $grid = new Grid(new DriverCertification());
 
         $grid->column('id', __('Id'));
-        $grid->column('id_card', __('Id card'));
-        $grid->column('driver', __('Driver'));
-        $grid->column('action', __('Action'));
-        $grid->column('car', __('Car'));
-        $grid->column('is_display', __('Is display'));
-        $grid->column('user_id', __('User id'));
+        $grid->column('user_id', __('User id'))->display(function ($userId){
+            return User::where('id',$userId)->value('nickname');
+        });
+        $grid->column('id_card', __('Id card'))->image('',25,25);
+        $grid->column('driver', __('Driver'))->image('',25,25);
+        $grid->column('action', __('Action'))->image('',25,25);
+        $grid->column('car', __('Car'))->image('',25,25);
+        $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
+
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 

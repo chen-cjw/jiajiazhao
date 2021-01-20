@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model as BaseModel;
+use Illuminate\Support\Str;
 
 class Model extends BaseModel
 {

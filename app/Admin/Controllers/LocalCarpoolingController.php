@@ -25,30 +25,35 @@ class LocalCarpoolingController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new LocalCarpooling());
+        $grid->model()->orderBy('id','desc');
 
         $grid->column('id', __('Id'));
         $grid->column('phone', __('Phone'));
         $grid->column('name_car', __('Name car'));
         $grid->column('capacity', __('Capacity'));
-        $grid->column('go', __('Go'));
-        $grid->column('end', __('End'));
+        $grid->column('go', __('Go').'-'. __('End'))->display(function ($go){
+           return $go.'-'. $this->end;
+        });
+//        $grid->column('end', __('End'));
         $grid->column('departure_time', __('Departure time'));
         $grid->column('seat', __('Seat'));
         $grid->column('other_need', __('Other need'));
-        $grid->column('is_go', __('Is go'));
-        $grid->column('type', __('Type'));
-        $grid->column('lng', __('Lng'));
-        $grid->column('lat', __('Lat'));
+        $grid->column('is_go', __('Is go'))->using([1 => '是', 0 => '否']);
+        $grid->column('type', __('Type'))->display(function ($type) {
+            return LocalCarpooling::$type[$type];
+        });
+//        $grid->column('lng', __('Lng'));
+//        $grid->column('lat', __('Lat'));
         $grid->column('area', __('Area'));
         $grid->column('no', __('No'));
         $grid->column('amount', __('Amount'));
-        $grid->column('paid_at', __('Paid at'));
-        $grid->column('payment_method', __('Payment method'));
+        $grid->column('paid_at', __('Paid at'))->sortable();
+//        $grid->column('payment_method', __('Payment method'));
         $grid->column('payment_no', __('Payment no'));
-        $grid->column('closed', __('Closed'));
-        $grid->column('user_id', __('User id'));
+        $grid->column('closed', __('Closed'))->using([1 => '是', 0 => '否']);
+//        $grid->column('user_id', __('User id'));
         $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+//        $grid->column('updated_at', __('Updated at'));
 
         return $grid;
     }

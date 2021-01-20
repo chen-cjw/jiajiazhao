@@ -2,20 +2,23 @@
 
 namespace App\Admin\Controllers;
 
+use App\Model\CardCategory;
 use App\Model\ConvenientInformation;
+use App\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\Str;
 
 class ConvenientInformationController extends AdminController
 {
     /**
      * Title for current resource.
-     * 便民信息
+     *
      * @var string
      */
-    protected $title = 'App\Model\ConvenientInformation';
+    protected $title = '便民信息';
 
     /**
      * Make a grid builder.
@@ -27,26 +30,34 @@ class ConvenientInformationController extends AdminController
         $grid = new Grid(new ConvenientInformation());
 
         $grid->column('id', __('Id'));
+        $grid->column('user_id', __('User id'))->display(function ($userId){
+            return User::where('id',$userId)->value('nickname');
+        });
+        $grid->column('card_id', __('Card id'))->display(function ($cardId){
+            return CardCategory::where('id',$cardId)->value('name');
+        });
+
         $grid->column('title', __('Title'));
-        $grid->column('content', __('Content'));
+        $grid->column('content', __('Content'))->display(function ($content) {
+            return Str::limit($content, 50, '....');
+        });
         $grid->column('location', __('Location'));
-        $grid->column('lng', __('Lng'));
-        $grid->column('lat', __('Lat'));
+//        $grid->column('lng', __('Lng'));
+//        $grid->column('lat', __('Lat'));
         $grid->column('view', __('View'));
-        $grid->column('card_id', __('Card id'));
-        $grid->column('user_id', __('User id'));
+
         $grid->column('no', __('No'));
         $grid->column('card_fee', __('Card fee'));
         $grid->column('top_fee', __('Top fee'));
         $grid->column('paid_at', __('Paid at'));
-        $grid->column('payment_method', __('Payment method'));
+//        $grid->column('payment_method', __('Payment method'));
         $grid->column('payment_no', __('Payment no'));
         $grid->column('sort', __('Sort'));
-        $grid->column('is_display', __('Is display'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
         $grid->column('comment_count', __('Comment count'));
-        $grid->column('is_top', __('Is top'));
+//        $grid->column('is_top', __('Is top'));
+        $grid->column('created_at', __('Created at'));
+//        $grid->column('updated_at', __('Updated at'));
 
         return $grid;
     }
@@ -78,10 +89,10 @@ class ConvenientInformationController extends AdminController
         $show->field('payment_no', __('Payment no'));
         $show->field('sort', __('Sort'));
         $show->field('is_display', __('Is display'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
         $show->field('comment_count', __('Comment count'));
         $show->field('is_top', __('Is top'));
+        $show->field('created_at', __('Created at'));
+        $show->field('updated_at', __('Updated at'));
 
         return $show;
     }
@@ -111,7 +122,7 @@ class ConvenientInformationController extends AdminController
         $form->text('payment_no', __('Payment no'));
         $form->number('sort', __('Sort'));
         $form->switch('is_display', __('Is display'))->default(1);
-        $form->number('comment_count', __('Comment count'));
+        $form->text('comment_count', __('Comment count'));
         $form->switch('is_top', __('Is top'));
 
         return $form;

@@ -25,12 +25,13 @@ class BannerController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Banner());
+        $grid->model()->orderBy('id','desc');
 
         $grid->column('id', __('Id'));
-        $grid->column('image', __('Image'));
-        $grid->column('link', __('Link'));
-        $grid->column('is_display', __('Is display'));
-        $grid->column('sort', __('Sort'));
+        $grid->column('image', __('Image'))->image('',25,25);
+        $grid->column('link', __('Link'))->link();
+        $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
+        $grid->column('sort', __('Sort'))->sortable();
         $grid->column('type', __('Type'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));

@@ -7,6 +7,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\Str;
 
 class CarpoolingController extends AdminController
 {
@@ -15,7 +16,7 @@ class CarpoolingController extends AdminController
      * 拼车协议
      * @var string
      */
-    protected $title = 'App\Model\Carpooling';
+    protected $title = '拼车协议';
 
     /**
      * Make a grid builder.
@@ -25,15 +26,17 @@ class CarpoolingController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Carpooling());
+        $grid->model()->orderBy('id','desc');
 
         $grid->column('id', __('Id'));
-        $grid->column('content', __('Content'));
+        $grid->column('content', __('Content'))->display(function ($content) {
+            return Str::limit($content, 50, '....');
+        });
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
         return $grid;
     }
-
     /**
      * Make a show builder.
      *

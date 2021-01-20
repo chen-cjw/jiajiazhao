@@ -12,7 +12,7 @@ class AbbrCategoryController extends AdminController
 {
     /**
      * Title for current resource.
-     * 行业分类
+     *
      * @var string
      */
     protected $title = 'App\Model\AbbrCategory';
@@ -25,14 +25,22 @@ class AbbrCategoryController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new AbbrCategory());
+        $grid->model()->orderBy('id','desc');
 
         $grid->column('id', __('Id'));
-        $grid->column('abbr', __('Abbr'));
-        $grid->column('sort', __('Sort'));
+        $grid->column('logo', __('Logo'))->image('',25,25);
+        $grid->column('image', '商铺广告')->image('',25,25);
+
+        $grid->column('abbr', __('Abbr'))->display(function ($abbr) {
+//            $abb = AbbrCategory::where('abbr',$abbr)->first();
+            return $abbr;
+        });
+        $grid->column('sort', __('Sort'))->sortable();
         $grid->column('parent_id', __('Parent id'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
-        $grid->column('logo', __('Logo'));
+        $grid->column('type', __('Type'));
+        $grid->column('local', __('Local'));
+        $grid->column('created_at', __('Created at'))->sortable();
+        $grid->column('updated_at', __('Updated at'))->sortable();
 
         return $grid;
     }
@@ -50,10 +58,13 @@ class AbbrCategoryController extends AdminController
         $show->field('id', __('Id'));
         $show->field('abbr', __('Abbr'));
         $show->field('sort', __('Sort'));
+        $show->field('logo', __('Logo'));
         $show->field('parent_id', __('Parent id'));
+        $show->field('type', __('Type'));
+        $show->field('local', __('Local'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
-        $show->field('logo', __('Logo'));
+        $show->field('image', __('Image'));
 
         return $show;
     }
@@ -69,8 +80,11 @@ class AbbrCategoryController extends AdminController
 
         $form->text('abbr', __('Abbr'));
         $form->number('sort', __('Sort'));
-        $form->number('parent_id', __('Parent id'));
         $form->textarea('logo', __('Logo'));
+        $form->number('parent_id', __('Parent id'));
+        $form->text('type', __('Type'))->default('shop');
+        $form->text('local', __('Local'))->default('one');
+        $form->image('image', __('Image'));
 
         return $form;
     }

@@ -15,7 +15,7 @@ class SettingController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\Setting';
+    protected $title = '默认设置';
 
     /**
      * Make a grid builder.
@@ -25,9 +25,39 @@ class SettingController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Setting());
+        $grid->model()->orderBy('id','desc');
 
         $grid->column('id', __('Id'));
-        $grid->column('key', __('Key'));
+        $grid->column('key', __('Key'))->display(function ($key) {
+            if ($key=='localCarpoolingAmount') {
+                return '发布拼车费';
+            }
+            if ($key=='information_card_fee') {
+                return '便民信息费用';
+            }
+            if ($key=='information_top_fee') {
+                return '便民信息置顶费';
+
+            }
+            if ($key=='shop_fee') {
+                return '商铺发布一年的费用';
+            }
+            if ($key=='shop_top_fee') {
+                return '商铺发布一年置顶费';
+
+            }
+            if ($key=='shop_fee_two') {
+                return '商铺发布两年的费用';
+
+            }
+            if ($key=='shop_top_fee_two') {
+                return '商铺发布两年置顶费';
+
+            }
+            if ($key=='radius') {
+                return '附近公里数';
+            }
+        });
         $grid->column('value', __('Value'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));

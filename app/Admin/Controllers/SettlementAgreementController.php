@@ -7,6 +7,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\Str;
 
 class SettlementAgreementController extends AdminController
 {
@@ -15,7 +16,7 @@ class SettlementAgreementController extends AdminController
      * 入住协议
      * @var string
      */
-    protected $title = 'App\Model\SettlementAgreement';
+    protected $title = '入住协议';
 
     /**
      * Make a grid builder.
@@ -27,7 +28,9 @@ class SettlementAgreementController extends AdminController
         $grid = new Grid(new SettlementAgreement());
 
         $grid->column('id', __('Id'));
-        $grid->column('introduction', __('Introduction'));
+        $grid->column('introduction', __('Introduction'))->display(function ($content) {
+            return Str::limit($content, 50, '....');
+        });;
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
