@@ -203,7 +203,7 @@ class ConvenientInformationController extends Controller
         }else {
             $convenientInformation['favoriteCards'] = 0;
         }
-        $comment = Comment::where('information_id',$convenientInformation->id)->orderBy('created_at','desc')->paginate();
+        $comment = Comment::where('information_id',$convenientInformation->id)->whereNull('parent_reply_id')->orderBy('created_at','desc')->paginate();
         return $this->responseStyle('ok',200,[
             'convenientInformation'=>$convenientInformation,
             'comment'=>$comment

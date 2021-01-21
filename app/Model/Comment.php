@@ -7,29 +7,43 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $fillable = ['content','comment_user_id','reply_user_id','information_id'];
+    protected $fillable = ['content','comment_user_id','reply_user_id','information_id','parent_reply_id'];
 
     public function getCommentReplyAttribute()
     {
-        $userReply = User::where('id',$this->attributes['reply_user_id'])->first()->phone;
-        if($this->attributes['comment_user_id']) {
-            $userComment = User::where('id',$this->attributes['comment_user_id'])->first()->phone;
+        if (request('information_id')) {
+
         }else {
-            return null;
+            $userReply = User::where('id',$this->attributes['reply_user_id'])->first();
+            $userComment = User::where('id',$this->attributes['comment_user_id'])->first();
+
+            if($this->attributes['parent_reply_id'] && $this->attributes['comment_user_id']) {
+                return $userReply->nickname .'回复'.$userComment->nickname;
+            }
+            if($userComment) {
+                return $userComment->nickname;
+            }
+            if($userReply) {
+                return $userReply->nickname;
+            }
         }
 
-        return $this->attributes['comment_user_id'] ? $userReply .'回复'.$userComment : $userReply;
     }
 
-    public function getCommentUserIdAttribute()
+//    public function getCommentUserIdAttribute()
+//    {
+//        return User::find($this->attributes['comment_user_id']);
+//    }
+//
+//    public function getReplyUserIdAttribute()
+//    {
+//        return User::find($this->attributes['reply_user_id']);
+//
+//    }
+    public function getSubcollectionAttribute()
     {
-        return User::find($this->attributes['comment_user_id']);
+        $thisID =  $this->attributes['id'];
+        return Comment::where('parent_reply_id',$thisID)->get();
     }
-
-    public function getReplyUserIdAttribute()
-    {
-        return User::find($this->attributes['reply_user_id']);
-
-    }
-    protected $appends = ['comment_reply'];
+    protected $appends = ['comment_reply','subcollection'];
 }
