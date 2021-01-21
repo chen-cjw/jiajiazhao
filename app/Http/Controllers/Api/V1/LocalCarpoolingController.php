@@ -33,7 +33,7 @@ class LocalCarpoolingController extends Controller
             $query = $query->where('end',$end);
 
         }
-        $query = $query->paginate();// todo where('paid_at','!=',null)->
+        $query = $query->where('paid_at','!=',null)->paginate();// todo
         return $this->responseStyle('ok',200,$query);
         return $this->response->paginator($local,new LocalCarpoolingTransformer());
     }
