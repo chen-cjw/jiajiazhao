@@ -50,11 +50,12 @@ class PersonalController extends Controller
     {
         $user = auth('api')->user();
         if ($user->favoriteCards()->find($id)) {
-            return $this->responseStyle('ok',200,'');
+            $res = $user->favoriteCards()->detach($id);
+            return $this->responseStyle('ok',200,$res);
         }
 
-        $user->favoriteCards()->attach(ConvenientInformation::findOrFail($id));
-        return $this->responseStyle('ok',200,'');
+        $res = $user->favoriteCards()->attach(ConvenientInformation::findOrFail($id));
+        return $this->responseStyle('ok',200,$res);
     }
 
     // 收藏帖子-管理
@@ -70,11 +71,12 @@ class PersonalController extends Controller
     {
         $user = auth('api')->user();
         if ($user->favoriteShops()->find($id)) {
-            return $this->responseStyle('ok',200,'');
+            $res = $user->favoriteShops()->detach($id);
+            return $this->responseStyle('ok',200,$res);
         }
 
-        $user->favoriteShops()->attach(Shop::findOrFail($id));
-        return $this->responseStyle('ok',200,'');
+        $res = $user->favoriteShops()->attach(Shop::findOrFail($id));
+        return $this->responseStyle('ok',200,$res);
     }
 
     // 收藏商户-管理
@@ -82,8 +84,8 @@ class PersonalController extends Controller
     {
         $user = auth('api')->user();
 
-        $user->favoriteShops()->detach($request->ids);
-        return $this->responseStyle('ok',200,'');
+        $res = $user->favoriteShops()->detach($request->ids);
+        return $this->responseStyle('ok',200,$res);
     }
     // 我邀请的商户
     public function userInvitationShop()

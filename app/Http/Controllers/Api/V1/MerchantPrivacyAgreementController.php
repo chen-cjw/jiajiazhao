@@ -6,6 +6,7 @@ use App\Model\MerchantPrivacyAgreement;
 
 class MerchantPrivacyAgreementController extends Controller
 {
+    // 商户隐私协议
     public function index()
     {
         $res = MerchantPrivacyAgreement::first();
