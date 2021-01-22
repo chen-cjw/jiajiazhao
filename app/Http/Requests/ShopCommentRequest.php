@@ -17,13 +17,13 @@ class ShopCommentRequest extends FormRequest
         return [
             'content'=>'required',
             'star'=>['required','in:star,1,2,3,4,5'],
-            'shop_id'=>['required',
-                function ($attribute, $value, $fail) {
-                    if (!Shop::where('id',$value)->first()) {
-                        return $fail('分类有问题！');
-                    }
-                },
-            ]
+//            'shop_id'=>['required',
+//                function ($attribute, $value, $fail) {
+//                    if (!Shop::where('id',$value)->first()) {
+//                        return $fail('分类有问题！');
+//                    }
+//                },
+//            ]
         ];
     }
 }

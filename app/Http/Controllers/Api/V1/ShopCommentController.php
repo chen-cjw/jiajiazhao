@@ -10,13 +10,20 @@ use Illuminate\Support\Facades\Log;
 
 class ShopCommentController extends Controller
 {
-    public function store(ShopCommentRequest $request)
+    public function store(ShopCommentRequest $request,$id)
     {
         DB::beginTransaction();
         try {
-            $data = $request->only(['content', 'star','shop_id']);
+            $data = $request->only(['content', 'star']);
             $data['user_id'] = auth('api')->id();
-
+            $data['shop_id'] = $id;
+            if (!Shop::where('id',$id)->first()) {
+                return [
+                    'msg'=>'分类有问题',
+                    'code' => 200,
+                    'data'=>[]
+                ];
+            }
             if ($request->star > 3) {
                 Shop::where('id', $request->shop_id)->increment('good_comment_count', 1);
             }
