@@ -24,6 +24,13 @@ Route::group([
     $router->resource('settlement_agreements', 'SettlementAgreementController');// 入住协议
     $router->resource('shops', 'ShopController');// 商户
     $router->resource('suggestions', 'SuggestionsController'); // 投诉建议
+    $router->resource('banner_information_show', 'BannerInformationShowController'); // 帖子详情广告
+    $router->resource('banner_person', 'BannerPersonController'); // 个人中心广告
+    $router->resource('merchant_entering_agreement', 'MerchantEnteringAgreementController'); // 入住协议
+    $router->resource('merchant_privacy_agreement', 'MerchantPrivacyAgreementController'); // 隐私协议
+    $router->resource('post_description', 'PostDescriptionController'); // 发帖说明
+    $router->resource('post_tip', 'PostTipController'); // 发帖提示
+    $router->resource('withdrawal', 'WithdrawalController'); // 提现
 //    $router->resource('users', \App\Admin\Controllers\UserController::class);
 
 });

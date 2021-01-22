@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Model\Suggestions;
+use App\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -30,7 +31,7 @@ class SuggestionsController extends AdminController
         $grid->column('content', __('Content'));
         $grid->column('user_id', __('User id'))->display(function ($userId){
             return User::where('id',$userId)->value('nickname');
-        });;
+        });
         $grid->column('is_accept', __('Is accept'))->using([1 => '是', 0 => '否']);
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
