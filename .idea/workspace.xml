@@ -29,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopCommentController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="203">
-              <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+              <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
               <folding>
                 <element signature="e#47#88#0#PHP" expanded="true" />
               </folding>
@@ -67,8 +67,8 @@
       <file leaf-file-name="ShopComment.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Model/ShopComment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+            <state relative-caret-position="255">
+              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -489,12 +489,12 @@
       <workItem from="1609679025110" duration="62612000" />
       <workItem from="1610168842854" duration="48302000" />
       <workItem from="1610620421674" duration="78372000" />
-      <workItem from="1611282261227" duration="4522000" />
+      <workItem from="1611282261227" duration="4757000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280282000" />
+    <option name="totallyTimeSpent" value="280517000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -850,7 +850,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopCommentController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
-          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
           <folding>
             <element signature="e#47#88#0#PHP" expanded="true" />
           </folding>
@@ -859,8 +859,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/ShopComment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        <state relative-caret-position="255">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
         </state>
       </provider>
     </entry>
