@@ -31,7 +31,9 @@ class DatabaseSeeder extends Seeder
 //        $this->call(UserFavoriteCardSeeder::class);
 //        $this->call(UserFavoriteShopSeeder::class);
 //        $this->call(PostTipSeeder::class);
-        $this->call(BannerInformationShowSeeder::class);
-        $this->call(BannerPersonSeeder::class);
+//        $this->call(BannerInformationShowSeeder::class);
+//        $this->call(BannerPersonSeeder::class);
+        $this->call(MerchantEnteringAgreementSeeder::class);
+        $this->call(MerchantPrivacyAgreementSeeder::class);
     }
 }

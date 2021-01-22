@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(MerchantPrivacyAgreement::class, function (Faker $faker) {
     return [
-        //
+        'content'=>$faker->text.$faker->text
     ];
 });
