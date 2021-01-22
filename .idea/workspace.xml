@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/CarpoolingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/CarpoolingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/MerchantEnteringAgreementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/MerchantEnteringAgreementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/MerchantPrivacyAgreementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/MerchantPrivacyAgreementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/NoticeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/NoticeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/PostTipController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/PostTipController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/SettlementAgreementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/SettlementAgreementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/SuggestionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/SuggestionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_02_103342_create_suggestions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_02_103342_create_suggestions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_08_185350_create_post_descriptions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_08_185350_create_post_descriptions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/BannerInformationShowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/BannerInformationShowController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/BannerPersonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/BannerPersonController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,31 +18,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BannerPersonController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerPersonController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-419">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CardCategoryController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/CardCategoryController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-734" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CarpoolingController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/CarpoolingController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -102,11 +70,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostDescriptionController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PostDescriptionController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/PostDescriptionController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="256">
               <caret line="69" column="22" selection-start-line="69" selection-start-column="15" selection-end-line="69" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BannerInformationShowController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerInformationShowController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="858">
+              <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BannerPersonController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerPersonController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="337">
+              <caret line="33" column="52" lean-forward="true" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CardCategoryController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/CardCategoryController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="32" column="82" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="82" />
             </state>
           </provider>
         </entry>
@@ -191,7 +186,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" />
         <option value="$PROJECT_DIR$/app/Model/Comment.php" />
         <option value="$PROJECT_DIR$/app/Model/ShopComment.php" />
-        <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerPersonController.php" />
         <option value="$PROJECT_DIR$/app/Admin/routes.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php" />
         <option value="$PROJECT_DIR$/config/admin.php" />
@@ -201,12 +195,13 @@
         <option value="$PROJECT_DIR$/app/Admin/Controllers/PostTipController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/SettlementAgreementController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/SuggestionsController.php" />
-        <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerInformationShowController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/CarpoolingController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/MerchantEnteringAgreementController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/MerchantPrivacyAgreementController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/NoticeController.php" />
+        <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerInformationShowController.php" />
+        <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerPersonController.php" />
       </list>
     </option>
   </component>
@@ -504,12 +499,12 @@
       <workItem from="1609679025110" duration="62612000" />
       <workItem from="1610168842854" duration="48302000" />
       <workItem from="1610620421674" duration="78372000" />
-      <workItem from="1611282261227" duration="10884000" />
+      <workItem from="1611282261227" duration="11608000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="286644000" />
+    <option name="totallyTimeSpent" value="287368000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -758,25 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerInformationShowController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="80" column="23" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerPersonController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-419">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/CardCategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-734" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/CarpoolingController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -828,6 +804,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="69" column="22" selection-start-line="69" selection-start-column="15" selection-end-line="69" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/CardCategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="32" column="82" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerInformationShowController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerPersonController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="33" column="52" lean-forward="true" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
         </state>
       </provider>
     </entry>

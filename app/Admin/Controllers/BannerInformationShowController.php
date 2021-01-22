@@ -78,7 +78,7 @@ class BannerInformationShowController extends AdminController
     {
         $form = new Form(new BannerInformationShow());
 
-        $form->textarea('content', __('Content'));
+        $form->UEditor('content', __('Content'));
         $form->image('image', __('Image'));
         $form->textarea('link', __('Link'));
         $form->switch('is_display', __('Is display'))->default(1);
