@@ -16,7 +16,7 @@ class ShopComment extends Model
 
     public function getCommentReplyAttribute()
     {
-        if (request('shop_comment_id')) {
+        if (request('id')) {
 
         }else {
             $userReply = User::where('id',$this->attributes['reply_user_id'])->first();
