@@ -17,8 +17,15 @@ class CreateShopCommentsTable extends Migration
             $table->id();
             $table->string('content')->comment('回复的内容');
             $table->unsignedInteger('star')->default(5)->comment('星级');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+//            $table->unsignedBigInteger('user_id');
+//            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->unsignedBigInteger('comment_user_id')->nullable()->comment('回复评论');
+            $table->unsignedBigInteger('reply_user_id')->comment('发表评论');
+            $table->foreign('reply_user_id')->references('id')->on('users');
+
+            $table->unsignedBigInteger('parent_reply_id')->nullable()->comment('父级发表评论');
+
             $table->unsignedBigInteger('shop_id')->comment('商铺');
             $table->foreign('shop_id')->references('id')->on('convenient_information');
             $table->timestamps();

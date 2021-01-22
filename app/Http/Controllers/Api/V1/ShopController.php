@@ -127,7 +127,7 @@ class ShopController extends Controller
     public function show($id)
     {
         Shop::where('id',$id)->increment('view');
-        $shop = Shop::with('shopComments','shopComments.user')->findOrFail($id);
+        $shop = Shop::findOrFail($id);//,with('shopComments')->'shopComments.user'
 
         $user = auth('api')->user();
         if($user->favoriteShops()->where('shop_id',$shop->id)->first()) {
@@ -149,8 +149,12 @@ class ShopController extends Controller
 //        }else {
 //            $user->favoriteShops()->attach(Shop::find($id));
 //        }
+        $shopComment = ShopComment::where('shop_id',$id)->whereNull('parent_reply_id')->orderBy('created_at','desc')->paginate();
 
-        return $this->responseStyle('ok',200,$shop);
+        return $this->responseStyle('ok',200,[
+            'shop' => $shop,
+            'shop_comment' => $shopComment
+        ]);
     }
 
     public function uploadImg(Request $request)

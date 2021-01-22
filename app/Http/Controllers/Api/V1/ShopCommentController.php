@@ -15,7 +15,7 @@ class ShopCommentController extends Controller
         DB::beginTransaction();
         try {
             $data = $request->only(['content', 'star']);
-            $data['user_id'] = auth('api')->id();
+            $data['reply_user_id'] = auth('api')->id();
             $data['shop_id'] = $id;
             if (!Shop::where('id',$id)->first()) {
                 return [
@@ -24,7 +24,23 @@ class ShopCommentController extends Controller
                     'data'=>[]
                 ];
             }
-            if ($request->star > 3) {
+
+            $shopComment = ShopComment::where('id',$request->shop_comment_id)->first();
+
+            if($shopComment) {
+                if($shopComment->parent_reply_id) {
+                    // 有值说明是二层
+                    $data['comment_user_id'] = $shopComment->reply_user_id;
+                    $data['parent_reply_id'] = $shopComment->parent_reply_id;
+
+                }else {
+                    $data['parent_reply_id'] = $shopComment->id;
+                }
+            }else {
+
+            }
+
+            if ($request->star > 3) { // 好评
                 Shop::where('id', $request->shop_id)->increment('good_comment_count', 1);
             }
             Shop::where('id', $request->shop_id)->increment('comment_count', 1);

@@ -20,7 +20,7 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('reply_user_id')->comment('发表评论');
 //            $table->foreign('reply_user_id')->references('id')->on('users');
 
-            $table->unsignedBigInteger('replay_parent_id')->nullable()->comment('父级发表评论');
+            $table->unsignedBigInteger('parent_reply_id')->nullable()->comment('父级发表评论');
             $table->unsignedBigInteger('information_id')->comment('便民信息');
             $table->foreign('information_id')->references('id')->on('convenient_information');
 

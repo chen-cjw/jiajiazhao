@@ -43,7 +43,7 @@ class Comment extends Model
     public function getSubcollectionAttribute()
     {
         $thisID =  $this->attributes['id'];
-        return Comment::where('parent_reply_id',$thisID)->get();
+        return Comment::where('parent_reply_id',$thisID)->paginate(5);
     }
     protected $appends = ['comment_reply','subcollection'];
 }
