@@ -64,7 +64,7 @@ class CarpoolingController extends AdminController
     {
         $form = new Form(new Carpooling());
 
-        $form->textarea('content', __('Content'));
+        $form->UEditor('content', __('Content'));
 
         return $form;
     }

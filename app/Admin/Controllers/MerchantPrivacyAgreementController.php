@@ -64,7 +64,7 @@ class MerchantPrivacyAgreementController extends AdminController
     {
         $form = new Form(new MerchantPrivacyAgreement());
 
-        $form->textarea('content', __('Content'));
+        $form->UEditor('content', __('Content'));
 
         return $form;
     }

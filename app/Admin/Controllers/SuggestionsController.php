@@ -68,7 +68,7 @@ class SuggestionsController extends AdminController
     {
         $form = new Form(new Suggestions());
 
-        $form->text('content', __('Content'));
+        $form->UEditor('content', __('Content'));
         $form->number('user_id', __('User id'));
         $form->switch('is_accept', __('Is accept'));
 

@@ -71,7 +71,7 @@ class NoticeController extends AdminController
         $form = new Form(new Notice());
 
         $form->text('title', __('Title'));
-        $form->textarea('content', __('Content'));
+        $form->UEditor('content', __('Content'));
         $form->switch('is_display', __('Is display'));
         $form->number('sort', __('Sort'));
 

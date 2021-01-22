@@ -64,7 +64,7 @@ class PostTipController extends AdminController
     {
         $form = new Form(new PostTip());
 
-        $form->textarea('content', __('Content'));
+        $form->UEditor('content', __('Content'));
 
         return $form;
     }

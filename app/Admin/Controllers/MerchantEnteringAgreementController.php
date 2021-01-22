@@ -64,7 +64,7 @@ class MerchantEnteringAgreementController extends AdminController
     {
         $form = new Form(new MerchantEnteringAgreement());
 
-        $form->textarea('content', __('Content'));
+        $form->UEditor('content', __('Content'));
 
         return $form;
     }

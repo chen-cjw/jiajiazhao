@@ -16,7 +16,7 @@ class CreatePostDescriptionsTable extends Migration
         Schema::create('post_descriptions', function (Blueprint $table) {
             $table->id();
             $table->string('title')->comment('说明的标题');
-            $table->string('content')->comment('说明的内容');
+            $table->text('content')->comment('说明的内容');
             $table->timestamps();
         });
     }

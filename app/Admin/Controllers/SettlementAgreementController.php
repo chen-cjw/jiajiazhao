@@ -64,7 +64,7 @@ class SettlementAgreementController extends AdminController
     {
         $form = new Form(new SettlementAgreement());
 
-        $form->textarea('introduction', __('Introduction'));
+        $form->UEditor('introduction', __('Introduction'));
 
         return $form;
     }

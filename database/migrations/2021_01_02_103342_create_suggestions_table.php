@@ -15,7 +15,7 @@ class CreateSuggestionsTable extends Migration
     {
         Schema::create('suggestions', function (Blueprint $table) {
             $table->id();
-            $table->string('content')->comment('投诉的内容');
+            $table->text('content')->comment('投诉的内容');
             // 申请人
             $table->unsignedBigInteger('user_id')->comment('申请人');
             $table->foreign('user_id')->references('id')->on('users');

@@ -107,7 +107,7 @@ class ConvenientInformationController extends AdminController
         $form = new Form(new ConvenientInformation());
 
         $form->text('title', __('Title'));
-        $form->textarea('content', __('Content'));
+        $form->UEditor('content', __('Content'));
         $form->text('location', __('Location'));
         $form->decimal('lng', __('Lng'));
         $form->decimal('lat', __('Lat'));
