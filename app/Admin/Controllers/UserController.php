@@ -12,10 +12,10 @@ class UserController extends AdminController
 {
     /**
      * Title for current resource.
-     *
+     * 会员管理
      * @var string
      */
-    protected $title = 'App\User';
+    protected $title = '会员管理';
 
     /**
      * Make a grid builder.
@@ -27,18 +27,22 @@ class UserController extends AdminController
         $grid = new Grid(new User());
 
         $grid->column('id', __('Id'));
-        $grid->column('ml_openid', __('Ml openid'));
+//        $grid->column('ml_openid', __('Ml openid'));
         $grid->column('phone', __('Phone'));
-        $grid->column('avatar', __('Avatar'));
+        $grid->column('avatar', __('Avatar'))->image('',50,50);
         $grid->column('nickname', __('Nickname'));
-        $grid->column('sex', __('Sex'));
-        $grid->column('parent_id', __('Parent id'));
-        $grid->column('is_member', __('Is member'));
+        $grid->column('sex', __('Sex'))->using([1 => '男', 0 => '女']);
+        $grid->column('parent_id', __('Parent id'))->display(function ($parent_id) {
+            return User::where('id',$parent_id)->value('nickname');
+        });
+        $grid->column('is_member', __('Is member'))->display(function ($isMember) {
+            return  $isMember == '1' ? '商家' : '会员';
+        });
         $grid->column('is_certification', __('Is certification'));
-        $grid->column('balance', __('Balance'));
-        $grid->column('city_partner', __('City partner'));
+        $grid->column('balance', __('Balance'))->sortable();
+        $grid->column('city_partner', __('City partner'))->using([1 => '是', 0 => '否']);
         $grid->column('ref_code', __('Ref code'));
-        $grid->column('code', __('Code'));
+//        $grid->column('code', __('Code'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -67,7 +71,7 @@ class UserController extends AdminController
         $show->field('balance', __('Balance'));
         $show->field('city_partner', __('City partner'));
         $show->field('ref_code', __('Ref code'));
-        $show->field('code', __('Code'));
+//        $show->field('code', __('Code'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -94,7 +98,7 @@ class UserController extends AdminController
         $form->decimal('balance', __('Balance'))->default(0.000);
         $form->switch('city_partner', __('City partner'));
         $form->text('ref_code', __('Ref code'));
-        $form->text('code', __('Code'));
+//        $form->text('code', __('Code'));
 
         return $form;
     }

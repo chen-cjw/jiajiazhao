@@ -15,7 +15,7 @@ class CardCategoryController extends AdminController
      * 便民信息的分类
      * @var string
      */
-    protected $title = 'App\Model\CardCategory';
+    protected $title = '便民信息分类';
 
     /**
      * Make a grid builder.

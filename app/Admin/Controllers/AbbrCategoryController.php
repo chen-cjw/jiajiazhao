@@ -15,7 +15,7 @@ class AbbrCategoryController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\AbbrCategory';
+    protected $title = '商铺分类';
 
     /**
      * Make a grid builder.

@@ -2,20 +2,20 @@
 
 namespace App\Admin\Controllers;
 
-use App\Model\Banner;
+use App\Model\BannerLocal;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class BannerController extends AdminController
+class BannerLocalController extends AdminController
 {
     /**
      * Title for current resource.
-     * 轮播图
+     *
      * @var string
      */
-    protected $title = '首页广告';
+    protected $title = '拼车广告';
 
     /**
      * Make a grid builder.
@@ -24,17 +24,13 @@ class BannerController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new Banner());
-        $grid->model()->orderBy('id','desc');
+        $grid = new Grid(new BannerLocal());
 
         $grid->column('id', __('Id'));
-        $grid->column('image', __('Image'))->image('',25,25);
-        $grid->column('link', __('Link'))->link();
-        $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
-        $grid->column('sort', __('Sort'))->sortable();
-        $grid->column('type', __('Type'))->display(function ($type) {
-            return $type == 'index_one' ? '第一部分广告' : '第二部分广告';
-        });
+        $grid->column('image', __('Image'));
+        $grid->column('link', __('Link'));
+        $grid->column('is_display', __('Is display'));
+        $grid->column('sort', __('Sort'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -49,14 +45,13 @@ class BannerController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(Banner::findOrFail($id));
+        $show = new Show(BannerLocal::findOrFail($id));
 
         $show->field('id', __('Id'));
         $show->field('image', __('Image'));
         $show->field('link', __('Link'));
         $show->field('is_display', __('Is display'));
         $show->field('sort', __('Sort'));
-        $show->field('type', __('Type'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -70,13 +65,12 @@ class BannerController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new Banner());
+        $form = new Form(new BannerLocal());
 
         $form->image('image', __('Image'));
         $form->textarea('link', __('Link'));
-        $form->switch('is_display', __('Is display'));
+        $form->switch('is_display', __('Is display'))->default(1);
         $form->number('sort', __('Sort'));
-        $form->text('type', __('Type'));
 
         return $form;
     }

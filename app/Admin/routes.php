@@ -31,6 +31,7 @@ Route::group([
     $router->resource('post_description', 'PostDescriptionController'); // 发帖说明
     $router->resource('post_tip', 'PostTipController'); // 发帖提示
     $router->resource('withdrawal', 'WithdrawalController'); // 提现
+    $router->resource('banner_local', 'BannerLocalController'); // 拼车广告
 //    $router->resource('users', \App\Admin\Controllers\UserController::class);
 
 });

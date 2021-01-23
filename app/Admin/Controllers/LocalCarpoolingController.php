@@ -15,7 +15,7 @@ class LocalCarpoolingController extends AdminController
      * 本地拼车
      * @var string
      */
-    protected $title = 'App\Model\LocalCarpooling';
+    protected $title = '拼车管理';
 
     /**
      * Make a grid builder.
