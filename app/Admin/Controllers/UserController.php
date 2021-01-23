@@ -27,17 +27,18 @@ class UserController extends AdminController
         $grid = new Grid(new User());
 
         $grid->column('id', __('Id'));
-//        $grid->column('ml_openid', __('Ml openid'));
-        $grid->column('avatar', '头像')->image('',25,25);
-        $grid->column('phone', '手机号');
-        $grid->column('nickname', '用户名');
-        $grid->column('sex', '性别');
-//        $grid->column('parent_id', __('Parent id'));
-        $grid->column('is_member', '是否成员');
-        $grid->column('is_certification', '司机是否认证');
-        $grid->column('balance', '余额');
-        $grid->column('city_partner', '城市合伙人');
-        $grid->column('ref_code', __('邀请码'));
+        $grid->column('ml_openid', __('Ml openid'));
+        $grid->column('phone', __('Phone'));
+        $grid->column('avatar', __('Avatar'));
+        $grid->column('nickname', __('Nickname'));
+        $grid->column('sex', __('Sex'));
+        $grid->column('parent_id', __('Parent id'));
+        $grid->column('is_member', __('Is member'));
+        $grid->column('is_certification', __('Is certification'));
+        $grid->column('balance', __('Balance'));
+        $grid->column('city_partner', __('City partner'));
+        $grid->column('ref_code', __('Ref code'));
+        $grid->column('code', __('Code'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -66,6 +67,7 @@ class UserController extends AdminController
         $show->field('balance', __('Balance'));
         $show->field('city_partner', __('City partner'));
         $show->field('ref_code', __('Ref code'));
+        $show->field('code', __('Code'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -92,6 +94,7 @@ class UserController extends AdminController
         $form->decimal('balance', __('Balance'))->default(0.000);
         $form->switch('city_partner', __('City partner'));
         $form->text('ref_code', __('Ref code'));
+        $form->text('code', __('Code'));
 
         return $form;
     }

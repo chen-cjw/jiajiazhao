@@ -51,6 +51,7 @@ $api->version('v1', [
     $api->get('/banner_information_show','BannerInformationShowController@index')->name('api.banner_information_show.index');
     // 个人中心轮播图
     $api->get('/personal/banner','PersonalController@banner')->name('api.personal.banner');
+    $api->get('/banner_local','BannerLocalController@index')->name('api.banner_local.index');
     // 商户入住协议
     $api->get('/merchant_entering_agreement','MerchantEnteringAgreementController@index')->name('api.personal.index');
     $api->get('/merchant_privacy_agreement','MerchantPrivacyAgreementController@index')->name('api.personal.index');// 隐私

@@ -33,7 +33,8 @@ class DatabaseSeeder extends Seeder
 //        $this->call(PostTipSeeder::class);
 //        $this->call(BannerInformationShowSeeder::class);
 //        $this->call(BannerPersonSeeder::class);
-        $this->call(MerchantEnteringAgreementSeeder::class);
-        $this->call(MerchantPrivacyAgreementSeeder::class);
+//        $this->call(MerchantEnteringAgreementSeeder::class);
+//        $this->call(MerchantPrivacyAgreementSeeder::class);
+        $this->call(BannerLocalSeeder::class);
     }
 }
