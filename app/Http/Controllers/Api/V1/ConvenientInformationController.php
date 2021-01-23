@@ -9,6 +9,7 @@ use App\Model\Banner;
 use App\Model\CardCategory;
 use App\Model\Comment;
 use App\Model\ConvenientInformation;
+use App\Model\History;
 use App\Model\PostDescription;
 use App\Model\Setting;
 use App\Model\Shop;
@@ -210,6 +211,9 @@ class ConvenientInformationController extends Controller
             $convenientInformation['favoriteCards'] = 0;
         }
         $comment = Comment::where('information_id',$convenientInformation->id)->whereNull('parent_reply_id')->orderBy('created_at','desc')->paginate();
+
+        $this->history(ConvenientInformation::class,$id,$user);
+
         return $this->responseStyle('ok',200,[
             'convenientInformation'=>$convenientInformation,
             'comment'=>$comment

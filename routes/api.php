@@ -52,6 +52,7 @@ $api->version('v1', [
     // 个人中心轮播图
     $api->get('/personal/banner','PersonalController@banner')->name('api.personal.banner');
     $api->get('/banner_local','BannerLocalController@index')->name('api.banner_local.index');
+
     // 商户入住协议
     $api->get('/merchant_entering_agreement','MerchantEnteringAgreementController@index')->name('api.personal.index');
     $api->get('/merchant_privacy_agreement','MerchantPrivacyAgreementController@index')->name('api.personal.index');// 隐私
@@ -112,6 +113,10 @@ $api->version('v1', [
 
         $api->post('/user_favorite_card/{id}', 'PersonalController@userFavoriteCard')->name('api.personal.userFavoriteCard'); // 收藏帖子
         $api->post('/card_del', 'PersonalController@cardDel')->name('api.personal.cardDel'); // 删除收藏帖子
+
+        // 我的浏览 historyDel
+        $api->get('/history', 'PersonalController@historyIndex')->name('api.personal.historyIndex'); // 浏览列表
+        $api->post('/history_del', 'PersonalController@historyDel')->name('api.personal.historyDel'); // 浏览管理
 
         // 我邀请的用户 refUser
         $api->get('/ref_user', 'PersonalController@refUser')->name('api.personal.refUser'); // 删除收藏

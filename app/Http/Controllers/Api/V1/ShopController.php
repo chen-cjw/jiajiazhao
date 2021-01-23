@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\ShopRequest;
 use App\Model\AbbrCategory;
+use App\Model\History;
 use App\Model\Setting;
 use App\Model\Shop;
 use App\Model\ShopComment;
@@ -159,6 +160,9 @@ class ShopController extends Controller
 //            $user->favoriteShops()->attach(Shop::find($id));
 //        }
         $shopComment = ShopComment::where('shop_id',$id)->whereNull('parent_reply_id')->orderBy('created_at','desc')->paginate();
+
+        // 浏览记录贴
+        $this->history(Shop::class,$id,$user);
 
         return $this->responseStyle('ok',200,[
             'shop' => $shop,

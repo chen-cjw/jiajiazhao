@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\WithdrawalRequest;
 use App\Model\BannerPerson;
 use App\Model\ConvenientInformation;
+use App\Model\History;
 use App\Model\LocalCarpooling;
 use App\Model\Shop;
 use App\Model\Withdrawal;
@@ -159,6 +160,34 @@ class PersonalController extends Controller
         $res = BannerPerson::where('is_display',1)->orderBy('sort','desc')->get();
         return $this->responseStyle('ok',200,$res);
     }
+
+    // 我的浏览
+    public function historyIndex(Request $request)
+    {
+        $query = History::query();
+        if($request->type == 'shop') {
+            $query = $query->where('model_type',Shop::class);
+        }
+        if($request->type == 'local') {
+            $query = $query->where('model_type',LocalCarpooling::class);
+
+        }
+        if ($request->type == 'information') {
+            $query = $query->where('model_type',ConvenientInformation::class);
+        }
+        $res = $query->orderBy('updated_at','desc')->paginate();
+        return $this->responseStyle('ok',200,$res);
+    }
+
+    // 浏览管理
+    public function historyDel(Request $request)
+    {
+        foreach($request->ids as $v){
+            $res = History::where('id',$v)->delete();
+        }
+        return $this->responseStyle('ok',200,$res);
+    }
+
 
     // 我的收藏(商品) todo 暂未开放
     public function favorite($id)

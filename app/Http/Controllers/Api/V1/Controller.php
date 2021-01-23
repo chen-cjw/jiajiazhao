@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller as BaseController;
+use App\Model\History;
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
@@ -10,6 +11,25 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 class Controller extends BaseController
 {
     use Helpers;
+
+    public function history($model,$id,$user)
+    {
+        // 浏览记录
+        $historyQuery = History::where('model_type',$model)->where('model_id',$id)->where('user_id',$user->id);
+        if ($historyQuery->first()) {
+            $historyQuery->update([
+                'updated_at'=>date('Y-m-d H:i:s')
+            ]);
+        }else {
+            // 浏览记录贴
+            History::create([
+                'model_type'=>$model,
+                'model_id'=>$id,
+                'user_id'=>$user->id
+            ]);
+        }
+    }
+
 
     // 统一返回的报错样式
     public function responseStyle($message,$code,$data)
