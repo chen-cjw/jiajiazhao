@@ -55,6 +55,8 @@ $api->version('v1', [
     // 商户入住协议
     $api->get('/merchant_entering_agreement','MerchantEnteringAgreementController@index')->name('api.personal.index');
     $api->get('/merchant_privacy_agreement','MerchantPrivacyAgreementController@index')->name('api.personal.index');// 隐私
+    // 搜索
+    $api->get('/search_information', 'ConvenientInformationController@searchInformation')->name('api.search_information.searchInformation'); // 发布
 
     // 本地拼车
     $api->get('/local_carpooling','LocalCarpoolingController@index')->name('api.local_carpooling.index');

@@ -16,6 +16,7 @@ use App\Transformers\ConvenientInformationTransformer;
 use App\User;
 use Carbon\Carbon;
 use Dingo\Api\Exception\ResourceException;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class ConvenientInformationController extends Controller
@@ -55,8 +56,13 @@ class ConvenientInformationController extends Controller
 //            'convenientInformation'=>$convenientInformation,
         ]);
     }
-
-
+    // 搜索
+    public function searchInformation(Request $request)
+    {
+        $echostr = $request->title;
+        $res = ConvenientInformation::where('title','like','%'.$echostr.'%')->paginate();
+        return $this->responseStyle('ok',200,$res);
+    }
     // 发布
     public function store(ConvenientInformationRequest $request)
     {

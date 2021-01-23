@@ -38,15 +38,17 @@ class ShopController extends Controller
         $limit = 15;
         $sql = "select * from shops ";
 
-
-
         // 一级
         if($one_abbr) {
             $sql = $sql."where (one_abbr0={$one_abbr} OR one_abbr1={$one_abbr} OR one_abbr2={$one_abbr})";
         }
         // 搜索
         if($name) {
-            $sql = $sql."and name LIKE '%".$name."%'";
+            if (!$one_abbr) {
+                $sql = $sql."where name LIKE '%".$name."%'";
+            }else {
+                $sql = $sql."and name LIKE '%".$name."%'";
+            }
         }
         // 二级
         if($two_abbr) {
@@ -88,6 +90,13 @@ class ShopController extends Controller
         return $this->responseStyle('ok',200,$shop);
     }
 
+    // 搜索
+    public function searchInformation(Request $request)
+    {
+        $echostr = $request->title;
+        $res = Shop::where('title','like','%'.$echostr.'%')->paginate();
+        return $this->responseStyle('ok',200,$res);
+    }
 
     // 入住 service_price 这个是一个图片
     public function store(ShopRequest $request)

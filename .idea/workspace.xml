@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/BannerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/BannerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/BannerInformationShowController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/BannerInformationShowController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/NoticeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/NoticeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/ShopComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/ShopComment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,8 +30,8 @@
       <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="143" column="47" selection-start-line="143" selection-start-column="47" selection-end-line="143" selection-end-column="47" />
+            <state relative-caret-position="278">
+              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
             </state>
           </provider>
         </entry>
@@ -70,8 +66,17 @@
       <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="205" column="23" lean-forward="true" selection-start-line="205" selection-start-column="23" selection-end-line="205" selection-end-column="23" />
+            <state relative-caret-position="367">
+              <caret line="59" column="37" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="332">
+              <caret line="58" column="119" selection-start-line="58" selection-start-column="119" selection-end-line="58" selection-end-column="119" />
             </state>
           </provider>
         </entry>
@@ -79,15 +84,10 @@
       <file leaf-file-name="ConvenientInformation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/ConvenientInformation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
+            <state relative-caret-position="90">
               <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AuthController.php">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="AbbrCategoryController.php" pinned="false" current-in-tab="false">
@@ -99,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Comment.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Comment.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/Comment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="57" column="80" selection-start-line="57" selection-start-column="80" selection-end-line="57" selection-end-column="80" />
+            <state relative-caret-position="309">
+              <caret line="52" column="35" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -112,7 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mlOpenidStore</find>
       <find>提现</find>
       <find>in</find>
       <find>convenient_information/pay_by_wechat</find>
@@ -140,8 +139,9 @@
       <find>extensions</find>
       <find>layout</find>
       <find>Parent id</find>
-      <find>show</find>
       <find>comment_reply</find>
+      <find>Convenient</find>
+      <find>show</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -159,7 +159,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerInformationShowController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_01_20_235129_create_banner_information_shows_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CommentController.php" />
         <option value="$PROJECT_DIR$/database/factories/MerchantEnteringAgreementFactory.php" />
         <option value="$PROJECT_DIR$/database/factories/MerchantPrivacyAgreementFactory.php" />
@@ -172,7 +171,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2021_01_09_113911_create_comments_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_01_18_113049_create_shop_comments_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopCommentController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/PostDescriptionController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_01_08_185350_create_post_descriptions_table.php" />
@@ -188,7 +186,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2021_01_23_160347_create_banner_locals_table.php" />
         <option value="$PROJECT_DIR$/database/factories/BannerLocalFactory.php" />
         <option value="$PROJECT_DIR$/database/seeds/BannerLocalSeeder.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerLocalController.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerLocalController.php" />
@@ -204,6 +201,9 @@
         <option value="$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php" />
         <option value="$PROJECT_DIR$/app/Model/ShopComment.php" />
         <option value="$PROJECT_DIR$/app/Model/Comment.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
       </list>
     </option>
   </component>
@@ -434,34 +434,6 @@
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -513,12 +485,12 @@
       <workItem from="1609679025110" duration="62612000" />
       <workItem from="1610168842854" duration="48302000" />
       <workItem from="1610620421674" duration="78372000" />
-      <workItem from="1611282261227" duration="16781000" />
+      <workItem from="1611282261227" duration="18602000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="292541000" />
+    <option name="totallyTimeSpent" value="294362000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -530,7 +502,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49928468" visible="true" weight="0.30060607" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49928468" visible="true" weight="0.1321212" />
       <window_info anchor="right" id="Remote Host" order="3" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31545064" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -673,13 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" selection-start-line="11" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="53" column="84" selection-start-line="53" selection-start-column="84" selection-end-line="53" selection-end-column="84" />
         </state>
       </provider>
     </entry>
@@ -852,13 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/ConvenientInformation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="424">
@@ -880,20 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="205" column="23" lean-forward="true" selection-start-line="205" selection-start-column="23" selection-end-line="205" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="143" column="47" selection-start-line="143" selection-start-column="47" selection-end-line="143" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/ShopComment.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
@@ -903,8 +847,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/Comment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="57" column="80" selection-start-line="57" selection-start-column="80" selection-end-line="57" selection-end-column="80" />
+        <state relative-caret-position="309">
+          <caret line="52" column="35" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/ConvenientInformation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="59" column="37" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="58" column="119" selection-start-line="58" selection-start-column="119" selection-end-line="58" selection-end-column="119" />
         </state>
       </provider>
     </entry>
