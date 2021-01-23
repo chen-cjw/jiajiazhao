@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Model\AbbrCategory;
+use App\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -36,9 +37,9 @@ class AbbrCategoryController extends AdminController
             return $abbr;
         });
         $grid->column('sort', __('Sort'))->sortable();
-        $grid->column('parent_id', __('Parent id'));
-        $grid->column('type', __('Type'));
-        $grid->column('local', __('Local'));
+        $grid->column('parent_id', __('上级分类名'));
+        $grid->column('type', __('Type'))->using(['shop' => '商铺', 'other' => '跳转']);
+        $grid->column('local', __('Local'))->using(['one' => '第一部分', 'two' => '第二部分']);
         $grid->column('created_at', __('Created at'))->sortable();
         $grid->column('updated_at', __('Updated at'))->sortable();
 
@@ -77,14 +78,15 @@ class AbbrCategoryController extends AdminController
     protected function form()
     {
         $form = new Form(new AbbrCategory());
-
-        $form->text('abbr', __('Abbr'));
-        $form->number('sort', __('Sort'));
-        $form->textarea('logo', __('Logo'));
-        $form->number('parent_id', __('Parent id'));
-        $form->text('type', __('Type'))->default('shop');
-        $form->text('local', __('Local'))->default('one');
         $form->image('image', __('Image'));
+        $form->text('abbr', __('Abbr'));
+        $form->image('logo', __('Logo'));
+        $form->select('type', __('Type'))->default('shop')->options(['shop' => '商铺', 'other' => '跳转']);
+        $form->select('local', __('Local'))->default('one')->options(['one' => '第一部分', 'two' => '第二部分']);
+        $form->number('sort', __('Sort'));
+//        $form->select('is_pub', __('Is Pub'))->options([true => '是', false => '否']);
+
+        $form->select('parent_id', __('上级分类名'))->options(AbbrCategory::where('parent_id',null)->pluck('abbr'));
 
         return $form;
     }

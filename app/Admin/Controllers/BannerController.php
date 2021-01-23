@@ -28,7 +28,7 @@ class BannerController extends AdminController
         $grid->model()->orderBy('id','desc');
 
         $grid->column('id', __('Id'));
-        $grid->column('image', __('Image'))->image('',25,25);
+        $grid->column('image', __('Image'))->image('',50,50);
         $grid->column('link', __('Link'))->link();
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
         $grid->column('sort', __('Sort'))->sortable();
@@ -76,7 +76,7 @@ class BannerController extends AdminController
         $form->textarea('link', __('Link'));
         $form->switch('is_display', __('Is display'));
         $form->number('sort', __('Sort'));
-        $form->text('type', __('Type'));
+        $form->select('type', __('Type'))->options(['index_one' => '第一部分广告', 'index_two' => '第二部分广告']);
 
         return $form;
     }

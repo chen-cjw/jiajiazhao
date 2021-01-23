@@ -34,10 +34,21 @@ class ShopComment extends Model
         }
 
     }
+
+    public function getCommentReplyAvatarAttribute()
+    {
+        if (request('information_id')) {
+
+        }else {
+            return User::where('id',$this->attributes['reply_user_id'])->value('avatar');
+        }
+
+    }
+
     public function getSubcollectionAttribute()
     {
         $thisID =  $this->attributes['id'];
         return ShopComment::where('parent_reply_id',$thisID)->paginate(5);
     }
-    protected $appends = ['comment_reply','subcollection'];
+    protected $appends = ['comment_reply','comment_reply_avatar','subcollection'];
 }

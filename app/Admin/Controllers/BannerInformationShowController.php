@@ -83,7 +83,8 @@ class BannerInformationShowController extends AdminController
         $form->textarea('link', __('Link'));
         $form->switch('is_display', __('Is display'))->default(1);
         $form->number('sort', __('Sort'));
-        $form->text('type', __('Type'));
+//        $form->text('type', __('Type'));
+        $form->select('type', __('Type'))->options(['one' => '第一部分', 'two' => '第二部分']);
 
         return $form;
     }

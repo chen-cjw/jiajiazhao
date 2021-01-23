@@ -112,8 +112,8 @@ class ConvenientInformationController extends AdminController
         $form->decimal('lng', __('Lng'));
         $form->decimal('lat', __('Lat'));
         $form->text('view', __('View'));
-        $form->number('card_id', __('Card id'));
-        $form->number('user_id', __('User id'));
+//        $form->number('card_id', __('Card id'));
+//        $form->number('user_id', __('User id'));
         $form->text('no', __('No'));
         $form->decimal('card_fee', __('Card fee'));
         $form->decimal('top_fee', __('Top fee'));
