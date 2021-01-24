@@ -38,6 +38,12 @@ class BannerController extends AdminController
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
+        $grid->filter(function ($filter) {
+//            $filter->like('title', __('Link'));
+            $filter->equal('type','类型')->select(['index_one'=>'第一部分广告','index_two'=>'第二部分广告']);
+            $filter->equal('is_display',__('Is display'))->select([true=>'是',false=>'否']);
+        });
+
         return $grid;
     }
 

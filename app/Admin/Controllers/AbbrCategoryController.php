@@ -8,6 +8,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Encore\Admin\Widgets\Table;
 
 class AbbrCategoryController extends AdminController
 {
@@ -26,11 +27,12 @@ class AbbrCategoryController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new AbbrCategory());
-        $grid->model()->orderBy('id','desc');
+        $grid->model()->orderBy('id','desc');//->whereNull('parent_id')
 
         $grid->column('id', __('Id'));
-        $grid->column('logo', __('Logo'))->image('',25,25);
-        $grid->column('image', '商铺广告')->image('',25,25);
+
+        $grid->column('logo', __('Logo'))->image('',50,50);
+        $grid->column('image', '商铺广告')->image('',50,50);
 
         $grid->column('abbr', __('Abbr'))->display(function ($abbr) {
 //            $abb = AbbrCategory::where('abbr',$abbr)->first();
@@ -40,9 +42,33 @@ class AbbrCategoryController extends AdminController
         $grid->column('parent_id', __('上级分类名'));
         $grid->column('type', __('Type'))->using(['shop' => '商铺', 'other' => '跳转']);
         $grid->column('local', __('Local'))->using(['one' => '第一部分', 'two' => '第二部分']);
+        $grid->column('add_two_category', __('添加'))->display(function () {
+            if($this->parent_id == null) {
+                return "<a href='/admin/abbr_category/create?parent_id={$this->id}' target='_blank'>添加子集</a>";
+            }
+        });
+        $grid->column('show_two_category', __('查看'))->display(function () {
+            if($this->parent_id == null) {
+                return "<a href='/admin/abbr_category?parent_id={$this->id}' target='_blank'>查看子集</a>";
+            }
+        });
         $grid->column('created_at', __('Created at'))->sortable();
         $grid->column('updated_at', __('Updated at'))->sortable();
+        $grid->filter(function ($filter) {
+            $filter->disableIdFilter();
+            $filter->like('abbr',  __('Abbr'));
+            $filter->equal('parent_id',  __('上级分类ID'));
+            $filter->equal('type',__('Type'))->select(['shop'=>'商铺','other'=>'跳转']);
+            $filter->equal('local',__('Local'))->select(['one'=>'第一部分','two'=>'第二部分']);
 
+//            $filter->where(function ($query) {
+//                $input = $this->input;
+//                $query->whereHas('user', function ($query) use ($input) {
+//                    $query->where('nickname', 'like', "%$input%");
+//                });
+//            }, '用户名');
+
+        });
         return $grid;
     }
 
@@ -60,12 +86,12 @@ class AbbrCategoryController extends AdminController
         $show->field('abbr', __('Abbr'));
         $show->field('sort', __('Sort'));
         $show->field('logo', __('Logo'));
+        $show->field('image', __('商铺广告'));
         $show->field('parent_id', __('Parent id'));
         $show->field('type', __('Type'));
         $show->field('local', __('Local'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
-        $show->field('image', __('Image'));
 
         return $show;
     }
@@ -78,15 +104,19 @@ class AbbrCategoryController extends AdminController
     protected function form()
     {
         $form = new Form(new AbbrCategory());
-        $form->image('image', __('Image'));
         $form->text('abbr', __('Abbr'));
+        $form->image('image', __('商铺广告'));
         $form->image('logo', __('Logo'));
         $form->select('type', __('Type'))->default('shop')->options(['shop' => '商铺', 'other' => '跳转']);
         $form->select('local', __('Local'))->default('one')->options(['one' => '第一部分', 'two' => '第二部分']);
-        $form->number('sort', __('Sort'));
+        $form->number('sort', __('Sort'))->default(0);
 //        $form->select('is_pub', __('Is Pub'))->options([true => '是', false => '否']);
+        $abbr = AbbrCategory::where('parent_id',null)->pluck('abbr');
+        if (request('parent_id')) {
+            $form->select('parent_id', __('上级分类名'))->default(null)->options($abbr);
+        }else {
 
-        $form->select('parent_id', __('上级分类名'))->options(AbbrCategory::where('parent_id',null)->pluck('abbr'));
+        }
 
         return $form;
     }

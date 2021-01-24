@@ -35,7 +35,17 @@ class WithdrawalController extends AdminController
         $grid->column('is_accept', __('Is accept'))->using([1 => '是', 0 => '否']);
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
+        $grid->filter(function ($filter) {
+            $filter->disableIdFilter();
 
+            $filter->where(function ($query) {
+                $input = $this->input;
+                $query->whereHas('user', function ($query) use ($input) {
+                    $query->where('nickname', 'like', "%$input%");
+                });
+            }, '用户名');
+
+        });
         return $grid;
     }
 

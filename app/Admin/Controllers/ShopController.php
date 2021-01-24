@@ -53,31 +53,50 @@ class ShopController extends AdminController
 //        $grid->column('detailed_address', __('Detailed address'));
         $grid->column('contact_phone', __('Contact phone'));
 //        $grid->column('wechat', __('Wechat'));
-//        $grid->column('logo', __('Logo'));
+
+//        $grid->column('logo', __('Logo'))->carousel();
+
         $grid->column('service_price', __('Service price'))->image('',25,25);
         $grid->column('merchant_introduction', __('Merchant introduction'))->display(function ($content) {
             return Str::limit($content, 50, '....');
         });
-        $grid->column('sort', __('Sort'));
-        $grid->column('view', __('View'));
+        $grid->column('sort', __('Sort'))->sortable();
+        $grid->column('view', __('View'))->sortable();
         $grid->column('is_top', __('Is top'))->using([1 => '是', 0 => '否']);
         $grid->column('is_accept', __('Is accept'))->using([1 => '是', 0 => '否']);
         $grid->column('type', __('Type'))->display(function ($type) {
             return $type == 'one' ? '第一部分':'第二部分';
         });
-        $grid->column('comment_count', __('Comment count'));
-        $grid->column('good_comment_count', __('Good comment count'));
+        $grid->column('comment_count', __('Comment count'))->sortable();
+        $grid->column('good_comment_count', __('Good comment count'))->sortable();
 
-        $grid->column('no', __('No'));
-        $grid->column('amount', __('Amount'));
-        $grid->column('top_amount', __('Top amount'));
+//        $grid->column('no', __('No'));
+        $grid->column('amount', __('Amount'))->sortable();
+        $grid->column('top_amount', __('Top amount'))->sortable();
         $grid->column('platform_licensing', __('Platform licensing'));
-        $grid->column('paid_at', __('Paid at'));
+        $grid->column('paid_at', __('Paid at'))->sortable();
 //        $grid->column('payment_method', __('Payment method'));
         $grid->column('payment_no', __('Payment no'));
         $grid->column('due_date', __('Due date'));
 //        $grid->column('created_at', __('Created at'));
 //        $grid->column('updated_at', __('Updated at'));
+        $grid->filter(function ($filter) {
+            $filter->disableIdFilter();
+
+            $filter->column(1/2, function ($filter) {
+                $filter->like('name', '店铺名');
+//                $filter->like('contact_phone',  __('Contact phone'));
+                $filter->like('no',  __('No'));
+                $filter->like('payment_no',  __('Payment no'));
+            });
+            $filter->column(1/2, function ($filter) {
+                $filter->equal('is_top', __('Is top'))->select([true=>'是',false=>'否']);
+                $filter->equal('is_accept', __('Is accept'))->select([true=>'是',false=>'否']);
+                $filter->equal('type', __('Type'))->select(['one'=>'第一部分','two'=>'第二部分']);
+            });
+
+        });
+
 
         return $grid;
     }
@@ -93,12 +112,12 @@ class ShopController extends AdminController
         $show = new Show(Shop::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('one_abbr0', __('One abbr0'));
-        $show->field('one_abbr1', __('One abbr1'));
-        $show->field('one_abbr2', __('One abbr2'));
-        $show->field('two_abbr0', __('Two abbr0'));
-        $show->field('two_abbr1', __('Two abbr1'));
-        $show->field('two_abbr2', __('Two abbr2'));
+//        $show->field('one_abbr0', __('One abbr0'));
+//        $show->field('one_abbr1', __('One abbr1'));
+//        $show->field('one_abbr2', __('One abbr2'));
+//        $show->field('two_abbr0', __('Two abbr0'));
+//        $show->field('two_abbr1', __('Two abbr1'));
+//        $show->field('two_abbr2', __('Two abbr2'));
         $show->field('name', __('店铺名'));
         $show->field('lng', __('Lng'));
         $show->field('lat', __('Lat'));
@@ -106,7 +125,7 @@ class ShopController extends AdminController
         $show->field('detailed_address', __('Detailed address'));
         $show->field('contact_phone', __('Contact phone'));
         $show->field('wechat', __('Wechat'));
-//        $show->field('logo', __('Logo'));
+        $show->field('logo', __('Logo'))->image();
         $show->field('service_price', __('Service price'));
         $show->field('merchant_introduction', __('Merchant introduction'));
         $show->field('sort', __('Sort'));
@@ -116,7 +135,7 @@ class ShopController extends AdminController
         $show->field('type', __('Type'));
         $show->field('comment_count', __('Comment count'));
         $show->field('good_comment_count', __('Good comment count'));
-        $show->field('user_id', __('User id'));
+//        $show->field('user_id', __('User id'));
         $show->field('no', __('No'));
         $show->field('amount', __('Amount'));
         $show->field('top_amount', __('Top amount'));
@@ -140,12 +159,12 @@ class ShopController extends AdminController
     {
         $form = new Form(new Shop());
 
-        $form->number('one_abbr0', __('One abbr0'));
-        $form->number('one_abbr1', __('One abbr1'));
-        $form->number('one_abbr2', __('One abbr2'));
-        $form->text('two_abbr0', __('Two abbr0'));
-        $form->text('two_abbr1', __('Two abbr1'));
-        $form->text('two_abbr2', __('Two abbr2'));
+//        $form->number('one_abbr0', __('One abbr0'));
+//        $form->number('one_abbr1', __('One abbr1'));
+//        $form->number('one_abbr2', __('One abbr2'));
+//        $form->text('two_abbr0', __('Two abbr0'));
+//        $form->text('two_abbr1', __('Two abbr1'));
+//        $form->text('two_abbr2', __('Two abbr2'));
         $form->text('name', __('店铺名'));
         $form->decimal('lng', __('Lng'));
         $form->decimal('lat', __('Lat'));
@@ -153,7 +172,7 @@ class ShopController extends AdminController
         $form->text('detailed_address', __('Detailed address'));
         $form->text('contact_phone', __('Contact phone'));
         $form->text('wechat', __('Wechat'));
-        $form->textarea('logo', __('Logo'));
+//        $form->text('logo', __('Logo'));
         $form->text('service_price', __('Service price'));
         $form->text('merchant_introduction', __('Merchant introduction'));
         $form->number('sort', __('Sort'));

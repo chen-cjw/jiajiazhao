@@ -33,6 +33,10 @@ class CardCategoryController extends AdminController
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
+        $grid->filter(function ($filter) {
+            $filter->like('name', __('Name'));
+            $filter->equal('is_display',__('Is display'))->select([true=>'是',false=>'否']);
+        });
 
         return $grid;
     }

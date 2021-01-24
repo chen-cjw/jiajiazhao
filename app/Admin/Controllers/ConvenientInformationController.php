@@ -44,20 +44,37 @@ class ConvenientInformationController extends AdminController
         $grid->column('location', __('Location'));
 //        $grid->column('lng', __('Lng'));
 //        $grid->column('lat', __('Lat'));
-        $grid->column('view', __('View'));
+        $grid->column('view', __('View'))->sortable();
 
         $grid->column('no', __('No'));
-        $grid->column('card_fee', __('Card fee'));
-        $grid->column('top_fee', __('Top fee'));
-        $grid->column('paid_at', __('Paid at'));
+        $grid->column('card_fee', __('Card fee'))->sortable();
+        $grid->column('top_fee', __('Top fee'))->sortable();
+        $grid->column('paid_at', __('Paid at'))->sortable();
 //        $grid->column('payment_method', __('Payment method'));
         $grid->column('payment_no', __('Payment no'));
-        $grid->column('sort', __('Sort'));
+        $grid->column('sort', __('Sort'))->sortable();
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
-        $grid->column('comment_count', __('Comment count'));
+        $grid->column('comment_count', __('Comment count'))->sortable();
 //        $grid->column('is_top', __('Is top'));
-        $grid->column('created_at', __('Created at'));
+        $grid->column('created_at', __('Created at'))->sortable();
 //        $grid->column('updated_at', __('Updated at'));
+
+
+        $grid->filter(function ($filter) {
+            $filter->column(1/2, function ($filter) {
+                $filter->like('title', __('Title'));
+                $filter->like('no', __('No'));
+            });
+            // 去掉默认的id过滤器
+            $filter->disableIdFilter();
+
+            $filter->column(1/2, function ($filter) {
+                $filter->like('payment_no', __('Payment no'));
+                $filter->equal('is_display',__('Is display'))->select([true=>'是',false=>'否']);
+            });
+
+//            $filter->equal('city_partner','城市合伙人')->select([true=>'是',false=>'否']);
+        });
 
         return $grid;
     }

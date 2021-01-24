@@ -46,6 +46,17 @@ class UserController extends AdminController
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
+        $grid->filter(function ($filter) {
+            $filter->like('nickname', '用户昵称');
+            $filter->like('phone', '手机号');
+            $filter->equal('is_member','商家/会员')->select([true=>'商家',false=>'会员']);
+            $filter->equal('city_partner','城市合伙人')->select([true=>'是',false=>'否']);
+        });
+
+        $grid->disableCreateButton();
+        $grid->disableExport();
+        $grid->disableActions();
+
         return $grid;
     }
 

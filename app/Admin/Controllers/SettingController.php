@@ -93,7 +93,7 @@ class SettingController extends AdminController
     {
         $form = new Form(new Setting());
 
-        $form->text('key', __('Key'));
+//        $form->text('key', __('Key'));
         $form->text('value', __('Value'));
 
         return $form;
