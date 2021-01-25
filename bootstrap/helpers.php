@@ -156,3 +156,6 @@ function new_user_add($receiver,$name,$phone,$update_time)
         throw new \Dingo\Api\Exception\ResourceException($res['errcode'].','.$res['errmsg']);
     }
 }
+//function _toString(){
+//    return $this->render();
+//}
