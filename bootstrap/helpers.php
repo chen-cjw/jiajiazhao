@@ -20,7 +20,9 @@ function array_get($array, $key, $default = null)
     }
     return $array;
 }
-
+function _toString(){
+    return $this->render();
+}
 // 订单支付成功通知 1
 function order_wePay_success_notification($receiver,$payment_no,$paid_at,$total_fee,$body,$remark)
 {
