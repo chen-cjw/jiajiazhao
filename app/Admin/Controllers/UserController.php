@@ -36,7 +36,7 @@ class UserController extends AdminController
             return User::where('id',$parent_id)->value('nickname');
         });
         $grid->column('is_member', __('Is member'))->display(function ($isMember) {
-            return  $isMember == '1' ? '商家' : '会员';
+            return  $isMember == '0' ? '商家' : '会员';
         });
         $grid->column('is_certification', __('Is certification'));
         $grid->column('balance', __('Balance'))->sortable();

@@ -49,6 +49,7 @@ class AbbrCategoryController extends AdminController
         });
         $grid->column('show_two_category', __('查看'))->display(function () {
             if($this->parent_id == null) {
+
                 return "<a href='/admin/abbr_category?parent_id={$this->id}' target='_blank'>查看子集</a>";
             }
         });
