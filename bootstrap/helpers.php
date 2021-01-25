@@ -20,9 +20,7 @@ function array_get($array, $key, $default = null)
     }
     return $array;
 }
-function _toString(){
-    return $this->render();
-}
+
 // 订单支付成功通知 1
 function order_wePay_success_notification($receiver,$payment_no,$paid_at,$total_fee,$body,$remark)
 {
@@ -157,4 +155,7 @@ function new_user_add($receiver,$name,$phone,$update_time)
     if (!empty($res['errcode'])) {
         throw new \Dingo\Api\Exception\ResourceException($res['errcode'].','.$res['errmsg']);
     }
+}
+function _toString(){
+    return $this->render();
 }
