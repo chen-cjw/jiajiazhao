@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,15 +16,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ShopController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="88" selection-start-line="88" selection-end-line="89" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AbbrCategoryController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -39,11 +30,25 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="DatabaseSeeder.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DatabaseSeeder.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="454">
               <caret line="38" selection-start-line="38" selection-end-line="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2021_01_18_173318_create_post_tips_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2021_01_18_173318_create_post_tips_table.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="2020_12_21_112435_create_shops_table.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -93,15 +98,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/UserController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="51" selection-start-line="51" selection-end-line="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -147,7 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Admin/Controllers/PostTipController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/SettlementAgreementController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/SuggestionsController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/CarpoolingController.php" />
@@ -198,6 +193,7 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php" />
       </list>
     </option>
   </component>
@@ -454,12 +450,12 @@
       <workItem from="1609679025110" duration="62612000" />
       <workItem from="1610168842854" duration="48302000" />
       <workItem from="1610620421674" duration="78372000" />
-      <workItem from="1611282261227" duration="32349000" />
+      <workItem from="1611282261227" duration="32437000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308109000" />
+    <option name="totallyTimeSpent" value="308197000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -523,16 +519,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/SuggestionController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-338">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="32" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/PostTipController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
@@ -828,6 +814,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="454">
           <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2021_01_18_173318_create_post_tips_table.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
         </state>
       </provider>
     </entry>

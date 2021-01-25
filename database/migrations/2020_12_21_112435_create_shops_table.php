@@ -32,7 +32,7 @@ class CreateShopsTable extends Migration
             $table->string('wechat')->nullable()->comment('个人微信');// 验证手机号码
             $table->text('logo')->comment('商户认证');// 图片上传
             $table->string('service_price')->nullable()->comment('服务价格表是一张图片');
-            $table->string('merchant_introduction')->comment('商户介绍');
+            $table->text('merchant_introduction')->comment('商户介绍');
             $table->bigInteger('sort')->default(0)->comment('排序');
             $table->bigInteger('view')->default(0)->comment('浏览量==人气');
             $table->boolean('is_top')->default(0)->comment('是否置顶');
