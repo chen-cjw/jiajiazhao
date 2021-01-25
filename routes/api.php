@@ -89,6 +89,7 @@ $api->version('v1', [
 
         // 发帖提示
         $api->get('/post_tip', 'PostTipController@index')->name('api.post_tip.index'); // 认证
+        $api->get('/post_description', 'PostDescriptionController@index')->name('api.post_description.index'); // 认证
 
 
         $api->get('/convenient_information', 'ConvenientInformationController@index')->name('api.convenient_information.index'); // 认证
