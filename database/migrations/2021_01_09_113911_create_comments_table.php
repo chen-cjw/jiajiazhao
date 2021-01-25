@@ -15,7 +15,7 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('content')->comment('回复的内容');
+            $table->text('content')->comment('回复的内容');
             $table->unsignedBigInteger('comment_user_id')->nullable()->comment('回复评论');
             $table->unsignedBigInteger('reply_user_id')->comment('发表评论');
 //            $table->foreign('reply_user_id')->references('id')->on('users');
