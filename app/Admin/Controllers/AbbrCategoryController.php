@@ -31,8 +31,8 @@ class AbbrCategoryController extends AdminController
 
         $grid->column('id', __('Id'));
 
-        $grid->column('logo', __('Logo'))->image('',50,50);
-        $grid->column('image', '商铺广告')->image('',50,50);
+        $grid->column('logo', __('分类图标'))->image('',50,50);
+        $grid->column('image', '分类列表广告位')->image('',50,50);
 
         $grid->column('abbr', __('Abbr'))->display(function ($abbr) {
 //            $abb = AbbrCategory::where('abbr',$abbr)->first();
@@ -86,8 +86,8 @@ class AbbrCategoryController extends AdminController
         $show->field('id', __('Id'));
         $show->field('abbr', __('Abbr'));
         $show->field('sort', __('Sort'));
-        $show->field('logo', __('Logo'));
-        $show->field('image', __('商铺广告'));
+        $show->field('logo', __('分类图标'));
+        $show->field('image', __('分类列表广告位'));
         $show->field('parent_id', __('Parent id'));
         $show->field('type', __('Type'));
         $show->field('local', __('Local'));
@@ -106,8 +106,8 @@ class AbbrCategoryController extends AdminController
     {
         $form = new Form(new AbbrCategory());
         $form->text('abbr', __('Abbr'));
-        $form->image('image', __('商铺广告'));
-        $form->image('logo', __('Logo'));
+        $form->image('image', __('分类列表广告位'));
+        $form->image('logo', __('分类图标'));
         $form->select('type', __('Type'))->default('shop')->options(['shop' => '商铺', 'other' => '跳转']);
         $form->select('local', __('Local'))->default('one')->options(['one' => '第一部分', 'two' => '第二部分']);
         $form->number('sort', __('Sort'))->default(0);
