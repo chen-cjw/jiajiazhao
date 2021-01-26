@@ -71,7 +71,7 @@ class CardCategoryController extends AdminController
         $form = new Form(new CardCategory());
 
         $form->text('name', __('Name'));
-        $form->number('sort', __('Sort'));
+        $form->number('sort', __('Sort'))->default(0);
         $form->switch('is_display', __('Is display'))->default(1);
         $form->footer(function ($footer) {
             // 去掉`重置`按钮

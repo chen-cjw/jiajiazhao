@@ -76,7 +76,7 @@ class NoticeController extends AdminController
         $form->text('title', __('Title'));
         $form->UEditor('content', __('Content'));
         $form->switch('is_display', __('Is display'));
-        $form->number('sort', __('Sort'));
+        $form->number('sort', __('Sort'))->default(0);
         $form->footer(function ($footer) {
             // 去掉`重置`按钮
             $footer->disableReset();

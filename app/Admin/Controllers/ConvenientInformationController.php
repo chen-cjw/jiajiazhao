@@ -137,7 +137,7 @@ class ConvenientInformationController extends AdminController
         $form->datetime('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
         $form->text('payment_method', __('Payment method'))->default('wechat');
         $form->text('payment_no', __('Payment no'));
-        $form->number('sort', __('Sort'));
+        $form->number('sort', __('Sort'))->default(0);
         $form->switch('is_display', __('Is display'))->default(1);
         $form->text('comment_count', __('Comment count'));
         $form->switch('is_top', __('Is top'));

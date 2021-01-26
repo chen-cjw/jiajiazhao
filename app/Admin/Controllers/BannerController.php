@@ -81,7 +81,7 @@ class BannerController extends AdminController
         $form->image('image', __('Image'));
         $form->textarea('link', __('Link'));
         $form->switch('is_display', __('Is display'));
-        $form->number('sort', __('Sort'));
+        $form->number('sort', __('Sort'))->default(0);
         $form->select('type', __('Type'))->options(['index_one' => '第一部分广告', 'index_two' => '第二部分广告']);
 
         $form->footer(function ($footer) {

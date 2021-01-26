@@ -71,7 +71,7 @@ class BannerPersonController extends AdminController
         $form->image('image', __('Image'));
         $form->textarea('link', __('Link'));
         $form->switch('is_display', __('Is display'))->default(1);
-        $form->number('sort', __('Sort'));
+        $form->number('sort', __('Sort'))->default(0);
         $form->footer(function ($footer) {
             // 去掉`重置`按钮
             $footer->disableReset();
