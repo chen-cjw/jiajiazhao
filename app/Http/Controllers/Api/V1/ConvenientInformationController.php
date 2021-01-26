@@ -42,7 +42,7 @@ class ConvenientInformationController extends Controller
 //        $shopOne = AbbrCategory::where('parent_id',null)->where('local','one')->orderBy('sort','desc')->take(10)->get();
 
         // 广告位
-        $advertisingSpace = AdvertisingSpace::orderBy('sort','desc')->take(3)->get();
+        $advertisingSpace = AdvertisingSpace::orderBy('sort','desc')->where('is_display',1)->take(3)->get();
 
         // 帖子分类
         $cardCategory = CardCategory::orderBy('sort','desc')->get();

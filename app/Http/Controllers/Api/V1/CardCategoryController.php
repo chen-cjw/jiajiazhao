@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 
+use App\Model\BannerCardCategory;
 use App\Model\CardCategory;
 use App\Model\ConvenientInformation;
 use App\Transformers\CardCategoryTransformer;
@@ -31,6 +32,10 @@ class CardCategoryController extends Controller
         }else {
             $information = $query->orderBy('sort','desc')->paginate();
         }
-        return $this->responseStyle('ok',200,$information);
+        $banner = BannerCardCategory::where('id_display',1)->orderBy('sort','desc')->get();
+        return $this->responseStyle('ok',200,[
+            'information' => $information,
+            'banner' => $banner
+        ]);
     }
 }
