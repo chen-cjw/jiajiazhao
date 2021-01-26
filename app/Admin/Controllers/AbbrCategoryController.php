@@ -38,7 +38,7 @@ class AbbrCategoryController extends AdminController
 //            $abb = AbbrCategory::where('abbr',$abbr)->first();
             return $abbr;
         });
-        $grid->column('sort', __('Sort'))->sortable();
+        $grid->column('sort', __('Sort'))->sortable()->editable();
         $grid->column('parent_id', __('上级分类名'))->display(function ($parent_id) {
             return AbbrCategory::where('id',$parent_id)->value('abbr');
         });

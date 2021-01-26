@@ -31,7 +31,7 @@ class BannerController extends AdminController
         $grid->column('image', __('Image'))->image('',50,50);
         $grid->column('link', __('Link'))->link();
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
-        $grid->column('sort', __('Sort'))->sortable();
+        $grid->column('sort', __('Sort'))->sortable()->editable();
         $grid->column('type', __('Type'))->display(function ($type) {
             return $type == 'index_one' ? '第一部分广告' : '第二部分广告';
         });

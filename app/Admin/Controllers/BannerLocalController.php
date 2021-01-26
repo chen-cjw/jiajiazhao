@@ -30,7 +30,7 @@ class BannerLocalController extends AdminController
         $grid->column('image', __('Image'));
         $grid->column('link', __('Link'));
         $grid->column('is_display', __('Is display'));
-        $grid->column('sort', __('Sort'));
+        $grid->column('sort', __('Sort'))->editable();
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 

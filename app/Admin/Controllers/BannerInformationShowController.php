@@ -36,7 +36,7 @@ class BannerInformationShowController extends AdminController
         });
         $grid->column('link', __('Link'))->link();
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
-        $grid->column('sort', __('Sort'))->sortable();
+        $grid->column('sort', __('Sort'))->sortable()->editable();
         $grid->column('type', __('Type'))->display(function ($type) {
             return $type == 'one' ? '第一部分' : '第二部分';
         });
