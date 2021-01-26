@@ -30,7 +30,7 @@ class CardCategoryController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
         $grid->column('sort', __('Sort'))->sortable();
-        $grid->column('logo', __('图标'));
+        $grid->column('logo', __('图标'))->image('',50,50);
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
