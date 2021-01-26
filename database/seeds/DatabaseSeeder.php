@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
 //         $this->call(PostDescriptionSeeder::class);
 //         $this->call(CommentSeed::class);
 //        $this->call(CarpoolingSeed::class);
-//        $this->call(AdminTablesSeeder::class);
+        $this->call(AdminTablesSeeder::class);
 //        $this->call(DialingSeed::class);
 //        $this->call(AbbrTwoCategorySeeder::class);
 //        $this->call(UserFavoriteCardSeeder::class);
