@@ -278,6 +278,14 @@ class AdminTablesSeeder extends Seeder
                     "icon" => "fa-bars",
                     "uri" => "/banner_card_category",
                     "permission" => NULL
+                ],
+                [
+                    "parent_id" => 0,
+                    "order" => 0,
+                    "title" => "拼车广告",
+                    "icon" => "fa-bars",
+                    "uri" => "/banner_local",
+                    "permission" => NULL
                 ]
             ]
         );

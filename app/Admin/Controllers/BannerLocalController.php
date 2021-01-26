@@ -27,7 +27,7 @@ class BannerLocalController extends AdminController
         $grid = new Grid(new BannerLocal());
 
         $grid->column('id', __('Id'));
-        $grid->column('image', __('Image'));
+        $grid->column('image', __('Image'))->image('',50,50);
         $grid->column('link', __('Link'));
         $grid->column('is_display', __('Is display'));
         $grid->column('sort', __('Sort'))->editable();
@@ -48,7 +48,7 @@ class BannerLocalController extends AdminController
         $show = new Show(BannerLocal::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('image', __('Image'));
+        $show->field('image', __('Image'))->image();
         $show->field('link', __('Link'));
         $show->field('is_display', __('Is display'));
         $show->field('sort', __('Sort'));

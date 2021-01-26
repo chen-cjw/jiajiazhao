@@ -299,6 +299,11 @@ class ShopController extends Controller
 //                    $order->status = 'paid';
                     $order->paid_at = Carbon::now(); // 更新支付时间为当前时间
                     $order->payment_no = $message['transaction_id']; // 支付平台订单号
+                    // 生成一条 邀请人获取佣金的记录
+//                    $userId = $order->user_id;
+//                    if (User::where('')->first()) {
+//
+//                    }
                     // 用户支付失败
                 } elseif (array_get($message, 'result_code') === 'FAIL') {
                     Log::info('用户支付失败');

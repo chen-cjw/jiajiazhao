@@ -43,5 +43,9 @@ class SettingSeeder extends Seeder
             'key'=>'radius',
             'value'=>5,
         ]);
+        \App\Model\Setting::create([
+            'key'=>'award',
+            'value'=>88,
+        ]);
     }
 }
