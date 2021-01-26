@@ -31,9 +31,9 @@ class BannerInformationShowController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('image', __('Image'))->image('',50,50);
 
-        $grid->column('content', __('Content'))->display(function ($content) {
-            return Str::limit($content, 50, '....');
-        });
+//        $grid->column('content', __('Content'))->display(function ($content) {
+//            return Str::limit($content, 50, '....');
+//        });
         $grid->column('link', __('Link'))->link();
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
         $grid->column('sort', __('Sort'))->sortable()->editable();
@@ -57,7 +57,7 @@ class BannerInformationShowController extends AdminController
         $show = new Show(BannerInformationShow::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('content', __('Content'));
+//        $show->field('content', __('Content'));
         $show->field('image', __('Image'));
         $show->field('link', __('Link'));
         $show->field('is_display', __('Is display'));
@@ -78,7 +78,7 @@ class BannerInformationShowController extends AdminController
     {
         $form = new Form(new BannerInformationShow());
 
-        $form->UEditor('content', __('Content'));
+        $form->display('content', __('Content'))->default(0);
         $form->image('image', __('Image'));
         $form->textarea('link', __('Link'));
         $form->switch('is_display', __('Is display'))->default(1);
