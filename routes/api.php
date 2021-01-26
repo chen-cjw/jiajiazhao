@@ -56,6 +56,7 @@ $api->version('v1', [
     // 发帖轮播图 BannerPostInformationController
     $api->get('/banner_post_shop','BannerPostShopController@index')->name('api.banner_post_shop.index');
     $api->get('/banner_post_information','BannerPostInformationController@index')->name('api.banner_post_information.index');
+    $api->get('/banner_shop_show','BannerShopShowController@index')->name('api.Banner_shop_show.index');
 
     // 商户入住协议
     $api->get('/merchant_entering_agreement','MerchantEnteringAgreementController@index')->name('api.personal.index');
