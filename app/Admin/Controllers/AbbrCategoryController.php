@@ -39,7 +39,9 @@ class AbbrCategoryController extends AdminController
             return $abbr;
         });
         $grid->column('sort', __('Sort'))->sortable();
-        $grid->column('parent_id', __('上级分类名'));
+        $grid->column('parent_id', __('上级分类名'))->display(function ($parent_id) {
+            return AbbrCategory::where('id',$parent_id)->value('abbr');
+        });
         $grid->column('type', __('Type'))->using(['shop' => '商铺', 'other' => '跳转']);
         $grid->column('local', __('Local'))->using(['one' => '第一部分', 'two' => '第二部分']);
         $grid->column('add_two_category', __('添加'))->display(function () {
