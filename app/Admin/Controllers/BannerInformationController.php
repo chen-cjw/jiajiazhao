@@ -50,7 +50,7 @@ class BannerInformationController extends AdminController
         $show->field('id', __('Id'));
         $show->field('image', __('Image'))->image('',50,50);
         $show->field('link', __('Link'));
-        $show->field('is_display', __('Is display'));
+        $show->field('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
         $show->field('sort', __('Sort'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
@@ -70,7 +70,7 @@ class BannerInformationController extends AdminController
         $form->image('image', __('Image'));
         $form->textarea('link', __('Link'));
         $form->switch('is_display', __('Is display'))->default(1);
-        $form->number('sort', __('Sort'));
+        $form->number('sort', __('Sort'))->default(0);
 
         return $form;
     }
