@@ -32,7 +32,7 @@ class CardCategoryController extends Controller
         }else {
             $information = $query->orderBy('sort','desc')->paginate();
         }
-        $banner = BannerCardCategory::where('id_display',1)->orderBy('sort','desc')->get();
+        $banner = BannerCardCategory::where('is_display',1)->orderBy('sort','desc')->get();
         return $this->responseStyle('ok',200,[
             'information' => $information,
             'banner' => $banner
