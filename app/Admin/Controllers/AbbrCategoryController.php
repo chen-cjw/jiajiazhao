@@ -114,7 +114,7 @@ class AbbrCategoryController extends AdminController
         $form->select('local', __('Local'))->default('one')->options(['one' => '第一部分', 'two' => '第二部分']);
         $form->number('sort', __('Sort'))->default(0);
 //        $form->select('is_pub', __('Is Pub'))->options([true => '是', false => '否']);
-        $abbr = AbbrCategory::where('parent_id',null)->pluck('abbr');
+        $abbr = AbbrCategory::where('parent_id',null)->pluck(['id','abbr']);
         if (request('parent_id')) {
             $form->select('parent_id', __('上级分类名'))->default(null)->options($abbr);
         }else {
