@@ -57,6 +57,9 @@ class SettingController extends AdminController
             if ($key=='radius') {
                 return '附近公里数';
             }
+            if ($key=='award') {
+                return '奖励金';
+            }
         });
         $grid->column('value', __('Value'));
         $grid->column('created_at', __('Created at'));
