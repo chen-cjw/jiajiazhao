@@ -48,7 +48,7 @@ class AdvertisingSpaceController extends AdminController
         $show = new Show(AdvertisingSpace::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('image', __('Image'));
+        $show->field('image', __('Image'))->image('',50,50);
         $show->field('link', __('Link'));
         $show->field('is_display', __('Is display'));
         $show->field('sort', __('Sort'));
