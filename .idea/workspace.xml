@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/AdvertisingSpaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/AdvertisingSpaceController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/BannerInformationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/BannerInformationController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdvertisingSpaceController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdvertisingSpaceController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AdvertisingSpaceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="10" column="32" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="32" />
+            <state relative-caret-position="277">
+              <caret line="31" column="82" selection-start-line="31" selection-start-column="82" selection-end-line="31" selection-end-column="82" />
             </state>
           </provider>
         </entry>
@@ -65,16 +66,16 @@
         <entry file="file://$PROJECT_DIR$/app/Model/BannerInformation.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BannerInformationController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BannerInformationController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerInformationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="72" column="52" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="52" />
+            <state relative-caret-position="241">
+              <caret line="31" column="82" selection-start-line="31" selection-start-column="82" selection-end-line="31" selection-end-column="82" />
             </state>
           </provider>
         </entry>
@@ -196,12 +197,12 @@
         <option value="$PROJECT_DIR$/app/Admin/Controllers/CardCategoryController.php" />
         <option value="$PROJECT_DIR$/app/Model/CardCategory.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" />
-        <option value="$PROJECT_DIR$/app/Admin/Controllers/AdvertisingSpaceController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_01_26_143559_create_banner_information_table.php" />
         <option value="$PROJECT_DIR$/app/Admin/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" />
         <option value="$PROJECT_DIR$/app/Model/BannerInformation.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerInformationController.php" />
+        <option value="$PROJECT_DIR$/app/Admin/Controllers/AdvertisingSpaceController.php" />
       </list>
     </option>
   </component>
@@ -518,12 +519,12 @@
       <workItem from="1610168842854" duration="48302000" />
       <workItem from="1610620421674" duration="78372000" />
       <workItem from="1611282261227" duration="42121000" />
-      <workItem from="1611627272489" duration="7514000" />
+      <workItem from="1611627272489" duration="7636000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="325395000" />
+    <option name="totallyTimeSpent" value="325517000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -860,13 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AdvertisingSpaceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
@@ -902,13 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/BannerInformation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerInformationShowController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -916,10 +903,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/BannerInformation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerInformationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="72" column="52" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="52" />
+        <state relative-caret-position="241">
+          <caret line="31" column="82" selection-start-line="31" selection-start-column="82" selection-end-line="31" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AdvertisingSpaceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="31" column="82" selection-start-line="31" selection-start-column="82" selection-end-line="31" selection-end-column="82" />
         </state>
       </provider>
     </entry>
