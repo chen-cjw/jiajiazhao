@@ -39,7 +39,7 @@ class ConvenientInformationController extends Controller
 
         //第一部分的商户
         //$shopOne = Shop::where('type','one')->where('is_accept',1)->get();
-        $shopOne = AbbrCategory::where('parent_id',null)->where('local','one')->orderBy('sort','desc')->take(10)->get();
+//        $shopOne = AbbrCategory::where('parent_id',null)->where('local','one')->orderBy('sort','desc')->take(10)->get();
 
         // 广告位
         $advertisingSpace = AdvertisingSpace::orderBy('sort','desc')->take(3)->get();
@@ -53,7 +53,7 @@ class ConvenientInformationController extends Controller
         return $this->responseStyle('ok',200,[
             'bannerOne'=>$bannerOne,
             'post'=>$post,
-            'shopOne'=>$shopOne,
+//            'shopOne'=>$shopOne,
             'advertisingSpace'=>$advertisingSpace,
             'cardCategory'=>$cardCategory,
 //            'convenientInformation'=>$convenientInformation,
