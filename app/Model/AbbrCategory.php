@@ -27,4 +27,23 @@ class AbbrCategory extends Model
         }
         return \Storage::disk('public')->url($image);
     }
+
+    public function setImageAttribute($pictures)
+    {
+        if (is_array($pictures)) {
+            $this->attributes['image'] = json_encode($pictures);
+        }
+    }
+
+    public function getImageAttribute($pictures)
+    {
+        $data = json_decode($pictures, true);
+        foreach ($data as $k=>$v) {
+            if (Str::startsWith($v, ['http://', 'https://'])) {
+                $da[] = $v;
+            }
+            $da[] = \Storage::disk('public')->url($v);
+        }
+        return $da;
+    }
 }

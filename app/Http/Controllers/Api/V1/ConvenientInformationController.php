@@ -14,6 +14,7 @@ use App\Model\History;
 use App\Model\PostDescription;
 use App\Model\Setting;
 use App\Model\Shop;
+use App\Model\TransactionRecord;
 use App\Transformers\ConvenientInformationTransformer;
 use App\User;
 use Carbon\Carbon;
@@ -75,15 +76,7 @@ class ConvenientInformationController extends Controller
         $parentId = auth('api')->user()->parent_id;
 
         $userParent = User::where('parent_id',$parentId)->first();
-        // 邀请人获取积分
-        if ($userParent) {
-            if($userParent->city_partner== 1) {
-                // 数据库的邀请人的额度就是增加百分之 50
-                $balanceCount = bcadd($request->card_fee,$request->top_fee,3);
-                $balance = bcdiv($balanceCount,2,3);
-                $userParent->update(['balance'=>$balance]);// 分一半给邀请人，这个只是积分，其实所有的钱是到了商户里面。
-            }
-        }
+
         $data['no'] = ConvenientInformation::findAvailableNo();
         if($request->card_fee==1) {
             $data['card_fee'] = Setting::where('key','information_card_fee')->value('value');
@@ -101,6 +94,29 @@ class ConvenientInformationController extends Controller
 //            $data['payment_no'] = ''; // 支付平台订单号
 //        }
         $res = ConvenientInformation::create($data);
+
+
+        // 邀请人获取积分
+        if ($userParent) {
+            if($userParent->city_partner== 1) {
+                // 数据库的邀请人的额度就是增加百分之 50
+                $balanceCount = bcadd($request->card_fee,$request->top_fee,3);
+                $balance = bcdiv($balanceCount,2,3);
+                // 形成一个订单 ，支付成功修改这个订单状态，然后钱到会员余额
+                TransactionRecord::create([
+                    'amount' => $balance,
+                    'come_from' => auth('api')->user()->nickname.'发布了一条便民信息',
+                    'user_id' => auth()->id(),
+                    'parent_id' => $parentId,
+                    'model_id' => '',
+                    'model_type' => ConvenientInformation::class
+                ]);
+
+                //$userParent->update(['balance'=>$balance]);// 分一半给邀请人，这个只是积分，其实所有的钱是到了商户里面。
+            }
+        }
+
+
         return $this->responseStyle('ok',200,$res);
     }
 

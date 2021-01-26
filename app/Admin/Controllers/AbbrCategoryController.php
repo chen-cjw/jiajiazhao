@@ -108,7 +108,7 @@ class AbbrCategoryController extends AdminController
     {
         $form = new Form(new AbbrCategory());
         $form->text('abbr', __('Abbr'));
-        $form->image('image', __('分类列表广告位'));
+        $form->multipleImage('image', __('分类列表广告位'))->removable();
         $form->image('logo', __('分类图标'));
         $form->select('type', __('Type'))->default('shop')->options(['shop' => '商铺', 'other' => '跳转']);
         $form->select('local', __('Local'))->default('one')->options(['one' => '第一部分', 'two' => '第二部分']);
