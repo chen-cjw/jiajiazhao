@@ -88,8 +88,8 @@ class AbbrCategoryController extends AdminController
         $show->field('id', __('Id'));
         $show->field('abbr', __('Abbr'));
         $show->field('sort', __('Sort'));
-        $show->field('logo', __('分类图标'));
-        $show->field('image', __('分类列表广告位'));
+        $show->field('logo', __('分类图标'))->image();
+        $show->field('image', __('分类列表广告位'))->image();
         $show->field('parent_id', __('Parent id'));
         $show->field('type', __('Type'));
         $show->field('local', __('Local'));
