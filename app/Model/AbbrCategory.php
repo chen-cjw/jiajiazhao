@@ -37,6 +37,9 @@ class AbbrCategory extends Model
 
     public function getImageAttribute($pictures)
     {
+        if (!$pictures) {
+            return $pictures;
+        }
         $data = json_decode($pictures, true);
         foreach ($data as $k=>$v) {
             if (Str::startsWith($v, ['http://', 'https://'])) {
