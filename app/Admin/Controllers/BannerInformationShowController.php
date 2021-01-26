@@ -85,7 +85,16 @@ class BannerInformationShowController extends AdminController
         $form->number('sort', __('Sort'));
 //        $form->text('type', __('Type'));
         $form->select('type', __('Type'))->options(['one' => '第一部分', 'two' => '第二部分']);
-
+        $form->footer(function ($footer) {
+            // 去掉`重置`按钮
+            $footer->disableReset();
+            // 去掉`查看`checkbox
+            $footer->disableViewCheck();
+            // 去掉`继续编辑`checkbox
+            $footer->disableEditingCheck();
+            // 去掉`继续创建`checkbox
+            $footer->disableCreatingCheck();
+        });
         return $form;
     }
 }

@@ -84,6 +84,17 @@ class BannerController extends AdminController
         $form->number('sort', __('Sort'));
         $form->select('type', __('Type'))->options(['index_one' => '第一部分广告', 'index_two' => '第二部分广告']);
 
+        $form->footer(function ($footer) {
+            // 去掉`重置`按钮
+            $footer->disableReset();
+            // 去掉`查看`checkbox
+            $footer->disableViewCheck();
+            // 去掉`继续编辑`checkbox
+            $footer->disableEditingCheck();
+            // 去掉`继续创建`checkbox
+            $footer->disableCreatingCheck();
+        });
+
         return $form;
     }
 }

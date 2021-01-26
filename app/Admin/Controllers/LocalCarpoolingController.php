@@ -124,7 +124,16 @@ class LocalCarpoolingController extends AdminController
         $form->text('payment_no', __('Payment no'));
         $form->switch('closed', __('Closed'));
         $form->number('user_id', __('User id'));
-
+        $form->footer(function ($footer) {
+            // 去掉`重置`按钮
+            $footer->disableReset();
+            // 去掉`查看`checkbox
+            $footer->disableViewCheck();
+            // 去掉`继续编辑`checkbox
+            $footer->disableEditingCheck();
+            // 去掉`继续创建`checkbox
+            $footer->disableCreatingCheck();
+        });
         return $form;
     }
 }

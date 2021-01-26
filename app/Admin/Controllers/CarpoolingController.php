@@ -65,7 +65,16 @@ class CarpoolingController extends AdminController
         $form = new Form(new Carpooling());
 
         $form->UEditor('content', __('Content'));
-
+        $form->footer(function ($footer) {
+            // 去掉`重置`按钮
+            $footer->disableReset();
+            // 去掉`查看`checkbox
+            $footer->disableViewCheck();
+            // 去掉`继续编辑`checkbox
+            $footer->disableEditingCheck();
+            // 去掉`继续创建`checkbox
+            $footer->disableCreatingCheck();
+        });
         return $form;
     }
 }
