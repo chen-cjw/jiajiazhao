@@ -23,7 +23,7 @@ class CreateTransactionRecordsTable extends Migration
             $table->boolean('is_pay')->default(0)->comment('收否到账');
             $table->string('come_from')->default(0)->comment('钱怎么来的');
             $table->unsignedBigInteger('model_id')->comment('钱怎么来的');
-            $table->unsignedBigInteger('model_type')->comment('钱怎么来的');
+            $table->string('model_type')->comment('钱怎么来的');
             $table->timestamps();
         });
     }

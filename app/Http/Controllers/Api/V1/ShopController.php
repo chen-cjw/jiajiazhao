@@ -8,6 +8,7 @@ use App\Model\History;
 use App\Model\Setting;
 use App\Model\Shop;
 use App\Model\ShopComment;
+use App\Model\TransactionRecord;
 use App\Model\UserFavoriteShop;
 use App\Transformers\ShopTransformer;
 use App\User;
@@ -102,36 +103,64 @@ class ShopController extends Controller
     // 入住 service_price 这个是一个图片
     public function store(ShopRequest $request)
     {
-        $data = $request->only([
-            'one_abbr0','one_abbr1','one_abbr2',
-            'two_abbr0','two_abbr1','two_abbr2','name','area','detailed_address','contact_phone','wechat',
-            'logo','service_price','merchant_introduction','is_top','lng','lat'
-        ]);
-        for ($i=0;$i<count($request->one_abbr);$i++) {
-            $data['one_abbr'.$i] = $request->one_abbr[$i];
-        }
-        for ($i=0;$i<count($request->two_abbr);$i++) {
-            $data['two_abbr'.$i] = $request->two_abbr[$i];
-        }
-
-        $data['no'] = Shop::findAvailableNo();
-        $data['amount'] = $request->shop_fee == 0 ? Setting::where('key','shop_fee_two')->value('value') : Setting::where('key','shop_fee')->value('value') ;
-        $data['top_amount'] = $request->shop_top_fee == 0 ? Setting::where('key','shop_top_fee_two')->value('value') : Setting::where('key','shop_top_fee')->value('value');
-        $data['logo'] = json_encode($request->logo);
-        $data['user_id'] = auth('api')->id();
-        if($request->shop_top_fee!=0 || $request->shop_top_fee_two!=0) {
-            $shop = Shop::orderBy('sort','desc')->first();
-            if($shop) {
-
-                $data['sort'] = bcadd( $shop->sort,1);
-
-            }else {
-                $data['sort'] = 1;
+        DB::beginTransaction();
+        try {
+            $data = $request->only([
+                'one_abbr0', 'one_abbr1', 'one_abbr2',
+                'two_abbr0', 'two_abbr1', 'two_abbr2', 'name', 'area', 'detailed_address', 'contact_phone', 'wechat',
+                'logo', 'service_price', 'merchant_introduction', 'is_top', 'lng', 'lat'
+            ]);
+            for ($i = 0; $i < count($request->one_abbr); $i++) {
+                $data['one_abbr' . $i] = $request->one_abbr[$i];
             }
-        }
-        $res = Shop::create($data);
+            for ($i = 0; $i < count($request->two_abbr); $i++) {
+                $data['two_abbr' . $i] = $request->two_abbr[$i];
+            }
 
-        return $this->responseStyle('ok',200,$res);
+            $data['no'] = Shop::findAvailableNo();
+            $data['amount'] = $request->shop_fee == 0 ? Setting::where('key', 'shop_fee_two')->value('value') : Setting::where('key', 'shop_fee')->value('value');
+            $data['top_amount'] = $request->shop_top_fee == 0 ? Setting::where('key', 'shop_top_fee_two')->value('value') : Setting::where('key', 'shop_top_fee')->value('value');
+            $data['logo'] = json_encode($request->logo);
+            $data['user_id'] = auth('api')->id();
+            if ($request->shop_top_fee != 0 || $request->shop_top_fee_two != 0) {
+                $shop = Shop::orderBy('sort', 'desc')->first();
+                if ($shop) {
+
+                    $data['sort'] = bcadd($shop->sort, 1);
+
+                } else {
+                    $data['sort'] = 1;
+                }
+            }
+            $res = Shop::create($data);
+
+            // todo
+            $parentId = auth('api')->user()->parent_id;
+            $userParent = User::where('parent_id', $parentId)->first();
+            // 邀请人获取积分
+            if ($userParent) {
+//            if($userParent->city_partner== 1) {
+                // 数据库的邀请人的额度就是增加百分之 50
+                $balanceCount = bcadd($data['amount'], $data['top_amount'], 3);
+                // 形成一个订单 ，支付成功修改这个订单状态，然后钱到会员余额
+                $res['record'] = TransactionRecord::create([
+                    'amount' => $balanceCount,
+                    'come_from' => auth('api')->user()->nickname . '入驻了商户',
+                    'user_id' => auth()->id(),
+                    'parent_id' => $parentId,
+                    'model_id' => $res->id,
+                    'model_type' => Shop::class
+                ]);
+//            }
+            }
+
+
+            DB::commit();
+            return ['code'=>200,'msg'=>'ok','data'=>$res];
+        } catch (\Exception $ex) {
+            DB::rollback();
+            throw new \Exception($ex); // 报错原因大多是因为taskFlowCollections表，name和user_id一致
+        }
     }
 
     public function show($id)
@@ -300,10 +329,13 @@ class ShopController extends Controller
                     $order->paid_at = Carbon::now(); // 更新支付时间为当前时间
                     $order->payment_no = $message['transaction_id']; // 支付平台订单号
                     // 生成一条 邀请人获取佣金的记录
-//                    $userId = $order->user_id;
-//                    if (User::where('')->first()) {
-//
-//                    }
+                    // todo 如果 已经生成了订单那么这里支付成功了，就给推广人员到账
+                    if ($record = TransactionRecord::where('model_id',$order->id)->where('model_type',Shop::class)->first()) {
+                        User::where('id',$record->parent_id)->increment('balance');
+                        TransactionRecord::where('model_id',$order->id)->where('model_type',Shop::class)->update([
+                            'is_pay'=>1
+                        ]);
+                    }
                     // 用户支付失败
                 } elseif (array_get($message, 'result_code') === 'FAIL') {
                     Log::info('用户支付失败');
