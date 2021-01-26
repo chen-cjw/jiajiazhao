@@ -127,9 +127,6 @@ class AbbrCategoryController extends AdminController
             // 去掉`重置`按钮
             $footer->disableReset();
 
-            // 去掉`提交`按钮
-            $footer->disableSubmit();
-
             // 去掉`查看`checkbox
             $footer->disableViewCheck();
 
