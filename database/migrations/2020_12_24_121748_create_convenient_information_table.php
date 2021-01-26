@@ -18,7 +18,7 @@ class CreateConvenientInformationTable extends Migration
 
             $table->string('title')->comment('标题');
             $table->text('content')->comment('内容');
-            $table->json('images')->comment('图片');
+            $table->text('images')->comment('内容');
             $table->string('location')->comment('自动定位');
             $table->decimal('lng',20,10)->comment('当前纬度');
             $table->decimal('lat',20,10)->comment('当前经度');

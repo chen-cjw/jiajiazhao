@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_21_112815_create_abbr_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_21_112815_create_abbr_categories_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_24_121748_create_convenient_information_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_24_121748_create_convenient_information_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,20 +26,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2020_12_21_112815_create_abbr_categories_table.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="2020_12_21_112815_create_abbr_categories_table.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_21_112815_create_abbr_categories_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+              <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2020_12_24_121748_create_convenient_information_table.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2020_12_24_121748_create_convenient_information_table.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_24_121748_create_convenient_information_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="163">
-              <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+              <caret line="20" column="24" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -194,8 +195,8 @@
         <option value="$PROJECT_DIR$/app/Model/AbbrCategory.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_12_21_112815_create_abbr_categories_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_12_24_121748_create_convenient_information_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_12_21_112815_create_abbr_categories_table.php" />
       </list>
     </option>
   </component>
@@ -489,12 +490,12 @@
       <workItem from="1610168842854" duration="48302000" />
       <workItem from="1610620421674" duration="78372000" />
       <workItem from="1611282261227" duration="42121000" />
-      <workItem from="1611627272489" duration="20332000" />
+      <workItem from="1611627272489" duration="20475000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="338213000" />
+    <option name="totallyTimeSpent" value="338356000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -506,9 +507,9 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.24242425" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.24242425" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3197425" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3197425" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -890,17 +891,17 @@
     <entry file="file://$PROJECT_DIR$/database/seeds/AbbrCategorySeeder.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_21_112815_create_abbr_categories_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_24_121748_create_convenient_information_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
-          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_21_112815_create_abbr_categories_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
         </state>
       </provider>
     </entry>
