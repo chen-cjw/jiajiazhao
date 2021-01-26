@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/BannerCardCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/BannerCardCategoryController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CardCategoryController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CardCategoryController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="466">
@@ -55,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BannerCardCategoryController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BannerCardCategoryController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerCardCategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="10" column="34" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="34" />
+            <state relative-caret-position="195">
+              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -113,7 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Closed是否置顶</find>
       <find>view</find>
       <find>Top amount</find>
       <find>MerchantEnteringAgreementController</find>
@@ -143,6 +142,7 @@
       <find>发帖</find>
       <find>wechat_</find>
       <find>AdvertisingSpaceController</find>
+      <find>is_display</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -202,9 +202,9 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" />
         <option value="$PROJECT_DIR$/app/Model/BannerCardCategory.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_01_26_151050_create_banner_card_categories_table.php" />
-        <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerCardCategoryController.php" />
         <option value="$PROJECT_DIR$/app/Admin/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" />
+        <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerCardCategoryController.php" />
       </list>
     </option>
   </component>
@@ -521,12 +521,12 @@
       <workItem from="1610168842854" duration="48302000" />
       <workItem from="1610620421674" duration="78372000" />
       <workItem from="1611282261227" duration="42121000" />
-      <workItem from="1611627272489" duration="9264000" />
+      <workItem from="1611627272489" duration="9334000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="327145000" />
+    <option name="totallyTimeSpent" value="327215000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -898,13 +898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerCardCategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -926,6 +919,13 @@
           <folding>
             <element signature="e#48#81#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerCardCategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
         </state>
       </provider>
     </entry>

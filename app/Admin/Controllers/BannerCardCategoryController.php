@@ -15,7 +15,7 @@ class BannerCardCategoryController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\BannerCardCategory';
+    protected $title = '类目轮播图';
 
     /**
      * Make a grid builder.
