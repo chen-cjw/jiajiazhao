@@ -11,6 +11,6 @@ class CardCategorySeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Model\CardCategory::class, 20)->create();
+        factory(\App\Model\CardCategory::class, 5)->create();
     }
 }
