@@ -6,6 +6,7 @@ use App\Http\Requests\ConvenientInformationRequest;
 use App\Model\AbbrCategory;
 use App\Model\AdvertisingSpace;
 use App\Model\Banner;
+use App\Model\BannerInformation;
 use App\Model\CardCategory;
 use App\Model\Comment;
 use App\Model\ConvenientInformation;
@@ -30,7 +31,8 @@ class ConvenientInformationController extends Controller
     public function index()
     {
         // 第一部分的轮播图
-        $bannerOne = Banner::where('type','index_one')->where('is_display',1)->orderBy('sort','desc')->get();
+        $bannerOne = BannerInformation::where('is_display',1)->orderBy('sort','desc')->get();
+//        $bannerOne = Banner::where('type','index_one')->where('is_display',1)->orderBy('sort','desc')->get();
 
         // 发帖说明
         $post = PostDescription::first();

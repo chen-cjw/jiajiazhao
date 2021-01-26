@@ -81,23 +81,23 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 0,
-                    "order" => 23,
+                    "order" => 25,
                     "title" => "行业分类",
                     "icon" => "fa-bars",
                     "uri" => "/abbr_category",
                     "permission" => NULL
                 ],
                 [
-                    "parent_id" => 0,
-                    "order" => 19,
-                    "title" => "轮播图",
+                    "parent_id" => 28,
+                    "order" => 11,
+                    "title" => "首页广告",
                     "icon" => "fa-bars",
                     "uri" => "/banners",
                     "permission" => NULL
                 ],
                 [
                     "parent_id" => 29,
-                    "order" => 21,
+                    "order" => 23,
                     "title" => "便民信息分类",
                     "icon" => "fa-bars",
                     "uri" => "/card_category",
@@ -105,7 +105,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 28,
-                    "order" => 15,
+                    "order" => 18,
                     "title" => "拼车协议",
                     "icon" => "fa-bars",
                     "uri" => "/carpooling",
@@ -113,7 +113,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 29,
-                    "order" => 22,
+                    "order" => 24,
                     "title" => "信息管理",
                     "icon" => "fa-bars",
                     "uri" => "/information",
@@ -121,7 +121,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 30,
-                    "order" => 26,
+                    "order" => 28,
                     "title" => "司机认证",
                     "icon" => "fa-bars",
                     "uri" => "/driver_certifications",
@@ -129,7 +129,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 30,
-                    "order" => 25,
+                    "order" => 27,
                     "title" => "拼车管理",
                     "icon" => "fa-bars",
                     "uri" => "/local_carpooling",
@@ -145,7 +145,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 0,
-                    "order" => 27,
+                    "order" => 29,
                     "title" => "设置",
                     "icon" => "fa-bars",
                     "uri" => "/settings",
@@ -153,7 +153,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 28,
-                    "order" => 16,
+                    "order" => 19,
                     "title" => "入住协议",
                     "icon" => "fa-bars",
                     "uri" => "/settlement_agreements",
@@ -161,7 +161,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 0,
-                    "order" => 28,
+                    "order" => 30,
                     "title" => "商户管理",
                     "icon" => "fa-bars",
                     "uri" => "/shops",
@@ -169,7 +169,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 0,
-                    "order" => 29,
+                    "order" => 31,
                     "title" => "投诉建议",
                     "icon" => "fa-bars",
                     "uri" => "/suggestions",
@@ -177,7 +177,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 28,
-                    "order" => 17,
+                    "order" => 20,
                     "title" => "帖子详情广告",
                     "icon" => "fa-bars",
                     "uri" => "banner_information_show",
@@ -185,7 +185,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 28,
-                    "order" => 18,
+                    "order" => 21,
                     "title" => "个人中心广告",
                     "icon" => "fa-bars",
                     "uri" => "/banner_person",
@@ -193,7 +193,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 28,
-                    "order" => 11,
+                    "order" => 14,
                     "title" => "入住协议",
                     "icon" => "fa-bars",
                     "uri" => "/merchant_entering_agreement",
@@ -201,7 +201,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 28,
-                    "order" => 12,
+                    "order" => 15,
                     "title" => "隐私协议",
                     "icon" => "fa-bars",
                     "uri" => "merchant_privacy_agreement",
@@ -209,7 +209,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 28,
-                    "order" => 14,
+                    "order" => 17,
                     "title" => "发帖说明",
                     "icon" => "fa-bars",
                     "uri" => "/post_description",
@@ -217,7 +217,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 28,
-                    "order" => 13,
+                    "order" => 16,
                     "title" => "发帖提示",
                     "icon" => "fa-bars",
                     "uri" => "/post_tip",
@@ -225,7 +225,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 0,
-                    "order" => 30,
+                    "order" => 32,
                     "title" => "提现",
                     "icon" => "fa-bars",
                     "uri" => "/withdrawal",
@@ -241,7 +241,7 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 0,
-                    "order" => 20,
+                    "order" => 22,
                     "title" => "便民信息",
                     "icon" => "fa-bars",
                     "uri" => NULL,
@@ -249,10 +249,26 @@ class AdminTablesSeeder extends Seeder
                 ],
                 [
                     "parent_id" => 0,
-                    "order" => 24,
+                    "order" => 26,
                     "title" => "本地拼车",
                     "icon" => "fa-bars",
                     "uri" => NULL,
+                    "permission" => NULL
+                ],
+                [
+                    "parent_id" => 28,
+                    "order" => 13,
+                    "title" => "便民广告位",
+                    "icon" => "fa-bars",
+                    "uri" => "/advertising_space",
+                    "permission" => NULL
+                ],
+                [
+                    "parent_id" => 28,
+                    "order" => 12,
+                    "title" => "便民轮播图",
+                    "icon" => "fa-bars",
+                    "uri" => "/banner_information",
                     "permission" => NULL
                 ]
             ]

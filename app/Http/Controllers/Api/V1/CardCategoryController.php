@@ -19,12 +19,18 @@ class CardCategoryController extends Controller
     // 帖子下便民信息
     public function cardInformation($id)
     {
-
-        $information = ConvenientInformation::where('card_id',$id);
-        if($title = request('title')) {
-            $information->where('title','like','%'.$title.'%');
+        $query = ConvenientInformation::query();
+        if($id != 'new') {
+            $query = $query->where('card_id',$id);
         }
-        $information = $information->orderBy('sort','desc')->paginate();
+        if($title = request('title')) {
+            $query->where('title','like','%'.$title.'%');
+        }
+        if ($id == 'new') {
+            $information = $query->orderBy('created_at','desc')->paginate();
+        }else {
+            $information = $query->orderBy('sort','desc')->paginate();
+        }
         return $this->responseStyle('ok',200,$information);
     }
 }
