@@ -19,6 +19,7 @@ class CardCategoryController extends Controller
     // 帖子下便民信息
     public function cardInformation($id)
     {
+
         $information = ConvenientInformation::where('card_id',$id);
         if($title = request('title')) {
             $information->where('title','like','%'.$title.'%');
