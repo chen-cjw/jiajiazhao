@@ -37,9 +37,9 @@ class BannerInformationShowController extends AdminController
         $grid->column('link', __('Link'))->link();
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
         $grid->column('sort', __('Sort'))->sortable()->editable();
-        $grid->column('type', __('Type'))->display(function ($type) {
-            return $type == 'one' ? '第一部分' : '第二部分';
-        });
+//        $grid->column('type', __('Type'))->display(function ($type) {
+//            return $type == 'one' ? '第一部分' : '第二部分';
+//        });
         $grid->column('created_at', __('Created at'))->sortable();
 //        $grid->column('updated_at', __('Updated at'));
 
@@ -62,7 +62,7 @@ class BannerInformationShowController extends AdminController
         $show->field('link', __('Link'));
         $show->field('is_display', __('Is display'));
         $show->field('sort', __('Sort'));
-        $show->field('type', __('Type'));
+//        $show->field('type', __('Type'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -84,7 +84,8 @@ class BannerInformationShowController extends AdminController
         $form->switch('is_display', __('Is display'))->default(1);
         $form->number('sort', __('Sort'))->default(0);
 //        $form->text('type', __('Type'));
-        $form->select('type', __('Type'))->options(['one' => '第一部分', 'two' => '第二部分']);
+        $form->display('type', __('Type'))->default('two');
+//        $form->select('type', __('Type'))->options(['one' => '第一部分', 'two' => '第二部分']);
         $form->footer(function ($footer) {
             // 去掉`重置`按钮
             $footer->disableReset();
