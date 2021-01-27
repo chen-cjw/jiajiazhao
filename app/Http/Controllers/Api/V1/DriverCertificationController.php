@@ -12,7 +12,7 @@ class DriverCertificationController extends Controller
     // 司机认证
     public function index()
     {
-        $userCertification = auth('api')->user()->certification;
+        $userCertification = auth('api')->user()->certification->where('is_display',1)->first();
         return $this->responseStyle('ok',200,$userCertification);
         return $this->response->item(auth('api')->user()->certification,new DriverCertificationTransformer());
     }

@@ -59,7 +59,9 @@ class DriverCertificationController extends AdminController
         $show->field('action', __('Action'));
         $show->field('car', __('Car'));
         $show->field('is_display', __('Is display'));
-        $show->field('user_id', __('User id'));
+        $show->field('user_id', __('User id'))->as(function ($user_id) {
+            return User::where('id',$user_id)->value('nickname');
+        });
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
