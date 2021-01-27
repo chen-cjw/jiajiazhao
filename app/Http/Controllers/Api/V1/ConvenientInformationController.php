@@ -90,6 +90,7 @@ class ConvenientInformationController extends Controller
             } else {
                 $data['top_fee'] = 0;
             }
+            $data['is_display'] = Setting::where('key','informationDisplay')->value('value');
 //        if (bccomp(bcadd($data['card_fee'],$data['top_fee'],2),0,2)!=1) {
 //            $data['paid_at'] = Carbon::now(); // 更新支付时间为当前时间
 //            $data['payment_no'] = ''; // 支付平台订单号

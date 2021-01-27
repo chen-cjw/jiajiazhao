@@ -52,5 +52,10 @@ class SettingSeeder extends Seeder
             'key'=>'driverCertification',
             'value'=>1,
         ]);
+        // informationDisplay
+        \App\Model\Setting::create([
+            'key'=>'informationDisplay',
+            'value'=>1,
+        ]);
     }
 }
