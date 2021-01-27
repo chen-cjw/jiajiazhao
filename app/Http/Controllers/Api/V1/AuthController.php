@@ -87,7 +87,6 @@ class AuthController extends Controller
         $session = auth('api')->user()->sessionUserInformation;
         Log::error('用户信息：'.$session);
         Log::error('用户信息：'.json_decode($session)->session_key);
-        $session = json_decode($session);
         if(!$session) {
             Log::error('用户code：'.$request->code);
             throw new \Exception('code 和第一次的不一致'.$request->code);
