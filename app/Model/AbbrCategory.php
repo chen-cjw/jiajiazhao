@@ -32,7 +32,6 @@ class AbbrCategory extends Model
     public function setImageAttribute($images)
     {
 //        dd($images);
-//        return $images;
         if (is_array($images)) {
             $this->attributes['image'] = json_encode($images);
         }
