@@ -136,23 +136,26 @@ class ShopController extends Controller
 
             // todo
             $parentId = auth('api')->user()->parent_id;
-            $userParent = User::where('parent_id', $parentId)->first();
-            // 邀请人获取积分
-            if ($userParent) {
+            if ($parentId) {
+                $userParent = User::where('parent_id', $parentId)->first();
+                // 邀请人获取积分
+                if ($userParent) {
 //            if($userParent->city_partner== 1) {
-                // 数据库的邀请人的额度就是增加百分之 50
-                $balanceCount = bcadd($data['amount'], $data['top_amount'], 3);
-                // 形成一个订单 ，支付成功修改这个订单状态，然后钱到会员余额
-                $res['record'] = TransactionRecord::create([
-                    'amount' => $balanceCount,
-                    'come_from' => auth('api')->user()->nickname . '入驻了商户',
-                    'user_id' => auth()->id(),
-                    'parent_id' => $parentId,
-                    'model_id' => $res->id,
-                    'model_type' => Shop::class
-                ]);
+                    // 数据库的邀请人的额度就是增加百分之 50
+                    $balanceCount = bcadd($data['amount'], $data['top_amount'], 3);
+                    // 形成一个订单 ，支付成功修改这个订单状态，然后钱到会员余额
+                    $res['record'] = TransactionRecord::create([
+                        'amount' => $balanceCount,
+                        'come_from' => auth('api')->user()->nickname . '入驻了商户',
+                        'user_id' => auth()->id(),
+                        'parent_id' => $parentId,
+                        'model_id' => $res->id,
+                        'model_type' => Shop::class
+                    ]);
 //            }
+                }
             }
+
 
 
             DB::commit();
