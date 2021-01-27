@@ -84,7 +84,7 @@ class AuthController extends Controller
     public function phoneStore(AuthPhoneStoreRequest $request)
     {
 //        $session = Cache::get($request->code);// 解析的问题
-        $session = auth()->user()->sessionUserInformation;
+        $session = auth('api')->user()->sessionUserInformation;
         Log::error('用户信息：'.$session.$session['session_key']);
         Log::error('用户信息：'.$session['session_key']);
 
