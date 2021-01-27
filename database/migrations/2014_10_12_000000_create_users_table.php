@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->boolean('city_partner')->default(0)->comment('城市合伙人');
             $table->string('ref_code')->unique()->comment('邀请码');
             $table->string('code')->nullable()->comment('邀请码');
+            $table->string('sessionUserInformation')->nullable()->comment('session');
 
             $table->timestamps();
         });
