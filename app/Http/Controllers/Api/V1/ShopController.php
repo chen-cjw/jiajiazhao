@@ -276,7 +276,7 @@ class ShopController extends Controller
                 'body' => '支付会员版订单：' . $shop->no,
                 'out_trade_no' => $shop->no,
                 'total_fee' => $shop->platform_licensing * 100,//$wechatPay->total_fee * 100,
-                'notify_url' => "https://api.dengshishequ.com/shop_wechat_notify", // 支付结果通知网址，如果不设置则会使用配置里的默认地址
+                'notify_url' => "https://api.jjz369.com/shop_wechat_notify", // 支付结果通知网址，如果不设置则会使用配置里的默认地址
                 'openid' => auth('api')->user()->ml_openid,
                 'trade_type' => 'JSAPI', // 请对应换成你的支付方式对应的值类型
             ]);
