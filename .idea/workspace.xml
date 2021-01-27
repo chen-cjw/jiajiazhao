@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/DriverCertificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/DriverCertificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/SettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/SettingController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/DriverCertificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/DriverCertificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/SettingSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/SettingSeeder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,24 +29,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/Controller.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="36" column="102" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="102" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" selection-start-line="11" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AbbrCategoryController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -54,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DriverCertificationController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DriverCertificationController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/DriverCertificationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="62" column="44" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
+            <state relative-caret-position="413">
+              <caret line="93" column="33" selection-start-line="93" selection-start-column="33" selection-end-line="93" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -67,7 +51,34 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/DriverCertificationController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="14" column="95" selection-start-line="14" selection-start-column="95" selection-end-line="14" selection-end-column="95" />
+              <caret line="15" column="63" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocalCarpoolingController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="327">
+              <caret line="48" column="73" selection-start-line="48" selection-start-column="73" selection-end-line="48" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SettingSeeder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/seeds/SettingSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="518">
+              <caret line="51" column="39" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SettingController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/SettingController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="62" column="42" selection-start-line="62" selection-start-column="42" selection-end-line="62" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -101,15 +112,6 @@
               <folding>
                 <element signature="e#4324#5920#0#PHP" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransactionRecord.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Model/TransactionRecord.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="102" selection-start-line="11" selection-start-column="102" selection-end-line="11" selection-end-column="102" />
             </state>
           </provider>
         </entry>
@@ -159,7 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Admin/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/IndexController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/ShopController.php" />
@@ -180,7 +181,6 @@
         <option value="$PROJECT_DIR$/app/Admin/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerCardCategoryController.php" />
-        <option value="$PROJECT_DIR$/database/seeds/SettingSeeder.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerLocalController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerInformationShowController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerInformationShowController.php" />
@@ -202,14 +202,16 @@
         <option value="$PROJECT_DIR$/database/migrations/2020_12_24_121748_create_convenient_information_table.php" />
         <option value="$PROJECT_DIR$/app/Model/AbbrCategory.php" />
         <option value="$PROJECT_DIR$/database/seeds/CardCategorySeeder.php" />
-        <option value="$PROJECT_DIR$/app/Admin/Controllers/SettingController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_01_26_195734_create_transaction_records_table.php" />
         <option value="$PROJECT_DIR$/app/Model/TransactionRecord.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" />
         <option value="$PROJECT_DIR$/app/Model/DriverCertification.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/DriverCertificationController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/DriverCertificationController.php" />
+        <option value="$PROJECT_DIR$/database/seeds/SettingSeeder.php" />
+        <option value="$PROJECT_DIR$/app/Admin/Controllers/SettingController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/DriverCertificationController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php" />
       </list>
     </option>
   </component>
@@ -435,6 +437,12 @@
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -486,12 +494,12 @@
       <workItem from="1610168842854" duration="48302000" />
       <workItem from="1610620421674" duration="78372000" />
       <workItem from="1611282261227" duration="42121000" />
-      <workItem from="1611627272489" duration="24841000" />
+      <workItem from="1611627272489" duration="25816000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="342722000" />
+    <option name="totallyTimeSpent" value="343697000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -705,13 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-156">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/WithdrawalController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -795,20 +796,6 @@
     <entry file="file://$PROJECT_DIR$/database/factories/SettingFactory.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/SettingSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="46" column="25" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/SettingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="59" column="28" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerInformationShowController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -861,16 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="104" column="39" selection-start-line="104" selection-start-column="39" selection-end-line="104" selection-end-column="39" />
-          <folding>
-            <element signature="e#4324#5920#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -895,17 +872,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/DriverCertificationController.php">
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/DriverCertificationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="95" selection-start-line="14" selection-start-column="95" selection-end-line="14" selection-end-column="95" />
+        <state relative-caret-position="413">
+          <caret line="93" column="33" selection-start-line="93" selection-start-column="33" selection-end-line="93" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/DriverCertificationController.php">
+    <entry file="file://$PROJECT_DIR$/database/seeds/SettingSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="62" column="44" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
+        <state relative-caret-position="518">
+          <caret line="51" column="39" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/SettingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="62" column="42" selection-start-line="62" selection-start-column="42" selection-end-line="62" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="104" column="39" selection-start-line="104" selection-start-column="39" selection-end-line="104" selection-end-column="39" />
+          <folding>
+            <element signature="e#4324#5920#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/DriverCertificationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="15" column="63" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="48" column="73" selection-start-line="48" selection-start-column="73" selection-end-line="48" selection-end-column="73" />
         </state>
       </provider>
     </entry>

@@ -60,6 +60,9 @@ class SettingController extends AdminController
             if ($key=='award') {
                 return '奖励金';
             }
+            if ($key=='driverCertification') {
+                return '司机认证是否需要审核/0审核/1无需审核';
+            }
         });
         $grid->column('value', __('Value'));
         $grid->column('created_at', __('Created at'));

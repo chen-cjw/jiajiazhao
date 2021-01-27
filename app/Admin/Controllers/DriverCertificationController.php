@@ -75,24 +75,24 @@ class DriverCertificationController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new DriverCertification());
-
-        $form->text('id_card', __('Id card'));
-        $form->text('driver', __('Driver'));
-        $form->text('action', __('Action'));
-        $form->text('car', __('Car'));
-        $form->switch('is_display', __('Is display'));
-        $form->number('user_id', __('User id'));
-        $form->footer(function ($footer) {
-            // 去掉`重置`按钮
-            $footer->disableReset();
-            // 去掉`查看`checkbox
-            $footer->disableViewCheck();
-            // 去掉`继续编辑`checkbox
-            $footer->disableEditingCheck();
-            // 去掉`继续创建`checkbox
-            $footer->disableCreatingCheck();
-        });
-        return $form;
+//        $form = new Form(new DriverCertification());
+//
+//        $form->text('id_card', __('Id card'));
+//        $form->text('driver', __('Driver'));
+//        $form->text('action', __('Action'));
+//        $form->text('car', __('Car'));
+//        $form->switch('is_display', __('Is display'));
+//        $form->number('user_id', __('User id'));
+//        $form->footer(function ($footer) {
+//             去掉`重置`按钮
+//            $footer->disableReset();
+//             去掉`查看`checkbox
+//            $footer->disableViewCheck();
+//             去掉`继续编辑`checkbox
+//            $footer->disableEditingCheck();
+//             去掉`继续创建`checkbox
+//            $footer->disableCreatingCheck();
+//        });
+//        return $form;
     }
 }

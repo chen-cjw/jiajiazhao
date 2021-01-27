@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\DriverCertificationRequest;
 use App\Model\DriverCertification;
+use App\Model\Setting;
 use App\Transformers\DriverCertificationTransformer;
 use Illuminate\Support\Facades\DB;
 
@@ -12,7 +13,7 @@ class DriverCertificationController extends Controller
     // 司机认证
     public function index()
     {
-        $userCertification = auth('api')->user()->certification->where('is_display',1)->first();
+        $userCertification = auth('api')->user()->certification;//->where('is_display',1)->first();
         return $this->responseStyle('ok',200,$userCertification);
         return $this->response->item(auth('api')->user()->certification,new DriverCertificationTransformer());
     }
@@ -29,6 +30,7 @@ class DriverCertificationController extends Controller
 //            $carFile = $this->upload_img($_FILES['car']);
             $data = $certification->only(['id_card','driver','action','car']);
             $data['user_id'] = auth('api')->id();
+            $data['is_display'] = Setting::where('key','driverCertification')->value('value');
             $res = DriverCertification::create($data);
             //
             auth('api')->user()->update([

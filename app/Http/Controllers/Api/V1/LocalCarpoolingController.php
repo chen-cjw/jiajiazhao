@@ -41,9 +41,14 @@ class LocalCarpoolingController extends Controller
     // 发布(车找人和车找货是需要认证的) todo 后端配合
     public function store(LocalCarpoolingRequest $request)
     {
+
         if (auth('api')->user()->is_certification == 0 && $request->type == 'car_looking_person' || auth('api')->user()->is_certification == 0 && $request->type == 'car_looking_good') {
-            throw new ResourceException('您尚未通过认证，请先去认证通过！');
+            $this->responseStyle('您尚未提交认证，请先去认证通过！',422,'');
         }else {
+
+            if(auth('api')->user()->certification()->where('is_display',0)->first()) {
+                $this->responseStyle('认证正在审核请耐心等待！',422,'');
+            }
             $requestData = $request->only(['phone','name_car','capacity','go','end','departure_time','seat','other_need','is_go','type','lng','lat','area']);
             $requestData['user_id'] = auth('api')->id();
             // 流水订单号

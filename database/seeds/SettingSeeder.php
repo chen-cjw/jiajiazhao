@@ -47,5 +47,10 @@ class SettingSeeder extends Seeder
             'key'=>'award',
             'value'=>88,
         ]);
+        // DriverCertification
+        \App\Model\Setting::create([
+            'key'=>'driverCertification',
+            'value'=>1,
+        ]);
     }
 }
