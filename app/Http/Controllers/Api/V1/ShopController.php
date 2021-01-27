@@ -38,7 +38,7 @@ class ShopController extends Controller
         $comment_count = \request()->comment_count;
         $start = \request()->page ?: 0;
         $limit = 15;
-        $sql = "select * from shops ";
+        $sql = "select * from shops where payment_no != null ";
 
         // 一级
         if($one_abbr) {
@@ -103,6 +103,9 @@ class ShopController extends Controller
     // 入住 service_price 这个是一个图片
     public function store(ShopRequest $request)
     {
+        if (auth('api')->user()->shop) {
+            return $this->responseStyle('您已注册商户！');
+        }
         DB::beginTransaction();
         try {
             $data = $request->only([
