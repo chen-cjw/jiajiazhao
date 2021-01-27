@@ -93,7 +93,7 @@ class AuthController extends Controller
             throw new \Exception('code 和第一次的不一致'.$request->code);
         }
         $app = app('wechat.mini_program');
-        $decryptedData = $app->encryptor->decryptData($session->session_key, $request->iv, $request->encrypted_data);
+        $decryptedData = $app->encryptor->decryptData(json_decode($session)->session_key), $request->iv, $request->encrypted_data);
         Log::info(111111111111);
         Log::error($decryptedData);
         Log::info(111111111111);
@@ -102,7 +102,7 @@ class AuthController extends Controller
             throw new \Exception('解析号码失败!321');
         }
 
-        $user = User::where('ml_openid',$session->ml_openid)->firstOrFail();
+        $user = User::where('ml_openid', json_decode($session)->openid)->firstOrFail();
         $phoneNumber = $decryptedData['phoneNumber'];
         $user->update([
             'phone'=>$phoneNumber,
