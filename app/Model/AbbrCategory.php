@@ -43,6 +43,7 @@ class AbbrCategory extends Model
             return $pictures;
         }
         $data = json_decode($pictures, true);
+        $da = array();
         foreach ($data as $k=>$v) {
             if (Str::startsWith($v, ['http://', 'https://'])) {
                 $da[] = $v;
