@@ -68,7 +68,6 @@ class LocalCarpoolingController extends Controller
 
             // 校验权限
             $localCarpool = auth('api')->user()->localCarpool()->where('id', $id)->firstOrFail();
-            return $localCarpool;
 
             // bcsub — 减法
             if (bcsub(time(), strtotime($localCarpool->created_at)) > 3600) {
