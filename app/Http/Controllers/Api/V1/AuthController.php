@@ -178,7 +178,7 @@ class AuthController extends Controller
             'sex' => $request->sex,
             'parent_id' => $request->ref_code ? User::where('ref_code',$request->ref_code)->value('parent_id') : null,
             'ref_code' => $user->generateRefCode(),
-            'sessionUserInformation'=>json_encode($sessionUser)
+            'sessionUserInformation'=>json_decode($sessionUser)
         ];
     }
 
