@@ -12,7 +12,7 @@ class AuthPhoneStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'code'=>'required',
+//            'code'=>'required',
             'encrypted_data'=>'required',
             'iv'=>'required',
         ];
@@ -21,7 +21,7 @@ class AuthPhoneStoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'code.require'           => '缺少参数code!',
+//            'code.require'           => '缺少参数code!',
             'encrypted_data.require' => '缺少参数encrypted_data!',
             'iv.require'             => '缺少参数iv!',
         ];

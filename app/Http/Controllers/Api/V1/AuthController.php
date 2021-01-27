@@ -90,10 +90,10 @@ class AuthController extends Controller
         $session = auth('api')->user()->sessionUserInformation;
         Log::error('用户信息：'.$session);
         Log::error('用户信息：'.json_decode($session)->session_key);
-        if(!$session) {
-            Log::error('用户code：'.$request->code);
-            throw new \Exception('code 和第一次的不一致'.$request->code);
-        }
+//        if(!$session) {
+//            Log::error('用户code：'.$request->code);
+//            throw new \Exception('code 和第一次的不一致'.$request->code);
+//        }
         $app = app('wechat.mini_program');
         $decryptedData = $app->encryptor->decryptData(json_decode($session)->session_key, $request->iv, $request->encrypted_data);
         Log::info(111111111111);
