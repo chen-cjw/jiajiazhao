@@ -85,8 +85,8 @@ class AuthController extends Controller
     {
 //        $session = Cache::get($request->code);// 解析的问题
         $session = auth('api')->user()->sessionUserInformation;
-        Log::error('用户信息：'.$session.$session['session_key']);
-        Log::error('用户信息：'.$session['session_key']);
+        Log::error('用户信息：'.$session);
+        Log::error('用户信息：'.json_decode($session)['session_key']);
 
         if(!$session) {
             Log::error('用户code：'.$request->code);
@@ -178,7 +178,7 @@ class AuthController extends Controller
             'sex' => $request->sex,
             'parent_id' => $request->ref_code ? User::where('ref_code',$request->ref_code)->value('parent_id') : null,
             'ref_code' => $user->generateRefCode(),
-            'sessionUserInformation'=>($sessionUser['session_key'])
+            'sessionUserInformation'=>json_encode($sessionUser)
         ];
     }
 
