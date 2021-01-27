@@ -46,10 +46,13 @@ class AbbrCategory extends Model
         foreach ($data as $k=>$v) {
             if (Str::startsWith($v, ['http://', 'https://'])) {
                 $da[] = $v;
+            }else {
+                $da[] = \Storage::disk('public')->url($v);
             }
-            $da[] = \Storage::disk('public')->url($v);
-
         }
         return $da;
+
     }
+
+
 }
