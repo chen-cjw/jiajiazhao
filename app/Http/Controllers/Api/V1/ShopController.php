@@ -104,6 +104,7 @@ class ShopController extends Controller
     public function store(ShopRequest $request)
     {
         if (auth('api')->user()->shop) {
+            Log::info('您已注册商户');
             return $this->responseStyle('您已注册商户！',422,"");
         }
         DB::beginTransaction();
