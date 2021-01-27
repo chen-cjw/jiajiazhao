@@ -83,7 +83,11 @@ class AuthController extends Controller
     //  获取手机号
     public function phoneStore(AuthPhoneStoreRequest $request)
     {
-        $session = Cache::get($request->code);// 解析的问题
+//        $session = Cache::get($request->code);// 解析的问题
+        $session = auth()->user()->sessionUserInformation;
+        Log::error('用户信息：'.$session.$session['session_key']);
+        Log::error('用户信息：'.$session['session_key']);
+
         if(!$session) {
             Log::error('用户code：'.$request->code);
             throw new \Exception('code 和第一次的不一致'.$request->code);
@@ -173,7 +177,8 @@ class AuthController extends Controller
             'avatar' => $request->avatarUrl,
             'sex' => $request->sex,
             'parent_id' => $request->ref_code ? User::where('ref_code',$request->ref_code)->value('parent_id') : null,
-            'ref_code' => $user->generateRefCode()
+            'ref_code' => $user->generateRefCode(),
+            'sessionUserInformation'=>$sessionUser
         ];
     }
 
