@@ -83,6 +83,9 @@ class AuthController extends Controller
     //  获取手机号
     public function phoneStore(AuthPhoneStoreRequest $request)
     {
+
+        Log::error(auth('api')->user());
+
 //        $session = Cache::get($request->code);// 解析的问题
         $session = auth('api')->user()->sessionUserInformation;
         Log::error('用户信息：'.$session);
