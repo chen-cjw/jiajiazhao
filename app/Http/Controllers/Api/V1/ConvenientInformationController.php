@@ -87,7 +87,7 @@ class ConvenientInformationController extends Controller
 
             if ($request->top_fee == 1) {
                 $data['top_fee'] = Setting::where('key', 'information_top_fee')->value('value');
-                if ($convenientInformation = ConvenientInformation::order('sort','desc')->first()) {
+                if ($convenientInformation = ConvenientInformation::orderBy('sort','desc')->first()) {
                     $data['sort'] = bcadd($convenientInformation->sort,1);
                 }
             } else {
