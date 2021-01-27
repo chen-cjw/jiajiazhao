@@ -65,7 +65,7 @@ class ShopController extends Controller
             * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
             * 6370.996) <= ".Setting::where('key','radius')->value('value');
         }
-        $sql = $sql."and paid_at is not null";
+        $sql = $sql." and paid_at is not null";
         // 人气
         if ($view) {
             $sql = $sql." order by view ".$view;
