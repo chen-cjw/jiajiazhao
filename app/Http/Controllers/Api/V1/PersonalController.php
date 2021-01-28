@@ -175,7 +175,7 @@ class PersonalController extends Controller
         if ($request->type == 'information') {
             $query = $query->where('model_type',ConvenientInformation::class);
         }
-        $res = $query->whereNotNull('model_type')->orderBy('updated_at','desc')->paginate();
+        $res = $query->where('model_type','!=',null)->orderBy('updated_at','desc')->paginate();
         return $this->responseStyle('ok',200,$res);
     }
 
