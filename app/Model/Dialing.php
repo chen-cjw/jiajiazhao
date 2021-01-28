@@ -18,7 +18,12 @@ class Dialing extends Model
             $lat = request('lat');
             $lng = request('lng');
             // 几公里
-            $res['range'] = $this->getDistance($lat,$lng,$res['lat'],$res['lng']);
+            if ($lat&&$lng) {
+
+                $res['range'] = $this->getDistance($lat,$lng,$res['lat'],$res['lng']);
+            }else {
+                $res['range'] = '未知';
+            }
             // 平均星级
             $res['favoriteShopStarSvg']=number_format(ShopComment::where('shop_id',$this->attributes['model_id'])->avg('star'),1) ;
             return $res;
