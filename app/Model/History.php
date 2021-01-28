@@ -9,7 +9,7 @@ class History extends Model
     public function getModelTypeAttribute()
     {
         if($this->attributes['model_type'] == Shop::class) {
-            $res = Shop::where('id',$this->attributes['id'])->first();
+            $res = Shop::where('id',$this->attributes['model_id'])->first();
             if ($res) {
                 $lat1 = $res->lat;
                 $lng1 = $res->lng;
@@ -28,10 +28,10 @@ class History extends Model
 
         }
         if($this->attributes['model_type'] == LocalCarpooling::class) {
-            $res = LocalCarpooling::where('id',$this->attributes['id'])->first();
+            $res = LocalCarpooling::where('id',$this->attributes['model_id'])->first();
         }
         if($this->attributes['model_type'] == ConvenientInformation::class) {
-            $res = ConvenientInformation::where('id',$this->attributes['id'])->first();
+            $res = ConvenientInformation::where('id',$this->attributes['model_id'])->first();
         }
         return $res;
     }
