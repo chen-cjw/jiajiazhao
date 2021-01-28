@@ -55,7 +55,7 @@ class ShopController extends Controller
             }
         }
         // 二级
-        if($two_abbr) {
+        if($two_abbr!=null) {
             $sql = $sql." and (two_abbr0={$two_abbr} OR two_abbr1={$two_abbr} OR two_abbr2={$two_abbr})";
         }
         // 附近
