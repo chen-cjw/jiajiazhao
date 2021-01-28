@@ -123,7 +123,14 @@ class ShopController extends Controller
 
             $data['no'] = Shop::findAvailableNo();
             $data['amount'] = $request->shop_fee == 0 ? Setting::where('key', 'shop_fee_two')->value('value') : Setting::where('key', 'shop_fee')->value('value');
+            if ($request->shop_fee == 1) {
+                $data['amount'] = Setting::where('key', 'shop_fee')->value('value');
+                $data['due_date'] = date('Y-m-d H:i:s',strtotime('+1year'));
 
+            }else if ($request->shop_fee_two == 1){
+                $data['amount'] = Setting::where('key', 'shop_fee_two')->value('value');
+                $data['due_date'] = date('Y-m-d H:i:s',strtotime('+2year'));
+            }
             if ($request->shop_top_fee == 1) {
                 $top_fee = Setting::where('key', 'shop_top_fee')->value('value');
                 $data['is_top'] = 1;
