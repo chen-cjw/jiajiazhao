@@ -34,7 +34,7 @@ Route::group([
     $router->resource('banner_local', 'BannerLocalController'); // 拼车广告
     $router->resource('advertising_space', 'AdvertisingSpaceController'); // 便民广告位
     $router->resource('banner_information', 'BannerInformationController'); // 便民轮播
-    $router->resource('banner_card_category', 'BannerCardCategoryController'); // 便民轮播
+    $router->resource('banner_card_category', 'BannerCardCategoryController'); // 类目轮播图
 //    $router->resource('users', \App\Admin\Controllers\UserController::class);
 
 });
