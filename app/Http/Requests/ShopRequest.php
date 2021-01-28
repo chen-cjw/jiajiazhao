@@ -35,7 +35,7 @@ class ShopRequest extends FormRequest
 //            'wechat' =>'required',
             'logo' =>'required',
 //            'service_price' =>'required',
-            'merchant_introduction' =>'required',
+//            'merchant_introduction' =>'required',
             'lng' =>'required',
             'lat' =>'required',
         ];
