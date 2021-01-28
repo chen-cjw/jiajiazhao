@@ -41,7 +41,11 @@ class ShopController extends Controller
         $comment_count = \request()->comment_count;
         $start = \request()->page ?: 0;
         $limit = 15;
+        $pageNo = 1;
+        $pageSize = 1;
+        // select * from table limit (pageNo-1)*pageSize, pageSize;
         $sql = "select * from shops ";
+
         // 一级
         if($one_abbr) {
             $sql = $sql."where (one_abbr0={$one_abbr} OR one_abbr1={$one_abbr} OR one_abbr2={$one_abbr})";
@@ -82,6 +86,8 @@ class ShopController extends Controller
         }
 
         $limit = $sql." LIMIT ".$start.",".$limit;
+        $sql = $sql.'order by sort desc';
+
         $query = DB::select($limit);
         foreach ($query as $item=>$value) {
             $lat1 = $value->lat;

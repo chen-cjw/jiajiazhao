@@ -20,7 +20,7 @@ class CardCategoryController extends Controller
     // 帖子下便民信息
     public function cardInformation($id)
     {
-        $query = ConvenientInformation::query();
+        $query = ConvenientInformation::query()->whereNotNull('paid_at');
         if($id != 'new') {
             $query = $query->where('card_id',$id);
         }
