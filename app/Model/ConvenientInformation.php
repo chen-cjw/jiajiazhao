@@ -39,11 +39,13 @@ class ConvenientInformation extends Model
     }
     public function getImagesAttribute($pictures)
     {
-        if (!$pictures) {
+        if ($pictures==null) {
             return $pictures;
         }
         $data = json_decode($pictures, true);
+
         $da = array();
+
         foreach ($data as $k=>$v) {
             if (Str::startsWith($v, ['http://', 'https://'])) {
                 $da[] = $v;
@@ -54,4 +56,13 @@ class ConvenientInformation extends Model
         return $da;
         return json_decode($this->attributes['logo']);
     }
+
+    public function getImageAttribute($image)
+    {
+        if ($this->attributes['images']) {
+            return json_decode($this->attributes['images'],true);
+        }
+        return null;
+    }
+    protected $appends = ['image'];
 }

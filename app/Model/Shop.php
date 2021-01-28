@@ -31,13 +31,14 @@ class Shop extends Model
             return $pictures;
         }
         $data = json_decode($pictures, true);
+        return $data;
         $da = array();
         foreach ($data as $k=>$v) {
-            if (Str::startsWith($v, ['http://', 'https://'])) {
-                $da[] = $v;
-            }else {
-                $da[] = \Storage::disk('public')->url($v);
-            }
+//            if (Str::startsWith($v, ['http://', 'https://'])) {
+//                $da[] = $v;
+//            }
+            $da[] = \Storage::disk('public')->url($v);
+
         }
         return $da;
         return json_decode($this->attributes['logo']);
