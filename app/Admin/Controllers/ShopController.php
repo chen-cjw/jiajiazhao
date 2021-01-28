@@ -54,7 +54,7 @@ class ShopController extends AdminController
         $grid->column('contact_phone', __('Contact phone'));
 //        $grid->column('wechat', __('Wechat'));
 
-//        $grid->column('logo', __('Logo'))->carousel();
+        $grid->column('logo', __('Logo'))->image();
 
         $grid->column('service_price', __('Service price'))->image('',25,25);
         $grid->column('merchant_introduction', __('Merchant introduction'))->display(function ($content) {
@@ -172,7 +172,7 @@ class ShopController extends AdminController
         $form->text('detailed_address', __('Detailed address'));
         $form->text('contact_phone', __('Contact phone'));
         $form->text('wechat', __('Wechat'));
-//        $form->text('logo', __('Logo'));
+//        $form->image('logo', __('Logo'));
         $form->text('service_price', __('Service price'));
         $form->text('merchant_introduction', __('Merchant introduction'));
         $form->number('sort', __('Sort'));

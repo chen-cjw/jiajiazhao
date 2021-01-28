@@ -25,8 +25,21 @@ class Shop extends Model
         return $this->hasMany(ShopComment::class);
     }
     //             'logo' => json_decode($shop->logo),
-    public function getLogoAttribute()
+    public function getLogoAttribute($pictures)
     {
+        if (!$pictures) {
+            return $pictures;
+        }
+        $data = json_decode($pictures, true);
+        $da = array();
+        foreach ($data as $k=>$v) {
+            if (Str::startsWith($v, ['http://', 'https://'])) {
+                $da[] = $v;
+            }else {
+                $da[] = \Storage::disk('public')->url($v);
+            }
+        }
+        return $da;
         return json_decode($this->attributes['logo']);
     }
 
@@ -43,5 +56,10 @@ class Shop extends Model
     {
         return bcadd($this->attributes['amount'],$this->attributes['top_amount'],2);
     }
+
+//    public function getLogoAttribute($pictures)
+//    {
+//
+//    }
 
 }
