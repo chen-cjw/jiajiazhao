@@ -146,8 +146,9 @@ class ShopController extends Controller
                 $top_fee = 0;
             }
             // 多图片上传
-            $data['images'] = json_encode($request->images);
-
+            if ($request->images) {
+                $data['images'] = json_encode($request->images);
+            }
             $data['top_amount'] = $top_fee;// $request->shop_top_fee == 0 ? Setting::where('key', 'shop_top_fee_two')->value('value') : Setting::where('key', 'shop_top_fee')->value('value');
             $data['logo'] = json_encode($request->logo);
             $data['user_id'] = auth('api')->id();

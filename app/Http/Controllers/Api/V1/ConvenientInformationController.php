@@ -84,7 +84,9 @@ class ConvenientInformationController extends Controller
                 $data['card_fee'] = 0;
             }
             // 多图片上传
-            $data['images'] = json_encode($request->images);
+            if ($request->images) {
+                $data['images'] = json_encode($request->images);
+            }
             if ($request->top_fee == 1) {
                 $data['is_top'] = 1;
                 $data['top_fee'] = Setting::where('key', 'information_top_fee')->value('value');
