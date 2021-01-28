@@ -28,7 +28,7 @@ class ShopController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Shop());
-        $grid->model()->orderBy('id','desc');
+        $grid->model()->orderBy('id','desc')->where('paid_at','!=',null);
 
         $grid->column('id', __('Id'));
         $grid->column('user_id', __('User id'))->display(function ($userId) {
