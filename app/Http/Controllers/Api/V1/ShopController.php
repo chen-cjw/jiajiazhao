@@ -67,6 +67,7 @@ class ShopController extends Controller
         }
         $sql = $sql." and paid_at is not null";
         $sql = $sql." and is_accept = 1";
+//        $sql = $sql." and due_date > ".date('Y-m-d H:i:s');
         // 人气
         if ($view) {
             $sql = $sql." order by view ".$view;
