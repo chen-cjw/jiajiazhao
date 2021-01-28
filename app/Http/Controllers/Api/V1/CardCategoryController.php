@@ -13,7 +13,7 @@ class CardCategoryController extends Controller
     // 发布帖子的分类
     public function index()
     {
-        $cardCategory = CardCategory::where('is_display',1)->orderBy('sort','desc')->paginate(7);
+        $cardCategory = CardCategory::where('is_display',1)->orderBy('sort','desc')->paginate(100);
         return $this->responseStyle('ok',200,$cardCategory);
     }
 

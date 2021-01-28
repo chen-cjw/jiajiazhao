@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="290">
@@ -85,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CardCategoryController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CardCategoryController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+            <state relative-caret-position="134">
+              <caret line="15" column="97" selection-start-line="15" selection-start-column="97" selection-end-line="15" selection-end-column="97" />
               <folding>
                 <element signature="e#48#81#0#PHP" expanded="true" />
               </folding>
@@ -210,10 +210,10 @@
         <option value="$PROJECT_DIR$/app/Admin/Controllers/ShopController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php" />
         <option value="$PROJECT_DIR$/app/Model/AbbrCategory.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" />
         <option value="$PROJECT_DIR$/app/Model/History.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" />
       </list>
     </option>
   </component>
@@ -501,12 +501,12 @@
       <workItem from="1610168842854" duration="48302000" />
       <workItem from="1610620421674" duration="78372000" />
       <workItem from="1611282261227" duration="42121000" />
-      <workItem from="1611627272489" duration="58235000" />
+      <workItem from="1611627272489" duration="58629000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="376116000" />
+    <option name="totallyTimeSpent" value="376510000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -857,16 +857,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
-          <folding>
-            <element signature="e#48#81#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CommentController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -918,6 +908,16 @@
             <element signature="e#47#94#0#PHP" expanded="true" />
             <element signature="e#2479#3854#0#PHP" />
             <element signature="e#3874#4945#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="15" column="97" selection-start-line="15" selection-start-column="97" selection-end-line="15" selection-end-column="97" />
+          <folding>
+            <element signature="e#48#81#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
