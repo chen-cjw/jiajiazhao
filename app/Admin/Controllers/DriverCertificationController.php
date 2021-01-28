@@ -54,10 +54,10 @@ class DriverCertificationController extends AdminController
         $show = new Show(DriverCertification::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('id_card', __('Id card'));
-        $show->field('driver', __('Driver'));
-        $show->field('action', __('Action'));
-        $show->field('car', __('Car'));
+        $show->field('id_card', __('Id card'))->image('',25,25);
+        $show->field('driver', __('Driver'))->image('',25,25);
+        $show->field('action', __('Action'))->image('',25,25);
+        $show->field('car', __('Car'))->image('',25,25);
         $show->field('is_display', __('Is display'));
         $show->field('user_id', __('User id'))->as(function ($user_id) {
             return User::where('id',$user_id)->value('nickname');
@@ -75,24 +75,24 @@ class DriverCertificationController extends AdminController
      */
     protected function form()
     {
-//        $form = new Form(new DriverCertification());
-//
-//        $form->text('id_card', __('Id card'));
-//        $form->text('driver', __('Driver'));
-//        $form->text('action', __('Action'));
-//        $form->text('car', __('Car'));
-//        $form->switch('is_display', __('Is display'));
-//        $form->number('user_id', __('User id'));
-//        $form->footer(function ($footer) {
+        $form = new Form(new DriverCertification());
+
+        $form->text('id_card', __('Id card'));
+        $form->text('driver', __('Driver'));
+        $form->text('action', __('Action'));
+        $form->text('car', __('Car'));
+        $form->switch('is_display', __('Is display'));
+        $form->number('user_id', __('User id'));
+        $form->footer(function ($footer) {
 //             去掉`重置`按钮
-//            $footer->disableReset();
+            $footer->disableReset();
 //             去掉`查看`checkbox
-//            $footer->disableViewCheck();
+            $footer->disableViewCheck();
 //             去掉`继续编辑`checkbox
-//            $footer->disableEditingCheck();
+            $footer->disableEditingCheck();
 //             去掉`继续创建`checkbox
-//            $footer->disableCreatingCheck();
-//        });
-//        return $form;
+            $footer->disableCreatingCheck();
+        });
+        return $form;
     }
 }
