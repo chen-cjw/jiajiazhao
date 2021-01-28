@@ -54,7 +54,7 @@ class ShopController extends AdminController
         $grid->column('contact_phone', __('Contact phone'));
 //        $grid->column('wechat', __('Wechat'));
 
-        $grid->column('logo', __('Logo'))->image();
+        $grid->column('logo', __('Logo'))->image('',50,50);
 
         $grid->column('service_price', __('Service price'))->image('',25,25);
         $grid->column('merchant_introduction', __('Merchant introduction'))->display(function ($content) {
