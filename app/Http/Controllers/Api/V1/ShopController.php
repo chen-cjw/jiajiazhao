@@ -47,7 +47,7 @@ class ShopController extends Controller
             $sql = $sql."where (one_abbr0={$one_abbr} OR one_abbr1={$one_abbr} OR one_abbr2={$one_abbr})";
         }
         // 搜索
-        if($name) {
+        if($name!='') {
             if (!$one_abbr) {
                 $sql = $sql."where name LIKE '%".$name."%'";
             }else {
