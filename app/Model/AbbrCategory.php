@@ -16,7 +16,7 @@ class AbbrCategory extends Model
     }
     public function getSubCollectionAttribute()
     {
-        $cardCategory = AbbrCategory::where('parent_id',$this->attributes['id'])->get();
+        $cardCategory = AbbrCategory::where('parent_id',$this->attributes['id'])->orderBy('sort','desc')->get();
         return $cardCategory;
     }
     protected $appends = ['sub_collection'];
