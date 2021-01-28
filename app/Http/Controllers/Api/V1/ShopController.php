@@ -105,7 +105,7 @@ class ShopController extends Controller
     // 入住 service_price 这个是一个图片
     public function store(ShopRequest $request)
     {
-        if (auth('api')->user()->shop->whereNotNull('paid_at')->first()) {
+        if (auth('api')->user()->shop()->where('paid_at','!=',null)->first()) {
             Log::info('您已注册商户');
             return $this->responseStyle('您已注册商户！',422,"");
         }
