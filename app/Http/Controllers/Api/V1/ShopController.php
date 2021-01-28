@@ -54,8 +54,9 @@ class ShopController extends Controller
                 $sql = $sql."and name LIKE '%".$name."%'";
             }
         }
+
         // 二级
-        if($two_abbr!=null) {
+        if($two_abbr!='') {
             $sql = $sql." and (two_abbr0={$two_abbr} OR two_abbr1={$two_abbr} OR two_abbr2={$two_abbr})";
         }
         // 附近
