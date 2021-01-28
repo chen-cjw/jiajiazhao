@@ -9,7 +9,7 @@ class Shop extends Model
 {
     // 商户
     protected $fillable = [
-        'one_abbr0','one_abbr1','one_abbr2','sort','comment_count','good_comment_count',
+        'one_abbr0','one_abbr1','one_abbr2','sort','comment_count','good_comment_count','images',
         'one_abbr' ,'two_abbr0','two_abbr1','two_abbr2','name','area','detailed_address','contact_phone','wechat',
         'logo','service_price','merchant_introduction','platform_licensing','is_top','view','top_amount',
         'no','amount','lng','lat','user_id','due_date'
@@ -26,6 +26,24 @@ class Shop extends Model
     }
     //             'logo' => json_decode($shop->logo),
     public function getLogoAttribute($pictures)
+    {
+        if (!$pictures) {
+            return $pictures;
+        }
+        $data = json_decode($pictures, true);
+        $da = array();
+        foreach ($data as $k=>$v) {
+            if (Str::startsWith($v, ['http://', 'https://'])) {
+                $da[] = $v;
+            }else {
+                $da[] = \Storage::disk('public')->url($v);
+            }
+        }
+        return $da;
+        return json_decode($this->attributes['logo']);
+    }
+
+    public function getImagesAttribute($pictures)
     {
         if (!$pictures) {
             return $pictures;

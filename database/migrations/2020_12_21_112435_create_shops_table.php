@@ -44,6 +44,7 @@ class CreateShopsTable extends Migration
             // 申请人
             $table->unsignedBigInteger('user_id')->comment('申请人');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->text('images')->nullable()->comment('内容');
 
             $table->string('no')->unique()->comment('订单流水号');
             $table->decimal('amount', 10, 2)->comment('服务金额');

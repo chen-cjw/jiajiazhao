@@ -77,14 +77,14 @@ class ConvenientInformationController extends Controller
             $data['user_id'] = auth()->id();
             // 发帖的时候，有一部分的钱是到了邀请人哪里去了
 
-
             $data['no'] = ConvenientInformation::findAvailableNo();
             if ($request->card_fee == 1) {
                 $data['card_fee'] = Setting::where('key', 'information_card_fee')->value('value');
             } else {
                 $data['card_fee'] = 0;
             }
-
+            // 多图片上传
+            $data['images'] = json_encode($request->images);
             if ($request->top_fee == 1) {
                 $data['is_top'] = 1;
                 $data['top_fee'] = Setting::where('key', 'information_top_fee')->value('value');

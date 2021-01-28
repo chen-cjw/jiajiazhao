@@ -22,6 +22,9 @@ use Illuminate\Support\Str;
 
 class ShopController extends Controller
 {
+
+
+
     public function __construct()
     {
         $this->app = app('wechat.payment');
@@ -142,6 +145,8 @@ class ShopController extends Controller
             }else {
                 $top_fee = 0;
             }
+            // 多图片上传
+            $data['images'] = json_encode($request->images);
 
             $data['top_amount'] = $top_fee;// $request->shop_top_fee == 0 ? Setting::where('key', 'shop_top_fee_two')->value('value') : Setting::where('key', 'shop_top_fee')->value('value');
             $data['logo'] = json_encode($request->logo);
@@ -250,6 +255,31 @@ class ShopController extends Controller
             }
         } else {
             return ['code' => 400, 'msg' => '非法请求'];
+        }
+    }
+
+    // 多图片上传
+    public function upload()
+    {
+        $path = [];
+        if (request()->hasFile('images')){
+            foreach (request()->file('images') as $file){
+                $path[] = Storage::disk('public')->putFile(date('Ymd') , $file);
+            }
+            $da = array();
+            foreach ($path as $k=>$v) {
+                if (Str::startsWith($v, ['http://', 'https://'])) {
+                    $da[] = $v;
+                }else {
+                    $da[] = \Storage::disk('public')->url($v);
+                }
+            }
+            return $da;
+        }else{
+            return $this->responseStyle('没有图片',422,"");
+            return response()->json([
+                'info'=>'没有图片'
+            ]);
         }
     }
 

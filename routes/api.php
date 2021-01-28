@@ -24,7 +24,6 @@ $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api\V1',
     'middleware' => ['serializer:array']
 ], function ($api) {
-
     $api->get('auth','AuthController@index')->name('api.auth.index');
     $api->post('test','AuthController@createTestUser')->name('api.auth.createTestUser');
 //    $api->group(['middleware' => ['wechat.oauth']], function ($api) {
@@ -79,6 +78,9 @@ $api->version('v1', [
 
     // 必须登陆以后才有的操作
     $api->group(['middleware' => ['auth:api']], function ($api) {
+        // 多图片上传
+        $api->post('upload','ShopController@upload')->name('api.multiUpload.upload');
+
         // 首页
         $api->get('/index', 'IndexController@index')->name('api.index.index'); // 发起支付
 

@@ -3,13 +3,14 @@
 namespace App\Model;
 
 use App\User;
+use Illuminate\Support\Str;
 
 class ConvenientInformation extends Model
 {
 
     // 便民信息
     protected $fillable = [
-        'title','content','location','lng','lat','view','card_id','user_id','no',
+        'title','content','location','lng','lat','view','card_id','user_id','no','images',
         'card_fee','top_fee','paid_at','payment_method','payment_no','sort','is_display','is_top'
     ];
 
@@ -35,5 +36,22 @@ class ConvenientInformation extends Model
     public function getCommentCountAttribute()
     {
         return Comment::where('information_id',$this->attributes['id'])->count();
+    }
+    public function getImagesAttribute($pictures)
+    {
+        if (!$pictures) {
+            return $pictures;
+        }
+        $data = json_decode($pictures, true);
+        $da = array();
+        foreach ($data as $k=>$v) {
+            if (Str::startsWith($v, ['http://', 'https://'])) {
+                $da[] = $v;
+            }else {
+                $da[] = \Storage::disk('public')->url($v);
+            }
+        }
+        return $da;
+        return json_decode($this->attributes['logo']);
     }
 }
