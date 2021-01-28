@@ -45,6 +45,9 @@ class ShopController extends Controller
         $pageSize = 1;
         // select * from table limit (pageNo-1)*pageSize, pageSize;
         $sql = "select * from shops ";
+//        SELECT column_name(s)
+//FROM table_name
+//ORDER BY column_name DESC
 
         // 一级
         if($one_abbr) {
@@ -79,14 +82,14 @@ class ShopController extends Controller
         // 人气
         if ($view) {
             $sql = $sql." order by view ".$view;
-        }
-        // 评论
-        if ($comment_count) {
+        }else if ($comment_count) { // 评论
             $sql = $sql." order by comment_count ".$comment_count;
+        }else {
+            $sql = $sql." order by sort "."DESC";
         }
 
         $limit = $sql." LIMIT ".$start.",".$limit;
-        $sql = $sql.'order by sort desc';
+//        $sql = $sql.'order by sort desc';
 
         $query = DB::select($limit);
         foreach ($query as $item=>$value) {
