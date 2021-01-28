@@ -124,11 +124,11 @@ class ShopController extends Controller
             $data['no'] = Shop::findAvailableNo();
             $data['amount'] = $request->shop_fee == 0 ? Setting::where('key', 'shop_fee_two')->value('value') : Setting::where('key', 'shop_fee')->value('value');
 
-            if ($request->shop_top_fee == 0) {
-                $top_fee = Setting::where('key', 'shop_top_fee_two')->value('value');
-                $data['is_top'] = 1;
-            }else if ($request->shop_top_fee_two == 0) {
+            if ($request->shop_top_fee == 1) {
                 $top_fee = Setting::where('key', 'shop_top_fee')->value('value');
+                $data['is_top'] = 1;
+            }else if ($request->shop_top_fee_two == 1) {
+                $top_fee = Setting::where('key', 'shop_top_fee_two')->value('value');
                 $data['is_top'] = 1;
             }else {
                 $top_fee = 0;
@@ -140,7 +140,6 @@ class ShopController extends Controller
             if ($request->shop_top_fee != 0 || $request->shop_top_fee_two != 0) {
                 $shop = Shop::orderBy('sort', 'desc')->first();
                 if ($shop) {
-
                     $data['sort'] = bcadd($shop->sort, 1);
 
                 } else {
