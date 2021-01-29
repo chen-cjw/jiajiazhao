@@ -187,6 +187,12 @@ class PersonalController extends Controller
         }
         return $this->responseStyle('ok',200,$res);
     }
+    // 商铺管理不可以删除
+    public function shopManage()
+    {
+        $res = auth('api')->user()->shop()->where('paid_at','!=',null)->first();
+        return $this->responseStyle('ok', 200,$res);
+    }
 
 
     // 我的收藏(商品) todo 暂未开放

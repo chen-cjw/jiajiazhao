@@ -41,18 +41,14 @@ class ShopController extends Controller
         $comment_count = \request()->comment_count;
         $start = \request()->page ?: 0;
         $limit = 15;
-        $pageNo = 1;
-        $pageSize = 1;
-        // select * from table limit (pageNo-1)*pageSize, pageSize;
         $sql = "select * from shops ";
-//        SELECT column_name(s)
-//FROM table_name
-//ORDER BY column_name DESC
+        $dueDate = date('Y-m-d H:i:s');
 
         // 一级
         if($one_abbr) {
             $sql = $sql."where (one_abbr0={$one_abbr} OR one_abbr1={$one_abbr} OR one_abbr2={$one_abbr})";
         }
+
         // 搜索
         if($name!='') {
             if (!$one_abbr) {
@@ -61,6 +57,8 @@ class ShopController extends Controller
                 $sql = $sql."and name LIKE '%".$name."%'";
             }
         }
+        // 时间搜索
+        $sql = $sql."and  due_date>='{$dueDate}'" ;
 
         // 二级
         if($two_abbr!='') {
@@ -119,9 +117,19 @@ class ShopController extends Controller
     public function store(ShopRequest $request)
     {
 //        return $request->all();
-        if (auth('api')->user()->shop()->where('paid_at','!=',null)->first()) {
-            Log::info('您已注册商户');
-            return $this->responseStyle('您已注册商户！',422,"");
+
+        // 编辑
+        if($shopId = $request->id) {
+            $res = Shop::where('id',$request->id)->where('user_id',auth('api')->id())->first();
+//            $data['due_date'] = date($res->due_date,strtotime('+2year'));
+            if(!$res) {
+                return $this->responseStyle('请勿非法续费!',200,[]);
+            }
+        }else{
+            if (auth('api')->user()->shop()->where('paid_at','!=',null)->first()) {
+                Log::info('您已注册商户');
+                return $this->responseStyle('您已注册商户！',422,"");
+            }
         }
         DB::beginTransaction();
         try {
@@ -141,11 +149,25 @@ class ShopController extends Controller
             $data['amount'] = $request->shop_fee == 0 ? Setting::where('key', 'shop_fee_two')->value('value') : Setting::where('key', 'shop_fee')->value('value');
             if ($request->shop_fee == 1) {
                 $data['amount'] = Setting::where('key', 'shop_fee')->value('value');
-                $data['due_date'] = date('Y-m-d H:i:s',strtotime('+1year'));
+                if ($res) {
+                    $data['is_accept'] = 0; // 是否同意
+                    $data['due_date'] = date('Y-m-d H:i:s',strtotime("+1year",strtotime($res->due_date)));
+//                    $data['due_date'] = date($res->due_date,strtotime('+1year'));
+                }else {
+                    $data['due_date'] = date('Y-m-d H:i:s',strtotime('+1year'));
+                }
 
             }else if ($request->shop_fee_two == 1){
                 $data['amount'] = Setting::where('key', 'shop_fee_two')->value('value');
-                $data['due_date'] = date('Y-m-d H:i:s',strtotime('+2year'));
+                // 编辑
+                if ($res) {
+                    $data['is_accept'] = 0; // 是否同意
+                    $data['due_date'] = date('Y-m-d H:i:s',strtotime("+2 year",strtotime($res->due_date)));
+//                    $data['due_date'] = date($res->due_date,strtotime('+2year'));
+                }else {
+                    $data['due_date'] = date('Y-m-d H:i:s',strtotime('+2year'));
+                }
+
             }
             if ($request->shop_top_fee == 1) {
                 $top_fee = Setting::where('key', 'shop_top_fee')->value('value');
@@ -173,7 +195,11 @@ class ShopController extends Controller
                 }
             }
             Log::info($data);
-            $res = Shop::create($data);
+            if ($res) {
+                $shop = Shop::where('id',$request->id)->update($data);
+            }else {
+                $res = Shop::create($data);
+            }
 
             // todo
             $parentId = auth('api')->user()->parent_id;
@@ -197,8 +223,6 @@ class ShopController extends Controller
                 }
             }
 
-
-
             DB::commit();
             return ['code'=>200,'msg'=>'ok','data'=>$res];
         } catch (\Exception $ex) {
@@ -206,6 +230,9 @@ class ShopController extends Controller
             throw new \Exception($ex); // 报错原因大多是因为taskFlowCollections表，name和user_id一致
         }
     }
+
+
+    // 编辑
 
     public function show($id)
     {
@@ -416,7 +443,7 @@ class ShopController extends Controller
             }
             $order->save(); // 保存订单
             // todo 订单支付成功通知,支付平台的订单号
-            $user = User::find($order->user_id);
+//            $user = User::find($order->user_id);
 //            order_wePay_success_notification($user->ml_openid,$order->payment_no,$order->paid_at,$order->amount,$order->name,'');
             return true; // 返回处理完成
         });

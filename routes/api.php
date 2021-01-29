@@ -128,7 +128,8 @@ $api->version('v1', [
 
         // 我邀请的用户 refUser
         $api->get('/ref_user', 'PersonalController@refUser')->name('api.personal.refUser'); // 删除收藏
-
+        // 商铺管理
+        $api->get('/shop_manage', 'PersonalController@shopManage')->name('api.personal.shopManage'); // 删除收藏
 
         // 我发布本地拼车-管理(删除) localCarpoolIndex
         $api->get('/local_carpool_index/', 'PersonalController@localCarpoolIndex')->name('api.personal.localCarpoolIndex');

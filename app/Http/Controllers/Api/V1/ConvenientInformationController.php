@@ -229,7 +229,7 @@ class ConvenientInformationController extends Controller
             }
             $order->save(); // 保存订单
             // todo 订单支付成功通知,支付平台的订单号
-            $user = User::find($order->user_id);
+//            $user = User::find($order->user_id);
 //            order_wePay_success_notification($user->ml_openid,$order->payment_no,$order->paid_at,bcadd($order->card_fee,$order->top_fee,2) ,$order->title,'');
             return true; // 返回处理完成
         });
