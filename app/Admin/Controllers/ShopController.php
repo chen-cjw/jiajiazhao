@@ -125,7 +125,7 @@ class ShopController extends AdminController
         $show->field('detailed_address', __('Detailed address'));
         $show->field('contact_phone', __('Contact phone'));
         $show->field('wechat', __('Wechat'));
-        $show->field('logo', __('Logo'))->image('',50,50);
+        $show->field('logo', __('Logo'));
         $show->field('service_price', __('Service price'));
         $show->field('merchant_introduction', __('Merchant introduction'));
         $show->field('sort', __('Sort'));
