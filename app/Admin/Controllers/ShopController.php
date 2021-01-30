@@ -3,7 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Model\AbbrCategory;
-use App\Model\Shop;
+use App\Shop;
 use App\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -34,16 +34,17 @@ class ShopController extends AdminController
         $grid->column('user_id', __('User id'))->display(function ($userId) {
             return User::where('id',$userId)->value('nickname');
         });
-        $grid->column('two_abbr0', __('行业'))->display(function () {
-            $query = AbbrCategory::where('id',$this->two_abbr0)->value('abbr');
-            if($this->two_abbr1) {
-                $query = $query.'/'.AbbrCategory::where('id',$this->two_abbr1)->value('abbr');
-            }
-            if ($this->two_abbr2) {
-                $query = $query.'/'.AbbrCategory::where('id',$this->two_abbr2)->value('abbr');
-            }
-            return $query;
-        });
+        $grid->column('one_abbr0', __('一级分类'));
+        $grid->column('two_abbr0', __('二级分类'));//->display(function () {
+//            $query = AbbrCategory::where('id',$this->two_abbr0)->value('abbr');
+//            if($this->two_abbr1) {
+//                $query = $query.'/'.AbbrCategory::where('id',$this->two_abbr1)->value('abbr');
+//            }
+//            if ($this->two_abbr2) {
+//                $query = $query.'/'.AbbrCategory::where('id',$this->two_abbr2)->value('abbr');
+//            }
+//            return $query;
+//        });
 //        $grid->column('two_abbr1', __('Two abbr1'));
 //        $grid->column('two_abbr2', __('Two abbr2'));
         $grid->column('name', __('店铺名'));
@@ -112,7 +113,12 @@ class ShopController extends AdminController
         $show = new Show(Shop::findOrFail($id));
 
         $show->field('id', __('Id'));
-//        $show->field('one_abbr0', __('One abbr0'));
+//        $show->field('one_abbr0', __('One abbr0'),function ($one_abbr0) {
+//            return AbbrCategory::where('id',$one_abbr0)->value('abbr');
+//        });
+//        $show->field('two_abbr0', __('One abbr0'),function ($one_abbr0) {
+//            return AbbrCategory::where('id',$one_abbr0)->value('abbr');
+//        });
 //        $show->field('one_abbr1', __('One abbr1'));
 //        $show->field('one_abbr2', __('One abbr2'));
 //        $show->field('two_abbr0', __('Two abbr0'));
@@ -159,7 +165,8 @@ class ShopController extends AdminController
     {
         $form = new Form(new Shop());
 
-//        $form->number('one_abbr0', __('One abbr0'));
+        $form->display('one_abbr0', __('一级分类'));
+        $form->display('two_abbr0', __('二级分类'));
 //        $form->number('one_abbr1', __('One abbr1'));
 //        $form->number('one_abbr2', __('One abbr2'));
 //        $form->text('two_abbr0', __('Two abbr0'));
@@ -172,7 +179,7 @@ class ShopController extends AdminController
         $form->text('detailed_address', __('Detailed address'));
         $form->text('contact_phone', __('Contact phone'));
         $form->text('wechat', __('Wechat'));
-//        $form->image('logo', __('Logo'));
+        $form->multipleImage('logo', __('Logo'));
         $form->text('service_price', __('Service price'));
         $form->text('merchant_introduction', __('Merchant introduction'));
         $form->number('sort', __('Sort'));
