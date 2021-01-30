@@ -57,12 +57,12 @@ class ConvenientInformation extends Model
         return json_decode($this->attributes['logo']);
     }
 
-    public function getImageAttribute($image)
-    {
-        if ($this->attributes['images']) {
-            return json_decode($this->attributes['images'],true);
-        }
-        return null;
-    }
-    protected $appends = ['image'];
+//    public function getImageAttribute($image)
+//    {
+//        if ($this->attributes['images']) {
+//            return json_decode($this->attributes['images'],true);
+//        }
+//        return null;
+//    }
+//    protected $appends = ['image'];
 }
