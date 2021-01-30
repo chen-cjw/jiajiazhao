@@ -91,13 +91,13 @@ class ConvenientInformationController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('title', __('Title'));
-        $show->field('content', __('Content'));
+        $show->field('content', __('Content'))->unescape();
         $show->field('location', __('Location'));
         $show->field('lng', __('Lng'));
         $show->field('lat', __('Lat'));
         $show->field('view', __('View'));
-        $show->field('card_id', __('Card id'));
-        $show->field('user_id', __('User id'));
+//        $show->field('card_id', __('Card id'));
+//        $show->field('user_id', __('User id'));
         $show->field('no', __('No'));
         $show->field('card_fee', __('Card fee'));
         $show->field('top_fee', __('Top fee'));
