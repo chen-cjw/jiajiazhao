@@ -69,6 +69,7 @@ class AuthController extends Controller
 
                 return $this->oauthNo();
             }
+            Log::error($request->all());
             Log::info('创建用户', $this->createUser($sessionUser, $request));
 
             User::create($this->createUser($sessionUser, $request));
