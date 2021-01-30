@@ -31,10 +31,10 @@ class DriverCertificationController extends AdminController
         $grid->column('user_id', __('User id'))->display(function ($userId){
             return User::where('id',$userId)->value('nickname');
         });
-        $grid->column('id_card', __('Id card'))->image('',25,25);
-        $grid->column('driver', __('Driver'))->image('',25,25);
-        $grid->column('action', __('Action'))->image('',25,25);
-        $grid->column('car', __('Car'))->image('',25,25);
+        $grid->column('id_card', __('Id card'))->image('',50,50);
+        $grid->column('driver', __('Driver'))->image('',50,50);
+        $grid->column('action', __('Action'))->image('',50,50);
+        $grid->column('car', __('Car'))->image('',50,50);
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
 
         $grid->column('created_at', __('Created at'));
@@ -54,10 +54,10 @@ class DriverCertificationController extends AdminController
         $show = new Show(DriverCertification::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('id_card', __('Id card'))->image('',25,25);
-        $show->field('driver', __('Driver'))->image('',25,25);
-        $show->field('action', __('Action'))->image('',25,25);
-        $show->field('car', __('Car'))->image('',25,25);
+        $show->field('id_card', __('Id card'))->image('',50,50);
+        $show->field('driver', __('Driver'))->image('',50,50);
+        $show->field('action', __('Action'))->image('',50,50);
+        $show->field('car', __('Car'))->image('',50,50);
         $show->field('is_display', __('Is display'));
         $show->field('user_id', __('User id'))->as(function ($user_id) {
             return User::where('id',$user_id)->value('nickname');

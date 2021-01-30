@@ -231,8 +231,71 @@ class ShopController extends Controller
         }
     }
 
-
     // 编辑
+
+    public function update(ShopRequest $request,$id)
+    {
+        // 编辑
+        $res = Shop::where('id',$id)->where('user_id',auth('api')->id())->first();
+        if(!$res) {
+            return $this->responseStyle('非法修改!',200,[]);
+        }
+        DB::beginTransaction();
+        try {
+            $data = $request->only([
+                'one_abbr0', 'one_abbr1', 'one_abbr2',
+                'two_abbr0', 'two_abbr1', 'two_abbr2', 'name', 'area', 'detailed_address', 'contact_phone', 'wechat',
+                'logo', 'service_price', 'merchant_introduction', 'is_top', 'lng', 'lat'
+            ]);
+            for ($i = 0; $i < count($request->one_abbr); $i++) {
+                $data['one_abbr' . $i] = $request->one_abbr[$i];
+            }
+            for ($i = 0; $i < count($request->two_abbr); $i++) {
+                $data['two_abbr' . $i] = $request->two_abbr[$i];
+            }
+
+            $data['no'] = Shop::findAvailableNo();
+            $data['amount'] = $request->shop_fee == 0 ? Setting::where('key', 'shop_fee_two')->value('value') : Setting::where('key', 'shop_fee')->value('value');
+            if ($request->shop_fee == 1) {
+                $data['amount'] = Setting::where('key', 'shop_fee')->value('value');
+            }else if ($request->shop_fee_two == 1){
+                $data['amount'] = Setting::where('key', 'shop_fee_two')->value('value');
+            }
+            if ($request->shop_top_fee == 1) {
+                $top_fee = Setting::where('key', 'shop_top_fee')->value('value');
+                $data['is_top'] = 1;
+            }else if ($request->shop_top_fee_two == 1) {
+                $top_fee = Setting::where('key', 'shop_top_fee_two')->value('value');
+                $data['is_top'] = 1;
+            }else {
+                $top_fee = 0;
+            }
+            // 多图片上传
+            if ($request->images) {
+                $data['images'] = json_encode($request->images);
+            }
+            $data['top_amount'] = $top_fee;// $request->shop_top_fee == 0 ? Setting::where('key', 'shop_top_fee_two')->value('value') : Setting::where('key', 'shop_top_fee')->value('value');
+            $data['logo'] = json_encode($request->logo);
+            $data['user_id'] = auth('api')->id();
+            if ($request->shop_top_fee != 0 || $request->shop_top_fee_two != 0) {
+                $shop = Shop::orderBy('sort', 'desc')->first();
+                if ($shop) {
+                    $data['sort'] = bcadd($shop->sort, 1);
+
+                } else {
+                    $data['sort'] = 1;
+                }
+            }
+            Log::info($data);
+            $res = Shop::where('id',$request->id)->update($data);
+            DB::commit();
+            return ['code'=>200,'msg'=>'ok','data'=>$res];
+        } catch (\Exception $ex) {
+            DB::rollback();
+            throw new \Exception($ex); // 报错原因大多是因为taskFlowCollections表，name和user_id一致
+        }
+    }
+
 
     public function show($id)
     {

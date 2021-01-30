@@ -110,6 +110,7 @@ $api->version('v1', [
 
         // 入住
         $api->get('/shop/{id}', 'ShopController@show')->name('api.shop.show'); // 商户详情
+        $api->post('/shop/{id}', 'ShopController@update')->name('api.shop.update'); // 商户编辑
         $api->post('/shop_upload_img', 'ShopController@uploadImg')->name('api.shop.uploadImg'); // 单图片上传
         $api->get('/shop/pay_by_wechat/{id}', 'ShopController@payByWechat')->name('api.shop.payByWechat'); // 唤起支付
 
