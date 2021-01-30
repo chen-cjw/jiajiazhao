@@ -69,6 +69,9 @@ $api->version('v1', [
     $api->any('/wechat_notify', 'LocalCarpoolingController@wechatNotify')->name('api.local_carpooling.wechatNotify'); // 发布
     $api->any('/shop_wechat_notify', 'ShopController@wechatNotify')->name('api.shop_wechat_notify.wechatNotify'); // 发布
     $api->any('/information_wechat_notify', 'ConvenientInformationController@wechatNotify')->name('api.information_wechat_notify.wechatNotify'); // 发布
+    // AbbrCategoryController
+    $api->get('/search_two_cate', 'AbbrCategoryController@searchTwoCate')->name('api.abbrCategory.searchTwoCate'); // 发起支付
+
 
     $api->group(['middleware' => ['refreshtoken']], function ($api) {
         // refresh

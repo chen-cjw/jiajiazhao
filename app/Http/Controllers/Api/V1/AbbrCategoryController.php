@@ -14,4 +14,14 @@ class AbbrCategoryController extends Controller
         return $this->responseStyle('ok',200,$abbrCategory);
         return $this->response->collection($abbrCategory,new AbbrCategoryTransformer());
     }
+
+    // 搜索二级，给前段返回一级/二级
+    public function searchTwoCate()
+    {
+        if ($name = request('name')) {
+            $abbrCategory = AbbrCategory::where('type','shop')->whereNotNull('parent_id')->where('abbr','like','%'.request('name').'%')->get();
+            return $this->responseStyle('ok',200,$abbrCategory);
+        }
+        return $this->responseStyle('ok',200,[]);
+    }
 }
