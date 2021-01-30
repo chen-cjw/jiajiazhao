@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class PhoneVerify
+class UserInfoVerify
 {
     /**
      * Handle an incoming request.
@@ -15,12 +15,12 @@ class PhoneVerify
      */
     public function handle($request, Closure $next)
     {
-        $phone = auth()->user()->phone;
-        if(!$phone) {
+        $nickname = auth()->user()->nickname;
+        if(!$nickname) {
             return response()->json([
                 'code'=> 422,
                 'data'=>[],
-                'msg'=>'未授权手机号'
+                'msg'=>'未授权用户信息'
             ]);
         }
         return $next($request);

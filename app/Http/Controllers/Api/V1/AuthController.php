@@ -59,9 +59,13 @@ class AuthController extends Controller
             Cache::put($code, ['session_key' => $session_key, 'ml_openid' => $openid], 3000);
             if ($user) { // 手机好存在直接登陆
                 Log::info(1);
-                if($user->nickname) {
+//                if($user->nickname) {
+                if($user->phone) {
                     Log::info(2);
-
+                    // 修改 code todo
+                    User::where('ml_openid', $openid)->update([
+                        'sessionUserInformation'=>json_encode($sessionUser)
+                    ]);
                     $token = \Auth::guard('api')->fromUser($user);
                     return $this->respondWithToken($token, $openid, $user);
                 }
@@ -87,14 +91,10 @@ class AuthController extends Controller
 
         Log::error(auth('api')->user());
 
-//        $session = Cache::get($request->code);// 解析的问题
         $session = auth('api')->user()->sessionUserInformation;
-        Log::error('用户信息：'.$session);
-        Log::error('用户信息：'.json_decode($session)->session_key);
-//        if(!$session) {
-//            Log::error('用户code：'.$request->code);
-//            throw new \Exception('code 和第一次的不一致'.$request->code);
-//        }
+        Log::error('用户信息phoneStore：'.$session);
+        Log::error('用户信息phoneStore：'.json_decode($session)->session_key);
+
         $app = app('wechat.mini_program');
         $decryptedData = $app->encryptor->decryptData(json_decode($session)->session_key, $request->iv, $request->encrypted_data);
         Log::info(111111111111);
@@ -122,11 +122,16 @@ class AuthController extends Controller
     // 获取用户信息
     public function userInfo(AuthUserInfoRequest $request)
     {
-        $session = Cache::get($request->code);// 解析的问题
-        if(!$session) {
-            Log::error('用户code：'.$request->code);
-            throw new \Exception('code 和第一次的不一致'.$request->code);
-        }
+        Log::error(auth('api')->user());
+
+        $session = auth('api')->user()->sessionUserInformation;
+        Log::error('用户信息userInfo：'.$session);
+        Log::error('用户信息userInfo：'.json_decode($session)->session_key);
+//        $session = Cache::get($request->code);// 解析的问题
+//        if(!$session) {
+//            Log::error('用户code：'.$request->code);
+//            throw new \Exception('code 和第一次的不一致'.$request->code);
+//        }
         $app = app('wechat.mini_program');
         $decryptedData = $app->encryptor->decryptData($session['session_key'], $request->iv, $request->encrypted_data);
         Log::info(22222222222);

@@ -79,15 +79,14 @@ $api->version('v1', [
 
     });
 
-    // 必须登陆以后才有的操作
-    $api->group(['middleware' => ['auth:api']], function ($api) {
+    // 必须登陆以后才有的操作&&手机要授权以后
+    $api->group(['middleware' => ['auth:api','phone.verify']], function ($api) {
         // 多图片上传
         $api->post('upload','ShopController@upload')->name('api.multiUpload.upload');
 
         // 首页
         $api->get('/index', 'IndexController@index')->name('api.index.index'); // 发起支付
 
-        $api->post('/local_carpooling', 'LocalCarpoolingController@store')->name('api.local_carpooling.store'); // 发布
         $api->put('/local_carpooling/{id}', 'LocalCarpoolingController@update')->name('api.local_carpooling.update'); // 确认发车
 
         $api->get('/pay_by_wechat/{id}', 'LocalCarpoolingController@payByWechat')->name('api.local_carpooling.payByWechat'); // 发起支付
@@ -103,7 +102,7 @@ $api->version('v1', [
 
 
         $api->get('/convenient_information', 'ConvenientInformationController@index')->name('api.convenient_information.index'); // 认证
-        $api->post('/convenient_information', 'ConvenientInformationController@store')->name('api.convenient_information.store'); // 认证
+        //$api->post('/convenient_information', 'ConvenientInformationController@store')->name('api.convenient_information.store'); // 认证
         $api->get('/convenient_information/{id}', 'ConvenientInformationController@show')->name('api.convenient_information.show'); // 认证
         // 发布信息唤起支付页面
         $api->get('/convenient_information/pay_by_wechat/{id}', 'ConvenientInformationController@payByWechat')->name('api.convenient_information.payByWechat'); // 发布
@@ -162,12 +161,16 @@ $api->version('v1', [
         // ShopCommentController
         $api->post('/shop/{id}/shop_comment', 'ShopCommentController@store')->name('api.shop_comment.store'); // 入住
 
-        $api->group(['middleware' => ['phone.verify']], function ($api) {
+//        $api->group(['middleware' => ['phone.verify']], function ($api) {
+        $api->group(['middleware' => ['userInfo.verify']], function ($api) {
+            $api->post('/local_carpooling', 'LocalCarpoolingController@store')->name('api.local_carpooling.store'); // 发布拼车
 
-            // 操作之前要获取手机号
+            // 操作之前要获取用户信息
             $api->post('/shop', 'ShopController@store')->name('api.shop.store'); // 入住
             // 我发布本地拼车列表 localCarpool
             $api->post('/local_carpool', 'PersonalController@localCarpool')->name('api.personal.localCarpool');
+            $api->post('/convenient_information', 'ConvenientInformationController@store')->name('api.convenient_information.store'); // 认证
+
         });
 
     });
