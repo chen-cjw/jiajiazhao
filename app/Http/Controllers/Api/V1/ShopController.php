@@ -117,10 +117,9 @@ class ShopController extends Controller
     public function store(ShopRequest $request)
     {
 //        return $request->all();
-
+        $res = Shop::where('id',$request->id)->where('user_id',auth('api')->id())->first();
         // 编辑
         if($shopId = $request->id) {
-            $res = Shop::where('id',$request->id)->where('user_id',auth('api')->id())->first();
 //            $data['due_date'] = date($res->due_date,strtotime('+2year'));
             if(!$res) {
                 return $this->responseStyle('请勿非法续费!',200,[]);
