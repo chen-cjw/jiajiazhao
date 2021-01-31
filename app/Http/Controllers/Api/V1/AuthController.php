@@ -65,10 +65,11 @@ class AuthController extends Controller
 
                 Log::info(1);
 //                if($user->nickname) {
+                $token = \Auth::guard('api')->fromUser($user);
+
                 if($user->phone) {
                     Log::info(2);
 
-                    $token = \Auth::guard('api')->fromUser($user);
                     return $this->response->array([
                         'code' => 200,
                         'msg'=>'ok',
@@ -83,7 +84,17 @@ class AuthController extends Controller
                     return $this->respondWithToken($token, $openid, $user);
                 }
                 Log::info(3);
-
+                return $this->response->array([
+                    'code' => 200,
+                    'msg'=>'未授权用户信息',
+                    'data' => [
+                        'ml_openid' => $openid,
+                        'access_token' => $token,
+                        'token_type' => 'Bearer',
+                        'phone'=>$user->phone,
+                        'expires_in' => Auth::guard('api')->factory()->getTTL() * 1200
+                    ]
+                ]);
                 return $this->oauthNo();
             }
             Log::error($request->all());
