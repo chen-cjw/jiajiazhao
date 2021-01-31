@@ -62,6 +62,7 @@ class AuthController extends Controller
                 User::where('ml_openid', $openid)->update([
                     'sessionUserInformation'=>json_encode($sessionUser)
                 ]);
+                DB::commit();
 
                 Log::info(1);
 //                if($user->nickname) {
