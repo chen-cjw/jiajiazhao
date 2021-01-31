@@ -8,6 +8,7 @@ use App\Model\Dialing;
 use App\Model\LocalCarpooling;
 use App\Model\Shop;
 use App\Model\ShopComment;
+use Illuminate\Http\Request;
 
 class DialingController extends Controller
 {
@@ -25,14 +26,31 @@ class DialingController extends Controller
 
     public function store(DialingRequest $request)
     {
+        $diaing = Dialing::where('model_type',$request->type=='shop'?Shop::class:LocalCarpooling::class)->where('model_id',$request->id)->where('user_id',auth('api')->id());
         // 商户/拼车两部分
-        $res = Dialing::create([
-            'phone'=>$request->phone,
-            'user_id'=>auth('api')->id(),
-            'model_type'=>$request->type=='shop'?Shop::class:LocalCarpooling::class,
-            'model_id'=>$request->id
-        ]);
+        if ($diaing->first()) {
+            $diaing->update([
+                'updated_at'=>date('Y-m-d H:i:s')
+            ]);
+        }else {
+            $diaing = Dialing::create([
+                'phone' => $request->phone,
+                'user_id' => auth('api')->id(),
+                'model_type' => $request->type == 'shop' ? Shop::class : LocalCarpooling::class,
+                'model_id' => $request->id
+            ]);
+        }
+        return $this->responseStyle('ok',200,$diaing->first());
+    }
+    // 浏览管理
+    public function delete(Request $request)
+    {
+        if(!$request->ids) {
+            return $this->responseStyle('ok',200,[]);
+        }
+        foreach($request->ids as $v){
+            $res = Dialing::where('id',$v)->delete();
+        }
         return $this->responseStyle('ok',200,$res);
     }
-
 }

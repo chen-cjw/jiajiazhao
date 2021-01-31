@@ -152,6 +152,7 @@ $api->version('v1', [
         //我拨打的号码
         $api->get('/dialing', 'DialingController@index')->name('api.dialing.index');
         $api->post('/dialing', 'DialingController@store')->name('api.dialing.store');
+        $api->post('/dialing/delete', 'DialingController@delete')->name('api.dialing.delete');
 
 
         // 我的投诉
