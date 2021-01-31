@@ -69,6 +69,17 @@ class AuthController extends Controller
                     Log::info(2);
 
                     $token = \Auth::guard('api')->fromUser($user);
+                    return $this->response->array([
+                        'code' => 200,
+                        'msg'=>'ok',
+                        'data' => [
+                            'ml_openid' => $openid,
+                            'access_token' => $token,
+                            'token_type' => 'Bearer',
+                            'phone'=>$user->phone,
+                            'expires_in' => Auth::guard('api')->factory()->getTTL() * 1200
+                        ]
+                    ]);
                     return $this->respondWithToken($token, $openid, $user);
                 }
                 Log::info(3);
@@ -81,6 +92,21 @@ class AuthController extends Controller
             User::create($this->createUser($sessionUser, $request));
 
             DB::commit();
+            $token = \Auth::guard('api')->fromUser($user);
+
+            return $this->response->array([
+                'code' => 200,
+                'msg'=>'未授权用户信息',
+                'data' => [
+                    'ml_openid' => $openid,
+                    'access_token' => $token,
+                    'token_type' => 'Bearer',
+                    'phone'=>$user->phone,
+                    'expires_in' => Auth::guard('api')->factory()->getTTL() * 1200
+                ]
+            ]);
+            return $this->respondWithToken($token, $openid, $user);
+
             return $this->oauthNo();
         } catch (\Exception $ex) {
             DB::rollback();
