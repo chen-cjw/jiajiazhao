@@ -88,12 +88,16 @@ class AuthController extends Controller
     //  获取手机号
     public function phoneStore(AuthPhoneStoreRequest $request)
     {
-
-        Log::error(auth('api')->user());
-
-        $session = auth('api')->user()->sessionUserInformation;
-        Log::error('用户信息phoneStore：'.$session);
-        Log::error('用户信息phoneStore：'.json_decode($session)->session_key);
+        $session = Cache::get($request->code);// 解析的问题
+        if(!$session) {
+            Log::error('用户code：'.$request->code);
+            throw new \Exception('code 和第一次的不一致'.$request->code);
+        }
+//        Log::error(auth('api')->user());
+//
+//        $session = auth('api')->user()->sessionUserInformation;
+//        Log::error('用户信息phoneStore：'.$session);
+//        Log::error('用户信息phoneStore：'.json_decode($session)->session_key);
 
         $app = app('wechat.mini_program');
         $decryptedData = $app->encryptor->decryptData(json_decode($session)->session_key, $request->iv, $request->encrypted_data);
