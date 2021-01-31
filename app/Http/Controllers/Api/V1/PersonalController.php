@@ -183,7 +183,7 @@ class PersonalController extends Controller
     public function historyDel(Request $request)
     {
         foreach($request->ids as $v){
-            $res = History::where('id',$v)->delete();
+            $res = History::where('id',$v)->where('user_id',auth('api')->id())->delete();
         }
         return $this->responseStyle('ok',200,$res);
     }

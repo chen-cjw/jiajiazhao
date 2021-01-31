@@ -49,7 +49,7 @@ class DialingController extends Controller
             return $this->responseStyle('ok',200,[]);
         }
         foreach($request->ids as $v){
-            $res = Dialing::where('id',$v)->delete();
+            $res = Dialing::where('id',$v)->where('user_id',auth('api')->id())->delete();
         }
         return $this->responseStyle('ok',200,$res);
     }
