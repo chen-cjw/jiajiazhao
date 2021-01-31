@@ -4,7 +4,7 @@ namespace App\Model;
 
 class Dialing extends Model
 {
-    protected $fillable = ['phone','model_type','model_id','user_id'];
+    protected $fillable = ['phone','model_type','model_id','user_id','updated_at'];
 
     public function shops()
     {
