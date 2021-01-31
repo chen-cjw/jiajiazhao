@@ -58,14 +58,16 @@ class AuthController extends Controller
 
             Cache::put($code, ['session_key' => $session_key, 'ml_openid' => $openid], 3000);
             if ($user) { // 手机好存在直接登陆
+                // 修改 code todo
+                User::where('ml_openid', $openid)->update([
+                    'sessionUserInformation'=>json_encode($sessionUser)
+                ]);
+
                 Log::info(1);
 //                if($user->nickname) {
                 if($user->phone) {
                     Log::info(2);
-                    // 修改 code todo
-                    User::where('ml_openid', $openid)->update([
-                        'sessionUserInformation'=>json_encode($sessionUser)
-                    ]);
+
                     $token = \Auth::guard('api')->fromUser($user);
                     return $this->respondWithToken($token, $openid, $user);
                 }
@@ -88,21 +90,21 @@ class AuthController extends Controller
     //  获取手机号
     public function phoneStore(AuthPhoneStoreRequest $request)
     {
-        $session = Cache::get($request->code);// 解析的问题
-        if(!$session) {
-            Log::error('用户code：'.$request->code);
-            throw new \Exception('code 和第一次的不一致'.$request->code);
-        }
-//        Log::error(auth('api')->user());
-//
-//        $session = auth('api')->user()->sessionUserInformation;
-//        Log::error('用户信息phoneStore：'.$session);
-//        Log::error('用户信息phoneStore：'.json_decode($session)->session_key);
+//        $session = Cache::get($request->code);// 解析的问题
+//        if(!$session) {
+//            Log::error('用户code：'.$request->code);
+//            throw new \Exception('code 和第一次的不一致'.$request->code);
+//        }
+        Log::error(auth('api')->user());
+
+        $session = auth('api')->user()->sessionUserInformation;
+        Log::error('用户信息phoneStore：'.$session);
+        Log::error('用户信息phoneStore：'.json_decode($session)->session_key);
 
         $app = app('wechat.mini_program');
-        $decryptedData = $app->encryptor->decryptData($session['session_key'], $request->iv, $request->encrypted_data);
+//        $decryptedData = $app->encryptor->decryptData($session['session_key'], $request->iv, $request->encrypted_data);
 
-//        $decryptedData = $app->encryptor->decryptData(json_decode($session)->session_key, $request->iv, $request->encrypted_data);
+        $decryptedData = $app->encryptor->decryptData(json_decode($session)->session_key, $request->iv, $request->encrypted_data);
         Log::info(111111111111);
         Log::error($decryptedData);
         Log::info(111111111111);
@@ -110,9 +112,9 @@ class AuthController extends Controller
         if (empty($decryptedData)) {
             throw new \Exception('解析号码失败!321');
         }
-        $user = User::where('ml_openid',$session['ml_openid'])->firstOrFail();
+//        $user = User::where('ml_openid',$session['ml_openid'])->firstOrFail();
 
-//        $user = User::where('ml_openid', json_decode($session)->openid)->firstOrFail();
+        $user = User::where('ml_openid', json_decode($session)->openid)->firstOrFail();
         $phoneNumber = $decryptedData['phoneNumber'];
         $user->update([
             'phone'=>$phoneNumber,
@@ -150,8 +152,9 @@ class AuthController extends Controller
         if (empty($decryptedData)) {
             throw new \Exception('解析号码失败!321');
         }
+        $user = User::where('ml_openid', json_decode($session)->openid)->firstOrFail();
 
-        $user = User::where('ml_openid',$session['ml_openid'])->firstOrFail();
+//        $user = User::where('ml_openid',$session['ml_openid'])->firstOrFail();
         $user->update([
             'avatar'=>$decryptedData['avatarUrl'],
             'nickname'=>$decryptedData['nickName'],
