@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 
+use App\Model\LocalCarpooling;
+use App\Shop;
+
 class DialingRequest extends FormRequest
 {
 
@@ -16,7 +19,19 @@ class DialingRequest extends FormRequest
         return [
             'phone'=>'required',
             'type'=>['required','in:type,shop,local'],
-            'id'=>['required']
+            'id'=>['required',
+                function ($attribute, $value, $fail) {
+                    if($this->type == 'shop') {
+                        if (!Shop::where('id',$value)->first()) {
+                            return $fail('非法拨号！');
+                        }
+                    }
+                    if($this->type=='local') {
+                        if (!LocalCarpooling::where('id',$value)->first()) {
+                            return $fail('非法拨号！');
+                        }
+                    }
+            }]
         ];
     }
 }
