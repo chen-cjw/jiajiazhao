@@ -110,8 +110,9 @@ class AuthController extends Controller
         if (empty($decryptedData)) {
             throw new \Exception('解析号码失败!321');
         }
+        $user = User::where('ml_openid',$session['ml_openid'])->firstOrFail();
 
-        $user = User::where('ml_openid', json_decode($session)->openid)->firstOrFail();
+//        $user = User::where('ml_openid', json_decode($session)->openid)->firstOrFail();
         $phoneNumber = $decryptedData['phoneNumber'];
         $user->update([
             'phone'=>$phoneNumber,
