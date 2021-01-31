@@ -199,7 +199,7 @@ class AuthController extends Controller
             'city'=>$decryptedData['city'],
             'sex'=>$decryptedData['gender'],
         ]);
-        return $this->responseStyle('ok',200,[]);
+        return $this->responseStyle('ok',200,$user);
 
         $token = \Auth::guard('api')->fromUser($user);
         return $this->respondWithToken($token,'',$user)->setStatusCode(201);
