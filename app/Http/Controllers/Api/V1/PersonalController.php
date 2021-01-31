@@ -8,6 +8,8 @@ use App\Model\ConvenientInformation;
 use App\Model\History;
 use App\Model\LocalCarpooling;
 use App\Model\Shop;
+use App\Model\UserFavoriteCard;
+use App\Model\UserFavoriteShop;
 use App\Model\Withdrawal;
 use App\Transformers\ConvenientInformationTransformer;
 use App\Transformers\LocalCarpoolingTransformer;
@@ -84,7 +86,9 @@ class PersonalController extends Controller
     public function shopDel(Request $request)
     {
         $user = auth('api')->user();
-
+        foreach($request->ids as $v) {
+            UserFavoriteShop::where('shop_id', $v)->delete();
+        }
         $res = $user->favoriteShops()->detach($request->ids);
         return $this->responseStyle('ok',200,$res);
     }
@@ -103,7 +107,10 @@ class PersonalController extends Controller
     // 我发布帖子-管理
     public function userCardDel(Request $request)
     {
+
         foreach($request->ids as $v){
+            // 删除别人收藏的
+            UserFavoriteCard::where('information_id',$v)->delete();
             auth('api')->user()->convenientInformation()->where('id',$v)->delete();
         }
         return $this->responseStyle('ok',200,[]);

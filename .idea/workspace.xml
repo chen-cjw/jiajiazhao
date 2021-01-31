@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Model/Dialing.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Dialing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,10 +38,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dialing.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Dialing.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/Dialing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
+            <state relative-caret-position="30">
               <caret line="6" column="80" selection-start-line="6" selection-start-column="80" selection-end-line="6" selection-end-column="80" />
             </state>
           </provider>
@@ -49,48 +50,58 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="154" column="91" selection-start-line="154" selection-start-column="91" selection-end-line="154" selection-end-column="91" />
+            <state relative-caret-position="184">
+              <caret line="144" column="68" selection-start-line="144" selection-start-column="57" selection-end-line="144" selection-end-column="68" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PersonalController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PersonalController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="185" column="78" selection-start-line="185" selection-start-column="78" selection-end-line="185" selection-end-column="78" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShopRequest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopRequest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SuggestionRequest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/SuggestionRequest.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="WithdrawalRequest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/WithdrawalRequest.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="DialingRequest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/DialingRequest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="305">
+              <caret line="89" column="44" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
               <folding>
-                <element signature="e#38#68#0#PHP" expanded="true" />
+                <element signature="e#3332#4141#0#PHP" />
+                <element signature="e#4159#4467#0#PHP" />
+                <element signature="e#4928#5509#0#PHP" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserFavoriteShop.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Model/UserFavoriteShop.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2021_01_03_221024_create_user_favorite_shops_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2021_01_03_221024_create_user_favorite_shops_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="19" column="47" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2021_01_03_121055_create_user_favorite_cards_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2021_01_03_121055_create_user_favorite_cards_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="19" column="54" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="91" column="41" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -111,9 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>单图片</find>
-      <find>banner_information_show</find>
-      <find>index</find>
       <find>logo</find>
       <find>is_display</find>
       <find>show</find>
@@ -141,6 +149,9 @@
       <find>sessionUserInformation</find>
       <find>type</find>
       <find>DialingController</find>
+      <find>user_card_del</find>
+      <find>convenientInformation</find>
+      <find>userCardDel</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -201,8 +212,8 @@
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/DialingController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php" />
         <option value="$PROJECT_DIR$/app/Model/Dialing.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php" />
       </list>
     </option>
   </component>
@@ -426,16 +437,13 @@
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Middleware" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Requests" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
@@ -504,12 +512,12 @@
       <workItem from="1610168842854" duration="48302000" />
       <workItem from="1610620421674" duration="78372000" />
       <workItem from="1611282261227" duration="42121000" />
-      <workItem from="1611627272489" duration="84958000" />
+      <workItem from="1611627272489" duration="85810000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="402839000" />
+    <option name="totallyTimeSpent" value="403691000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -580,27 +588,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/AdvertisingSpace.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/IndexController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -782,13 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="49" column="141" selection-start-line="49" selection-start-column="119" selection-end-line="49" selection-end-column="141" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/Shop.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -869,13 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="154" column="91" selection-start-line="154" selection-start-column="91" selection-end-line="154" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1272">
@@ -896,10 +869,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php">
+    <entry file="file://$PROJECT_DIR$/app/Model/Dialing.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="185" column="78" selection-start-line="185" selection-start-column="78" selection-end-line="185" selection-end-column="78" />
+        <state relative-caret-position="30">
+          <caret line="6" column="80" selection-start-line="6" selection-start-column="80" selection-end-line="6" selection-end-column="80" />
         </state>
       </provider>
     </entry>
@@ -910,10 +883,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/Dialing.php">
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="80" selection-start-line="6" selection-start-column="80" selection-end-line="6" selection-end-column="80" />
+        <state relative-caret-position="184">
+          <caret line="144" column="68" selection-start-line="144" selection-start-column="57" selection-end-line="144" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="91" column="41" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2021_01_03_121055_create_user_favorite_cards_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="54" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/UserFavoriteShop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2021_01_03_221024_create_user_favorite_shops_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="89" column="44" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
+          <folding>
+            <element signature="e#3332#4141#0#PHP" />
+            <element signature="e#4159#4467#0#PHP" />
+            <element signature="e#4928#5509#0#PHP" />
+          </folding>
         </state>
       </provider>
     </entry>
