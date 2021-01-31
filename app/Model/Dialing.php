@@ -15,18 +15,21 @@ class Dialing extends Model
     {
         if ($this->attributes['model_type']==Shop::class) {
             $res = Shop::where('id',$this->attributes['model_id'])->first();
-            $lat = request('lat');
-            $lng = request('lng');
-            // 几公里
-            if ($lat&&$lng) {
+            if ($res) {
 
-                $res['range'] = $this->getDistance($lat,$lng,$res['lat'],$res['lng']);
-            }else {
-                $res['range'] = '未知';
+                $lat = request('lat');
+                $lng = request('lng');
+                // 几公里
+                if ($lat && $lng) {
+
+                    $res['range'] = $this->getDistance($lat, $lng, $res['lat'], $res['lng']);
+                } else {
+                    $res['range'] = '未知';
+                }
+                // 平均星级
+                $res['favoriteShopStarSvg'] = number_format(ShopComment::where('shop_id', $this->attributes['model_id'])->avg('star'), 1);
+                return $res;
             }
-            // 平均星级
-            $res['favoriteShopStarSvg']=number_format(ShopComment::where('shop_id',$this->attributes['model_id'])->avg('star'),1) ;
-            return $res;
         }
         if ($this->attributes['model_type']==LocalCarpooling::class) {
             return LocalCarpooling::where('id',$this->attributes['model_id'])->first();
