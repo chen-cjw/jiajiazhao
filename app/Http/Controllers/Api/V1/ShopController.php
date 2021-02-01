@@ -116,7 +116,13 @@ class ShopController extends Controller
     // 入住 service_price 这个是一个图片
     public function store(ShopRequest $request)
     {
-//        return $request->all();
+        //  商户认证必填
+        if (!isset($request->logo['store_logo'])) {
+            return $this->responseStyle('门店照/Logo必传',422,[]);
+        }
+        if (!isset($request->logo['with_iD_card'])) {
+            return $this->responseStyle('持身份证照必传',422,[]);
+        }
         $res = Shop::where('id',$request->id)->where('user_id',auth('api')->id())->first();
         // 编辑
         if($shopId = $request->id) {
@@ -234,6 +240,13 @@ class ShopController extends Controller
 
     public function update(ShopRequest $request,$id)
     {
+        //  商户认证必填
+        if (!isset($request->logo['store_logo'])) {
+            return $this->responseStyle('门店照/Logo必传',422,[]);
+        }
+        if (!isset($request->logo['with_iD_card'])) {
+            return $this->responseStyle('持身份证照必传',422,[]);
+        }
         // 编辑
         $res = Shop::where('id',$id)->where('user_id',auth('api')->id())->first();
         if(!$res) {
