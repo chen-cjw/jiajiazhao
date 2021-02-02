@@ -42,6 +42,7 @@ class AuthController extends Controller
     {
 
         $app = app('wechat.mini_program');
+        Log::info(123);
         $code = $request->code;
         Log::info($code);
         $sessionUser = $app->auth->session($code);
