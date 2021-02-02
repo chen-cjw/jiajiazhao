@@ -246,7 +246,7 @@ class ShopController extends Controller
         }else if ($request->shop_fee_two == 1){
             $data['amount'] = Setting::where('key', 'shop_fee_two')->value('value');
         }else {
-            $data['amount'] = 0;
+            $data['amount'] = 10000;
 
         }
         if ($request->shop_top_fee == 1) {
@@ -260,7 +260,7 @@ class ShopController extends Controller
             $data['top_amount'] = $top_fee;
 
         }else {
-            $data['top_amount'] = 0;
+            $data['top_amount'] = 10000;
         }
         $res->update($data);
         return ['code'=>200,'msg'=>'ok','data'=>$res->first()];
