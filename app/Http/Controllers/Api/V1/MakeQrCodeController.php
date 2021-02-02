@@ -37,11 +37,7 @@ class MakeQrCodeController extends Controller
         $client = new \GuzzleHttp\Client();
         // https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token=ACCESS_TOKEN
 //        $response = $client->request('POST', 'https://api.weixin.qq.com/wxa/getwxacode',[
-        $response = $client->request('POST', 'https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode',[
-            'form_params'=> [
-                'access_token'=>$accessToken
-            ]
-        ]);
+        $response = $client->request('POST', 'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token='.$accessToken);
         return $response->getBody();
         echo $response->getHeaderLine('content-type'); // 'application/json; charset=utf8'
         echo $response->getBody(); // '{"id": 1420053, "name": "guzzle", ...}'

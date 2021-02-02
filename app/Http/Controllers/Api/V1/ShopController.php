@@ -155,8 +155,8 @@ class ShopController extends Controller
             if ($request->shop_fee == 1) {
                 $data['amount'] = Setting::where('key', 'shop_fee')->value('value');
                 if ($res) {
-                    $data['is_accept'] = 0; // 是否同意
-                    $data['due_date'] = date('Y-m-d H:i:s',strtotime("+1year",strtotime($res->due_date)));
+//                    $data['is_accept'] = 0; // 是否同意
+//                    $data['due_date'] = date('Y-m-d H:i:s',strtotime("+1year",strtotime($res->due_date)));
 //                    $data['due_date'] = date($res->due_date,strtotime('+1year'));
                 }else {
                     $data['due_date'] = date('Y-m-d H:i:s',strtotime('+1year'));
@@ -166,8 +166,8 @@ class ShopController extends Controller
                 $data['amount'] = Setting::where('key', 'shop_fee_two')->value('value');
                 // 编辑
                 if ($res) {
-                    $data['is_accept'] = 0; // 是否同意
-                    $data['due_date'] = date('Y-m-d H:i:s',strtotime("+2 year",strtotime($res->due_date)));
+//                    $data['is_accept'] = 0; // 是否同意
+//                    $data['due_date'] = date('Y-m-d H:i:s',strtotime("+2 year",strtotime($res->due_date)));
 //                    $data['due_date'] = date($res->due_date,strtotime('+2year'));
                 }else {
                     $data['due_date'] = date('Y-m-d H:i:s',strtotime('+2year'));
@@ -499,6 +499,15 @@ class ShopController extends Controller
 //                    $order->status = 'paid';
                     $order->paid_at = Carbon::now(); // 更新支付时间为当前时间
                     $order->payment_no = $message['transaction_id']; // 支付平台订单号
+
+                    if ($order->shop_fee == 1) {
+                        $data['due_date'] = date('Y-m-d H:i:s',strtotime("+1year",strtotime($order->due_date)));
+
+                    }else if ($order->shop_fee_two == 1){
+                        // 编辑
+                        $data['due_date'] = date('Y-m-d H:i:s',strtotime("+2 year",strtotime($order->due_date)));
+                    }
+
                     // 生成一条 邀请人获取佣金的记录
                     // todo 如果 已经生成了订单那么这里支付成功了，就给推广人员到账
                     if ($record = TransactionRecord::where('model_id',$order->id)->where('model_type',Shop::class)->first()) {
