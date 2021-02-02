@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Api\V1;
 
 
+use EasyWeChat\Factory;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 class MakeQrCodeController extends Controller
 {
     public function accessToken()
@@ -29,19 +33,79 @@ class MakeQrCodeController extends Controller
 
 
     }
-
-    public function makeShare()
+    public function makeShare(Request $request,$id)
     {
-        $accessToken = $this->accessToken();
-        //         https://api.weixin.qq.com/wxa/getwxacode?access_token=ACCESS_TOKEN
-        $client = new \GuzzleHttp\Client();
-        // https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token=ACCESS_TOKEN
-//        $response = $client->request('POST', 'https://api.weixin.qq.com/wxa/getwxacode',[
-        $response = $client->request('POST', 'https://api.weixin.qq.com/cgi-bin/message/template/send?access_token='.$accessToken);
-        return $response->getBody();
-        echo $response->getHeaderLine('content-type'); // 'application/json; charset=utf8'
-        echo $response->getBody(); // '{"id": 1420053, "name": "guzzle", ...}'
-        return 123;
+        $config = [
+            'app_id' => 'wx693aa465df66510b',
+            'secret' => '058b6ee18b85ecd12a93c49ccd7fac28',
+
+            // 下面为可选项
+            // 指定 API 调用返回结果的类型：array(default)/collection/object/raw/自定义类名
+            'response_type' => 'array',
+        ];
+        $app = Factory::miniProgram($config);
+//        path:`pages/welcome/welcome?ref_code=${this.userInfo.ref_code}`,
+//      width:200,
+//      auto_color:false,
+//      line_color:{
+//        r:0,
+//       g:0,
+//       b:0
+//      }
+
+        try {
+            $response = $app->app_code->getUnlimit($id, [
+                'page'  => $request->page,
+                'width' => $request->width,
+                'auto_color' => $request->auto_color,
+                'line_color' => $request->line_color,
+            ]);
+            // $response 成功时为 EasyWeChat\Kernel\Http\StreamResponse 实例，失败为数组或你指定的 API 返回类型
+            if ($response instanceof \EasyWeChat\Kernel\Http\StreamResponse) {
+                $img =  date("YmdHis", time()) . '-' . uniqid() . ".png";
+//                $filename = $response->saveAs('uploads/images',  $img);
+                $filename = $response->saveAs(storage_path('app/public'),  $img);
+                // return $filename;
+                $data['code'] = 200;
+                $data['url'] =   $filename;
+
+                // 如果 image 字段本身就已经是完整的 url 就直接返回
+                if (Str::startsWith($filename, ['http://', 'https://'])) {
+                    return $data['url'];
+                }
+                return \Storage::disk('public')->url($filename);
+                return $data;
+            } else {
+                $data['code'] = 401;
+                $data['msg'] =  '生成失败';
+            }
+        } catch (Exception $e) {
+            $data['code'] = 400;
+            $data['msg'] =  $e->getMessage();
+            return $data;
+        }
+
+//        $accessToken = $this->accessToken();
+////        return $accessToken;
+//        //         https://api.weixin.qq.com/wxa/getwxacode?access_token=ACCESS_TOKEN
+//        $client = new \GuzzleHttp\Client();
+//        // https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token=ACCESS_TOKEN
+////        $response = $client->request('POST', 'https://api.weixin.qq.com/wxa/getwxacode',[
+//        $aa = [
+//            'access_token'=>$accessToken,
+//            'scene'=>'123'
+////                'page'=>'/page/page',
+////                'width'=>200,
+////                'auto_color'=>false,
+//        ];
+//        $response = $client->request('POST', 'https://api.weixin.qq.com/wxa/getwxacodeunlimit',[
+//            'form_params'=>json_encode($aa)
+//        ]);
+//        return $response;
+////        return $response->getBody();
+//        echo $response->getHeaderLine('content-type'); // 'application/json; charset=utf8'
+//        return $response->getBody(); // '{"id": 1420053, "name": "guzzle", ...}'
+//        return 123;
     }
     public function isExpires(){
         if(!file_exists(public_path() . '/access_token.json')){
