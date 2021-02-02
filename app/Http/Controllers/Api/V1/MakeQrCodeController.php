@@ -57,7 +57,7 @@ class MakeQrCodeController extends Controller
         Log::info($request->line_color);
         Log::info(44444444444444444);
         try {
-            $response = $app->app_code->getUnlimit(auth()->id, [
+            $response = $app->app_code->getUnlimit(auth('api')->id(), [
                 'page'  => $request->page,
                 'width' => $request->width,
                 'auto_color' => $request->auto_color,
