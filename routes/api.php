@@ -78,7 +78,9 @@ $api->version('v1', [
         $api->post('/auth/refresh','AuthController@refresh')->name('api.auth.refresh');
 
     });
+    $api->get('make_back','MakeQrCodeController@makeBack')->name('api.qrcode.makeBack');// 分享
 
+    // makeBack
     // 必须登陆以后才有的操作&&手机要授权以后
     $api->group(['middleware' => ['auth:api','phone.verify']], function ($api) {
         $api->post('xufei/{id}','ShopController@xufei')->name('api.shop.xufei');
