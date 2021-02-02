@@ -534,11 +534,11 @@ class ShopController extends Controller
                     $order->payment_no = $message['transaction_id']; // 支付平台订单号
 
                     if ($order->shop_fee == 1) {
-                        $data['due_date'] = date('Y-m-d H:i:s',strtotime("+1year",strtotime($order->due_date)));
+                        $order->due_date = date('Y-m-d H:i:s',strtotime("+1year",strtotime($order->due_date)));
 
                     }else if ($order->shop_fee_two == 1){
                         // 编辑
-                        $data['due_date'] = date('Y-m-d H:i:s',strtotime("+2 year",strtotime($order->due_date)));
+                        $order->due_date = date('Y-m-d H:i:s',strtotime("+2 year",strtotime($order->due_date)));
                     }
 
                     // 生成一条 邀请人获取佣金的记录
