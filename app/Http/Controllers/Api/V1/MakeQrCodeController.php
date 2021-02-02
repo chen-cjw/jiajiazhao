@@ -7,7 +7,11 @@ class MakeQrCodeController extends Controller
 {
     public function makeShare()
     {
-        
+        $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx693aa465df66510b&secret=058b6ee18b85ecd12a93c49ccd7fac28";
+        $accessToken = file_get_contents($url);
+        return json_encode($accessToken);// access_token
+        //        https://api.weixin.qq.com/wxa/getwxacode?access_token=ACCESS_TOKEN
+
     }
 
     function createPoster($config=array(),$filename=""){
