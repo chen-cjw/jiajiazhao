@@ -104,7 +104,7 @@ class AuthController extends Controller
             Log::error($request->all());
             Log::info('创建用户', $this->createUser($sessionUser, $request));
 
-            User::create($this->createUser($sessionUser, $request));
+            $user = User::create($this->createUser($sessionUser, $request));
 
             DB::commit();
             $token = \Auth::guard('api')->fromUser($user);
