@@ -120,19 +120,17 @@ class MakeQrCodeController extends Controller
                 }
                 Log::info(6);
 
-                return \Storage::disk('public')->url($filename);
+                $res = \Storage::disk('public')->url($filename);
+                return $this->responseStyle('ok',200,$res);
 
 
             } else {
-                $data['code'] = 401;
-                $data['msg'] =  '生成失败';
                 Log::info('生成失败');
+                return $this->responseStyle('生成失败',422,[]);
 
             }
         } catch (\Exception $e) {
-            $data['code'] = 400;
-            $data['msg'] =  $e->getMessage();
-            return $data;
+            return $this->responseStyle($e->getMessage(),422,[]);
         }
 
 //        $accessToken = $this->accessToken();
