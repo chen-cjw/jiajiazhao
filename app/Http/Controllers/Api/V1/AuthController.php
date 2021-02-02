@@ -23,7 +23,7 @@ class AuthController extends Controller
     public function createTestUser()
     {
         $app = app('wechat.mini_program');
-
+        Log::info($app);
         $user = User::findOrFail(1);
         $token = \Auth::guard('api')->fromUser($user);
         return $this->respondWithToken($token,1,$user)->setStatusCode(201);
