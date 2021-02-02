@@ -239,7 +239,7 @@ class AuthController extends Controller
             'nickname' => $request->nickName,
             'avatar' => $request->avatarUrl,
             'sex' => $request->sex,
-            'parent_id' => $request->ref_code ? User::where('ref_code',$request->ref_code)->value('parent_id') : null,
+            'parent_id' => $request->ref_code ? User::where('ref_code',$request->ref_code)->value('id') : null,
             'ref_code' => $user->generateRefCode(),
             'sessionUserInformation'=>json_encode($sessionUser)
         ];
