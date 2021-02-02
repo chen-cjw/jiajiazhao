@@ -5,14 +5,79 @@ namespace App\Http\Controllers\Api\V1;
 
 class MakeQrCodeController extends Controller
 {
-    public function makeShare()
+    public function accessToken()
     {
-        $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx693aa465df66510b&secret=058b6ee18b85ecd12a93c49ccd7fac28";
-        $accessToken = file_get_contents($url);
-        return json_encode($accessToken);// access_token
-        //        https://api.weixin.qq.com/wxa/getwxacode?access_token=ACCESS_TOKEN
+        $appid = "wx693aa465df66510b";
+        $appsecret = "058b6ee18b85ecd12a93c49ccd7fac28";
+        $isExpires = $this->isExpires();
+        if($isExpires === false){
+            //到期，获取新的
+            $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' . $appid . '&secret=' . $appsecret;
+            $res = $this->curl($url);
+            // dump($res);
+            $arr = json_decode($res,true);
+            if($arr && !isset($arr['errcode'])){
+                $arr['time'] = time();
+                file_put_contents(public_path() . '/access_token.json', json_encode($arr));
+                return $arr['access_token'];
+            }else{
+                echo 'error on get access_token';die;
+            }
+        }else{
+            return $isExpires;
+        }
+
 
     }
+
+    public function makeShare()
+    {
+        $accessToken = $this->accessToken();
+        //         https://api.weixin.qq.com/wxa/getwxacode?access_token=ACCESS_TOKEN
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('POST', 'https://api.weixin.qq.com/wxa/getwxacode?access_token='.$accessToken);
+        return $response;
+        echo $response->getHeaderLine('content-type'); // 'application/json; charset=utf8'
+        echo $response->getBody(); // '{"id": 1420053, "name": "guzzle", ...}'
+        return 123;
+    }
+    public function isExpires(){
+        if(!file_exists(public_path() . '/access_token.json')){
+            return false;
+        }
+        $res = file_get_contents(public_path() . '/access_token.json');
+        $arr = json_decode($res,true);
+        if($arr && time()<(intval($arr['time'])+intval($arr['expires_in']))){
+            //未过期
+            return $arr['access_token'];
+        }else{
+            return false;
+        }
+    }
+
+    public function curl($url)
+    {
+        //初始化
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL,$url);
+        // 执行后不直接打印出来
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        // 跳过证书检查
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        // 不从证书中检查SSL加密算法是否存在
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+        //执行并获取HTML文档内容
+        $output = curl_exec($ch);
+
+        //释放curl句柄
+        curl_close($ch);
+
+        return $output;
+    }
+
 
     function createPoster($config=array(),$filename=""){
         //如果要看报什么错，可以先注释调这个header
