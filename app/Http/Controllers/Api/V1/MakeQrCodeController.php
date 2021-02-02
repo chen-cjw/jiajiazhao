@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use EasyWeChat\Factory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class MakeQrCodeController extends Controller
@@ -33,7 +34,7 @@ class MakeQrCodeController extends Controller
 
 
     }
-    public function makeShare(Request $request,$id)
+    public function makeShare(Request $request)
     {
         $config = [
             'app_id' => 'wx693aa465df66510b',
@@ -52,9 +53,11 @@ class MakeQrCodeController extends Controller
 //       g:0,
 //       b:0
 //      }
-
+        Log::info(44444444444444444);
+        Log::info($request->line_color);
+        Log::info(44444444444444444);
         try {
-            $response = $app->app_code->getUnlimit($id, [
+            $response = $app->app_code->getUnlimit(auth()->id, [
                 'page'  => $request->page,
                 'width' => $request->width,
                 'auto_color' => $request->auto_color,
