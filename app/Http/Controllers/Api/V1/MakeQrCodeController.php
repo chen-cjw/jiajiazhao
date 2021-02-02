@@ -68,7 +68,7 @@ class MakeQrCodeController extends Controller
 
             // 下面为可选项
             // 指定 API 调用返回结果的类型：array(default)/collection/object/raw/自定义类名
-//            'response_type' => 'array',
+            'response_type' => 'array',
         ];
         $app = Factory::miniProgram($config);
 //        path:`pages/welcome/welcome?ref_code=${this.userInfo.ref_code}`,
@@ -84,10 +84,12 @@ class MakeQrCodeController extends Controller
         Log::info(44444444444444444);
         try {
             $response = $app->app_code->getUnlimit(auth('api')->id(), [
-                'page'  => $request->path,
-                'width' => $request->width,
-                'auto_color' => $request->auto_color,
-                'line_color' => $request->line_color,
+                'page'  => '/local_carpooling',
+                'width' => 800,
+//                'page'  => $request->path,
+//                'width' => $request->width,
+//                'auto_color' => $request->auto_color,
+//                'line_color' => $request->line_color,
             ]);
             Log::info(111111);
             Log::info($response);
