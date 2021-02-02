@@ -82,6 +82,8 @@ $api->version('v1', [
 
     // 必须登陆以后才有的操作&&手机要授权以后
     $api->group(['middleware' => ['auth:api','phone.verify']], function ($api) {
+        $api->post('xufei/{id}','ShopController@xufei')->name('api.shop.xufei');
+
         // 多图片上传
         $api->post('upload','ShopController@upload')->name('api.multiUpload.upload');
 

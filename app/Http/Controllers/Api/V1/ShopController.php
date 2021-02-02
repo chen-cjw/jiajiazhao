@@ -167,7 +167,7 @@ class ShopController extends Controller
                 // 编辑
                 if ($res) {
 //                    $data['is_accept'] = 0; // 是否同意
-//                    $data['due_date'] = date('Y-m-d H:i:s',strtotime("+2 year",strtotime($res->due_date)));
+                    $data['due_date'] = date('Y-m-d H:i:s',strtotime("+2 year",strtotime($res->due_date)));
 //                    $data['due_date'] = date($res->due_date,strtotime('+2year'));
                 }else {
                     $data['due_date'] = date('Y-m-d H:i:s',strtotime('+2year'));
@@ -177,9 +177,11 @@ class ShopController extends Controller
             if ($request->shop_top_fee == 1) {
                 $top_fee = Setting::where('key', 'shop_top_fee')->value('value');
                 $data['is_top'] = 1;
+                $data['top_amount'] = $top_fee;
             }else if ($request->shop_top_fee_two == 1) {
                 $top_fee = Setting::where('key', 'shop_top_fee_two')->value('value');
                 $data['is_top'] = 1;
+                $data['top_amount'] = $top_fee;
             }else {
                 $top_fee = 0;
             }
@@ -235,6 +237,35 @@ class ShopController extends Controller
             throw new \Exception($ex); // 报错原因大多是因为taskFlowCollections表，name和user_id一致
         }
     }
+    // 续费
+    public function xufei(Request $request,$id)
+    {
+        $res = Shop::where('id',$id)->where('user_id',auth('api')->id());
+        if ($request->shop_fee == 1) {
+            $data['amount'] = Setting::where('key', 'shop_fee')->value('value');
+        }else if ($request->shop_fee_two == 1){
+            $data['amount'] = Setting::where('key', 'shop_fee_two')->value('value');
+        }else {
+            $data['amount'] = 0;
+
+        }
+        if ($request->shop_top_fee == 1) {
+            $top_fee = Setting::where('key', 'shop_top_fee')->value('value');
+            $data['is_top'] = 1;
+            $data['top_amount'] = $top_fee;
+
+        }else if ($request->shop_top_fee_two == 1) {
+            $top_fee = Setting::where('key', 'shop_top_fee_two')->value('value');
+            $data['is_top'] = 1;
+            $data['top_amount'] = $top_fee;
+
+        }else {
+            $data['top_amount'] = 0;
+        }
+        $res->update($data);
+        return ['code'=>200,'msg'=>'ok','data'=>$res->first()];
+
+    }
 
     // 编辑
 
@@ -268,20 +299,20 @@ class ShopController extends Controller
 
             $data['no'] = Shop::findAvailableNo();
 //            $data['amount'] = $request->shop_fee == 0 ? Setting::where('key', 'shop_fee_two')->value('value') : Setting::where('key', 'shop_fee')->value('value');
-            if ($request->shop_fee == 1) {
-                $data['amount'] = Setting::where('key', 'shop_fee')->value('value');
-            }else if ($request->shop_fee_two == 1){
-                $data['amount'] = Setting::where('key', 'shop_fee_two')->value('value');
-            }
-            if ($request->shop_top_fee == 1) {
-                $top_fee = Setting::where('key', 'shop_top_fee')->value('value');
-                $data['is_top'] = 1;
-            }else if ($request->shop_top_fee_two == 1) {
-                $top_fee = Setting::where('key', 'shop_top_fee_two')->value('value');
-                $data['is_top'] = 1;
-            }else {
-                $top_fee = 0;
-            }
+//            if ($request->shop_fee == 1) {
+//                $data['amount'] = Setting::where('key', 'shop_fee')->value('value');
+//            }else if ($request->shop_fee_two == 1){
+//                $data['amount'] = Setting::where('key', 'shop_fee_two')->value('value');
+//            }
+//            if ($request->shop_top_fee == 1) {
+//                $top_fee = Setting::where('key', 'shop_top_fee')->value('value');
+//                $data['is_top'] = 1;
+//            }else if ($request->shop_top_fee_two == 1) {
+//                $top_fee = Setting::where('key', 'shop_top_fee_two')->value('value');
+//                $data['is_top'] = 1;
+//            }else {
+//                $top_fee = 0;
+//            }
             // 多图片上传
             if ($request->images) {
                 $data['images'] = json_encode($request->images);
