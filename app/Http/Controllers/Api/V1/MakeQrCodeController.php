@@ -84,10 +84,8 @@ class MakeQrCodeController extends Controller
         Log::info(44444444444444444);
         try {
             $response = $app->app_code->getUnlimit(auth('api')->id(), [
-                'page'  => '/local_carpooling',
-                'width' => 800,
-//                'page'  => $request->path,
-//                'width' => $request->width,
+                'path'  => $request->path,
+                'width' => $request->width,
 //                'auto_color' => $request->auto_color,
 //                'line_color' => $request->line_color,
             ]);
@@ -116,7 +114,7 @@ class MakeQrCodeController extends Controller
 
                     return $data['url'];
                 }
-                Log::info(5);
+                Log::info(6);
 
                 return \Storage::disk('public')->url($filename);
 
