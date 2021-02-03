@@ -130,6 +130,9 @@ class PersonalController extends Controller
 
             $res = Withdrawal::create([
                 'amount' => $amount,
+                'name' =>$request->name,// 姓名
+                'bank_of_deposit' =>$request->bank_of_deposit,// 开户行
+                'bank_card_number' =>$request->bank_card_number, //银行卡号
                 'user_id' => auth()->id()
             ]);
             User::where('id', $user->id)->decrement('balance', $amount);
@@ -138,7 +141,7 @@ class PersonalController extends Controller
         } catch (\Exception $ex) {
             DB::rollback();
             \Log::error('提现出错', ['error' => $ex->getMessage()]);
-            return $this->responseStyle('提现出错',200,[]);
+            return $this->responseStyle('提现出错',200,$ex->getMessage());
         }
         return $this->responseStyle('ok',200,$res);
 

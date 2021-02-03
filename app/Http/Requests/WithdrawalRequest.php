@@ -14,7 +14,10 @@ class WithdrawalRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'amount'=>'required',
+            'name'=>'required',
+            'bank_of_deposit'=>'required',
+            'bank_card_number'=>'required',
         ];
     }
 }
