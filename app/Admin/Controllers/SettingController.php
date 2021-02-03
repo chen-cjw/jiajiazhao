@@ -66,6 +66,9 @@ class SettingController extends AdminController
             if ($key=='informationDisplay') {
                 return '发布消息是否需要审核';
             }
+            if ($key=='shop_verify') {
+                return '商户入驻是否需要审核';
+            }
         });
         $grid->column('value', __('Value'));
         $grid->column('created_at', __('Created at'));
