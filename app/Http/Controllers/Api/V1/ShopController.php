@@ -260,8 +260,6 @@ class ShopController extends Controller
             $data['is_top'] = 1;
             $data['top_amount'] = $top_fee;
 
-        }else {
-            $data['top_amount'] = 10000;
         }
         $data['paid_at'] = null;
         $data['no'] = Shop::findAvailableNo();
@@ -537,10 +535,10 @@ class ShopController extends Controller
                     $order->paid_at = Carbon::now(); // 更新支付时间为当前时间
                     $order->payment_no = $message['transaction_id']; // 支付平台订单号
 
-                    if ($order->shop_fee == 1) {
+                    if ($order->amount == 1) {
                         $order->due_date = date('Y-m-d H:i:s',strtotime("+1year",strtotime($order->due_date)));
 
-                    }else if ($order->shop_fee_two == 1){
+                    }else if ($order->top_amount == 1){
                         // 编辑
                         $order->due_date = date('Y-m-d H:i:s',strtotime("+2 year",strtotime($order->due_date)));
                     }
