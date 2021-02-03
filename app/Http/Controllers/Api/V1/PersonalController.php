@@ -157,7 +157,9 @@ class PersonalController extends Controller
     // 我邀请的人
     public function refUser()
     {
-        $user = User::where('parent_id',auth('api')->id())->paginate();
+        $user = User::where('parent_id',auth('api')->id())->whereHas('shop',function ($query) {
+            $query->whereNotNull('paid_at');
+        })->paginate();
         $user['ref_user_count']=User::where('parent_id',auth('api')->id())->count();
 
         return $this->responseStyle('ok',200,$user);
