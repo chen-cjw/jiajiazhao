@@ -260,6 +260,8 @@ class ShopController extends Controller
             $data['is_top'] = 1;
             $data['top_amount'] = $top_fee;
 
+        }else {
+            $data['top_amount'] = 0;
         }
         $data['paid_at'] = null;
         $data['no'] = Shop::findAvailableNo();
