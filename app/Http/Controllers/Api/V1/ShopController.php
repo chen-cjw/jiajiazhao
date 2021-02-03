@@ -265,7 +265,7 @@ class ShopController extends Controller
         }
         $data['paid_at'] = null;
         $data['no'] = Shop::findAvailableNo();
-
+//        $data['updated_at'] = date('Y-m-d H:i:s');
         $res->update($data);
         return ['code'=>200,'msg'=>'ok','data'=>$res->first()];
 
@@ -547,12 +547,15 @@ class ShopController extends Controller
 
                     // 生成一条 邀请人获取佣金的记录
                     // todo 如果 已经生成了订单那么这里支付成功了，就给推广人员到账
-                    if ($record = TransactionRecord::where('model_id',$order->id)->where('model_type',Shop::class)->first()) {
-                        User::where('id',$record->parent_id)->increment('balance',Setting::where('key','award')->value('value'));
-                        TransactionRecord::where('model_id',$order->id)->where('model_type',Shop::class)->update([
-                            'is_pay'=>1
-                        ]);
+                    if ($order->updated_at == $order->created_at) {
+                        if ($record = TransactionRecord::where('model_id',$order->id)->where('model_type',Shop::class)->first()) {
+                            User::where('id',$record->parent_id)->increment('balance',Setting::where('key','award')->value('value'));
+                            TransactionRecord::where('model_id',$order->id)->where('model_type',Shop::class)->update([
+                                'is_pay'=>1
+                            ]);
+                        }
                     }
+
                     // 用户支付失败
                 } elseif (array_get($message, 'result_code') === 'FAIL') {
                     Log::info('用户支付失败');

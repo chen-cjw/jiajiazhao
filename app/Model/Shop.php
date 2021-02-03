@@ -12,7 +12,7 @@ class Shop extends Model
         'one_abbr0','one_abbr1','one_abbr2','sort','comment_count','good_comment_count','images','is_accept',
         'one_abbr' ,'two_abbr0','two_abbr1','two_abbr2','name','area','detailed_address','contact_phone','wechat',
         'logo','service_price','merchant_introduction','platform_licensing','is_top','view','top_amount',
-        'no','amount','lng','lat','user_id','due_date'
+        'no','amount','lng','lat','user_id','due_date','updated_at'
     ];
 
     public function user()
