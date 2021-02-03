@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\AuthMlOpenidStoreRequest;
 use App\Http\Requests\AuthPhoneStoreRequest;
 use App\Http\Requests\AuthUserInfoRequest;
+use App\Model\Shop;
 use App\Model\Withdrawal;
 use App\Transformers\UserTransformer;
 use App\User;
@@ -219,6 +220,7 @@ class AuthController extends Controller
     {
         $res = auth('api')->user();
         $res['with_balance']=Withdrawal::where('user_id',$res->id)->sum('amount');
+        $res['is_shop']=Shop::where('user_id',$res->id)->whereNotNull('paid_at')->first()?1:0;
         return $this->responseStyle('ok',200,$res);
     }
     protected function oauthNo()
@@ -239,7 +241,7 @@ class AuthController extends Controller
             'nickname' => $request->nickName,
             'avatar' => $request->avatarUrl,
             'sex' => $request->sex,
-            'parent_id' => $request->ref_code ? User::where('ref_code',$request->ref_code)->value('id') : null,
+            'parent_id' => $request->ref_code ? (User::where('ref_code',$request->ref_code)->first() ? User::where('ref_code',$request->ref_code)->value('id') : null ): null,
             'ref_code' => $user->generateRefCode(),
             'sessionUserInformation'=>json_encode($sessionUser)
         ];

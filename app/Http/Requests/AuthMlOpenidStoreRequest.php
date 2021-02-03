@@ -16,12 +16,12 @@ class AuthMlOpenidStoreRequest extends FormRequest
         return [
             'code'=>'required',
             'ref_code'=>[
-                function ($attribute, $value, $fail) {
-                    if (!User::where('ref_code',$value)->first()) {
-                        return $fail('邀请码不存在！');
-                    }
-
-                },
+//                function ($attribute, $value, $fail) {
+//                    if (!User::where('ref_code',$value)->first()) {
+//                        return $fail('邀请码不存在！');
+//                    }
+//
+//                },
             ]
         ];
     }

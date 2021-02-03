@@ -202,6 +202,8 @@ class ShopController extends Controller
                     $data['sort'] = 1;
                 }
             }
+            // 入驻商户是否需要审核
+            $data['is_accept'] = Setting::where('key','shop_verify')->value('value')?:0;
             Log::info($data);
             if ($res) {
                 $shop = Shop::where('id',$request->id)->update($data);

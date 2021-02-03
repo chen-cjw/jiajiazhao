@@ -57,5 +57,10 @@ class SettingSeeder extends Seeder
             'key'=>'informationDisplay',
             'value'=>1,
         ]);
+        // 商户入驻是否需要审核
+        \App\Model\Setting::create([// 0 需要审核 1，无需审核
+            'key'=>'shop_verify',
+            'value'=>1,
+        ]);
     }
 }
