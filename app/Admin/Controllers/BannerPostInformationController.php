@@ -70,7 +70,7 @@ class BannerPostInformationController extends AdminController
         $form->image('image', __('Image'));
         $form->textarea('link', __('Link'));
         $form->switch('is_display', __('Is display'))->default(1);
-        $form->number('sort', __('Sort'));
+        $form->number('sort', __('Sort'))->default(0);
 
         return $form;
     }

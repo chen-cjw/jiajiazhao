@@ -286,6 +286,22 @@ class AdminTablesSeeder extends Seeder
                     "icon" => "fa-bars",
                     "uri" => "/banner_local",
                     "permission" => NULL
+                ],
+                [
+                    "parent_id" => 28,
+                    "order" => 0,
+                    "title" => "商户入驻申请轮播图",
+                    "icon" => "fa-bars",
+                    "uri" => "/banner_post_shop",
+                    "permission" => NULL
+                ],
+                [
+                    "parent_id" => 28,
+                    "order" => 0,
+                    "title" => "发布便民信息轮播图",
+                    "icon" => "fa-bars",
+                    "uri" => "/banner_post_information",
+                    "permission" => NULL
                 ]
             ]
         );

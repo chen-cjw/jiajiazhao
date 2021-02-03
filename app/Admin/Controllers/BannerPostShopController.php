@@ -27,7 +27,7 @@ class BannerPostShopController extends AdminController
         $grid = new Grid(new BannerPostShop());
 
         $grid->column('id', __('Id'));
-        $grid->column('image', __('Image'));
+        $grid->column('image', __('Image'))->image('',50,50);
         $grid->column('link', __('Link'));
         $grid->column('is_display', __('Is display'));
         $grid->column('sort', __('Sort'));
@@ -48,7 +48,7 @@ class BannerPostShopController extends AdminController
         $show = new Show(BannerPostShop::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('image', __('Image'));
+        $show->field('image', __('Image'))->image('',50,50);
         $show->field('link', __('Link'));
         $show->field('is_display', __('Is display'));
         $show->field('sort', __('Sort'));
@@ -70,7 +70,7 @@ class BannerPostShopController extends AdminController
         $form->image('image', __('Image'));
         $form->textarea('link', __('Link'));
         $form->switch('is_display', __('Is display'))->default(1);
-        $form->number('sort', __('Sort'));
+        $form->number('sort', __('Sort'))->default(0);
 
         return $form;
     }
