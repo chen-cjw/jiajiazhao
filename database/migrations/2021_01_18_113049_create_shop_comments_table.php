@@ -27,7 +27,7 @@ class CreateShopCommentsTable extends Migration
             $table->unsignedBigInteger('parent_reply_id')->nullable()->comment('父级发表评论');
 
             $table->unsignedBigInteger('shop_id')->comment('商铺');
-            $table->foreign('shop_id')->references('id')->on('convenient_information');
+            $table->foreign('shop_id')->references('id')->on('shops');
             $table->timestamps();
         });
     }
