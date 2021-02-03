@@ -548,7 +548,7 @@ class ShopController extends Controller
                     // 生成一条 邀请人获取佣金的记录
                     // todo 如果 已经生成了订单那么这里支付成功了，就给推广人员到账
                     if ($record = TransactionRecord::where('model_id',$order->id)->where('model_type',Shop::class)->first()) {
-                        User::where('id',$record->parent_id)->increment('balance',$record->amount);
+                        User::where('id',$record->parent_id)->increment('balance',Setting::where('key','award')->value('value'));
                         TransactionRecord::where('model_id',$order->id)->where('model_type',Shop::class)->update([
                             'is_pay'=>1
                         ]);
