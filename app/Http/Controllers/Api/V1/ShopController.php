@@ -537,10 +537,10 @@ class ShopController extends Controller
                     $order->paid_at = Carbon::now(); // 更新支付时间为当前时间
                     $order->payment_no = $message['transaction_id']; // 支付平台订单号
 
-                    if ($order->amount == 1) {
+                    if ($order->amount == Setting::where('key','shop_fee')->value('value')) {
                         $order->due_date = date('Y-m-d H:i:s',strtotime("+1year",strtotime($order->due_date)));
 
-                    }else if ($order->top_amount == 1){
+                    }else if ($order->amount == Setting::where('key','shop_fee_two')->value('value')){
                         // 编辑
                         $order->due_date = date('Y-m-d H:i:s',strtotime("+2 year",strtotime($order->due_date)));
                     }

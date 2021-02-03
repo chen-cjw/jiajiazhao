@@ -29,7 +29,7 @@ class SettingSeeder extends Seeder
         ]);
         \App\Model\Setting::create([
             'key'=>'shop_top_fee',
-            'value'=>0.01,
+            'value'=>0.02,
         ]);
         \App\Model\Setting::create([
             'key'=>'shop_fee_two',
