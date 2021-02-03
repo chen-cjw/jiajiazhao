@@ -15,7 +15,7 @@ class BannerPostInformationController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\BannerPostInformation';
+    protected $title = '信息发布轮播图';
 
     /**
      * Make a grid builder.

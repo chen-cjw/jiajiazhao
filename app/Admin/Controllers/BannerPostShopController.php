@@ -15,7 +15,7 @@ class BannerPostShopController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\BannerPostShop';
+    protected $title = '入驻申请轮播图';
 
     /**
      * Make a grid builder.
