@@ -28,7 +28,6 @@ class WithdrawalController extends AdminController
         $grid = new Grid(new Withdrawal());
 
         $grid->column('id', __('Id'));
-        $grid->column('is_accept', __('已打款'))->using([1 => '是', 0 => '否']);
         $grid->column('user_id', __('User id'))->display(function ($userId) {
             return User::where('id',$userId)->value('nickname');
         });
@@ -40,6 +39,8 @@ class WithdrawalController extends AdminController
         $grid->column('bank_of_deposit', __('Bank of deposit'));
         $grid->column('bank_card_number', __('Bank card number'));
         $grid->column('image', __('Image'))->image('',50,50);
+        $grid->column('is_accept', __('已打款'))->using([1 => '是', 0 => '否']);
+
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 

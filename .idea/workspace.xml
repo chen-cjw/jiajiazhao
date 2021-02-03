@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/WithdrawalRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/WithdrawalRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Withdrawal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Withdrawal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_16_121024_create_withdrawals_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_16_121024_create_withdrawals_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/zh-CN.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-CN.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,8 +37,8 @@
       <file leaf-file-name="WithdrawalController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="314">
+              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
@@ -472,12 +466,12 @@
       <workItem from="1610620421674" duration="78372000" />
       <workItem from="1611282261227" duration="42121000" />
       <workItem from="1611627272489" duration="107048000" />
-      <workItem from="1612319590041" duration="7980000" />
+      <workItem from="1612319590041" duration="8167000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="432909000" />
+    <option name="totallyTimeSpent" value="433096000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -874,8 +868,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="314">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
         </state>
       </provider>
     </entry>
