@@ -264,6 +264,8 @@ class ShopController extends Controller
             $data['top_amount'] = 10000;
         }
         $data['paid_at'] = null;
+        $data['no'] = Shop::findAvailableNo();
+
         $res->update($data);
         return ['code'=>200,'msg'=>'ok','data'=>$res->first()];
 
