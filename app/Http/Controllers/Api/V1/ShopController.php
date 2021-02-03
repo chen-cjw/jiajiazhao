@@ -74,7 +74,8 @@ class ShopController extends Controller
             * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
             * 6370.996) <= ".Setting::where('key','radius')->value('value');
         }
-        $sql = $sql." and paid_at is not null";
+//        $sql = $sql." and paid_at is not null";
+        $sql = $sql." and payment_no is not null";
         $sql = $sql." and is_accept = 1";
 //        $sql = $sql." and due_date > ".date('Y-m-d H:i:s');
         // 人气
@@ -262,6 +263,7 @@ class ShopController extends Controller
         }else {
             $data['top_amount'] = 10000;
         }
+        $data['paid_at'] = null;
         $res->update($data);
         return ['code'=>200,'msg'=>'ok','data'=>$res->first()];
 
@@ -509,14 +511,14 @@ class ShopController extends Controller
                 return 'fail';
             }
 //                // 订单已支付
-//                if ($order->paid_at) {
-//                    Log::error('告知微信支付此订单已处理');
-//                    return app('wechat_pay')->success();
-//                }
-//                if (!$order || $order->paid_at) { // 如果订单不存在 或者 订单已经支付过了
-//                    Log::info('告诉微信，我已经处理完了，订单没找到，别再通知我了');
-//                    return true; // 告诉微信，我已经处理完了，订单没找到，别再通知我了
-//                }
+                if ($order->paid_at) {
+                    Log::error('告知微信支付此订单已处理');
+                    return app('wechat_pay')->success();
+                }
+                if (!$order || $order->paid_at) { // 如果订单不存在 或者 订单已经支付过了
+                    Log::info('告诉微信，我已经处理完了，订单没找到，别再通知我了');
+                    return true; // 告诉微信，我已经处理完了，订单没找到，别再通知我了
+                }
 
 
             ///////////// todo <- 建议在这里调用微信的【订单查询】接口查一下该笔订单的情况，确认是已经支付 /////////////
