@@ -121,7 +121,6 @@ class PersonalController extends Controller
     {
 
         $user = auth('api')->user();
-        return $user;
         $amount = $request->amount;
         DB::beginTransaction();
         try {
@@ -143,7 +142,7 @@ class PersonalController extends Controller
         } catch (\Exception $ex) {
             DB::rollback();
             \Log::error('提现出错', ['error' => $ex->getMessage()]);
-            return $this->responseStyle('提现出错',422,$ex->getMessage());
+            return $this->responseStyle('提现出错',422,$ex);
         }
 
     }
