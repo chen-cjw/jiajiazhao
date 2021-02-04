@@ -142,7 +142,7 @@ class PersonalController extends Controller
         } catch (\Exception $ex) {
             DB::rollback();
             \Log::error('提现出错', ['error' => $ex->getMessage()]);
-            return $this->responseStyle('提现出错',200,$ex->getMessage());
+            return $this->responseStyle('提现出错',422,$ex->getMessage());
         }
 
     }
