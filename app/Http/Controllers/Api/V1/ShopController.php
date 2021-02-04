@@ -544,11 +544,19 @@ class ShopController extends Controller
 
                     if ($order->amount == Setting::where('key','shop_fee')->value('value')) {
                         Log::info(111111111);
-                        $order->due_date = date('Y-m-d H:i:s',strtotime("+1year",strtotime($order->due_date)));
+                        if ($order->due_date) {
+                            $order->due_date = date('Y-m-d H:i:s', strtotime("+1year", strtotime($order->due_date)));
+                        }else {
+                            $order->due_date = date('Y-m-d H:i:s',strtotime('+1year'));
+                        }
                     }else if ($order->amount == Setting::where('key','shop_fee_two')->value('value')){
                         Log::info(2222222222);
+                        if ($order->due_date) {
+                            $order->due_date = date('Y-m-d H:i:s',strtotime("+2 year",strtotime($order->due_date)));
+                        }else {
+                            $order->due_date = date('Y-m-d H:i:s',strtotime('+2 year'));
+                        }
                         // 编辑
-                        $order->due_date = date('Y-m-d H:i:s',strtotime("+2 year",strtotime($order->due_date)));
                     }
 
                     // 生成一条 邀请人获取佣金的记录

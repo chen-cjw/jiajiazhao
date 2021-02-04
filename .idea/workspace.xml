@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="540" column="36" selection-start-line="540" selection-start-column="36" selection-end-line="540" selection-end-column="36" />
+            <state relative-caret-position="168">
+              <caret line="547" selection-start-line="547" selection-end-line="547" />
               <folding>
                 <element signature="e#9190#10338#0#PHP" />
                 <element signature="e#10355#13553#0#PHP" />
@@ -534,12 +533,12 @@
       <workItem from="1610620421674" duration="78372000" />
       <workItem from="1611282261227" duration="42121000" />
       <workItem from="1611627272489" duration="107048000" />
-      <workItem from="1612319590041" duration="23458000" />
+      <workItem from="1612319590041" duration="23877000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="448387000" />
+    <option name="totallyTimeSpent" value="448806000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -864,8 +863,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="540" column="36" selection-start-line="540" selection-start-column="36" selection-end-line="540" selection-end-column="36" />
+        <state relative-caret-position="168">
+          <caret line="547" selection-start-line="547" selection-end-line="547" />
           <folding>
             <element signature="e#9190#10338#0#PHP" />
             <element signature="e#10355#13553#0#PHP" />
