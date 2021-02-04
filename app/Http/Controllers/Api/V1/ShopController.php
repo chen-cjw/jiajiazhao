@@ -155,24 +155,24 @@ class ShopController extends Controller
             $data['amount'] = $request->shop_fee == 0 ? Setting::where('key', 'shop_fee_two')->value('value') : Setting::where('key', 'shop_fee')->value('value');
             if ($request->shop_fee == 1) {
                 $data['amount'] = Setting::where('key', 'shop_fee')->value('value');
-                if ($res) {
-//                    $data['is_accept'] = 0; // 是否同意
-//                    $data['due_date'] = date('Y-m-d H:i:s',strtotime("+1year",strtotime($res->due_date)));
-//                    $data['due_date'] = date($res->due_date,strtotime('+1year'));
-                }else {
-                    $data['due_date'] = date('Y-m-d H:i:s',strtotime('+1year'));
-                }
+//                if ($res) {
+////                    $data['is_accept'] = 0; // 是否同意
+////                    $data['due_date'] = date('Y-m-d H:i:s',strtotime("+1year",strtotime($res->due_date)));
+////                    $data['due_date'] = date($res->due_date,strtotime('+1year'));
+//                }else {
+//                    $data['due_date'] = date('Y-m-d H:i:s',strtotime('+1year'));
+//                }
 
             }else if ($request->shop_fee_two == 1){
                 $data['amount'] = Setting::where('key', 'shop_fee_two')->value('value');
                 // 编辑
-                if ($res) {
-//                    $data['is_accept'] = 0; // 是否同意
-                    $data['due_date'] = date('Y-m-d H:i:s',strtotime("+2 year",strtotime($res->due_date)));
-//                    $data['due_date'] = date($res->due_date,strtotime('+2year'));
-                }else {
-                    $data['due_date'] = date('Y-m-d H:i:s',strtotime('+2year'));
-                }
+//                if ($res) {
+////                    $data['is_accept'] = 0; // 是否同意
+//                    $data['due_date'] = date('Y-m-d H:i:s',strtotime("+2 year",strtotime($res->due_date)));
+////                    $data['due_date'] = date($res->due_date,strtotime('+2year'));
+//                }else {
+//                    $data['due_date'] = date('Y-m-d H:i:s',strtotime('+2year'));
+//                }
 
             }
             if ($request->shop_top_fee == 1) {
