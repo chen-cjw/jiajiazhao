@@ -86,7 +86,7 @@ class MakeQrCodeController extends Controller
         $config = array(
             'text'=>array(
                 array(
-                    'text'=>'123',
+                    'text'=>'18361771533',
                     'left'=>282,
                     'top'=>205,
                     'fontPath'=>'/System/Library/Fonts/Hiragino Sans GB.ttc',//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
@@ -141,9 +141,9 @@ class MakeQrCodeController extends Controller
             ),
             'background'=>\Storage::disk('public')->url('WechatIMG76.jpeg'),
         );
-        $filename = 'qrcode/'.time().'.jpg';
+        $filename = time().'.jpg';
 //echo createPoster($config,$filename);
-        return $this->createPoster($config,'admin.png');
+        return config('app.url').'/'.$this->createPoster($config);
 
     }
 

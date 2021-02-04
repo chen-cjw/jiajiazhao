@@ -14,7 +14,7 @@ class AuthUpdateRequest extends FormRequest
         return [
             'avatar'=>'required',
             'username'=>'required',
-            'sex'=>'required,in:0,1',
+            'sex'=>'required|in:0,1',
             'birthday'=>'date'
         ];
     }
