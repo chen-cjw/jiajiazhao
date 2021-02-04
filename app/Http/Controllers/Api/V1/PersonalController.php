@@ -17,6 +17,7 @@ use App\Transformers\ShopTransformer;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class PersonalController extends Controller
 {
@@ -135,14 +136,27 @@ class PersonalController extends Controller
                 'bank_card_number' =>$request->bank_card_number, //银行卡号
                 'user_id' => auth()->id()
             ]);
+            Log::info($res);
             User::where('id', $user->id)->decrement('balance', $amount);
+            Log::info(123);
+
             DB::commit();
-            return $this->responseStyle('ok',200,$res);
+            return [
+                'msg'=>'ok',
+                'code'=>200,
+                'date'=>$res
+            ];
+//            return $this->responseStyle('ok',200,$res);
 
         } catch (\Exception $ex) {
             DB::rollback();
             \Log::error('提现出错', ['error' => $ex->getMessage()]);
-            return $this->responseStyle('提现出错',422,$ex);
+            return [
+                'msg'=>'ok',
+                'code'=>200,
+                'date'=>$ex
+            ];
+//            return $this->responseStyle('提现出错',422,$ex);
         }
 
     }
