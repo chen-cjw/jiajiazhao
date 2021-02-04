@@ -137,13 +137,13 @@ class PersonalController extends Controller
             ]);
             User::where('id', $user->id)->decrement('balance', $amount);
             DB::commit();
+            return $this->responseStyle('ok',200,$res);
 
         } catch (\Exception $ex) {
             DB::rollback();
             \Log::error('提现出错', ['error' => $ex->getMessage()]);
             return $this->responseStyle('提现出错',200,$ex->getMessage());
         }
-        return $this->responseStyle('ok',200,$res);
 
     }
     // 提现列表

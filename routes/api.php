@@ -24,6 +24,7 @@ $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api\V1',
     'middleware' => ['serializer:array']
 ], function ($api) {
+    $api->get('make_hai_bao','MakeQrCodeController@makeHaiBao')->name('api.auth.makeHaiBao');
     $api->get('auth','AuthController@index')->name('api.auth.index');
     $api->post('test','AuthController@createTestUser')->name('api.auth.createTestUser');
 //    $api->group(['middleware' => ['wechat.oauth']], function ($api) {

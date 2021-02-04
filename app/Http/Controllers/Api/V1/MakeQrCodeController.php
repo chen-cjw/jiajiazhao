@@ -62,6 +62,7 @@ class MakeQrCodeController extends Controller
 
     public function makeShare(Request $request)
     {
+
         $config = [
             'app_id' => 'wx693aa465df66510b',
             'secret' => '058b6ee18b85ecd12a93c49ccd7fac28',
@@ -71,24 +72,10 @@ class MakeQrCodeController extends Controller
             'response_type' => 'array',
         ];
         $app = Factory::miniProgram($config);
-//        path:`pages/welcome/welcome?ref_code=${this.userInfo.ref_code}`,
-//      width:200,
-//      auto_color:false,
-//      line_color:{
-//        r:0,
-//       g:0,
-//       b:0
-//      }
         Log::info(44444444444444444);
         Log::info($request->line_color);
         Log::info(44444444444444444);
         try {
-//            $response = $app->app_code->getUnlimit(auth('api')->id(), [
-//                'path'  => $request->path,
-//                'width' => $request->width,
-////                'auto_color' => $request->auto_color,
-////                'line_color' => $request->line_color,
-//            ]);
             $response = $app->app_code->get($request->path, [
                 'width' => $request->width,
                 'line_color' => $request->line_color
@@ -141,71 +128,84 @@ class MakeQrCodeController extends Controller
                 'date'=>[]
             ];
         }
-
-//        $accessToken = $this->accessToken();
-////        return $accessToken;
-//        //         https://api.weixin.qq.com/wxa/getwxacode?access_token=ACCESS_TOKEN
-//        $client = new \GuzzleHttp\Client();
-//        // https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token=ACCESS_TOKEN
-////        $response = $client->request('POST', 'https://api.weixin.qq.com/wxa/getwxacode',[
-//        $aa = [
-//            'access_token'=>$accessToken,
-//            'scene'=>'123'
-////                'page'=>'/page/page',
-////                'width'=>200,
-////                'auto_color'=>false,
-//        ];
-//        $response = $client->request('POST', 'https://api.weixin.qq.com/wxa/getwxacodeunlimit',[
-//            'form_params'=>json_encode($aa)
-//        ]);
-//        return $response;
-////        return $response->getBody();
-//        echo $response->getHeaderLine('content-type'); // 'application/json; charset=utf8'
-//        return $response->getBody(); // '{"id": 1420053, "name": "guzzle", ...}'
-//        return 123;
-    }
-    public function isExpires(){
-        if(!file_exists(public_path() . '/access_token.json')){
-            return false;
-        }
-        $res = file_get_contents(public_path() . '/access_token.json');
-        $arr = json_decode($res,true);
-        if($arr && time()<(intval($arr['time'])+intval($arr['expires_in']))){
-            //未过期
-            return $arr['access_token'];
-        }else{
-            return false;
-        }
     }
 
-    public function curl($url)
+    public function makeHaiBao()
     {
-        //初始化
-        $ch = curl_init();
+//        return \Storage::disk('public')->url("Avenir.ttc");
+        $config = array(
+            'text'=>array(
+                array(
+                    'text'=>'123',
+                    'left'=>282,
+                    'top'=>205,
+                    'fontPath'=>'/System/Library/Fonts/Hiragino Sans GB.ttc',//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
+                    'fontSize'=>18,             //字号
+                    'fontColor'=>'255,0,0',       //字体颜色
+                    'angle'=>0,
+                ),
+                array(
+                    'text'=>'字体颜色',
+                    'left'=>82,
+                    'top'=>25,
+                    'fontPath'=>'/System/Library/Fonts/Hiragino Sans GB.ttc',//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
+                    'fontSize'=>18,             //字号
+                    'fontColor'=>'255,0,0',       //字体颜色
+                    'angle'=>0,
+                ),
+                array(
+                    'text'=>'345',
+                    'left'=>182,
+                    'top'=>105,
+                    'fontPath'=>'/System/Library/Fonts/Avenir.ttc',//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
+                    'fontSize'=>18,             //字号
+                    'fontColor'=>'255,0,0',       //字体颜色
+                    'angle'=>0,
+                )
 
-        curl_setopt($ch, CURLOPT_URL,$url);
-        // 执行后不直接打印出来
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        // 跳过证书检查
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        // 不从证书中检查SSL加密算法是否存在
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            ),
+            'image'=>array(
+                array(
+                    //         return \Storage::disk('public')->url($image);
+                    'url'=>\Storage::disk('public')->url('20210202171459-601918132a8f4.png'),       //图片资源路径
+                    'left'=>370,
+                    'top'=>-370,
+                    'stream'=>0,             //图片资源是否是字符串图像流
+                    'right'=>0,
+                    'bottom'=>0,
+                    'width'=>350,
+                    'height'=>350,
+                    'opacity'=>100
+                ),
+//                array(
+//                    'url'=>'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eofD96opK97RXwM179G9IJytIgqXod8jH9icFf6Cia6sJ0fxeILLMLf0dVviaF3SnibxtrFaVO3c8Ria2w/0',
+//                    'left'=>120,
+//                    'top'=>70,
+//                    'right'=>0,
+//                    'stream'=>0,
+//                    'bottom'=>0,
+//                    'width'=>55,
+//                    'height'=>55,
+//                    'opacity'=>100
+//                ),
+            ),
+            'background'=>\Storage::disk('public')->url('WechatIMG76.jpeg'),
+        );
+        $filename = 'qrcode/'.time().'.jpg';
+//echo createPoster($config,$filename);
+        return $this->createPoster($config,'admin.png');
 
-        //执行并获取HTML文档内容
-        $output = curl_exec($ch);
-
-        //释放curl句柄
-        curl_close($ch);
-
-        return $output;
     }
 
-
-    function createPoster($config=array(),$filename=""){
+    /**
+     * 生成宣传海报
+     * @param array  参数,包括图片和文字
+     * @param string  $filename 生成海报文件名,不传此参数则不生成文件,直接输出图片
+     * @return [type] [description]
+     */
+    public function createPoster($config=array(),$filename=""){
         //如果要看报什么错，可以先注释调这个header
-//        if(empty($filename)) header("content-type: image/png");
-
+        if(empty($filename)) header("content-type: image/png");
         $imageDefault = array(
             'left'=>0,
             'top'=>0,
@@ -215,40 +215,33 @@ class MakeQrCodeController extends Controller
             'height'=>100,
             'opacity'=>100
         );
-        $textDefault =  array(
-            'text'=>'',
+        $textDefault = array(
+            'text'=>'123',
             'left'=>0,
             'top'=>0,
-            'fontSize'=>32,             //字号
+            'fontSize'=>32,       //字号
             'fontColor'=>'255,255,255', //字体颜色
             'angle'=>0,
         );
-
         $background = $config['background'];//海报最底层得背景
         //背景方法
         $backgroundInfo = getimagesize($background);
         $backgroundFun = 'imagecreatefrom'.image_type_to_extension($backgroundInfo[2], false);
         $background = $backgroundFun($background);
-
-        $backgroundWidth = imagesx($background);    //背景宽度
-        $backgroundHeight = imagesy($background);   //背景高度
-
+        $backgroundWidth = imagesx($background);  //背景宽度
+        $backgroundHeight = imagesy($background);  //背景高度
         $imageRes = imageCreatetruecolor($backgroundWidth,$backgroundHeight);
         $color = imagecolorallocate($imageRes, 0, 0, 0);
         imagefill($imageRes, 0, 0, $color);
-
-        // imageColorTransparent($imageRes, $color);    //颜色透明
-
+        // imageColorTransparent($imageRes, $color);  //颜色透明
         imagecopyresampled($imageRes,$background,0,0,0,0,imagesx($background),imagesy($background),imagesx($background),imagesy($background));
-
         //处理了图片
         if(!empty($config['image'])){
             foreach ($config['image'] as $key => $val) {
                 $val = array_merge($imageDefault,$val);
-
                 $info = getimagesize($val['url']);
                 $function = 'imagecreatefrom'.image_type_to_extension($info[2], false);
-                if($val['stream']){		//如果传的是字符串图像流
+                if($val['stream']){   //如果传的是字符串图像流
                     $info = getimagesizefromstring($val['url']);
                     $function = 'imagecreatefromstring';
                 }
@@ -266,7 +259,6 @@ class MakeQrCodeController extends Controller
                 imagecopymerge($imageRes,$canvas, $val['left'],$val['top'],$val['right'],$val['bottom'],$val['width'],$val['height'],$val['opacity']);//左，上，右，下，宽度，高度，透明度
             }
         }
-
         //处理文字
         if(!empty($config['text'])){
             foreach ($config['text'] as $key => $val) {
@@ -279,8 +271,6 @@ class MakeQrCodeController extends Controller
             }
         }
 
-
-
         //生成图片
         if(!empty($filename)){
             $res = imagejpeg ($imageRes,$filename,90); //保存到本地
@@ -288,9 +278,10 @@ class MakeQrCodeController extends Controller
             if(!$res) return false;
             return $filename;
         }else{
-            imagejpeg ($imageRes);			//在浏览器上显示
+            imagejpeg ($imageRes);     //在浏览器上显示
             imagedestroy($imageRes);
         }
     }
+
 
 }
