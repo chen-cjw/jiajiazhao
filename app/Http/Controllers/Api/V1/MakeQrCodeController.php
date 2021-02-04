@@ -107,6 +107,7 @@ class MakeQrCodeController extends Controller
         $textHtmlspecialchars_decode = str_replace("<br>","\n",htmlspecialchars_decode($text));
 
         $text = "解析器不仅仅只是帮助我们验证html文档；更能解析不符合W3C标准的html文档。它使用了类似jQuery的元素选择器，通过元素的id，class，tag等等来查找定位；同时还提供添加、删除、修改文档树的功能。当然，这样一款强大的html Dom解析器也不是尽善尽美；在使用的过程中需要十分小心内存消耗的情况。不过，不要担心；本文中，笔者在最后会为各位介绍如何避免消耗过多的内存。";
+        $text = substr($text, 20);
         $config = array(
             'text'=>array(
                 $phone,
