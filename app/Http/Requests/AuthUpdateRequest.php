@@ -12,7 +12,9 @@ class AuthUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'sex'=>'in:0,1',
+            'avatar'=>'required',
+            'username'=>'required',
+            'sex'=>'required,in:0,1',
             'birthday'=>'date'
         ];
     }
