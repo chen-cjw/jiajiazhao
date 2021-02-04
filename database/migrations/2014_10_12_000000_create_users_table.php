@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('ml_openid')->unique()->nullable()->comment('小程序标识');
             $table->string('phone')->nullable()->unique()->comment('用户手机号');
             $table->string('avatar')->nullable()->comment('用户头像url');
+            $table->dateTime('birthday')->nullable()->comment('出生日期');
+
             $table->string('nickname')->nullable()->comment('用户昵称');
             $table->boolean('sex')->nullable()->default(1)->comment('性别');
             $table->bigInteger('parent_id')->nullable()->comment('邀请人');

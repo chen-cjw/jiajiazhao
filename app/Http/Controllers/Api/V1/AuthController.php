@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\AuthMlOpenidStoreRequest;
 use App\Http\Requests\AuthPhoneStoreRequest;
+use App\Http\Requests\AuthUpdateRequest;
 use App\Http\Requests\AuthUserInfoRequest;
 use App\Model\Shop;
 use App\Model\Withdrawal;
 use App\Transformers\UserTransformer;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -215,15 +217,26 @@ class AuthController extends Controller
         $user = auth()->user();
         return $this->respondWithToken($token, $user->ml_openid,$user);
     }
-
+    // username == 用户昵称 ，nickname==用户名/用户名不可以修改
     public function meShow()
     {
         $res = auth('api')->user();
+
         $res['with_balance']=Withdrawal::where('user_id',$res->id)->sum('amount');
         $res['all_balance']=bcadd($res['with_balance'],$res->balance,3);
         $res['is_shop']=Shop::where('user_id',$res->id)->whereNotNull('paid_at')->first()?1:0;
+
         return $this->responseStyle('ok',200,$res);
     }
+
+    public function update(AuthUpdateRequest $request,$id)
+    {
+        $date = $request->only(['avatar','username','sex','birthday']);
+        $res = auth('api')->user()->update($date);
+        return $this->responseStyle('ok',200,$res);
+    }
+    
+    
     protected function oauthNo()
     {
 
@@ -240,6 +253,7 @@ class AuthController extends Controller
         return [ // 不存在此用户添加
             'ml_openid' => $sessionUser['openid'],
             'nickname' => $request->nickName,
+            'username' => $request->nickName,
             'avatar' => $request->avatarUrl,
             'sex' => $request->sex,
             'parent_id' => $request->ref_code ? (User::where('ref_code',$request->ref_code)->first() ? User::where('ref_code',$request->ref_code)->value('id') : null ): null,
