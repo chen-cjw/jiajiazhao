@@ -88,7 +88,7 @@ class WithdrawalController extends AdminController
         $form->text('bank_card_number', __('Bank card number'));
         $form->image('image', __('Image'));
 //        $form->e('is_accept', __('已打款'));
-        $form->select('is_accept', __('已打款'))->options(['0' => '未打款', '1' => '已打款']);
+        $form->select('is_accept', __('是否打款'))->options(['0' => '未打款', '1' => '已打款']);
 
         return $form;
     }
