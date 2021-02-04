@@ -37,8 +37,7 @@ $api->version('v1', [
     // 获取用户信息
     $api->post('/auth/user_info', 'AuthController@userInfo')->name('api.auth.userInfo');
 
-    // 个人信息
-    $api->get('/meShow','AuthController@meShow')->name('api.auth.meShow');
+
 
     // 退出
     $api->delete('/auth/current', 'AuthController@destroy')->name('api.auth.destroy');
@@ -84,6 +83,9 @@ $api->version('v1', [
     // makeBack
     // 必须登陆以后才有的操作&&手机要授权以后
     $api->group(['middleware' => ['auth:api','phone.verify']], function ($api) {
+        // 个人信息
+        $api->get('/meShow','AuthController@meShow')->name('api.auth.meShow');
+
         $api->post('xufei/{id}','ShopController@xufei')->name('api.shop.xufei');
         $api->post('make_share','MakeQrCodeController@makeShare')->name('api.qrcode.makeShare');// 分享
 
