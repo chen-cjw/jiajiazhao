@@ -82,8 +82,8 @@ class WithdrawalController extends AdminController
         $form = new Form(new Withdrawal());
 
 //        $form->number('user_id', __('User id'));
-        $form->decimal('amount', __('Amount'));
         $form->text('name', __('姓名'));
+        $form->decimal('amount', __('Amount'));
         $form->text('bank_of_deposit', __('Bank of deposit'));
         $form->text('bank_card_number', __('Bank card number'));
         $form->image('image', __('Image'));
