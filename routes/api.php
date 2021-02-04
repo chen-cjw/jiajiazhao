@@ -85,7 +85,7 @@ $api->version('v1', [
     $api->group(['middleware' => ['auth:api','phone.verify']], function ($api) {
         // 个人信息
         $api->get('/meShow','AuthController@meShow')->name('api.auth.meShow');
-        $api->post('/auth/update/{id}','AuthController@update')->name('api.auth.update');
+        $api->post('/auth/update','AuthController@update')->name('api.auth.update');
 
         $api->post('xufei/{id}','ShopController@xufei')->name('api.shop.xufei');
         $api->post('make_share','MakeQrCodeController@makeShare')->name('api.qrcode.makeShare');// 分享
