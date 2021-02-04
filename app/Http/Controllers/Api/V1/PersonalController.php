@@ -121,11 +121,12 @@ class PersonalController extends Controller
     {
 
         $user = auth('api')->user();
+        return $user;
         $amount = $request->amount;
         DB::beginTransaction();
         try {
             if (bccomp($user->balance, $amount, 3) == -1) {
-                return $this->responseStyle('余额不足', 200, []);
+                return $this->responseStyle('余额不足', 422, []);
             }
 
             $res = Withdrawal::create([
