@@ -232,7 +232,7 @@ class AuthController extends Controller
     public function update(AuthUpdateRequest $request,$id)
     {
         $date = $request->only(['avatar','username','sex','birthday']);
-        $res = auth('api')->user()->update($date);
+        $res = User::where('id',auth('api')->id())->update($date);
         return $this->responseStyle('ok',200,$res);
     }
     
