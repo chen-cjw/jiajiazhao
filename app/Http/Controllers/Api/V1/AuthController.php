@@ -220,6 +220,7 @@ class AuthController extends Controller
     {
         $res = auth('api')->user();
         $res['with_balance']=Withdrawal::where('user_id',$res->id)->sum('amount');
+        $res['all_balance']=bcadd($res['with_balance'],$res->balance,3);
         $res['is_shop']=Shop::where('user_id',$res->id)->whereNotNull('paid_at')->first()?1:0;
         return $this->responseStyle('ok',200,$res);
     }
