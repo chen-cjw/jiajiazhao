@@ -26,6 +26,7 @@ class WithdrawalController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Withdrawal());
+        $grid->model()->orderBy('id','desc');
 
         $grid->column('id', __('Id'));
         $grid->column('user_id', __('User id'))->display(function ($userId) {
