@@ -82,37 +82,41 @@ class MakeQrCodeController extends Controller
 
     public function makeHaiBao()
     {
+        // 联系电话
+        $phone = array(
+            'text'=>'18361771533',
+            'left'=>346,
+            'top'=>-225,
+            'fontPath'=>'/System/Library/Fonts/Hiragino Sans GB.ttc',//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
+            'fontSize'=>52,             //字号
+            'fontColor'=>'255,0,0',       //字体颜色
+            'angle'=>0,
+        );
+        // 店铺地址
+        $shopArea = array(
+            'text'=>'江苏省徐州市XXXXXXXXXXXX',
+            'left'=>323,
+            'top'=>-140,
+            'fontPath'=>'/System/Library/Fonts/Hiragino Sans GB.ttc',//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
+            'fontSize'=>30,             //字号
+            'fontColor'=>'255,0,0',       //字体颜色
+            'angle'=>0,
+        );
+        $text = "<p>家家找平台祝大家新年快乐！<span style=\"color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\">使用GD做验证码使用imagettftext()函数时报错</span><code style=\"white-space: normal; box-sizing: border-box; outline: 0px; font-family: &quot;Source Code Pro&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Ubuntu Mono&quot;, &quot;Anonymous Pro&quot;, &quot;Droid Sans Mono&quot;, Menlo, Monaco, Consolas, Inconsolata, Courier, monospace, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif; font-size: 14px; line-height: 22px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 2px; padding: 2px 4px; overflow-wrap: break-word; font-variant-ligatures: common-ligatures;\">Warning: imagettftext(): Could not find/open font</code><span style=\"color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\">。</span><br style=\"white-space: normal; box-sizing: border-box; outline: 0px; overflow-wrap: break-word; color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\"/><span style=\"color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\">查手册后发现由于GD版本更新，定义字体路径参数需要使用绝对路径。</span><br style=\"white-space: normal; box-sizing: border-box; outline: 0px; overflow-wrap: break-word; color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\"/><span style=\"color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\">可用获取绝对路径函数解决</span><span style=\"color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\">使用GD做验证码使用imagettftext()函数时报错</span><code style=\"white-space: normal; box-sizing: border-box; outline: 0px; font-family: &quot;Source Code Pro&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Ubuntu Mono&quot;, &quot;Anonymous Pro&quot;, &quot;Droid Sans Mono&quot;, Menlo, Monaco, Consolas, Inconsolata, Courier, monospace, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif; font-size: 14px; line-height: 22px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 2px; padding: 2px 4px; overflow-wrap: break-word; font-variant-ligatures: common-ligatures;\">Warning: imagettftext(): Could not find/open font</code><span style=\"color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\">。</span><br style=\"white-space: normal; box-sizing: border-box; outline: 0px; overflow-wrap: break-word; color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\"/><span style=\"color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\">查手册后发现由于GD版本更新，定义字体路径参数需要使用绝对路径。</span><br style=\"white-space: normal; box-sizing: border-box; outline: 0px; overflow-wrap: break-word; color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\"/><span style=\"color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\">可用获取绝对路径函数解决</span><span style=\"color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\">使用GD做验证码使用imagettftext()函数时报错</span><code style=\"white-space: normal; box-sizing: border-box; outline: 0px; font-family: &quot;Source Code Pro&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Ubuntu Mono&quot;, &quot;Anonymous Pro&quot;, &quot;Droid Sans Mono&quot;, Menlo, Monaco, Consolas, Inconsolata, Courier, monospace, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif; font-size: 14px; line-height: 22px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 2px; padding: 2px 4px; overflow-wrap: break-word; font-variant-ligatures: common-ligatures;\">Warning: imagettftext(): Could not find/open font</code><span style=\"color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\">。</span><br style=\"white-space: normal; box-sizing: border-box; outline: 0px; overflow-wrap: break-word; color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\"/><span style=\"color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\">查手册后发现由于GD版本更新，定义字体路径参数需要使用绝对路径。</span><br style=\"white-space: normal; box-sizing: border-box; outline: 0px; overflow-wrap: break-word; color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\"/><span style=\"color: rgb(77, 77, 77); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-variant-ligatures: common-ligatures; background-color: rgb(255, 255, 255);\">可用获取绝对路径函数解决</span></p>";
 //        return \Storage::disk('public')->url("Avenir.ttc");
         $config = array(
             'text'=>array(
+                $phone,
+                $shopArea,
                 array(
-                    'text'=>'18361771533',
-                    'left'=>282,
-                    'top'=>205,
-                    'fontPath'=>'/System/Library/Fonts/Hiragino Sans GB.ttc',//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
-                    'fontSize'=>18,             //字号
-                    'fontColor'=>'255,0,0',       //字体颜色
-                    'angle'=>0,
-                ),
-                array(
-                    'text'=>'字体颜色',
-                    'left'=>82,
-                    'top'=>25,
-                    'fontPath'=>'/System/Library/Fonts/Hiragino Sans GB.ttc',//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
-                    'fontSize'=>18,             //字号
-                    'fontColor'=>'255,0,0',       //字体颜色
-                    'angle'=>0,
-                ),
-                array(
-                    'text'=>'345',
+                    'text'=>$text,
                     'left'=>182,
                     'top'=>105,
-                    'fontPath'=>'/System/Library/Fonts/Avenir.ttc',//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
+                    'fontPath'=>'/System/Library/Fonts/Hiragino Sans GB.ttc',//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
                     'fontSize'=>18,             //字号
                     'fontColor'=>'255,0,0',       //字体颜色
                     'angle'=>0,
                 )
-
             ),
             'image'=>array(
                 array(

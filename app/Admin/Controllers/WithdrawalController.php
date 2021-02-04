@@ -87,7 +87,8 @@ class WithdrawalController extends AdminController
         $form->text('bank_of_deposit', __('Bank of deposit'));
         $form->text('bank_card_number', __('Bank card number'));
         $form->image('image', __('Image'));
-        $form->text('is_accept', __('已打款'));
+//        $form->e('is_accept', __('已打款'));
+        $form->select('is_accept', __('已打款'))->options(['0' => '第一部分广告', '1' => '第二部分广告']);
 
         return $form;
     }

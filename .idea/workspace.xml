@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/AuthUpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/AuthUpdateRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,13 +20,60 @@
       <file leaf-file-name="MakeQrCodeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="143" column="27" selection-start-line="143" selection-start-column="27" selection-end-line="143" selection-end-column="27" />
+            <state relative-caret-position="410">
+              <caret line="114" column="71" selection-start-line="114" selection-start-column="71" selection-end-line="114" selection-end-column="71" />
               <folding>
                 <element signature="e#48#71#0#PHP" expanded="true" />
                 <element signature="e#219#2494#0#PHP" />
+                <element signature="n#style#0;n#span#0;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#code#0;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#br#0;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#2;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#br#1;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#3;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#4;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#code#1;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#5;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#br#2;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#6;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#br#3;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#7;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#8;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#code#2;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#9;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#br#4;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#10;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#br#5;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#11;n#p#0;n#!!top" expanded="true" />
+                <element signature="e#3997#5026#1#PHP" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WithdrawalController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="90" column="38" lean-forward="true" selection-start-line="90" selection-start-column="38" selection-end-line="90" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BannerController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="84" selection-start-line="84" selection-end-line="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SuggestionsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/SuggestionsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-159" />
           </provider>
         </entry>
       </file>
@@ -56,15 +104,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PersonalController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -74,20 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthUpdateRequest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AuthUpdateRequest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Requests/AuthUpdateRequest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
               <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="50" column="63" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -97,15 +127,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
               <caret line="20" column="38" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2020_12_21_112435_create_shops_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="56" selection-start-line="56" selection-end-line="57" />
             </state>
           </provider>
         </entry>
@@ -198,14 +219,14 @@
         <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerPostInformationController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_01_18_113049_create_shop_comments_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php" />
-        <option value="$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/AuthUpdateRequest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" />
+        <option value="$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php" />
       </list>
     </option>
   </component>
@@ -502,12 +523,12 @@
       <workItem from="1610620421674" duration="78372000" />
       <workItem from="1611282261227" duration="42121000" />
       <workItem from="1611627272489" duration="107048000" />
-      <workItem from="1612319590041" duration="20357000" />
+      <workItem from="1612319590041" duration="21989000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="445286000" />
+    <option name="totallyTimeSpent" value="446918000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -578,12 +599,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/js/bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/app/public/20210202223509-6019631dce824.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/public/product/3VkySM2cMSyHH4lfRLuglVWDTxUmLBLxDydpOH6l.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -651,13 +666,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/PostDescriptionController.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="28" selection-start-line="28" selection-end-line="29" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -775,21 +783,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="143" column="27" selection-start-line="143" selection-start-column="27" selection-end-line="143" selection-end-column="27" />
-          <folding>
-            <element signature="e#48#71#0#PHP" expanded="true" />
-            <element signature="e#219#2494#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="20" column="38" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/AuthUpdateRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -800,10 +804,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/AuthUpdateRequest.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        <state relative-caret-position="410">
+          <caret line="114" column="71" selection-start-line="114" selection-start-column="71" selection-end-line="114" selection-end-column="71" />
+          <folding>
+            <element signature="e#48#71#0#PHP" expanded="true" />
+            <element signature="e#219#2494#0#PHP" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#br#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#br#1;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#3;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#4;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#1;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#5;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#br#2;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#6;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#br#3;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#7;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#8;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#2;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#9;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#br#4;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#10;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#br#5;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#11;n#p#0;n#!!top" expanded="true" />
+            <element signature="e#3997#5026#1#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/SuggestionsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-159" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="84" selection-start-line="84" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/WithdrawalController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="90" column="38" lean-forward="true" selection-start-line="90" selection-start-column="38" selection-end-line="90" selection-end-column="38" />
         </state>
       </provider>
     </entry>
