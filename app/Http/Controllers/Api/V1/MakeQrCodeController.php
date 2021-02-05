@@ -80,7 +80,7 @@ class MakeQrCodeController extends Controller
     {
 //        return 123;
         $fontPath = config('app.fontPath');//'/System/Library/Fonts/Hiragino Sans GB.ttc';
-//        return $fontPath;
+        return $fontPath;
         $qrCodeImage = $this->qrCode($request,350)['date'];
         // 联系电话
         $phone = array(
