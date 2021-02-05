@@ -363,7 +363,7 @@ class ShopController extends Controller
             $shop['range']="未知";
         }
         // 收藏数
-        $shop['favoriteShopCounts'] = ShopComment::where('shop_id',$id)->count();
+        $shop['favoriteShopCounts'] = UserFavoriteShop::where('shop_id',$id)->count();
         // 平均星级
         $shop['favoriteShopStarSvg'] = number_format(ShopComment::where('shop_id',$id)->avg('star'),1) ;
 //        if ($user->favoriteShops()->find($id)) {
