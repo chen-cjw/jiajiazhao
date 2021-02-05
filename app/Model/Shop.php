@@ -76,6 +76,12 @@ class Shop extends Model
         return bcadd($this->attributes['amount'],$this->attributes['top_amount'],2);
     }
 
+    public function getFavoriteShopStarSvgAttribute()
+    {
+        return number_format(ShopComment::where('shop_id',$this->attributes['id'])->avg('star'),1) ;
+
+    }
+    protected $appends = ['favoriteShopStarSvg'];
 //    public function getLogoAttribute($pictures)
 //    {
 //
