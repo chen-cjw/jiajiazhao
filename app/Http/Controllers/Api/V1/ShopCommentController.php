@@ -41,9 +41,9 @@ class ShopCommentController extends Controller
             }
 
             if ($request->star > 3) { // 好评
-                Shop::where('id', $request->shop_id)->increment('good_comment_count', 1);
+                Shop::where('id', $request->id)->increment('good_comment_count', 1);
             }
-            Shop::where('id', $request->shop_id)->increment('comment_count', 1);
+            Shop::where('id', $request->id)->increment('comment_count', 1);
 
             $res = ShopComment::create($data);
             DB::commit();

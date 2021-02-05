@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopCommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopCommentController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="365" column="54" selection-start-line="365" selection-start-column="54" selection-end-line="365" selection-end-column="54" />
+            <state relative-caret-position="234">
+              <caret line="365" column="54" selection-start-line="365" selection-start-column="38" selection-end-line="365" selection-end-column="54" />
               <folding>
                 <element signature="e#9190#10338#0#PHP" />
                 <element signature="e#10355#13553#0#PHP" />
@@ -31,6 +31,15 @@
                 <element signature="e#16760#17191#0#PHP" />
                 <element signature="e#17300#18754#0#PHP" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShopCommentController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopCommentController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="470">
+              <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -104,20 +113,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="231" column="42" selection-start-line="231" selection-start-column="42" selection-end-line="231" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>userCardDel</find>
       <find>创建用户</find>
       <find>APP_PATH</find>
       <find>ref_code</find>
@@ -147,6 +146,7 @@
       <find>meS</find>
       <find>makeHaiBao</find>
       <find>WechatIMG76</find>
+      <find>show</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -158,7 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Model/TransactionRecord.php" />
         <option value="$PROJECT_DIR$/app/Model/DriverCertification.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/DriverCertificationController.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/AuthPhoneStoreRequest.php" />
@@ -209,6 +208,7 @@
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopCommentController.php" />
       </list>
     </option>
   </component>
@@ -511,12 +511,12 @@
       <workItem from="1610620421674" duration="78372000" />
       <workItem from="1611282261227" duration="42121000" />
       <workItem from="1611627272489" duration="107048000" />
-      <workItem from="1612319590041" duration="31269000" />
+      <workItem from="1612319590041" duration="31639000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="456198000" />
+    <option name="totallyTimeSpent" value="456568000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -587,9 +587,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/public/product/3VkySM2cMSyHH4lfRLuglVWDTxUmLBLxDydpOH6l.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/public/public/a12QJmPH56oSUxUc4UGr0mmE3aoVuyJCheIhXZhx.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -822,8 +819,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="365" column="54" selection-start-line="365" selection-start-column="54" selection-end-line="365" selection-end-column="54" />
+        <state relative-caret-position="234">
+          <caret line="365" column="54" selection-start-line="365" selection-start-column="38" selection-end-line="365" selection-end-column="54" />
           <folding>
             <element signature="e#9190#10338#0#PHP" />
             <element signature="e#10355#13553#0#PHP" />
@@ -834,6 +831,13 @@
             <element signature="e#16760#17191#0#PHP" />
             <element signature="e#17300#18754#0#PHP" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopCommentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
         </state>
       </provider>
     </entry>
