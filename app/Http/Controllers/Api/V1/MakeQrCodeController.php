@@ -13,6 +13,12 @@ class MakeQrCodeController extends Controller
 
     public function makeShare(Request $request)
     {
+
+        return $this->qrCode($request,$request->width);
+    }
+
+    public function qrCode($request,$width)
+    {
         $config = [
             'app_id' => 'wx693aa465df66510b',
             'secret' => config('wechat.mini_program.default.secret'),
@@ -22,29 +28,16 @@ class MakeQrCodeController extends Controller
             'response_type' => 'array',
         ];
         $app = Factory::miniProgram($config);
-        Log::info(44444444444444444);
-        Log::info($request->line_color);
-        Log::info(44444444444444444);
         try {
             $response = $app->app_code->get($request->path, [
-                'width' => $request->width,
+                'width' => $width,
                 'line_color' => $request->line_color
             ]);
-            Log::info(111111);
-            Log::info($response);
-            Log::info(111111);
-
             // $response 成功时为 EasyWeChat\Kernel\Http\StreamResponse 实例，失败为数组或你指定的 API 返回类型
             if ($response instanceof \EasyWeChat\Kernel\Http\StreamResponse) {
-                Log::info(1);
 
                 $img =  date("YmdHis", time()) . '-' . uniqid() . ".png";
-//                $filename = $response->saveAs('uploads/images',  $img);
-                Log::info(2);
-                Log::info(storage_path('app/public'));
                 $filename = $response->saveAs(storage_path('app/public'),  $img);
-                Log::info(3);
-
                 // return $filename;
                 $data['code'] = 200;
                 $data['url'] =   $filename;
@@ -52,8 +45,12 @@ class MakeQrCodeController extends Controller
                 // 如果 image 字段本身就已经是完整的 url 就直接返回
                 if (Str::startsWith($filename, ['http://', 'https://'])) {
                     Log::info(5);
-
-                    return $data['url'];
+                    return [
+                        'code'=>200,
+                        'msg'=>'ok',
+                        'date'=>$filename
+                    ];
+//                    return $data['url'];
                 }
                 Log::info(6);
                 return [
@@ -69,7 +66,6 @@ class MakeQrCodeController extends Controller
                     'msg'=>'生成失败',
                     'date'=>[]
                 ];
-
             }
         } catch (\Exception $e) {
             return [
@@ -80,8 +76,9 @@ class MakeQrCodeController extends Controller
         }
     }
 
-    public function makeHaiBao()
+    public function makeHaiBao(Request $request)
     {
+        $qrCodeImage = $this->qrCode($request,350)['date'];
         // 联系电话
         $phone = array(
             'text'=>'18361771533',
@@ -125,14 +122,14 @@ class MakeQrCodeController extends Controller
             'image'=>array(
                 array(
                     //         return \Storage::disk('public')->url($image);
-                    'url'=>\Storage::disk('public')->url('20210202171459-601918132a8f4.png'),       //图片资源路径
+                    'url'=>$qrCodeImage,       //图片资源路径
                     'left'=>370,
                     'top'=>-370,
                     'stream'=>0,             //图片资源是否是字符串图像流
                     'right'=>0,
                     'bottom'=>0,
-                    'width'=>350,
-                    'height'=>350,
+                    'width'=>330,
+                    'height'=>330,
                     'opacity'=>100
                 ),
 //                array(
