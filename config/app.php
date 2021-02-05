@@ -12,6 +12,7 @@ return [
     | any other location as required by the application or its packages.
     |
     */
+    'fontPath'=>env('FontPath'),
     'order_wePay_success_notification'=>env('ORDER_WEPAY_SUCCESS_NOTIFICATION','6C-8WGztXPdCqbPmktxuJcRHSbL8-JyZYduecfBonRA'),//本地拼车订单支付成功通知
 
 

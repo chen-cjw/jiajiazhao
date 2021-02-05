@@ -47,6 +47,7 @@ class ConvenientInformationController extends AdminController
         $grid->column('view', __('View'))->sortable();
 
         $grid->column('no', __('No'));
+        $grid->column('images', __('图片'));
         $grid->column('card_fee', __('Card fee'))->sortable();
         $grid->column('top_fee', __('Top fee'))->sortable();
         $grid->column('paid_at', __('Paid at'))->sortable();
@@ -99,6 +100,7 @@ class ConvenientInformationController extends AdminController
 //        $show->field('card_id', __('Card id'));
 //        $show->field('user_id', __('User id'));
         $show->field('no', __('No'));
+        $show->field('images', __('图片'));
         $show->field('card_fee', __('Card fee'));
         $show->field('top_fee', __('Top fee'));
         $show->field('paid_at', __('Paid at'));
@@ -132,6 +134,7 @@ class ConvenientInformationController extends AdminController
 //        $form->number('card_id', __('Card id'));
 //        $form->number('user_id', __('User id'));
         $form->text('no', __('No'));
+        $form->image('images', __('图片'));
         $form->decimal('card_fee', __('Card fee'));
         $form->decimal('top_fee', __('Top fee'));
         $form->datetime('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));

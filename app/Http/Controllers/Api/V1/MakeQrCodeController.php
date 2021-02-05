@@ -78,13 +78,14 @@ class MakeQrCodeController extends Controller
 
     public function makeHaiBao(Request $request)
     {
+        $fontPath = config('app.fontPath');//'/System/Library/Fonts/Hiragino Sans GB.ttc';
         $qrCodeImage = $this->qrCode($request,350)['date'];
         // 联系电话
         $phone = array(
             'text'=>'18361771533',
             'left'=>346,
             'top'=>-225,
-            'fontPath'=>'/System/Library/Fonts/Hiragino Sans GB.ttc',//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
+            'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
             'fontSize'=>52,             //字号
             'fontColor'=>'0,0,0',       //字体颜色
             'angle'=>0,
@@ -94,7 +95,7 @@ class MakeQrCodeController extends Controller
             'text'=>'江苏省徐州市XXXXXXXXXXXX',
             'left'=>323,
             'top'=>-140,
-            'fontPath'=>'/System/Library/Fonts/Hiragino Sans GB.ttc',//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
+            'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
             'fontSize'=>30,             //字号
             'fontColor'=>'0,0,0',       //字体颜色
             'angle'=>0,
@@ -110,7 +111,7 @@ class MakeQrCodeController extends Controller
         $text1[] = $shopArea;
         $iFor = $iFor>10?10:$iFor;
         for ($i=0;$i < $iFor;$i++) {
-            $text1[] = $this->content(mb_substr($textStr, $i*$ccvv,$ccvv),$i*70);
+            $text1[] = $this->content(mb_substr($textStr, $i*$ccvv,$ccvv),$i*70,$fontPath);
         }
 
         $config = array(
@@ -158,13 +159,13 @@ class MakeQrCodeController extends Controller
 
     }
 
-    public function content($text,$top)
+    public function content($text,$top,$fontPath)
     {
         return array(
             'text'=>$text,
             'left'=>122,
             'top'=>350+$top,
-            'fontPath'=>'/System/Library/Fonts/Hiragino Sans GB.ttc',//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
+            'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
             'fontSize'=>33,             //字号
             'fontColor'=>'0,0,0',       //字体颜色
             'angle'=>0,
