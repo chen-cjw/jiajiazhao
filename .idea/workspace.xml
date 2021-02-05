@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/WithdrawalRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/WithdrawalRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/Shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Shop.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,19 +43,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserFavoriteCard.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Model/UserFavoriteCard.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="Withdrawal.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Model/Withdrawal.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file leaf-file-name="UserFavoriteShop.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/UserFavoriteShop.php">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="327">
+              <caret line="118" selection-start-line="118" selection-end-line="118" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
@@ -68,11 +66,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Shop.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Shop.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/Shop.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="83" column="46" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
+            <state relative-caret-position="327">
+              <caret line="78" column="3" lean-forward="true" selection-start-line="78" selection-start-column="3" selection-end-line="83" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="239" column="24" selection-start-line="239" selection-start-column="20" selection-end-line="239" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -116,7 +123,6 @@
       <find>meS</find>
       <find>makeHaiBao</find>
       <find>WechatIMG76</find>
-      <find>show</find>
       <find>logo</find>
       <find>make_hai_bao</find>
       <find>content</find>
@@ -125,6 +131,7 @@
       <find>我的收藏</find>
       <find>收藏</find>
       <find>favoriteShops</find>
+      <find>show</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -176,7 +183,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopCommentController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" />
@@ -187,6 +193,7 @@
         <option value="$PROJECT_DIR$/app/Http/Requests/WithdrawalRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php" />
         <option value="$PROJECT_DIR$/app/Model/Shop.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
       </list>
     </option>
   </component>
@@ -396,47 +403,12 @@
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-              <item name="V1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Requests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="seeds" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
@@ -510,12 +482,12 @@
       <workItem from="1611627272489" duration="107048000" />
       <workItem from="1612319590041" duration="33350000" />
       <workItem from="1612512145844" duration="1139000" />
-      <workItem from="1612513478440" duration="4790000" />
+      <workItem from="1612513478440" duration="5278000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="464208000" />
+    <option name="totallyTimeSpent" value="464696000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -527,7 +499,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.18787879" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.31636363" />
       <window_info anchor="right" id="Remote Host" order="3" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -631,9 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -676,13 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="26" column="28" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -845,8 +807,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/Shop.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="83" column="46" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
+        <state relative-caret-position="327">
+          <caret line="78" column="3" lean-forward="true" selection-start-line="78" selection-start-column="3" selection-end-line="83" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="239" column="24" selection-start-line="239" selection-start-column="20" selection-end-line="239" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
         </state>
       </provider>
     </entry>

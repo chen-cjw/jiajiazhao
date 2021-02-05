@@ -37,8 +37,6 @@ $api->version('v1', [
     // 获取用户信息
     $api->post('/auth/user_info', 'AuthController@userInfo')->name('api.auth.userInfo');
 
-
-
     // 退出
     $api->delete('/auth/current', 'AuthController@destroy')->name('api.auth.destroy');
 
@@ -80,30 +78,21 @@ $api->version('v1', [
     });
     $api->get('make_back','MakeQrCodeController@makeBack')->name('api.qrcode.makeBack');// 分享
 
+
     // makeBack
     // 必须登陆以后才有的操作&&手机要授权以后
-    $api->group(['middleware' => ['auth:api','phone.verify']], function ($api) {
+    $api->group(['middleware' => ['auth:api']], function ($api) {
         // 个人信息
         $api->get('/meShow','AuthController@meShow')->name('api.auth.meShow');
-        $api->post('/auth/update','AuthController@update')->name('api.auth.update');
 
-        $api->post('xufei/{id}','ShopController@xufei')->name('api.shop.xufei');
         $api->post('make_share','MakeQrCodeController@makeShare')->name('api.qrcode.makeShare');// 分享
 
         // 多图片上传
-        $api->post('upload','ShopController@upload')->name('api.multiUpload.upload');
+//        $api->post('upload','ShopController@upload')->name('api.multiUpload.upload');
 
         // 首页
         $api->get('/index', 'IndexController@index')->name('api.index.index'); // 发起支付
 
-        $api->put('/local_carpooling/{id}', 'LocalCarpoolingController@update')->name('api.local_carpooling.update'); // 确认发车
-
-        $api->get('/pay_by_wechat/{id}', 'LocalCarpoolingController@payByWechat')->name('api.local_carpooling.payByWechat'); // 发起支付
-
-
-        $api->get('/driver_certification', 'DriverCertificationController@index')->name('api.driver_certification.index'); // 查看认证
-        $api->post('/driver_certification', 'DriverCertificationController@store')->name('api.driver_certification.store'); // 认证
-        $api->post('/driver_certification/{id}', 'DriverCertificationController@update')->name('api.driver_certification.update'); // 认证
 
         // 发帖提示
         $api->get('/post_tip', 'PostTipController@index')->name('api.post_tip.index'); // 认证
@@ -121,58 +110,80 @@ $api->version('v1', [
 
         // 入住
         $api->get('/shop/{id}', 'ShopController@show')->name('api.shop.show'); // 商户详情
-        $api->post('/shop/{id}', 'ShopController@update')->name('api.shop.update'); // 商户编辑
-        $api->post('/shop_upload_img', 'ShopController@uploadImg')->name('api.shop.uploadImg'); // 单图片上传
+
         $api->get('/shop/pay_by_wechat/{id}', 'ShopController@payByWechat')->name('api.shop.payByWechat'); // 唤起支付
 
         // 分类
         $api->get('/abbr_category', 'AbbrCategoryController@index')->name('api.abbr_category.index');
 
-        $api->post('/user_favorite_shop/{id}', 'PersonalController@userFavoriteShop')->name('api.personal.userFavoriteShop'); // 收藏店铺
-        $api->post('/shop_del', 'PersonalController@shopDel')->name('api.personal.shop_del'); // 删除收藏
-
-        $api->post('/user_favorite_card/{id}', 'PersonalController@userFavoriteCard')->name('api.personal.userFavoriteCard'); // 收藏帖子
-        $api->post('/card_del', 'PersonalController@cardDel')->name('api.personal.cardDel'); // 删除收藏帖子
-
-        // 我的浏览 historyDel
-        $api->get('/history', 'PersonalController@historyIndex')->name('api.personal.historyIndex'); // 浏览列表
-        $api->post('/history_del', 'PersonalController@historyDel')->name('api.personal.historyDel'); // 浏览管理
-
-        // 我邀请的用户 refUser
-        $api->get('/ref_user', 'PersonalController@refUser')->name('api.personal.refUser'); // 删除收藏
-        // 商铺管理
-        $api->get('/shop_manage', 'PersonalController@shopManage')->name('api.personal.shopManage'); // 删除收藏
-
-        // 我发布本地拼车-管理(删除) localCarpoolIndex
-        $api->get('/local_carpool_index/', 'PersonalController@localCarpoolIndex')->name('api.personal.localCarpoolIndex');
-
-        //// 我收藏帖子列表
-        $api->get('/user_favorite_card_index', 'PersonalController@userFavoriteCardIndex')->name('api.personal.userFavoriteCardIndex');
-        // 我收藏商户列表
-        $api->get('/user_favorite_shop_index', 'PersonalController@userFavoriteShopIndex')->name('api.personal.userFavoriteShopIndex');
-        // 我发布帖子
-        $api->post('/user_card_del', 'PersonalController@userCardDel')->name('api.personal.userCardDel');
-
-        $api->get('/user_card', 'PersonalController@userCard')->name('api.personal.userCard');
-        // 提现
-        $api->get('/user_withdrawal', 'PersonalController@userWithdrawalIndex')->name('api.user_withdrawal.index');
-        $api->post('/user_withdrawal', 'PersonalController@userWithdrawal')->name('api.user_withdrawal.store');
-
-        //我拨打的号码
-        $api->get('/dialing', 'DialingController@index')->name('api.dialing.index');
-        $api->post('/dialing', 'DialingController@store')->name('api.dialing.store');
-        $api->post('/dialing/delete', 'DialingController@delete')->name('api.dialing.delete');
-
-
         // 我的投诉
         $api->get('/suggestion', 'SuggestionController@index')->name('api.suggestion.index');
-        $api->post('/suggestion', 'SuggestionController@store')->name('api.suggestion.store');
 
         // ShopCommentController
-        $api->post('/shop/{id}/shop_comment', 'ShopCommentController@store')->name('api.shop_comment.store'); // 入住
+
+        // 要授权手机号
+        $api->group(['middleware' => ['phone.verify']], function ($api) {
+            $api->post('/auth/update','AuthController@update')->name('api.auth.update');
+
+            $api->post('xufei/{id}','ShopController@xufei')->name('api.shop.xufei');
+
+            $api->put('/local_carpooling/{id}', 'LocalCarpoolingController@update')->name('api.local_carpooling.update'); // 确认发车
+
+            $api->get('/pay_by_wechat/{id}', 'LocalCarpoolingController@payByWechat')->name('api.local_carpooling.payByWechat'); // 发起支付
+
+
+
+            $api->get('/driver_certification', 'DriverCertificationController@index')->name('api.driver_certification.index'); // 查看认证
+            $api->post('/driver_certification', 'DriverCertificationController@store')->name('api.driver_certification.store'); // 认证
+            $api->post('/driver_certification/{id}', 'DriverCertificationController@update')->name('api.driver_certification.update'); // 认证
+
+
+            $api->post('/shop/{id}', 'ShopController@update')->name('api.shop.update'); // 商户编辑
+            $api->post('/shop_upload_img', 'ShopController@uploadImg')->name('api.shop.uploadImg'); // 单图片上传
+
+            $api->post('/user_favorite_shop/{id}', 'PersonalController@userFavoriteShop')->name('api.personal.userFavoriteShop'); // 收藏店铺
+            $api->post('/shop_del', 'PersonalController@shopDel')->name('api.personal.shop_del'); // 删除收藏
+
+            $api->post('/user_favorite_card/{id}', 'PersonalController@userFavoriteCard')->name('api.personal.userFavoriteCard'); // 收藏帖子
+            $api->post('/card_del', 'PersonalController@cardDel')->name('api.personal.cardDel'); // 删除收藏帖子
+
+            // 我的浏览 historyDel
+            $api->get('/history', 'PersonalController@historyIndex')->name('api.personal.historyIndex'); // 浏览列表
+            $api->post('/history_del', 'PersonalController@historyDel')->name('api.personal.historyDel'); // 浏览管理
+
+            // 我邀请的用户 refUser
+            $api->get('/ref_user', 'PersonalController@refUser')->name('api.personal.refUser'); // 删除收藏
+            // 商铺管理
+            $api->get('/shop_manage', 'PersonalController@shopManage')->name('api.personal.shopManage'); // 删除收藏
+
+            // 我发布本地拼车-管理(删除) localCarpoolIndex
+            $api->get('/local_carpool_index/', 'PersonalController@localCarpoolIndex')->name('api.personal.localCarpoolIndex');
+
+            //// 我收藏帖子列表
+            $api->get('/user_favorite_card_index', 'PersonalController@userFavoriteCardIndex')->name('api.personal.userFavoriteCardIndex');
+            // 我收藏商户列表
+            $api->get('/user_favorite_shop_index', 'PersonalController@userFavoriteShopIndex')->name('api.personal.userFavoriteShopIndex');
+            // 我发布帖子
+            $api->post('/user_card_del', 'PersonalController@userCardDel')->name('api.personal.userCardDel');
+
+            $api->get('/user_card', 'PersonalController@userCard')->name('api.personal.userCard');
+            // 提现
+            $api->get('/user_withdrawal', 'PersonalController@userWithdrawalIndex')->name('api.user_withdrawal.index');
+            $api->post('/user_withdrawal', 'PersonalController@userWithdrawal')->name('api.user_withdrawal.store');
+
+
+            //我拨打的号码
+            $api->get('/dialing', 'DialingController@index')->name('api.dialing.index');
+            $api->post('/dialing', 'DialingController@store')->name('api.dialing.store');
+            $api->post('/dialing/delete', 'DialingController@delete')->name('api.dialing.delete');
+            $api->post('/suggestion', 'SuggestionController@store')->name('api.suggestion.store');
+
+            $api->post('/shop/{id}/shop_comment', 'ShopCommentController@store')->name('api.shop_comment.store'); // 入住
+
+        });
 
 //        $api->group(['middleware' => ['phone.verify']], function ($api) {
-        $api->group(['middleware' => ['userInfo.verify']], function ($api) {
+        $api->group(['middleware' => ['userInfo.verify','phone.verify']], function ($api) {
             $api->post('/local_carpooling', 'LocalCarpoolingController@store')->name('api.local_carpooling.store'); // 发布拼车
 
             // 操作之前要获取用户信息
