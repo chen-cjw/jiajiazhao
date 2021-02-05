@@ -126,6 +126,11 @@ class PersonalController extends Controller
         DB::beginTransaction();
         try {
             if (bccomp($user->balance, $amount, 3) == -1) {
+                return [
+                    'msg'=>'余额不足',
+                    'code'=>422,
+                    'date'=>[]
+                ];
                 return $this->responseStyle('余额不足', 422, []);
             }
 
@@ -150,10 +155,10 @@ class PersonalController extends Controller
 
         } catch (\Exception $ex) {
             DB::rollback();
-            \Log::error('提现出错', ['error' => $ex->getMessage()]);
+            \Log::error('提现出错', ['error' => $ex]);
             return [
-                'msg'=>'ok',
-                'code'=>200,
+                'msg'=>'提现出错',
+                'code'=>422,
                 'date'=>$ex
             ];
 //            return $this->responseStyle('提现出错',422,$ex);

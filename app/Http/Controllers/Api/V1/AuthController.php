@@ -6,6 +6,7 @@ use App\Http\Requests\AuthMlOpenidStoreRequest;
 use App\Http\Requests\AuthPhoneStoreRequest;
 use App\Http\Requests\AuthUpdateRequest;
 use App\Http\Requests\AuthUserInfoRequest;
+use App\Model\Setting;
 use App\Model\Shop;
 use App\Model\Withdrawal;
 use App\Transformers\UserTransformer;
@@ -225,7 +226,7 @@ class AuthController extends Controller
         $res['with_balance']=Withdrawal::where('user_id',$res->id)->sum('amount');
         $res['all_balance']=bcadd($res['with_balance'],$res->balance,3);
         $res['is_shop']=Shop::where('user_id',$res->id)->whereNotNull('paid_at')->first()?1:0;
-
+        $res['withdrawal_low'] = Setting::where('key','withdrawal_low')->value('value');
         return $this->responseStyle('ok',200,$res);
     }
 

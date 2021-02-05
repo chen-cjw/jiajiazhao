@@ -62,5 +62,11 @@ class SettingSeeder extends Seeder
             'key'=>'shop_verify',
             'value'=>1,
         ]);
+
+        // 低于当前额度不准提现
+        \App\Model\Setting::create([
+            'key'=>'withdrawal_low',
+            'value'=>100,
+        ]);
     }
 }
