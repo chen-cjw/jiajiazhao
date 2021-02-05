@@ -78,7 +78,9 @@ class MakeQrCodeController extends Controller
 
     public function makeHaiBao(Request $request)
     {
+//        return 123;
         $fontPath = config('app.fontPath');//'/System/Library/Fonts/Hiragino Sans GB.ttc';
+//        return $fontPath;
         $qrCodeImage = $this->qrCode($request,350)['date'];
         // 联系电话
         $phone = array(
@@ -150,7 +152,7 @@ class MakeQrCodeController extends Controller
 //        return $config;
         $filename = time().'.jpg';
 //echo createPoster($config,$filename);
-//        return config('app.url').'/'.$this->createPoster($config);
+        return config('app.url').'/'.$this->createPoster($config);
         return [
             'msg'=>'ok',
             'code'=>200,
