@@ -111,7 +111,16 @@ class MakeQrCodeController extends Controller
         $iFor =  ceil($textLength/$ccvv);
         $text1[] = $phone;
         $text1[] = $shopArea;
-        $iFor = $iFor>10?10:$iFor;
+        $text1[] = array(
+            'text'=>'原因在于可以接受',
+            'left'=>377,
+            'top'=>380,
+            'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
+            'fontSize'=>33,             //字号
+            'fontColor'=>'0,0,0',       //字体颜色
+            'angle'=>0,
+        );
+        $iFor = $iFor>4?4:$iFor;
         for ($i=0;$i < $iFor;$i++) {
             $text1[] = $this->content(mb_substr($textStr, $i*$ccvv,$ccvv),$i*70,$fontPath);
         }
@@ -135,19 +144,30 @@ class MakeQrCodeController extends Controller
                     'height'=>330,
                     'opacity'=>100
                 ),
-//                array(
-//                    'url'=>'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eofD96opK97RXwM179G9IJytIgqXod8jH9icFf6Cia6sJ0fxeILLMLf0dVviaF3SnibxtrFaVO3c8Ria2w/0',
-//                    'left'=>120,
-//                    'top'=>70,
-//                    'right'=>0,
-//                    'stream'=>0,
-//                    'bottom'=>0,
-//                    'width'=>55,
-//                    'height'=>55,
-//                    'opacity'=>100
-//                ),
+                array(
+                    'url'=>\Storage::disk('public')->url("3uGY8r8y0v12gpgAqjUP0DzMnAYp3j5GSq12HKL5.jpg"),
+                    'left'=>60,
+                    'top'=>500,
+                    'right'=>0,
+                    'stream'=>0,
+                    'bottom'=>0,
+                    'width'=>970,
+                    'height'=>550,
+                    'opacity'=>100
+                ),
+                array(
+                    'url'=>\Storage::disk('public')->url("3uGY8r8y0v12gpgAqjUP0DzMnAYp3j5GSq12HKL5.jpg"),
+                    'left'=>60,
+                    'top'=>1530,
+                    'right'=>0,
+                    'stream'=>0,
+                    'bottom'=>0,
+                    'width'=>970,
+                    'height'=>550,
+                    'opacity'=>100
+                ),
             ),
-            'background'=>\Storage::disk('public')->url('WechatIMG76.jpeg'),
+            'background'=>\Storage::disk('public')->url('WechatIMG78.jpeg'),
         );
 //        return $config;
         $filename = time().'.jpg';
@@ -166,7 +186,7 @@ class MakeQrCodeController extends Controller
         return array(
             'text'=>$text,
             'left'=>122,
-            'top'=>350+$top,
+            'top'=>1200+$top,
             'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
             'fontSize'=>33,             //字号
             'fontColor'=>'0,0,0',       //字体颜色
