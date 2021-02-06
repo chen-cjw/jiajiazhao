@@ -32,6 +32,14 @@ class SuggestionsController extends AdminController
         $grid->column('user_id', __('User id'))->display(function ($userId){
             return User::where('id',$userId)->value('nickname');
         });
+        $grid->column('localCarpooling_id', __('投诉的帖子'))->display(function ($localCarpooling_id) {
+            if($localCarpooling_id == 0) {
+                return '个人中心投诉';
+            }else {
+                return '/admin/information?&id='.$localCarpooling_id;
+            }
+        });
+
         $grid->column('is_accept', __('Is accept'))->using([1 => '是', 0 => '否']);
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));

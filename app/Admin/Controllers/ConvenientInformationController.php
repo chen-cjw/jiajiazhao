@@ -68,7 +68,7 @@ class ConvenientInformationController extends AdminController
                 $filter->like('no', __('No'));
             });
             // 去掉默认的id过滤器
-            $filter->disableIdFilter();
+//            $filter->disableIdFilter();
 
             $filter->column(1/2, function ($filter) {
                 $filter->like('payment_no', __('Payment no'));
