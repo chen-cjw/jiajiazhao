@@ -29,9 +29,9 @@ class PostDescriptionController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('title', __('Title'));
-        $grid->column('content', __('Content'))->display(function ($content) {
-            return Str::limit($content, 50, '....');
-        });
+//        $grid->column('content', __('Content'))->display(function ($content) {
+//            return Str::limit($content, 50, '....');
+//        });
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -50,7 +50,7 @@ class PostDescriptionController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('title', __('Title'));
-        $show->field('content', __('Content'));
+//        $show->field('content', __('Content'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -67,7 +67,7 @@ class PostDescriptionController extends AdminController
         $form = new Form(new PostDescription());
 
         $form->text('title', __('Title'));
-        $form->UEditor('content', __('Content'));
+        $form->display('content', __('Content'))->default(1);
         $form->footer(function ($footer) {
             // 去掉`重置`按钮
             $footer->disableReset();
