@@ -81,8 +81,7 @@ $api->version('v1', [
 
     // makeBack
 
-        // 个人信息
-        $api->get('/meShow','AuthController@meShow')->name('api.auth.meShow');
+
 
         $api->post('make_share','MakeQrCodeController@makeShare')->name('api.qrcode.makeShare');// 分享
 
@@ -112,7 +111,8 @@ $api->version('v1', [
         // ShopCommentController
     // 必须登陆以后才有的操作&&手机要授权以后
     $api->group(['middleware' => ['auth:api']], function ($api) {
-
+        // 个人信息
+        $api->get('/meShow','AuthController@meShow')->name('api.auth.meShow');
         // 入住
         $api->get('/shop/{id}', 'ShopController@show')->name('api.shop.show'); // 商户详情
 
