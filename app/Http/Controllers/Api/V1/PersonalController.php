@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\WithdrawalRequest;
 use App\Model\BannerPerson;
+use App\Model\Comment;
 use App\Model\ConvenientInformation;
 use App\Model\History;
 use App\Model\LocalCarpooling;
 use App\Model\Shop;
+use App\Model\ShopComment;
 use App\Model\UserFavoriteCard;
 use App\Model\UserFavoriteShop;
 use App\Model\Withdrawal;
@@ -90,6 +92,8 @@ class PersonalController extends Controller
         $user = auth('api')->user();
         foreach($request->ids as $v) {
             UserFavoriteShop::where('shop_id', $v)->delete();
+            ShopComment::where('shop_id',$v)->delete();
+
         }
         $res = $user->favoriteShops()->detach($request->ids);
         return $this->responseStyle('ok',200,$res);
@@ -114,6 +118,7 @@ class PersonalController extends Controller
             foreach ($request->ids as $v) {
                 // 删除别人收藏的
                 UserFavoriteCard::where('information_id', $v)->delete();
+                Comment::where('information_id',$v)->delete();
                 auth('api')->user()->convenientInformation()->where('id', $v)->delete();
             }
 //        auth('api')->user()->convenientInformation()->detach($request->ids);
