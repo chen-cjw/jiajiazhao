@@ -80,8 +80,7 @@ $api->version('v1', [
 
 
     // makeBack
-    // 必须登陆以后才有的操作&&手机要授权以后
-    $api->group(['middleware' => ['auth:api']], function ($api) {
+
         // 个人信息
         $api->get('/meShow','AuthController@meShow')->name('api.auth.meShow');
 
@@ -105,8 +104,7 @@ $api->version('v1', [
         // 发布信息唤起支付页面
         $api->get('/convenient_information/pay_by_wechat/{id}', 'ConvenientInformationController@payByWechat')->name('api.convenient_information.payByWechat'); // 发布
 
-        // 评论 CommentController
-        $api->post('/comment', 'CommentController@store')->name('api.comment.store'); // 认证
+
 
         // 入住
         $api->get('/shop/{id}', 'ShopController@show')->name('api.shop.show'); // 商户详情
@@ -120,7 +118,8 @@ $api->version('v1', [
         $api->get('/suggestion', 'SuggestionController@index')->name('api.suggestion.index');
 
         // ShopCommentController
-
+    // 必须登陆以后才有的操作&&手机要授权以后
+    $api->group(['middleware' => ['auth:api']], function ($api) {
         // 要授权手机号
         $api->group(['middleware' => ['phone.verify']], function ($api) {
             $api->post('/auth/update','AuthController@update')->name('api.auth.update');
@@ -184,6 +183,8 @@ $api->version('v1', [
 
 //        $api->group(['middleware' => ['phone.verify']], function ($api) {
         $api->group(['middleware' => ['userInfo.verify','phone.verify']], function ($api) {
+            // 评论
+            $api->post('/comment', 'CommentController@store')->name('api.comment.store'); // 认证
             $api->post('/local_carpooling', 'LocalCarpoolingController@store')->name('api.local_carpooling.store'); // 发布拼车
 
             // 操作之前要获取用户信息
