@@ -36,7 +36,7 @@ class SuggestionsController extends AdminController
             if($localCarpooling_id == 0) {
                 return '个人中心投诉';
             }else {
-                return "<a href='/admin/information?&id='.$localCarpooling_id>投诉帖子ID.$localCarpooling_id</a>";
+                return "<a href='/admin/information?&id={$localCarpooling_id}'>投诉帖子ID.$localCarpooling_id</a>";
 //                return '/admin/information?&id='.$localCarpooling_id;
             }
         });
