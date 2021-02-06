@@ -140,7 +140,7 @@ class MakeQrCodeController extends Controller
 //       $as =trim(substr(json_encode($shop->logo['store_logo']),38));
 //        return \Storage::disk('public')->url($as);
 
-        $store_logo = str_replace("http:\/\/admin.jiajiazhao.dev\/\/storage",'',json_encode($shop->logo['store_logo']));
+        $store_logo = str_replace("http:\/\/admin.jjz369.com\/\/storage",'',json_encode($shop->logo['store_logo']));
         // str_replace("\/","/",$store_logo)
         $store_logo = \Storage::disk('public')->url(str_replace("\/","/",$store_logo));
 //        return $store_logo;
