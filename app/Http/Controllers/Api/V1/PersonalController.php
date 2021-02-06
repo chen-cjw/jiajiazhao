@@ -113,8 +113,10 @@ class PersonalController extends Controller
         foreach($request->ids as $v){
             // 删除别人收藏的
             UserFavoriteCard::where('information_id',$v)->delete();
-            auth('api')->user()->convenientInformation()->where('id',$v)->delete();
+//            auth('api')->user()->convenientInformation()->where('id',$v)->delete();
         }
+        auth('api')->user()->favoriteShops()->detach($request->ids);
+
         return $this->responseStyle('ok',200,[]);
     }
     // 提现
