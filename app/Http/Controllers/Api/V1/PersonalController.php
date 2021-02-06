@@ -115,7 +115,7 @@ class PersonalController extends Controller
             UserFavoriteCard::where('information_id',$v)->delete();
 //            auth('api')->user()->convenientInformation()->where('id',$v)->delete();
         }
-        auth('api')->user()->favoriteShops()->detach($request->ids);
+        auth('api')->user()->convenientInformation()->detach($request->ids);
 
         return $this->responseStyle('ok',200,[]);
     }
