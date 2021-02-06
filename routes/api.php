@@ -100,16 +100,8 @@ $api->version('v1', [
 
         $api->get('/convenient_information', 'ConvenientInformationController@index')->name('api.convenient_information.index'); // 认证
         //$api->post('/convenient_information', 'ConvenientInformationController@store')->name('api.convenient_information.store'); // 认证
-        $api->get('/convenient_information/{id}', 'ConvenientInformationController@show')->name('api.convenient_information.show'); // 认证
-        // 发布信息唤起支付页面
-        $api->get('/convenient_information/pay_by_wechat/{id}', 'ConvenientInformationController@payByWechat')->name('api.convenient_information.payByWechat'); // 发布
 
 
-
-        // 入住
-        $api->get('/shop/{id}', 'ShopController@show')->name('api.shop.show'); // 商户详情
-
-        $api->get('/shop/pay_by_wechat/{id}', 'ShopController@payByWechat')->name('api.shop.payByWechat'); // 唤起支付
 
         // 分类
         $api->get('/abbr_category', 'AbbrCategoryController@index')->name('api.abbr_category.index');
@@ -120,6 +112,15 @@ $api->version('v1', [
         // ShopCommentController
     // 必须登陆以后才有的操作&&手机要授权以后
     $api->group(['middleware' => ['auth:api']], function ($api) {
+
+        // 入住
+        $api->get('/shop/{id}', 'ShopController@show')->name('api.shop.show'); // 商户详情
+
+        $api->get('/shop/pay_by_wechat/{id}', 'ShopController@payByWechat')->name('api.shop.payByWechat'); // 唤起支付
+        $api->get('/convenient_information/{id}', 'ConvenientInformationController@show')->name('api.convenient_information.show'); // 认证
+        // 发布信息唤起支付页面
+        $api->get('/convenient_information/pay_by_wechat/{id}', 'ConvenientInformationController@payByWechat')->name('api.convenient_information.payByWechat'); // 发布
+
         // 要授权手机号
         $api->group(['middleware' => ['phone.verify']], function ($api) {
             $api->post('/auth/update','AuthController@update')->name('api.auth.update');

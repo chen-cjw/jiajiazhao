@@ -14,6 +14,13 @@ class ShopRequest extends FormRequest
     public function rules()
     {
         return [
+            'one_abbr'=> ['required',
+                function ($attribute, $value, $fail) {
+                    $arrLength = count($value);
+                    if($arrLength > 1) {
+                        return $fail('只可以选择一个类目下面的分类！');
+                    }
+                }],
             'two_abbr' =>['required',
                 function ($attribute, $value, $fail) {
                     $arrLength = count($value);
