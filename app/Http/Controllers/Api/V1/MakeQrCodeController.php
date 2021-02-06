@@ -170,7 +170,7 @@ class MakeQrCodeController extends Controller
                     'opacity'=>100
                 ),
                 array(
-                    'url'=>json_encode($shop->logo['store_logo']),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
+                    'url'=>"http://admin.jjz369.com/storage/20210206/J2X2l7ABjIz4sveLKqm8hq3Q7KLsPY5E8Q4xp6uw.jpg",//json_encode($shop->logo['store_logo']),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
                     'left'=>60,
                     'top'=>1530,
                     'right'=>0,

@@ -28,8 +28,8 @@
       <file leaf-file-name="MakeQrCodeController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="161" column="137" selection-start-line="161" selection-start-column="137" selection-end-line="161" selection-end-column="137" />
+            <state relative-caret-position="301">
+              <caret line="172" column="113" selection-start-line="172" selection-start-column="113" selection-end-line="172" selection-end-column="113" />
               <folding>
                 <element signature="e#48#61#0#PHP" expanded="true" />
               </folding>
@@ -488,12 +488,12 @@
       <workItem from="1611627272489" duration="107048000" />
       <workItem from="1612319590041" duration="33350000" />
       <workItem from="1612512145844" duration="1139000" />
-      <workItem from="1612513478440" duration="16163000" />
+      <workItem from="1612513478440" duration="16455000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="475581000" />
+    <option name="totallyTimeSpent" value="475873000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -821,8 +821,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="161" column="137" selection-start-line="161" selection-start-column="137" selection-end-line="161" selection-end-column="137" />
+        <state relative-caret-position="301">
+          <caret line="172" column="113" selection-start-line="172" selection-start-column="113" selection-end-line="172" selection-end-column="113" />
           <folding>
             <element signature="e#48#61#0#PHP" expanded="true" />
           </folding>
