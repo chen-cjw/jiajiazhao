@@ -77,9 +77,8 @@ $api->version('v1', [
 
     // makeBack
 
-
-
         $api->post('make_share','MakeQrCodeController@makeShare')->name('api.qrcode.makeShare');// 分享
+        $api->post('share_friend','MakeQrCodeController@shareFriend')->name('api.qrcode.shareFriend');// 分享到朋友圈
 
         // 多图片上传
 //        $api->post('upload','ShopController@upload')->name('api.multiUpload.upload');

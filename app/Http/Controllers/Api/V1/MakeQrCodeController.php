@@ -77,21 +77,41 @@ class MakeQrCodeController extends Controller
             ];
         }
     }
+    // 
+    public function shareFriend(Request $request)
+    {
+        $qrCodeImage = $this->qrCode($request,220)['date'];
+        $config = array(
+            'image'=>array(
+                array(
+                    'url'=>$qrCodeImage,//json_encode($shop->logo['store_logo']),       //图片资源路径
+                    'left'=>196,
+                    'top'=>-210,
+                    'stream'=>0,             //图片资源是否是字符串图像流
+                    'right'=>0,
+                    'bottom'=>0,
+                    'width'=>220,
+                    'height'=>220,
+                    'opacity'=>100
+                ),
+            ),
+            'background'=>config('app.url').'/WechatIMG92.jpeg',
+        );
+        $filename = time().'.jpg';
+        return [
+            'msg'=>'ok',
+            'code'=>200,
+            'date'=>config('app.url').'/'.$this->createPoster($config,$filename)
+        ];
+    }
 
     public function makeHaiBao(Request $request)
     {
-//        return 123;
-//        return config('app.url').'/WechatIMG78.jpeg';
         $fontPath = config('app.fontPath');//'/System/Library/Fonts/Hiragino Sans GB.ttc';
 
-//        return $fontPath;
         $qrCodeImage = $this->qrCode($request,350)['date'];
-//        return $qrCodeImage;
         // 店铺介绍
         $shop = Shop::where('id',$request->id)->firstOrFail();
-//        return json_encode($shop->logo['store_logo']);
-
-//        return json_encode($shop->images[0]);
         // 联系电话
         $phone = array(
             'text'=>User::where('id',$shop->user_id)->value('phone'),
@@ -134,14 +154,6 @@ class MakeQrCodeController extends Controller
         for ($i=0;$i < $iFor;$i++) {
             $text1[] = $this->content(mb_substr($textStr, $i*$ccvv,$ccvv),$i*70,$fontPath);
         }
-//        $as = json_encode($shop->logo['store_logo']);
-//        $as = "http://admin.jjz369.com//storage/20210206/oTC9n9k8qBcfiJ2HvZJmGJl86iDu6TtgQuZVEXbg.jpg";
-//        return config('app.url');config('app.url')
-//       $as =trim(substr(json_encode($shop->logo['store_logo']),38));
-//        return \Storage::disk('public')->url($as);
-
-
-//        return $store_logo;
         $config = array(
 //            'text'=>array(
 //                $phone,
@@ -188,8 +200,6 @@ class MakeQrCodeController extends Controller
         );
 //        return $config;
         $filename = time().'.jpg';
-//        return $filename;
-//echo createPoster($config,$filename);
 //        return config('app.url').'/'.$this->createPoster($config);
         return [
             'msg'=>'ok',
