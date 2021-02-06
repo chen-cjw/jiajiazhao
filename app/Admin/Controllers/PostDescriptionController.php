@@ -66,8 +66,8 @@ class PostDescriptionController extends AdminController
     {
         $form = new Form(new PostDescription());
 
-        $form->text('title', __('Title'));
-        $form->display('content', __('Content'))->default(1);
+        $form->textarea('title', __('Title'));
+        $form->hidden('content', __('Content'))->default(1);
         $form->footer(function ($footer) {
             // 去掉`重置`按钮
             $footer->disableReset();
