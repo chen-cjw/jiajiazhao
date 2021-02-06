@@ -139,6 +139,8 @@ class MakeQrCodeController extends Controller
 //        return config('app.url');config('app.url')
 //       $as =trim(substr(json_encode($shop->logo['store_logo']),38));
 //        return \Storage::disk('public')->url($as);
+
+        $store_logo = str_replace("\/",'/',json_encode($shop->logo['store_logo']));
         $config = array(
 //            'text'=>array(
 //                $phone,
@@ -170,7 +172,7 @@ class MakeQrCodeController extends Controller
                     'opacity'=>100
                 ),
                 array(
-                    'url'=>"http://admin.jjz369.com/storage/20210206/J2X2l7ABjIz4sveLKqm8hq3Q7KLsPY5E8Q4xp6uw.jpg",//json_encode($shop->logo['store_logo']),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
+                    'url'=>$store_logo,//json_encode($shop->logo['store_logo']),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
                     'left'=>60,
                     'top'=>1530,
                     'right'=>0,
