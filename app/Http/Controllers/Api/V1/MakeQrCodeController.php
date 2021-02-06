@@ -105,7 +105,7 @@ class MakeQrCodeController extends Controller
         );
 
         $textStr = "据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于echo可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于echo可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于echo可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于echo可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串";
-        $aaaaa = "https://xinyidouyin.oss-cn-beijing.aliyuncs.com/WechatIMG10.jpeg?Expires=1612596622&OSSAccessKeyId=TMP.3KfedtDL8agAXKVkhsHzpWGSPFtgFwb56icMa9EPsU6n3wthPxeb8c2H5wXaEZPi2GiG2nydiNwJHKMRxkUcwHoEe1s7Cd&Signature=TqaW%2BFn4E39p%2BbUpyuELTz0XEf8%3D";
+
         $textLength = mb_strlen($textStr);// 字符串长度
         $ccvv  = 19;
 //        return $textLength;
@@ -146,7 +146,7 @@ class MakeQrCodeController extends Controller
                     'opacity'=>100
                 ),
                 array(
-                    'url'=>$aaaaa,//\Storage::disk('public')->url("3uGY8r8y0v12gpgAqjUP0DzMnAYp3j5GSq12HKL5.jpg"),
+                    'url'=>config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
                     'left'=>60,
                     'top'=>500,
                     'right'=>0,
@@ -157,7 +157,7 @@ class MakeQrCodeController extends Controller
                     'opacity'=>100
                 ),
                 array(
-                    'url'=>$aaaaa,//\Storage::disk('public')->url("3uGY8r8y0v12gpgAqjUP0DzMnAYp3j5GSq12HKL5.jpg"),
+                    'url'=>config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
                     'left'=>60,
                     'top'=>1530,
                     'right'=>0,
