@@ -166,7 +166,7 @@ class MakeQrCodeController extends Controller
                     'opacity'=>100
                 ),
                 array(
-                    'url'=>\Storage::disk('public')->url(json_encode($shop->logo['store_logo'])),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
+                    'url'=>json_encode($shop->logo['store_logo']),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
                     'left'=>60,
                     'top'=>1530,
                     'right'=>0,
