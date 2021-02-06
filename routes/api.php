@@ -31,11 +31,7 @@ $api->version('v1', [
         // 获取openid
         $api->any('/auth/ml_openid_store', 'AuthController@mlOpenidStore')->name('api.auth.mlOpenidStore');
 //    });
-    // 获取手机号
-    $api->post('/auth/phone_store','AuthController@phoneStore')->name('api.auth.phone_store');
 
-    // 获取用户信息
-    $api->post('/auth/user_info', 'AuthController@userInfo')->name('api.auth.userInfo');
 
     // 退出
     $api->delete('/auth/current', 'AuthController@destroy')->name('api.auth.destroy');
@@ -111,6 +107,14 @@ $api->version('v1', [
         // ShopCommentController
     // 必须登陆以后才有的操作&&手机要授权以后
     $api->group(['middleware' => ['auth:api']], function ($api) {
+
+
+        // 获取手机号
+        $api->post('/auth/phone_store','AuthController@phoneStore')->name('api.auth.phone_store');
+
+        // 获取用户信息
+        $api->post('/auth/user_info', 'AuthController@userInfo')->name('api.auth.userInfo');
+
         // 个人信息
         $api->get('/meShow','AuthController@meShow')->name('api.auth.meShow');
         // 入住
