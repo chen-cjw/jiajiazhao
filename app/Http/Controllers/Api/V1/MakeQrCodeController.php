@@ -79,6 +79,7 @@ class MakeQrCodeController extends Controller
     public function makeHaiBao(Request $request)
     {
 //        return 123;
+//        return config('app.url').'/WechatIMG78.jpeg';
         $fontPath = config('app.fontPath');//'/System/Library/Fonts/Hiragino Sans GB.ttc';
 //        return $fontPath;
         $qrCodeImage = $this->qrCode($request,350)['date'];
@@ -167,7 +168,7 @@ class MakeQrCodeController extends Controller
                     'opacity'=>100
                 ),
             ),
-            'background'=>\Storage::disk('public')->url('WechatIMG78.jpeg'),
+            'background'=>config('app.url').'/WechatIMG78.jpeg',
         );
 //        return $config;
         $filename = time().'.jpg';
