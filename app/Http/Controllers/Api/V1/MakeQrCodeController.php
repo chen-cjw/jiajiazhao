@@ -134,7 +134,11 @@ class MakeQrCodeController extends Controller
         for ($i=0;$i < $iFor;$i++) {
             $text1[] = $this->content(mb_substr($textStr, $i*$ccvv,$ccvv),$i*70,$fontPath);
         }
-
+//        $as = json_encode($shop->logo['store_logo']);
+//        $as = "http://admin.jjz369.com//storage/20210206/oTC9n9k8qBcfiJ2HvZJmGJl86iDu6TtgQuZVEXbg.jpg";
+//        return config('app.url');config('app.url')
+//       $as =trim(substr(json_encode($shop->logo['store_logo']),38));
+//        return \Storage::disk('public')->url($as);
         $config = array(
 //            'text'=>array(
 //                $phone,
@@ -155,7 +159,7 @@ class MakeQrCodeController extends Controller
                     'opacity'=>100
                 ),
                 array(
-                    'url'=>$shop->images?json_encode($shop->images[0]):config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",// json_encode($shop->images[0]),//
+                    'url'=>$shop->images?json_encode($shop->images[0]):config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
                     'left'=>60,
                     'top'=>500,
                     'right'=>0,
@@ -166,7 +170,7 @@ class MakeQrCodeController extends Controller
                     'opacity'=>100
                 ),
                 array(
-                    'url'=>\Storage::disk('public')->url('/20210206/oTC9n9k8qBcfiJ2HvZJmGJl86iDu6TtgQuZVEXbg.jpg'),//json_encode($shop->logo['store_logo']),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
+                    'url'=>json_encode($shop->logo['store_logo']),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
                     'left'=>60,
                     'top'=>1530,
                     'right'=>0,
