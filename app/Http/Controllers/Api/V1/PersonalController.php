@@ -109,15 +109,24 @@ class PersonalController extends Controller
     // 我发布帖子-管理
     public function userCardDel(Request $request)
     {
+        DB::beginTransaction();
+        try {
+            foreach ($request->ids as $v) {
+                // 删除别人收藏的
+                UserFavoriteCard::where('information_id', $v)->delete();
+                auth('api')->user()->convenientInformation()->where('id', $v)->delete();
+            }
+//        auth('api')->user()->convenientInformation()->detach($request->ids);
 
-        foreach($request->ids as $v){
-            // 删除别人收藏的
-            UserFavoriteCard::where('information_id',$v)->delete();
-//            auth('api')->user()->convenientInformation()->where('id',$v)->delete();
+//            return $this->responseStyle('ok', 200, []);
+            DB::commit();
+            return ['code'=>200,'msg'=>'ok','data'=>[]];
+        } catch (\Exception $ex) {
+            DB::rollback();
+            throw new \Exception($ex); //
+            return ['code'=>422,'msg'=>'删除失败','data'=>$ex];
+
         }
-        auth('api')->user()->convenientInformation()->detach($request->ids);
-
-        return $this->responseStyle('ok',200,[]);
     }
     // 提现
     public function userWithdrawal(WithdrawalRequest $request)
