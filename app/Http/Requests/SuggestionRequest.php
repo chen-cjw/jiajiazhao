@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 
+use App\Model\ConvenientInformation;
 use App\Model\LocalCarpooling;
 
 class SuggestionRequest extends FormRequest
@@ -18,7 +19,7 @@ class SuggestionRequest extends FormRequest
             'content'=>'required',
             'id'=>[
                 function ($attribute, $value, $fail) {
-                    if (!LocalCarpooling::where('id',$value)->first()) {
+                    if (!ConvenientInformation::where('id',$value)->first()) {
                         return $fail('举报不明确！');
                     }
 

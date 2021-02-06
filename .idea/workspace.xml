@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/WechatIMG3154.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/WechatIMG92.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/SuggestionRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/SuggestionRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_02_103342_create_suggestions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_02_103342_create_suggestions_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,11 +32,32 @@
       <file leaf-file-name="MakeQrCodeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="103" column="79" selection-start-line="103" selection-start-column="79" selection-end-line="103" selection-end-column="79" />
+            <state relative-caret-position="213">
+              <caret line="33" column="58" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="58" />
               <folding>
                 <element signature="e#48#61#0#PHP" expanded="true" />
                 <element signature="e#5457#7272#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2021_01_02_103342_create_suggestions_table.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2021_01_02_103342_create_suggestions_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="22" column="71" selection-start-line="22" selection-start-column="71" selection-end-line="22" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SuggestionRequest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Requests/SuggestionRequest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+              <folding>
+                <element signature="e#38#74#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="139">
-              <caret line="80" column="111" selection-start-line="80" selection-start-column="111" selection-end-line="80" selection-end-column="111" />
+              <caret line="80" column="32" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -130,8 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2020_12_21_112435_create_shops_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerInformationShowController.php" />
         <option value="$PROJECT_DIR$/app/Model/AbbrCategory.php" />
         <option value="$PROJECT_DIR$/app/Model/History.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php" />
@@ -181,6 +197,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/SuggestionRequest.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2021_01_02_103342_create_suggestions_table.php" />
       </list>
     </option>
   </component>
@@ -392,12 +410,14 @@
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Requests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
@@ -471,12 +491,12 @@
       <workItem from="1611627272489" duration="107048000" />
       <workItem from="1612319590041" duration="33350000" />
       <workItem from="1612512145844" duration="1139000" />
-      <workItem from="1612513478440" duration="20453000" />
+      <workItem from="1612513478440" duration="21094000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="479871000" />
+    <option name="totallyTimeSpent" value="480512000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -547,9 +567,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/storage/app/public/20210202171616-601918603f351.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/storage/app/public/20210202171459-601918132a8f4.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -649,9 +666,6 @@
           <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2021_01_02_103342_create_suggestions_table.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/Shop.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -794,10 +808,17 @@
     <entry file="file://$PROJECT_DIR$/public/WechatIMG3154.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="80" column="32" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="103" column="79" selection-start-line="103" selection-start-column="79" selection-end-line="103" selection-end-column="79" />
+        <state relative-caret-position="213">
+          <caret line="33" column="58" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="58" />
           <folding>
             <element signature="e#48#61#0#PHP" expanded="true" />
             <element signature="e#5457#7272#0#PHP" />
@@ -805,10 +826,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/SuggestionRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="80" column="111" selection-start-line="80" selection-start-column="111" selection-end-line="80" selection-end-column="111" />
+        <state relative-caret-position="315">
+          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+          <folding>
+            <element signature="e#38#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2021_01_02_103342_create_suggestions_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="22" column="71" selection-start-line="22" selection-start-column="71" selection-end-line="22" selection-end-column="71" />
         </state>
       </provider>
     </entry>
