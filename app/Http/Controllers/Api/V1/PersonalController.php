@@ -123,7 +123,7 @@ class PersonalController extends Controller
             return ['code'=>200,'msg'=>'ok','data'=>[]];
         } catch (\Exception $ex) {
             DB::rollback();
-            throw new \Exception($ex); //
+//            throw new \Exception($ex); //
             return ['code'=>422,'msg'=>'删除失败','data'=>$ex];
 
         }

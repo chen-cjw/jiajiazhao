@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 
+use App\Shop;
+use App\User;
 use EasyWeChat\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -83,9 +85,12 @@ class MakeQrCodeController extends Controller
         $fontPath = config('app.fontPath');//'/System/Library/Fonts/Hiragino Sans GB.ttc';
 //        return $fontPath;
         $qrCodeImage = $this->qrCode($request,350)['date'];
+        // 店铺介绍
+        $shop = Shop::where('id',$request->id)->firstOrFail();
+//        return json_encode($shop->images[0]);
         // 联系电话
         $phone = array(
-            'text'=>'18361771533',
+            'text'=>User::where('id',$shop->user_id)->value('phone'),
             'left'=>346,
             'top'=>-225,
             'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
@@ -95,7 +100,7 @@ class MakeQrCodeController extends Controller
         );
         // 店铺地址
         $shopArea = array(
-            'text'=>'江苏省徐州市XXXXXXXXXXXX',
+            'text'=>$shop->detailed_address,
             'left'=>323,
             'top'=>-140,
             'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
@@ -104,7 +109,7 @@ class MakeQrCodeController extends Controller
             'angle'=>0,
         );
 
-        $textStr = "据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于echo可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于echo可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于echo可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于echo可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串";
+        $textStr = \request('content') ;//"据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于echo可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于echo可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于echo可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串据说这样输出速度要快一些，原因在于echo可以接受多个参数，并直接按顺序输出，实际上逗号不是拼接字符串";
 
         $textLength = mb_strlen($textStr);// 字符串长度
         $ccvv  = 19;
@@ -113,7 +118,7 @@ class MakeQrCodeController extends Controller
         $text1[] = $phone;
         $text1[] = $shopArea;
         $text1[] = array(
-            'text'=>'原因在于可以接受',
+            'text'=>$shop->name,
             'left'=>377,
             'top'=>380,
             'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
@@ -135,7 +140,7 @@ class MakeQrCodeController extends Controller
             'image'=>array(
                 array(
                     //         return \Storage::disk('public')->url($image);
-                    'url'=>$qrCodeImage,       //图片资源路径
+                    'url'=>json_encode($shop->logo['store_logo']),       //图片资源路径
                     'left'=>370,
                     'top'=>-370,
                     'stream'=>0,             //图片资源是否是字符串图像流
@@ -146,7 +151,7 @@ class MakeQrCodeController extends Controller
                     'opacity'=>100
                 ),
                 array(
-                    'url'=>config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
+                    'url'=> json_encode($shop->images[0]),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
                     'left'=>60,
                     'top'=>500,
                     'right'=>0,
