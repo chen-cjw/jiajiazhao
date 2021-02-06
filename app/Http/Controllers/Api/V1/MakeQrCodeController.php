@@ -83,10 +83,14 @@ class MakeQrCodeController extends Controller
 //        return 123;
 //        return config('app.url').'/WechatIMG78.jpeg';
         $fontPath = config('app.fontPath');//'/System/Library/Fonts/Hiragino Sans GB.ttc';
+
 //        return $fontPath;
         $qrCodeImage = $this->qrCode($request,350)['date'];
+//        return $qrCodeImage;
         // 店铺介绍
         $shop = Shop::where('id',$request->id)->firstOrFail();
+//        return json_encode($shop->logo['store_logo']);
+
 //        return json_encode($shop->images[0]);
         // 联系电话
         $phone = array(
@@ -140,7 +144,7 @@ class MakeQrCodeController extends Controller
             'image'=>array(
                 array(
                     //         return \Storage::disk('public')->url($image);
-                    'url'=>json_encode($shop->logo['store_logo']),       //图片资源路径
+                    'url'=>$qrCodeImage,//json_encode($shop->logo['store_logo']),       //图片资源路径
                     'left'=>370,
                     'top'=>-370,
                     'stream'=>0,             //图片资源是否是字符串图像流
@@ -151,7 +155,7 @@ class MakeQrCodeController extends Controller
                     'opacity'=>100
                 ),
                 array(
-                    'url'=> json_encode($shop->images[0]),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
+                    'url'=>$shop->images?json_encode($shop->images[0]):config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",// json_encode($shop->images[0]),//
                     'left'=>60,
                     'top'=>500,
                     'right'=>0,
@@ -162,7 +166,7 @@ class MakeQrCodeController extends Controller
                     'opacity'=>100
                 ),
                 array(
-                    'url'=>config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
+                    'url'=>\Storage::disk('public')->url(json_encode($shop->logo['store_logo'])),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
                     'left'=>60,
                     'top'=>1530,
                     'right'=>0,
@@ -177,6 +181,7 @@ class MakeQrCodeController extends Controller
         );
 //        return $config;
         $filename = time().'.jpg';
+//        return $filename;
 //echo createPoster($config,$filename);
 //        return config('app.url').'/'.$this->createPoster($config);
         return [
