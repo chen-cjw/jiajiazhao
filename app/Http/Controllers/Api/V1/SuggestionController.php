@@ -19,7 +19,7 @@ class SuggestionController extends Controller
         $res = Suggestions::create([
             'content'=>$request->input('content'),
             'user_id'=>auth('api')->id(),
-            'localCarpooling_id'=>$request->id
+            'localCarpooling_id'=>$request->id?:0
         ]);
         return $this->responseStyle('ok',200,$res);
     }
