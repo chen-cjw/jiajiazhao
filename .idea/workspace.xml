@@ -31,13 +31,18 @@
       <file leaf-file-name="MakeQrCodeController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="176" column="86" selection-start-line="176" selection-start-column="86" selection-end-line="176" selection-end-column="86" />
+            <state relative-caret-position="321">
+              <caret line="179" column="38" selection-start-line="179" selection-start-column="38" selection-end-line="179" selection-end-column="38" />
               <folding>
                 <element signature="e#48#61#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="3uGY8r8y0v12gpgAqjUP0DzMnAYp3j5GSq12HKL5.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/storage/app/public/3uGY8r8y0v12gpgAqjUP0DzMnAYp3j5GSq12HKL5.jpg">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file leaf-file-name="2020_12_21_112435_create_shops_table.php" pinned="false" current-in-tab="false">
@@ -94,11 +99,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConvenientInformationSeeder.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/ConvenientInformationSeeder.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/User.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -140,8 +140,8 @@
       <find>convenientInformation</find>
       <find>1612597801</find>
       <find>use Illuminate\Support\Facades\DB;</find>
-      <find>date</find>
       <find>图片上</find>
+      <find>date</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -491,12 +491,12 @@
       <workItem from="1611627272489" duration="107048000" />
       <workItem from="1612319590041" duration="33350000" />
       <workItem from="1612512145844" duration="1139000" />
-      <workItem from="1612513478440" duration="18139000" />
+      <workItem from="1612513478440" duration="18679000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="477557000" />
+    <option name="totallyTimeSpent" value="478097000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -508,9 +508,9 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.22545454" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.22545454" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21745351" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21745351" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -575,9 +575,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/storage/app/public/20210202173941-60191ddd41525.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/app/public/3uGY8r8y0v12gpgAqjUP0DzMnAYp3j5GSq12HKL5.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/storage/app/public/20210202171616-601918603f351.png">
@@ -825,10 +822,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/storage/app/public/3uGY8r8y0v12gpgAqjUP0DzMnAYp3j5GSq12HKL5.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="176" column="86" selection-start-line="176" selection-start-column="86" selection-end-line="176" selection-end-column="86" />
+        <state relative-caret-position="321">
+          <caret line="179" column="38" selection-start-line="179" selection-start-column="38" selection-end-line="179" selection-end-column="38" />
           <folding>
             <element signature="e#48#61#0#PHP" expanded="true" />
           </folding>
