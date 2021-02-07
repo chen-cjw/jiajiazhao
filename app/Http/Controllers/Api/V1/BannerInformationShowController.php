@@ -11,7 +11,7 @@ class BannerInformationShowController extends Controller
 {
     public function index()
     {
-        $bannerInformationShowOne = ConvenientInformation::where('is_display',1)->orderBy('sort','desc')->where('title','like','%'.request('title').'%')->take(5)->get();
+        $bannerInformationShowOne = ConvenientInformation::where('is_display',1)->orderBy('sort','desc')->whereNotNull('paid_at')->where('title','like','%'.request('title').'%')->take(5)->get();
 
         //        $bannerInformationShowOne = BannerInformationShow::where('is_display',1)->where('type','one')->orderBy('sort','desc')->get();
         $bannerInformationShowTwo = BannerInformationShow::where('is_display',1)->where('type','two')->orderBy('sort','desc')->get();
