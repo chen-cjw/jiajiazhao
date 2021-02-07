@@ -30,7 +30,7 @@ class CardCategoryController extends Controller
         if ($id == 'new') {
             $information = $query->orderBy('created_at','desc')->paginate();
         }else {
-            $information = $query->orderBy('sort','desc')->paginate();
+            $information = $query->orderBy('sort','desc')->orderBy('created_at','desc')->paginate();
         }
         $banner = BannerCardCategory::where('is_display',1)->orderBy('sort','desc')->get();
         return $this->responseStyle('ok',200,[
