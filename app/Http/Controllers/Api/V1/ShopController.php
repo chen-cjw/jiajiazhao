@@ -367,6 +367,8 @@ class ShopController extends Controller
         }
         if($lat = \request('lat') && $lng = \request('lng')) {
 
+            Log::info($lat);
+            Log::info(\request('lat'));
             Log::info(456454645645464564546);
             Log::info($shop->lat.'/'.$shop->lng.'/'.$lat.'/'.$lng);
             Log::info(456454645645464564546);
