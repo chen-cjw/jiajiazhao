@@ -106,7 +106,9 @@ class ShopController extends Controller
             // 几公里
             $query[$item]->range=$range;
             // 平均星级
-            $query[$item]->favoriteShopStarSvg=number_format(ShopComment::where('shop_id',$value->id)->avg('star'),1) ;
+            $query[$item]->favoriteShopStarSvg=number_format(ShopComment::where('shop_id',$value->id)->avg('star'),1);
+            $query[$item]->logo=$this->getLogo($value->logo);
+
         }
 
         $shop['data'] = $query;
@@ -114,7 +116,16 @@ class ShopController extends Controller
         $shop['image'] = AbbrCategory::where('id',$one_abbr)->value('image');
         return $this->responseStyle('ok',200,$shop);
     }
-
+    // 身份证不显示出来
+    public function getLogo($pictures)
+    {
+        if (!$pictures) {
+            return $pictures;
+        }
+        $data = json_decode($pictures, true);
+        $data['with_iD_card'] = '';
+        return $data;
+    }
     // 搜索
     public function searchInformation(Request $request)
     {
