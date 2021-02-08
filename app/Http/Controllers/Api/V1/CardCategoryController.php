@@ -74,7 +74,7 @@ class CardCategoryController extends Controller
         }
 
         $banner = BannerCardCategory::where('is_display',1)->orderBy('sort','desc')->get();
-        // 统计条数
+        // 统计天数
         $query = ConvenientInformation::query()->whereNotNull('paid_at')->where('is_display',1);
         if($id != 'new') {
             $query = $query->where('card_id',$id);
@@ -85,9 +85,10 @@ class CardCategoryController extends Controller
         $total = $query->count();
 
         return $this->responseStyle('ok',200,[
-                'information' => ['data'=>[
-                    'total'=>$total,$information
-                ]],
+                'information' => [
+                    'data'=>$information,
+                    'total'=>$total
+                ],
                 'banner' => $banner
         ]);
 
