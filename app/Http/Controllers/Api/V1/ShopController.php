@@ -362,7 +362,9 @@ class ShopController extends Controller
             $shop['favoriteShops'] = 0;
         }
         if($lat = \request('lat') && $lng = \request('lng')) {
-            $shop['range'] = $this->getDistance($lat,$lng,$shop->lat,$shop->lng);
+            $shop['range'] = $this->getDistance($shop->lat,$shop->lng,$lat,$lng);
+//            $range = $this->getDistance($lat,$lng,$lat1,$lng1);
+
         }else {
             $shop['range']="未知";
         }

@@ -117,7 +117,6 @@ class LocalCarpoolingController extends Controller
             // 订单已支付
             if ($order->paid_at) {
                 Log::error('告知微信支付此订单已处理');
-
                 return app('wechat_pay')->success();
             }
             if (!$order || $order->paid_at) { // 如果订单不存在 或者 订单已经支付过了
@@ -129,12 +128,9 @@ class LocalCarpoolingController extends Controller
 
             if ($message['return_code'] === 'SUCCESS') { // return_code 表示通信状态，不代表支付状态
                 Log::info('表示通信状态，不代表支付状态');
-
                 // 用户是否支付成功
                 if (array_get($message, 'result_code') === 'SUCCESS') {
                     Log::info('用户支付成功');
-
-//                    $order->status = 'paid';
                     $order->paid_at = Carbon::now(); // 更新支付时间为当前时间
                     $order->payment_no = $message['transaction_id']; // 支付平台订单号
                     // 用户支付失败
@@ -148,8 +144,6 @@ class LocalCarpoolingController extends Controller
             }
             $order->save(); // 保存订单
             // todo 订单支付成功通知,支付平台的订单号
-//            $user = User::find($order->user_id);
-//            order_wePay_success_notification($user->ml_openid,$order->payment_no,$order->paid_at,$order->amount,$order->name_car,'');
             return true; // 返回处理完成
         });
 
