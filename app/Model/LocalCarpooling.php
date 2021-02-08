@@ -32,7 +32,7 @@ class LocalCarpooling extends Model
 
     public function getIsGoAttribute()
     {
-        return bcsub(time(),strtotime($this->attributes['created_at'])) > 0 ? 1 : 0;
+        return bcsub(time(),strtotime($this->attributes['departure_time'])) > 0 ? 1 : 0;
     }
 
 
