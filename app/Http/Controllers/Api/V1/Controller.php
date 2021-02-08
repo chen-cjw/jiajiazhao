@@ -85,10 +85,10 @@ class Controller extends BaseController
         $calculatedDistance = $earthRadius * $stepTwo;
 
         $res = abs(round($calculatedDistance/1000, 2));
-//        if($res>1000) {
-//            $res = floor($res/1000).'公里';
-//            return $res;
-//        }
+        if($res>1000) {
+            $res = floor($res/1000).'公里';
+            return $res;
+        }
         return $res.'公里';
     }
 
