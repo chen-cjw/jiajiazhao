@@ -206,6 +206,9 @@ $api->version('v1', [
     $api->get('/card_category/{id}/convenient_information', 'CardCategoryController@cardInformation')->name('api.card_category.cardInformation'); // 帖子分类
     // 搜索
     $api->get('/search_information', 'ConvenientInformationController@searchInformation')->name('api.search_information.searchInformation'); // 发布
-    $api->get('/share_home', 'ShareHomeController@index')->name('api.share_home.index'); // 发布
+    $api->get('/share_home', 'ShareHomeController@index')->name('api.share_home.index'); // 分享页面
+    $api->get('/shop_share_index', 'ShareHomeController@shopShareIndex')->name('api.share_home.shopShareIndex'); // 商铺分享页
+    $api->get('/information_share_index', 'ShareHomeController@informationShareIndex')->name('api.share_home.informationShareIndex'); // 信息分享页面
+    $api->get('/local_share_index', 'ShareHomeController@LocalShareIndex')->name('api.share_home.LocalShareIndex'); // 拼车
 
 });
