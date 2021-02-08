@@ -212,7 +212,7 @@ class PersonalController extends Controller
     // 我的浏览
     public function historyIndex(Request $request)
     {
-        $query = History::query();
+        $query = History::query()->where('user_id',auth('api')->id());
         if($request->type == 'shop') {
             $query = $query->where('model_type',Shop::class);
         }
