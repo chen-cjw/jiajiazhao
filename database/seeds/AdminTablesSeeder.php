@@ -302,6 +302,14 @@ class AdminTablesSeeder extends Seeder
                     "icon" => "fa-bars",
                     "uri" => "/banner_post_information",
                     "permission" => NULL
+                ],
+                [
+                    "parent_id" => 0,
+                    "order" => 0,
+                    "title" => "分享页设置",
+                    "icon" => "fa-bars",
+                    "uri" => "/share_home",
+                    "permission" => NULL
                 ]
             ]
         );

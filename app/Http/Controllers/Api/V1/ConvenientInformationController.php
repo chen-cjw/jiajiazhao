@@ -64,6 +64,61 @@ class ConvenientInformationController extends Controller
     // 搜索
     public function searchInformation(Request $request)
     {
+        $title = \request()->title;
+        $lat = \request('lat');
+        $lng = \request('lng');
+        $sql = "select * from convenient_information ";
+        $start = \request()->page ?: 1;
+        $limit = 16;
+        $sql = $sql." where paid_at is not null";
+        $sql = $sql." and is_display = 1";
+
+        if($id != 'new') {
+            $sql = $sql." and card_id = ".$id;
+        }
+//        // 搜索
+        if($title!='') {
+            $sql = $sql." and title LIKE '%".$title."%'";
+
+        }
+        // 附近
+        if ($lat && $lng) {
+            $sql = $sql." and
+            (acos(sin(({$lat}*3.1415)/180)
+            * sin((lat*3.1415)/180)
+            + cos(({$lat}*3.1415)/180)
+            * cos((lat*3.1415)/180)
+            * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
+            * 6370.996) <= ".Setting::where('key','radius')->value('value');
+        }
+
+        if ($id == 'new') {
+            $sql = $sql." order by created_at "."DESC";
+        }else {
+            $sql = $sql." order by sort,created_at "."DESC";
+        }
+
+        $limit = $sql." LIMIT ".($start-1)*$limit.",".$limit;
+        $information = DB::select($limit);
+
+        foreach ($information as $item=>$value) {
+            $lat1 = $value->lat;
+            $lng1 = $value->lng;
+            $range = $this->getDistance($lat,$lng,$lat1,$lng1);
+            $information[$item]->range=$range; //几公里
+            $information[$item]->user_id=User::where('id',$value->user_id)->first();
+            $information[$item]->card_id=CardCategory::where('id',$value->card_id)->first();
+            $information[$item]->comment_count=Comment::where('information_id',$value->id)->count();
+            $information[$item]->images=$this->getImages($value->images);
+        }
+
+        $banner = BannerCardCategory::where('is_display',1)->orderBy('sort','desc')->get();
+
+        return $this->responseStyle('ok',200,[
+            'information' => ['data'=>$information],
+            'banner' => $banner
+        ]);
+
         $echostr = $request->title;
         $res = ConvenientInformation::whereNotNull('paid_at')->where('is_display',1)->where('title','like','%'.$echostr.'%')->orderBy('sort','desc')->paginate();
         return $this->responseStyle('ok',200,$res);
