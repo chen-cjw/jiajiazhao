@@ -607,6 +607,7 @@ class ShopController extends Controller
 //            order_wePay_success_notification($user->ml_openid,$order->payment_no,$order->paid_at,$order->amount,$order->name,'');
             return true; // 返回处理完成
         });
+        return $response;
 
     }
 }
