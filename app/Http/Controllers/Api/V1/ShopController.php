@@ -98,6 +98,10 @@ class ShopController extends Controller
         foreach ($query as $item=>$value) {
             $lat1 = $value->lat;
             $lng1 = $value->lng;
+            Log::info(123123123123);
+            Log::info($lat,$lng,$lat1,$lng1);
+            Log::info(123123123123);
+
             $range = $this->getDistance($lat,$lng,$lat1,$lng1);
             // 几公里
             $query[$item]->range=$range;
@@ -362,6 +366,12 @@ class ShopController extends Controller
             $shop['favoriteShops'] = 0;
         }
         if($lat = \request('lat') && $lng = \request('lng')) {
+
+            Log::info(456454645645464564546);
+            Log::info($shop->lat,$shop->lng,$lat,$lng);
+            Log::info(456454645645464564546);
+            Log::info($lat,$lng,$shop->lat,$shop->lng);
+
             $shop['range'] = $this->getDistance($shop->lat,$shop->lng,$lat,$lng);
 //            $range = $this->getDistance($lat,$lng,$lat1,$lng1);
 
