@@ -54,8 +54,6 @@ $api->version('v1', [
     // 商户入住协议
     $api->get('/merchant_entering_agreement','MerchantEnteringAgreementController@index')->name('api.personal.index');
     $api->get('/merchant_privacy_agreement','MerchantPrivacyAgreementController@index')->name('api.personal.index');// 隐私
-    // 搜索
-    $api->get('/search_information', 'ConvenientInformationController@searchInformation')->name('api.search_information.searchInformation'); // 发布
 
     // 本地拼车
     $api->get('/local_carpooling','LocalCarpoolingController@index')->name('api.local_carpooling.index');
@@ -206,5 +204,8 @@ $api->version('v1', [
 
     $api->get('/card_category', 'CardCategoryController@index')->name('api.card_category.index'); // 帖子分类
     $api->get('/card_category/{id}/convenient_information', 'CardCategoryController@cardInformation')->name('api.card_category.cardInformation'); // 帖子分类
+    // 搜索
+    $api->get('/search_information', 'ConvenientInformationController@searchInformation')->name('api.search_information.searchInformation'); // 发布
+    $api->get('/share_home', 'ShareHomeController@index')->name('api.share_home.index'); // 发布
 
 });
