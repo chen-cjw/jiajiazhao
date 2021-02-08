@@ -31,6 +31,7 @@ class Shop extends Model
             return $pictures;
         }
         $data = json_decode($pictures, true);
+        $data['with_iD_card'] = '';
         return $data;
         $da = array();
         foreach ($data as $k=>$v) {

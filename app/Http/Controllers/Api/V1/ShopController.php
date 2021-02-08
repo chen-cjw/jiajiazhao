@@ -110,6 +110,7 @@ class ShopController extends Controller
         }
 
         $shop['data'] = $query;
+        $shop['total'] = $query;
         $shop['image'] = AbbrCategory::where('id',$one_abbr)->value('image');
         return $this->responseStyle('ok',200,$shop);
     }
