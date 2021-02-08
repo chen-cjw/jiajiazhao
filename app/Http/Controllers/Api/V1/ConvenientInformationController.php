@@ -73,13 +73,9 @@ class ConvenientInformationController extends Controller
         $sql = $sql." where paid_at is not null";
         $sql = $sql." and is_display = 1";
 
-        if($id != 'new') {
-            $sql = $sql." and card_id = ".$id;
-        }
-//        // 搜索
+        // 搜索
         if($title!='') {
             $sql = $sql." and title LIKE '%".$title."%'";
-
         }
         // 附近
         if ($lat && $lng) {
@@ -92,11 +88,7 @@ class ConvenientInformationController extends Controller
             * 6370.996) <= ".Setting::where('key','radius')->value('value');
         }
 
-        if ($id == 'new') {
-            $sql = $sql." order by created_at "."DESC";
-        }else {
-            $sql = $sql." order by sort,created_at "."DESC";
-        }
+        $sql = $sql." order by sort,created_at "."DESC";
 
         $limit = $sql." LIMIT ".($start-1)*$limit.",".$limit;
         $information = DB::select($limit);
@@ -112,11 +104,8 @@ class ConvenientInformationController extends Controller
             $information[$item]->images=$this->getImages($value->images);
         }
 
-        $banner = BannerCardCategory::where('is_display',1)->orderBy('sort','desc')->get();
-
         return $this->responseStyle('ok',200,[
             'information' => ['data'=>$information],
-            'banner' => $banner
         ]);
 
         $echostr = $request->title;
