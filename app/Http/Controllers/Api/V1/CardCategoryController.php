@@ -75,7 +75,7 @@ class CardCategoryController extends Controller
 
         return $this->responseStyle('ok',200,[
                 'information' => ['data'=>$information],
-                'banner' => ['data'=>$banner]
+                'banner' => $banner
         ]);
 
         $query = ConvenientInformation::query()->whereNotNull('paid_at')->where('is_display',1);
