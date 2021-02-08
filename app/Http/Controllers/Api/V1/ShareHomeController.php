@@ -9,18 +9,15 @@ class ShareHomeController extends Controller
     public function index()
     {
         return $this->responseStyle('ok',200 , ShareHome::find(1));
-
     }
 
     public function shopShareIndex()
     {
         return $this->responseStyle('ok',200 , ShareHome::find(2));
-
     }
     public function informationShareIndex()
     {
         return $this->responseStyle('ok',200 , ShareHome::find(3));
-
     }
     public function LocalShareIndex()
     {

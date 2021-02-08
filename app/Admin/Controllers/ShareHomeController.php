@@ -29,6 +29,24 @@ class ShareHomeController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('image', __('分享图'))->image('',50,50);
         $grid->column('name', __('分享名'));
+        $grid->column('local', __('位置'))->display(function ($local) {
+            if($this->id == 1) {
+                return '分享页';
+            }
+            if($this->id == 2) {
+                return '商铺分享页';
+            }
+            if($this->id == 3) {
+                return '便民信息分享页';
+            }
+            if($this->id == 4) {
+                return '拼车分享页';
+            }
+        });
+        $grid->actions(function ($actions) {
+            //关闭行操作 删除
+            $actions->disableDelete();
+        });
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
