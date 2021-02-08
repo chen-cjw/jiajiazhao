@@ -65,7 +65,7 @@ class ConvenientInformationController extends Controller
     public function searchInformation(Request $request)
     {
         $echostr = $request->title;
-        $res = ConvenientInformation::where('title','like','%'.$echostr.'%')->orderBy('sort','desc')->where('is_display',1)->paginate();
+        $res = ConvenientInformation::whereNotNull('paid_at')->where('is_display',1)->where('title','like','%'.$echostr.'%')->orderBy('sort','desc')->paginate();
         return $this->responseStyle('ok',200,$res);
     }
     // 发布
