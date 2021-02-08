@@ -366,16 +366,6 @@ class ShopController extends Controller
             $shop['favoriteShops'] = 0;
         }
         if($lat = \request('lat') && $lng = \request('lng')) {
-            Log::info(333333333333333333333333);
-            Log::info($lat);
-            Log::info(2222222222222222222222222);
-            Log::info(\request('lat'));
-            Log::info(111111111111111111111111);
-            Log::info($shop->lat.'/'.$shop->lng.'/'.$lat.'/'.$lng);
-            Log::info(111111111111111111111111);
-            Log::info($lat.'/'.$lng.'/'.$shop->lat.'/'.$shop->lng);
-            Log::info(2222222222222222222222222);
-
             $shop['range'] = $this->getDistance($shop->lat,$shop->lng,\request('lat'),$lng);
 //            $range = $this->getDistance($lat,$lng,$lat1,$lng1);
 
