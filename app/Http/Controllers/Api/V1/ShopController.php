@@ -39,7 +39,7 @@ class ShopController extends Controller
         $two_abbr = \request()->two_abbr;
         $view = \request()->view;
         $comment_count = \request()->comment_count;
-        $start = \request()->page ?: 0;
+        $start = \request()->page ?: 1;
         $limit = 15;
         $sql = "select * from shops ";
         $dueDate = date('Y-m-d H:i:s');
@@ -89,7 +89,9 @@ class ShopController extends Controller
 //        $sql = $sql." and order by created_at "."DESC";
 
 
-        $limit = $sql." LIMIT ".$start.",".$limit;
+//        $limit = $sql." LIMIT ".$start.",".$limit;
+        $limit = $sql." LIMIT ".($start-1)*$limit.",".$limit;
+
 //        $sql = $sql.'order by sort desc';
 
         $query = DB::select($limit);
