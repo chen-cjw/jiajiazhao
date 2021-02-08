@@ -99,7 +99,7 @@ class ShopController extends Controller
             $lat1 = $value->lat;
             $lng1 = $value->lng;
             Log::info(123123123123);
-            Log::info($lat,$lng,$lat1,$lng1);
+            Log::info($lat.'/'.$lng.'/'.$lat1.'/'.$lng1);
             Log::info(123123123123);
 
             $range = $this->getDistance($lat,$lng,$lat1,$lng1);
@@ -368,9 +368,9 @@ class ShopController extends Controller
         if($lat = \request('lat') && $lng = \request('lng')) {
 
             Log::info(456454645645464564546);
-            Log::info($shop->lat,$shop->lng,$lat,$lng);
+            Log::info($shop->lat.'/'.$shop->lng.'/'.$lat.'/'.$lng);
             Log::info(456454645645464564546);
-            Log::info($lat,$lng,$shop->lat,$shop->lng);
+            Log::info($lat.'/'.$lng.'/'.$shop->lat.'/'.$shop->lng);
 
             $shop['range'] = $this->getDistance($shop->lat,$shop->lng,$lat,$lng);
 //            $range = $this->getDistance($lat,$lng,$lat1,$lng1);
