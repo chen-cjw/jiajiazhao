@@ -198,9 +198,9 @@ class PersonalController extends Controller
         $user = User::where('parent_id',auth('api')->id())->whereHas('shop',function ($query) {
             $query->whereNotNull('paid_at');
         })->paginate();
-        $user['ref_user_count']=User::where('parent_id',auth('api')->id())->count();
+//        $user['data']['ref_user_count']=User::where('parent_id',auth('api')->id())->count();
 
-        return $this->responseStyle('ok',200,$user);
+        return $this->responseStyle('ok',200,['ref_user'=>$user,'ref_user_count'=>User::where('parent_id',auth('api')->id())->count()]);
     }
 
     public function banner()
