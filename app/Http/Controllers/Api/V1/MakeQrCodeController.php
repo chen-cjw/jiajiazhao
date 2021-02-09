@@ -101,7 +101,7 @@ class MakeQrCodeController extends Controller
         return [
             'msg'=>'ok',
             'code'=>200,
-            'date'=>config('app.url').'/'.$this->createPoster($config,$filename)
+            'date'=>'https://api.jjz369.com/'.$this->createPoster($config,$filename)
         ];
     }
 
