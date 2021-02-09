@@ -101,8 +101,7 @@ class MakeQrCodeController extends Controller
         return [
             'msg'=>'ok',
             'code'=>200,
-            'date'=>'https://api.jjz369.com/'.$this->createPoster($config,$filename)
-//            'date'=>config('app.url').'/'.$this->createPoster($config,$filename)
+            'date'=>config('app.url').'/'.$this->createPoster($config,$filename)
         ];
     }
 
@@ -199,8 +198,7 @@ class MakeQrCodeController extends Controller
 //                    'opacity'=>100
 //                ),
             ),
-            'background'=>'https://api.jjz369.com//WechatIMG94.jpeg',
-//            'background'=>config('app.url').'/WechatIMG94.jpeg',
+            'background'=>config('app.url').'/WechatIMG94.jpeg',
         );
 //        return $config;
         $filename = time().'.jpg';
