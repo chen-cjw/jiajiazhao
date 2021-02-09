@@ -206,7 +206,7 @@ class MakeQrCodeController extends Controller
         return [
             'msg'=>'ok',
             'code'=>200,
-            'date'=>config('app.url').'/'.$this->createPoster($config)
+            'date'=>config('app.url').'/'.$this->createPoster($config,$filename)
         ];
 
     }
