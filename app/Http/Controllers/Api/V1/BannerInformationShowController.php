@@ -20,8 +20,6 @@ class BannerInformationShowController extends Controller
         Log::info($con->card_id->id);
         // 这里的逻辑不能随意改
         $bannerInformationShowOne = ConvenientInformation::where('is_display',1)->where('card_id',$con->card_id->id)->orderBy('sort','desc')->whereNotNull('paid_at')->take(5)->get();//->where('title','like','%'.request('title').'%')
-
-        //        $bannerInformationShowOne = BannerInformationShow::where('is_display',1)->where('type','one')->orderBy('sort','desc')->get();
         $bannerInformationShowTwo = BannerInformationShow::where('is_display',1)->where('type','two')->orderBy('sort','desc')->get();
 
         return $this->responseStyle('ok',200,[
