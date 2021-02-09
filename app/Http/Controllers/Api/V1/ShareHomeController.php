@@ -23,4 +23,9 @@ class ShareHomeController extends Controller
     {
         return $this->responseStyle('ok',200 , ShareHome::find(4));
     }
+    // 总的分享
+    public function AllShareIndex()
+    {
+        return $this->responseStyle('ok',200 , ShareHome::find(5));
+    }
 }
