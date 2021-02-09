@@ -73,6 +73,9 @@ class SettingController extends AdminController
             if ($key=='withdrawal_low') {
                 return '低于当前额度不准提现';
             }
+            if ($key=='timeSearch') {
+                return '帖子时间设置/月份';
+            }
         });
         $grid->column('value', __('Value'));
         $grid->column('created_at', __('Created at'));

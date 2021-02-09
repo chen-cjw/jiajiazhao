@@ -31,7 +31,12 @@ class CardCategoryController extends Controller
         $sql = "select * from convenient_information ";
         $start = \request()->page ?: 1;
         $limit = 16;
-        $sql = $sql." where paid_at is not null";
+        $sql = $sql."where created_at > DATE_SUB(CURDATE(), INTERVAL ".Setting::where('key','timeSearch')->value('value')." MONTH)";
+//        return Setting::where('key','timeSearch')->value('value');
+//        $sql = $sql."where DATE_SUB(CURDATE(), INTERVAL ".Setting::where('key','timeSearch')->value('value')." month) <= (created_at)";
+//        $information = DB::select($sql);
+//        return $information;
+        $sql = $sql."and  paid_at is not null";
         $sql = $sql." and is_display = 1";
 
         if($id != 'new') {
@@ -56,7 +61,7 @@ class CardCategoryController extends Controller
         if ($id == 'new') {
             $sql = $sql." order by created_at "."DESC";
         }else {
-            $sql = $sql." order by sort,created_at "."DESC";
+            $sql = $sql." order by sort "."DESC";
         }
 
         $limit = $sql." LIMIT ".($start-1)*$limit.",".$limit;

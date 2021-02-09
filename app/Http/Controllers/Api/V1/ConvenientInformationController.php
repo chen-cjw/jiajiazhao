@@ -70,9 +70,10 @@ class ConvenientInformationController extends Controller
         $sql = "select * from convenient_information ";
         $start = \request()->page ?: 1;
         $limit = 16;
-        $sql = $sql." where paid_at is not null";
-        $sql = $sql." and is_display = 1";
+        $sql = $sql."where created_at > DATE_SUB(CURDATE(), INTERVAL ".Setting::where('key','timeSearch')->value('value')." MONTH)";
 
+        $sql = $sql." and paid_at is not null";
+        $sql = $sql." and is_display = 1";
         // 搜索
         if($title!='') {
             $sql = $sql." and title LIKE '%".$title."%'";
@@ -87,6 +88,7 @@ class ConvenientInformationController extends Controller
             * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
             * 6370.996) <= ".Setting::where('key','radius')->value('value');
         }
+        $sql = $sql."created_at > DATE_SUB(CURDATE(), INTERVAL 3 MONTH)";
 
         $sql = $sql." order by sort,created_at "."DESC";
 
