@@ -116,7 +116,7 @@ class MakeQrCodeController extends Controller
         $phone = array(
             'text'=>User::where('id',$shop->user_id)->value('phone'),
             'left'=>346,
-            'top'=>-225,
+            'top'=>-130,
             'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
             'fontSize'=>52,             //字号
             'fontColor'=>'0,0,0',       //字体颜色
@@ -126,7 +126,7 @@ class MakeQrCodeController extends Controller
         $shopArea = array(
             'text'=>$shop->detailed_address,
             'left'=>323,
-            'top'=>-140,
+            'top'=>-50,
             'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
             'fontSize'=>30,             //字号
             'fontColor'=>'0,0,0',       //字体颜色
@@ -144,7 +144,7 @@ class MakeQrCodeController extends Controller
         $text1[] = array(
             'text'=>$shop->name,
             'left'=>377,
-            'top'=>380,
+            'top'=>350,
             'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
             'fontSize'=>33,             //字号
             'fontColor'=>'0,0,0',       //字体颜色
@@ -164,21 +164,21 @@ class MakeQrCodeController extends Controller
                 array(
                     //         return \Storage::disk('public')->url($image);
                     'url'=>$qrCodeImage,//json_encode($shop->logo['store_logo']),       //图片资源路径
-                    'left'=>370,
-                    'top'=>-370,
+                    'left'=>280,
+                    'top'=>-306,
                     'stream'=>0,             //图片资源是否是字符串图像流
                     'right'=>0,
                     'bottom'=>0,
-                    'width'=>330,
-                    'height'=>330,
+                    'width'=>500,
+                    'height'=>500,
                     'opacity'=>100
                 ),
                 array(
 //                    'url'=>$shop->images?$this->logo($shop,$shop->images[0]):config('app.url')."/null.png",
                     'url'=>$this->logo($shop,$shop->logo['store_logo']),//"http://admin.jiajiazhao.dev/storage/3uGY8r8y0v12gpgAqjUP0DzMnAYp3j5GSq12HKL5.jpg",//str_replace("\/","/",json_encode($shop->logo['store_logo'])),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
-
+//$this->logo($shop,$shop->logo['store_logo']),//
                     'left'=>60,
-                    'top'=>500,
+                    'top'=>450,
                     'right'=>0,
                     'stream'=>0,
                     'bottom'=>0,
@@ -198,7 +198,7 @@ class MakeQrCodeController extends Controller
 //                    'opacity'=>100
 //                ),
             ),
-            'background'=>config('app.url').'/WechatIMG78.jpeg',
+            'background'=>config('app.url').'/WechatIMG1816.jpeg',
         );
 //        return $config;
         $filename = time().'.jpg';
@@ -206,7 +206,7 @@ class MakeQrCodeController extends Controller
         return [
             'msg'=>'ok',
             'code'=>200,
-            'date'=>config('app.url').'/'.$this->createPoster($config,$filename)
+            'date'=>config('app.url').'/'.$this->createPoster($config)
         ];
 
     }
@@ -226,7 +226,7 @@ class MakeQrCodeController extends Controller
         return array(
             'text'=>$text,
             'left'=>122,
-            'top'=>1200+$top,
+            'top'=>1100+$top,
             'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
             'fontSize'=>33,             //字号
             'fontColor'=>'0,0,0',       //字体颜色
