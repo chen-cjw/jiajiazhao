@@ -184,17 +184,17 @@ class MakeQrCodeController extends Controller
                     'height'=>550,
                     'opacity'=>100
                 ),
-                array(
-                    'url'=>$this->logo($shop,$shop->logo['store_logo']),//"http://admin.jiajiazhao.dev/storage/3uGY8r8y0v12gpgAqjUP0DzMnAYp3j5GSq12HKL5.jpg",//str_replace("\/","/",json_encode($shop->logo['store_logo'])),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
-                    'left'=>60,
-                    'top'=>1530,
-                    'right'=>0,
-                    'stream'=>0,
-                    'bottom'=>0,
-                    'width'=>970,
-                    'height'=>550,
-                    'opacity'=>100
-                ),
+//                array(
+//                    'url'=>$this->logo($shop,$shop->logo['store_logo']),//"http://admin.jiajiazhao.dev/storage/3uGY8r8y0v12gpgAqjUP0DzMnAYp3j5GSq12HKL5.jpg",//str_replace("\/","/",json_encode($shop->logo['store_logo'])),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
+//                    'left'=>60,
+//                    'top'=>1530,
+//                    'right'=>0,
+//                    'stream'=>0,
+//                    'bottom'=>0,
+//                    'width'=>970,
+//                    'height'=>550,
+//                    'opacity'=>100
+//                ),
             ),
             'background'=>config('app.url').'/WechatIMG78.jpeg',
         );
