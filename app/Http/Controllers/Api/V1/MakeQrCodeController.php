@@ -198,7 +198,7 @@ class MakeQrCodeController extends Controller
 //                    'opacity'=>100
 //                ),
             ),
-            'background'=>config('app.url').'/WechatIMG1816.jpeg',
+            'background'=>config('app.url').'/WechatIMG94.jpeg',
         );
 //        return $config;
         $filename = time().'.jpg';
