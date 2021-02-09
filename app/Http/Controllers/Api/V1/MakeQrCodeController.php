@@ -174,7 +174,7 @@ class MakeQrCodeController extends Controller
                     'opacity'=>100
                 ),
                 array(
-                    'url'=>$shop->images?$this->logo($shop,$shop->images[0]):config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
+                    'url'=>$shop->images?$this->logo($shop,$shop->images[0]):config('app.url')."/null.png",
                     'left'=>60,
                     'top'=>500,
                     'right'=>0,
