@@ -117,7 +117,7 @@ class ConvenientInformationController extends Controller
 //        ]);
 
         $echostr = $request->title;
-        $res = ConvenientInformation::whereNotNull('paid_at')->where('created_at',"DATE_SUB(CURDATE(), INTERVAL ".Setting::where('key','timeSearch')->value('value')." MONTH)")->where('is_display',1)->where('title','like','%'.$echostr.'%')->orderBy('sort','desc')->paginate();
+        $res = ConvenientInformation::whereNotNull('paid_at')->where('area','like','%'.$request->area.'%')->where('is_display',1)->where('title','like','%'.$echostr.'%')->orderBy('sort','desc')->paginate();
         return $this->responseStyle('ok',200,$res);
     }
     // 发布

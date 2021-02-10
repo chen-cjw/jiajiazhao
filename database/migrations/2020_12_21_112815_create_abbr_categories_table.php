@@ -20,6 +20,7 @@ class CreateAbbrCategoriesTable extends Migration
             $table->text('logo')->nullable()->comment('首页分类logo');
             $table->text('image')->nullable()->comment('轮播图');
             $table->bigInteger('parent_id')->nullable()->comment('父级');
+            $table->boolean('is_display')->default(1)->comment('是否显示');
             $table->enum('type',['other','shop'])->default('shop')->comment('shop店铺');
             $table->enum('local',['one','two'])->default('one')->comment('首页店铺位置');
             $table->timestamps();

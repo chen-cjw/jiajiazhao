@@ -10,7 +10,7 @@ class AbbrCategoryController extends Controller
     // 行业分类(后台)
     public function index()
     {
-        $abbrCategory = AbbrCategory::orderBy('sort','desc')->where('type','shop')->where('parent_id',null)->get();
+        $abbrCategory = AbbrCategory::orderBy('sort','desc')->where('type','shop')->where('is_display',1)->where('parent_id',null)->get();
         return $this->responseStyle('ok',200,$abbrCategory);
         return $this->response->collection($abbrCategory,new AbbrCategoryTransformer());
     }
@@ -19,7 +19,7 @@ class AbbrCategoryController extends Controller
     public function searchTwoCate()
     {
         if ($name = request('name')) {
-            $abbrCategory = AbbrCategory::where('type','shop')->whereNotNull('parent_id')->where('abbr','like','%'.request('name').'%')->get();
+            $abbrCategory = AbbrCategory::where('type','shop')->whereNotNull('parent_id')->where('is_display',1)->where('abbr','like','%'.request('name').'%')->get();
             return $this->responseStyle('ok',200,$abbrCategory);
         }
         return $this->responseStyle('ok',200,[]);
