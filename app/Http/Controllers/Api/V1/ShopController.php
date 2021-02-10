@@ -90,7 +90,7 @@ class ShopController extends Controller
 
 
 //        $limit = $sql." LIMIT ".$start.",".$limit;
-        $limit = $sql." LIMIT ".($start-1)*$limit.",".$limit;
+        $limit = $sql." LIMIT ".($start)*$limit.",".$limit;
 
 //        $sql = $sql.'order by sort desc';
 
