@@ -16,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="89" selection-start-line="89" selection-end-line="90" />
+            <state relative-caret-position="238">
+              <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="75" selection-end-column="11" />
               <folding>
                 <element signature="e#47#81#0#PHP" expanded="true" />
               </folding>
@@ -37,18 +37,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CardCategoryController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CardCategoryController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="61" column="35" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
+            <state relative-caret-position="185">
+              <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="58" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WechatIMG1816.jpeg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/WechatIMG1816.jpeg">
-          <provider selected="true" editor-type-id="images" />
+      <file leaf-file-name="ShopCommentController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopCommentController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-42" />
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
@@ -194,8 +196,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerInformationShowController.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" />
       </list>
     </option>
   </component>
@@ -493,12 +495,12 @@
       <workItem from="1611627272489" duration="107048000" />
       <workItem from="1612319590041" duration="33350000" />
       <workItem from="1612512145844" duration="1139000" />
-      <workItem from="1612513478440" duration="47624000" />
+      <workItem from="1612513478440" duration="47686000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="507042000" />
+    <option name="totallyTimeSpent" value="507104000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -721,9 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopCommentController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/LocalCarpoolingController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -830,16 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="89" selection-start-line="89" selection-end-line="90" />
-          <folding>
-            <element signature="e#47#81#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
@@ -849,8 +838,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="61" column="35" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
+        <state relative-caret-position="185">
+          <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="58" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopCommentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-42" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="75" selection-end-column="11" />
+          <folding>
+            <element signature="e#47#81#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

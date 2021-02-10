@@ -48,15 +48,15 @@ class CardCategoryController extends Controller
 
         }
         // 附近
-        if ($lat && $lng) {
-            $sql = $sql." and
-            (acos(sin(({$lat}*3.1415)/180)
-            * sin((lat*3.1415)/180)
-            + cos(({$lat}*3.1415)/180)
-            * cos((lat*3.1415)/180)
-            * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
-            * 6370.996) <= ".Setting::where('key','radius')->value('value');
-        }
+//        if ($lat && $lng) {
+//            $sql = $sql." and
+//            (acos(sin(({$lat}*3.1415)/180)
+//            * sin((lat*3.1415)/180)
+//            + cos(({$lat}*3.1415)/180)
+//            * cos((lat*3.1415)/180)
+//            * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
+//            * 6370.996) <= ".Setting::where('key','radius')->value('value');
+//        }
 
         if ($id == 'new') {
             $sql = $sql." order by created_at,sort "."DESC";
