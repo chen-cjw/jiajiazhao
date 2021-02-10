@@ -113,9 +113,9 @@ class CardCategoryController extends Controller
         }
         $area = \request()->area;
         // 同城搜索
-//        if ($area!='') {
-//            $query = $query->where('area','like','%'.$area.'%');
-//        }
+        if ($area!='') {
+            $query = $query->where('area','like','%'.$area.'%');
+        }
         if ($id == 'new') {
             $information = $query->orderBy('sort','desc')->orderBy('created_at','desc')->paginate();
         }else {
