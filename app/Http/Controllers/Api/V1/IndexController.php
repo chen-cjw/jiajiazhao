@@ -24,8 +24,8 @@ class IndexController extends Controller
         $notice = Notice::where('is_display',1)->orderBy('sort','desc')->get();
 
         // 商户
-        $shopOne = AbbrCategory::where('parent_id',null)->where('local','one')->orderBy('sort','desc')->take(15)->get();
-        $shopTwo = AbbrCategory::where('parent_id',null)->where('local','two')->orderBy('sort','desc')->take(7)->get();
+        $shopOne = AbbrCategory::where('parent_id',null)->where('is_display',1)->where('local','one')->orderBy('sort','desc')->take(15)->get();
+        $shopTwo = AbbrCategory::where('parent_id',null)->where('is_display',1)->where('local','two')->orderBy('sort','desc')->take(7)->get();
 
         // 帖子分类
         $cardCategory = CardCategory::where('is_display',1)->orderBy('sort','desc')->get();
