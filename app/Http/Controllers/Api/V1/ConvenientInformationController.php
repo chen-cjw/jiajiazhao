@@ -47,7 +47,7 @@ class ConvenientInformationController extends Controller
         $advertisingSpace = AdvertisingSpace::orderBy('sort','desc')->where('is_display',1)->take(3)->get();
 
         // 帖子分类
-        $cardCategory = CardCategory::orderBy('sort','desc')->get();
+        $cardCategory = CardCategory::orderBy('sort','desc')->where('is_display',1)->get();
 //        $cardIdDefault = \request('card_id')?:1;
 
 //        $convenientInformation = ConvenientInformation::where('card_id',$cardIdDefault)->paginate();
