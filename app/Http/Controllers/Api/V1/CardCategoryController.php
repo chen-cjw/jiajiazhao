@@ -59,9 +59,9 @@ class CardCategoryController extends Controller
         }
 
         if ($id == 'new') {
-            $sql = $sql." order by created_at "."DESC";
+            $sql = $sql." order by sort,created_at "."DESC";
         }else {
-            $sql = $sql." order by sort "."DESC";
+            $sql = $sql." order by sort,created_at "."DESC";
         }
         $total = count(DB::select($sql));
 
