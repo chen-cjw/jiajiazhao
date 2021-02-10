@@ -87,11 +87,10 @@ class ShopController extends Controller
             $sql = $sql." order by sort,created_at "."DESC";
         }
 //        $sql = $sql." and order by created_at "."DESC";
-
+        $total = count(DB::select($sql));
 //        return \request('page');
 //        $limit = $sql." LIMIT ".$start.",".$limit;
         $limit = $sql." LIMIT ".(\request('page'))*$limit.",".$limit;
-        return $limit;
 //        $sql = $sql.'order by sort desc';
 
         $query = DB::select($limit);
@@ -112,7 +111,7 @@ class ShopController extends Controller
         }
 
         $shop['data'] = $query;
-        $shop['total'] = 100;
+        $shop['total'] = $total;
         $shop['image'] = AbbrCategory::where('id',$one_abbr)->value('image');
         return $this->responseStyle('ok',200,$shop);
     }

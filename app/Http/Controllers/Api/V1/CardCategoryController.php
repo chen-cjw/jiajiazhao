@@ -63,6 +63,7 @@ class CardCategoryController extends Controller
         }else {
             $sql = $sql." order by sort "."DESC";
         }
+        $total = count(DB::select($sql));
 
         $limit = $sql." LIMIT ".($start-1)*$limit.",".$limit;
         $information = DB::select($limit);
@@ -80,14 +81,14 @@ class CardCategoryController extends Controller
 
         $banner = BannerCardCategory::where('is_display',1)->orderBy('sort','desc')->get();
         // 统计天数
-        $query = ConvenientInformation::query()->whereNotNull('paid_at')->where('is_display',1);
-        if($id != 'new') {
-            $query = $query->where('card_id',$id);
-        }
-        if($title = request('title')) {
-            $query->where('title','like','%'.$title.'%');
-        }
-        $total = $query->count();
+//        $query = ConvenientInformation::query()->whereNotNull('paid_at')->where('is_display',1);
+//        if($id != 'new') {
+//            $query = $query->where('card_id',$id);
+//        }
+//        if($title = request('title')) {
+//            $query->where('title','like','%'.$title.'%');
+//        }
+//        $total = $query->count();
 
         return $this->responseStyle('ok',200,[
                 'information' => [
