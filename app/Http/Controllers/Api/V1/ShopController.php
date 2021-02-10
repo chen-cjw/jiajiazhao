@@ -88,10 +88,10 @@ class ShopController extends Controller
         }
 //        $sql = $sql." and order by created_at "."DESC";
 
-
+//        return \request('page');
 //        $limit = $sql." LIMIT ".$start.",".$limit;
-        $limit = $sql." LIMIT ".($start-1)*$limit.",".$limit;
-
+        $limit = $sql." LIMIT ".(\request('page'))*$limit.",".$limit;
+        return $limit;
 //        $sql = $sql.'order by sort desc';
 
         $query = DB::select($limit);
