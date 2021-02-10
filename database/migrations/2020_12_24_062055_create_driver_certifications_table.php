@@ -23,6 +23,7 @@ class CreateDriverCertificationsTable extends Migration
 
             $table->unsignedBigInteger('user_id')->comment('认证人');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('area')->nullable()->comment('自动获取所在地区');// todo 这里是必须有值的
 
             $table->timestamps();
         });

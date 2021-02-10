@@ -43,7 +43,7 @@ class ShopController extends Controller
         $limit = 15;
         $sql = "select * from shops ";
         $dueDate = date('Y-m-d H:i:s');
-
+        $area = \request()->area;
         // 一级
         if($one_abbr) {
             $sql = $sql."where (one_abbr0={$one_abbr} OR one_abbr1={$one_abbr} OR one_abbr2={$one_abbr})";
@@ -56,6 +56,10 @@ class ShopController extends Controller
             }else {
                 $sql = $sql."and name LIKE '%".$name."%'";
             }
+        }
+        // 同城搜索
+        if ($area!='') {
+            $sql = $sql."and area LIKE '%".$area."%'";
         }
         // 时间搜索
         $sql = $sql."and  due_date>='{$dueDate}'" ;

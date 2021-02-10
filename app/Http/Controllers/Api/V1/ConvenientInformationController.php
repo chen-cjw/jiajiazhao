@@ -64,54 +64,60 @@ class ConvenientInformationController extends Controller
     // 搜索
     public function searchInformation(Request $request)
     {
-        $title = \request()->title;
-        $lat = \request('lat');
-        $lng = \request('lng');
-        $sql = "select * from convenient_information ";
-        $start = \request()->page ?: 1;
-        $limit = 16;
-        $sql = $sql."where created_at > DATE_SUB(CURDATE(), INTERVAL ".Setting::where('key','timeSearch')->value('value')." MONTH)";
-
-        $sql = $sql." and paid_at is not null";
-        $sql = $sql." and is_display = 1";
-        // 搜索
-        if($title!='') {
-            $sql = $sql." and title LIKE '%".$title."%'";
-        }
-        // 附近
-        if ($lat && $lng) {
-            $sql = $sql." and
-            (acos(sin(({$lat}*3.1415)/180)
-            * sin((lat*3.1415)/180)
-            + cos(({$lat}*3.1415)/180)
-            * cos((lat*3.1415)/180)
-            * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
-            * 6370.996) <= ".Setting::where('key','radius')->value('value');
-        }
-        $sql = $sql."created_at > DATE_SUB(CURDATE(), INTERVAL 3 MONTH)";
-
-        $sql = $sql." order by sort,created_at "."DESC";
-
-        $limit = $sql." LIMIT ".($start-1)*$limit.",".$limit;
-        $information = DB::select($limit);
-
-        foreach ($information as $item=>$value) {
-            $lat1 = $value->lat;
-            $lng1 = $value->lng;
-            $range = $this->getDistance($lat,$lng,$lat1,$lng1);
-            $information[$item]->range=$range; //几公里
-            $information[$item]->user_id=User::where('id',$value->user_id)->first();
-            $information[$item]->card_id=CardCategory::where('id',$value->card_id)->first();
-            $information[$item]->comment_count=Comment::where('information_id',$value->id)->count();
-            $information[$item]->images=$this->getImages($value->images);
-        }
-
-        return $this->responseStyle('ok',200,[
-            'information' => ['data'=>$information],
-        ]);
+//        $title = \request()->title;
+//        $lat = \request('lat');
+//        $lng = \request('lng');
+//        $sql = "select * from convenient_information ";
+//        $start = \request()->page ?: 1;
+//        $limit = 16;
+//        $area = \request()->area;
+//
+//        $sql = $sql."where created_at > DATE_SUB(CURDATE(), INTERVAL ".Setting::where('key','timeSearch')->value('value')." MONTH)";
+//
+//        $sql = $sql." and paid_at is not null";
+//        $sql = $sql." and is_display = 1";
+//        // 搜索
+//        if($title!='') {
+//            $sql = $sql." and title LIKE '%".$title."%'";
+//        }
+//        // 同城搜索
+//        if ($area!='') {
+//            $sql = $sql."and location LIKE '%".$area."%'";
+//        }
+//        // 附近
+//        if ($lat && $lng) {
+//            $sql = $sql." and
+//            (acos(sin(({$lat}*3.1415)/180)
+//            * sin((lat*3.1415)/180)
+//            + cos(({$lat}*3.1415)/180)
+//            * cos((lat*3.1415)/180)
+//            * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
+//            * 6370.996) <= ".Setting::where('key','radius')->value('value');
+//        }
+//        $sql = $sql."created_at > DATE_SUB(CURDATE(), INTERVAL 3 MONTH)";
+//
+//        $sql = $sql." order by sort,created_at "."DESC";
+//
+//        $limit = $sql." LIMIT ".($start-1)*$limit.",".$limit;
+//        $information = DB::select($limit);
+//
+//        foreach ($information as $item=>$value) {
+//            $lat1 = $value->lat;
+//            $lng1 = $value->lng;
+//            $range = $this->getDistance($lat,$lng,$lat1,$lng1);
+//            $information[$item]->range=$range; //几公里
+//            $information[$item]->user_id=User::where('id',$value->user_id)->first();
+//            $information[$item]->card_id=CardCategory::where('id',$value->card_id)->first();
+//            $information[$item]->comment_count=Comment::where('information_id',$value->id)->count();
+//            $information[$item]->images=$this->getImages($value->images);
+//        }
+//
+//        return $this->responseStyle('ok',200,[
+//            'information' => ['data'=>$information],
+//        ]);
 
         $echostr = $request->title;
-        $res = ConvenientInformation::whereNotNull('paid_at')->where('is_display',1)->where('title','like','%'.$echostr.'%')->orderBy('sort','desc')->paginate();
+        $res = ConvenientInformation::whereNotNull('paid_at')->where('created_at',"DATE_SUB(CURDATE(), INTERVAL ".Setting::where('key','timeSearch')->value('value')." MONTH)")->where('is_display',1)->where('title','like','%'.$echostr.'%')->orderBy('sort','desc')->paginate();
         return $this->responseStyle('ok',200,$res);
     }
     // 发布
@@ -119,7 +125,7 @@ class ConvenientInformationController extends Controller
     {
         DB::beginTransaction();
         try {
-            $data = $request->only(['card_id', 'title', 'content', 'location', 'lng', 'lat']);
+            $data = $request->only(['card_id', 'title', 'content', 'location', 'lng', 'lat','area']);
             $data['user_id'] = auth()->id();
             // 发帖的时候，有一部分的钱是到了邀请人哪里去了
 
