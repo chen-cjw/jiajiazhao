@@ -48,6 +48,9 @@ class ConvenientInformationController extends Controller
 
         // 帖子分类
         $cardCategory = CardCategory::orderBy('sort','desc')->where('is_display',1)->get();
+        foreach ($cardCategory as $k=>$v) {
+            $cardCategory[$k]['is_value']=ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;
+        }
 //        $cardIdDefault = \request('card_id')?:1;
 
 //        $convenientInformation = ConvenientInformation::where('card_id',$cardIdDefault)->paginate();
