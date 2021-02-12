@@ -38,6 +38,10 @@ class IndexController extends Controller
         }
         // 帖子分类
         $cardCategory = CardCategory::where('is_display',1)->orderBy('sort','desc')->get();
+
+        foreach ($cardCategory as $k=>$v) {
+            $cardCategory[$k]['is_value']=ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;
+        }
         return [
             'code'=>200,
             'msg'=>'ok',
