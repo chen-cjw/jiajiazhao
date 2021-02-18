@@ -11,6 +11,7 @@ use App\Model\ConvenientInformation;
 use App\Model\Notice;
 use App\Model\Shop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class IndexController extends Controller
 {
@@ -32,6 +33,9 @@ class IndexController extends Controller
         foreach ($shopTwo as $k=>$v) {
             if($v->type != 'other') {
                 $shopTwo[$k]['is_value'] = Shop::where('one_abbr0',$v->id)->first() ? 1 : 0;
+                Log::info($v->id.'/is_value'.$shopTwo[$k]['is_value']);
+                Log::info(Shop::where('one_abbr0',$v->id)->first());
+
             }else {
                 $shopTwo[$k]['is_value'] = 1;
             }
