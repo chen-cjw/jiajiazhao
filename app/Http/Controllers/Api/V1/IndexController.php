@@ -32,7 +32,7 @@ class IndexController extends Controller
         }
         foreach ($shopTwo as $k=>$v) {
             if($v->type != 'other') {
-                $shopTwo[$k]['is_value'] = Shop::where('one_abbr0',$v->id)->first() ? 1 : 0;
+                $shopTwo[$k]['is_value'] = 1;//Shop::where('one_abbr0',$v->id)->first() ? 1 : 0;
                // Log::info($v->id.'/is_value'.$shopTwo[$k]['is_value']);
                // Log::info(Shop::where('one_abbr0',$v->id)->first());
 
