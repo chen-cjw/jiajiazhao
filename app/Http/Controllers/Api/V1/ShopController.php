@@ -88,11 +88,12 @@ class ShopController extends Controller
             $sql = $sql." order by view ".$view;
         }else if ($comment_count) { // 评论
             $sql = $sql." order by comment_count ".$comment_count;
-        }else if ($lat) {
-            $sql = $sql." order by lat ".$lat;
         }else{
             $sql = $sql." order by sort,created_at "."DESC";
         }
+//        if ($lat) {
+//            $sql = $sql." order by lat ".$lat;
+//        }else
 //        $sql = $sql." and order by created_at "."DESC";
         $total = count(DB::select($sql));
 //        return \request('page');
