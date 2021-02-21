@@ -33,10 +33,12 @@ class LocalCarpoolingController extends Controller
             $query = $query->where('end',$end);
 
         }
-//        if(request('area')) {
-//            $query = $query->where('area','like','%'.request('area').'%');
-//
-//        }
+        if (config('app.city') == 1) {
+            if (request('area')) {
+                $query = $query->where('area', 'like', '%' . request('area') . '%');
+
+            }
+        }
         $query = $query->where('paid_at','!=',null)->paginate();
         return $this->responseStyle('ok',200,$query);
         return $this->response->paginator($local,new LocalCarpoolingTransformer());
