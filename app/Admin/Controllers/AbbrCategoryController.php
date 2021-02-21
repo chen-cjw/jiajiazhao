@@ -74,6 +74,17 @@ class AbbrCategoryController extends AdminController
 //            }, '用户名');
 
         });
+        $grid->actions(function ($actions) {
+
+            // 去掉删除
+//            $actions->disableDelete();
+
+            // 去掉编辑
+//            $actions->disableEdit();
+
+            // 去掉查看
+            $actions->disableView();
+        });
         return $grid;
     }
 
