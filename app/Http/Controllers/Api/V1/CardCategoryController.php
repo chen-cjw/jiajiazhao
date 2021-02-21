@@ -113,9 +113,12 @@ class CardCategoryController extends Controller
         }
         $area = \request()->area;
         // 同城搜索
-//        if ($area!='') {
-//            $query = $query->where('area','like','%'.$area.'%');
-//        }
+        //         $fontPath = config('app.fontPath');//'/System/Library/Fonts/Hiragino Sans GB.ttc';
+        if (config('app.city') == 1) {
+            if ($area != '') {
+                $query = $query->where('area', 'like', '%' . $area . '%');
+            }
+        }
         if ($id == 'new') {
             $information = $query->orderBy('sort','desc')->orderBy('created_at','desc')->paginate();
         }else {

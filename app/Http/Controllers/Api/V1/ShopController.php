@@ -70,15 +70,18 @@ class ShopController extends Controller
             $sql = $sql." and (two_abbr0={$two_abbr} OR two_abbr1={$two_abbr} OR two_abbr2={$two_abbr})";
         }
         // 附近
-//        if ($lat && $lng) {
-//            $sql = $sql."and
-//            (acos(sin(({$lat}*3.1415)/180)
-//            * sin((lat*3.1415)/180)
-//            + cos(({$lat}*3.1415)/180)
-//            * cos((lat*3.1415)/180)
-//            * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
-//            * 6370.996) <= ".Setting::where('key','radius')->value('value');
-//        }
+        if (config('app.city') == 1) {
+
+            if ($lat && $lng) {
+                $sql = $sql . "and
+            (acos(sin(({$lat}*3.1415)/180)
+            * sin((lat*3.1415)/180)
+            + cos(({$lat}*3.1415)/180)
+            * cos((lat*3.1415)/180)
+            * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
+            * 6370.996) <= " . Setting::where('key', 'radius')->value('value');
+            }
+        }
 //        $sql = $sql." and paid_at is not null";
         $sql = $sql." and payment_no is not null";
         $sql = $sql." and is_accept = 1";
