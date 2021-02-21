@@ -44,6 +44,8 @@ class AbbrCategoryController extends AdminController
         });
         $grid->column('type', __('Type'))->using(['shop' => '商铺', 'other' => '跳转']);
         $grid->column('local', __('Local'))->using(['one' => '第一部分', 'two' => '第二部分']);
+        $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
+
         $grid->column('add_two_category', __('添加'))->display(function () {
             if($this->parent_id == null) {
                 return "<a href='/admin/abbr_category/create?parent_id={$this->id}' target='_blank'>添加子集</a>";
@@ -120,7 +122,7 @@ class AbbrCategoryController extends AdminController
         }else {
 
         }
-
+        $form->switch('is_display', __('Is display'))->default(1);
 
         $form->footer(function ($footer) {
 
