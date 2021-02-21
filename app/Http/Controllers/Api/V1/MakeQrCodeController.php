@@ -143,7 +143,7 @@ class MakeQrCodeController extends Controller
         $text1[] = $shopArea;
         $text1[] = array(
             'text'=>$shop->name,
-            'left'=>500,
+            'left'=>400,
             'top'=>350,
             'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
             'fontSize'=>37,             //字号
