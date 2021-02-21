@@ -71,7 +71,8 @@ class ShopController extends Controller
         }
         // 附近
         if (config('app.city') == 1) {
-
+            Log::info($lat);
+            Log::info($lng);
             if ($lat && $lng) {
                 $sql = $sql . "and
             (acos(sin(({$lat}*3.1415)/180)
