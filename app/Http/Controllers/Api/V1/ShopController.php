@@ -38,6 +38,7 @@ class ShopController extends Controller
         $one_abbr = \request()->one_abbr;
         $two_abbr = \request()->two_abbr;
         $view = \request()->view;
+        $lat = \request()->lat;
         $comment_count = \request()->comment_count;
         $start = \request()->page ?: 1;
         $limit = 15;
@@ -87,7 +88,9 @@ class ShopController extends Controller
             $sql = $sql." order by view ".$view;
         }else if ($comment_count) { // 评论
             $sql = $sql." order by comment_count ".$comment_count;
-        }else {
+        }else if ($lat) {
+            $sql = $sql." order by comment_count ".$lat;
+        }else{
             $sql = $sql." order by sort,created_at "."DESC";
         }
 //        $sql = $sql." and order by created_at "."DESC";
