@@ -146,7 +146,7 @@ class MakeQrCodeController extends Controller
             'left'=>400,
             'top'=>350,
             'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
-            'fontSize'=>37,             //字号
+            'fontSize'=>60,             //字号
             'fontColor'=>'0,0,0',       //字体颜色
             'angle'=>0,
         );
