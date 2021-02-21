@@ -71,8 +71,7 @@ class ShopController extends Controller
         }
         // 附近
         if (config('app.city') == 1) {
-            Log::info($lat);
-            Log::info($lng);
+
             if ($lat && $lng) {
                 $sql = $sql . "and
             (acos(sin(({$lat}*3.1415)/180)
@@ -80,7 +79,7 @@ class ShopController extends Controller
             + cos(({$lat}*3.1415)/180)
             * cos((lat*3.1415)/180)
             * cos(({$lng}*3.1415)/180 - (lng*3.1415)/180))
-            * 6370.996) <= 5";// . Setting::where('key', 'radius')->value('value');
+            * 6370.996) <= " . Setting::where('key', 'radius')->value('value');
             }
         }
 //        $sql = $sql." and paid_at is not null";
