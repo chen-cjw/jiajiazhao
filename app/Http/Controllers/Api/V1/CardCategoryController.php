@@ -116,7 +116,7 @@ class CardCategoryController extends Controller
         //         $fontPath = config('app.fontPath');//'/System/Library/Fonts/Hiragino Sans GB.ttc';
         if (config('app.city') == 1) {
             if ($area != '') {
-                $query = $query->where('area', 'like', '%' . $area . '%');
+                $query = $query->where('location', 'like', '%' . $area . '%');
             }
         }
         if ($id == 'new') {

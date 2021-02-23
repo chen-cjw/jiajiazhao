@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,7 +37,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="254">
@@ -47,11 +46,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="33">
+              <caret line="51" column="46" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="155" column="62" selection-start-line="155" selection-start-column="55" selection-end-line="155" selection-end-column="62" />
+            <state relative-caret-position="273">
+              <caret line="205" column="99" selection-start-line="205" selection-start-column="84" selection-end-line="205" selection-end-column="99" />
             </state>
           </provider>
         </entry>
@@ -66,15 +74,6 @@
         </entry>
       </file>
       <file leaf-file-name="AbbrCategoryController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AbbrCategoryController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbbrCategoryController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="424">
@@ -83,10 +82,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ShopController.php">
+      <file leaf-file-name="CardCategoryController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-83" />
+            <state relative-caret-position="239">
+              <caret line="118" column="48" selection-start-line="118" selection-start-column="48" selection-end-line="118" selection-end-column="48" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -115,13 +116,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>banner_information_show</find>
       <find>his</find>
       <find>history</find>
       <find>BannerInformationShowController</find>
       <find>hist</find>
       <find>CardCategoryController</find>
-      <find>card_category</find>
       <find>浏览</find>
       <find>is_display</find>
       <find>5</find>
@@ -145,6 +144,8 @@
       <find>refUser</find>
       <find>ref_user</find>
       <find>order</find>
+      <find>user_card</find>
+      <find>card_category</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -198,7 +199,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/IndexController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerShopShowController.php" />
         <option value="$PROJECT_DIR$/app/Admin/routes.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/LocalCarpoolingController.php" />
@@ -207,6 +207,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" />
       </list>
     </option>
   </component>
@@ -483,12 +484,12 @@
       <workItem from="1612319590041" duration="33350000" />
       <workItem from="1612512145844" duration="1139000" />
       <workItem from="1612513478440" duration="54441000" />
-      <workItem from="1613143753305" duration="13926000" />
+      <workItem from="1613143753305" duration="14314000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="527785000" />
+    <option name="totallyTimeSpent" value="528173000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -738,13 +739,6 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopCommentController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-328">
-          <caret line="51" column="46" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerInformationShowController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -775,13 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="21" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
-          <caret line="116" selection-start-line="116" selection-end-line="117" />
         </state>
       </provider>
     </entry>
@@ -842,13 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="155" column="62" selection-start-line="155" selection-start-column="55" selection-end-line="155" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="956">
@@ -863,6 +843,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
           <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="51" column="46" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="205" column="99" selection-start-line="205" selection-start-column="84" selection-end-line="205" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="118" column="48" selection-start-line="118" selection-start-column="48" selection-end-line="118" selection-end-column="48" />
         </state>
       </provider>
     </entry>
