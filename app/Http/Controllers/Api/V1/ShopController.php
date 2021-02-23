@@ -92,7 +92,7 @@ class ShopController extends Controller
         }else if ($comment_count) { // 评论
             $sql = $sql." order by comment_count ".$comment_count;
         }else{
-            $sql = $sql." order by sort,created_at ";
+            $sql = $sql." order by sort,created_at desc";
         }
 //        if ($lat) {
 //            $sql = $sql." order by lat ".$lat;
