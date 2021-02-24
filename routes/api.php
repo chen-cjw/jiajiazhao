@@ -103,7 +103,7 @@ $api->version('v1', [
 
         // ShopCommentController
     // 必须登陆以后才有的操作&&手机要授权以后
-    $api->group(['middleware' => ['auth:api']], function ($api) {
+    $api->group(['middleware' => ['auth:api','user_display']], function ($api) {
 
 
         // 获取手机号
