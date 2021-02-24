@@ -323,11 +323,23 @@ class ShopController extends Controller
 //        if (!isset($request->logo['with_iD_card'])) {
 //            return $this->responseStyle('持身份证照必传',422,[]);
 //        }
+
+
         // 编辑
         $res = Shop::where('id',$id)->where('user_id',auth('api')->id())->first();
         if(!$res) {
             return $this->responseStyle('非法修改!',200,[]);
         }
+//        $data['logo']['store_logo']=$res->logo['store_logo'];
+//        $data['logo']['with_iD_card']=$res->logo['with_iD_card'];
+//        $data['logo']['business_license']=$request->logo['business_license'];
+//        $data['logo']['professional_qualification']=$request->logo['professional_qualification'];
+//
+//        $data['logo'] = json_encode($data['logo']);
+//        return $request->logo;
+//        return $data;
+
+
         DB::beginTransaction();
         try {
             $data = $request->only([
@@ -363,7 +375,13 @@ class ShopController extends Controller
                 $data['images'] = json_encode($request->images);
             }
 //            $data['top_amount'] = $top_fee;// $request->shop_top_fee == 0 ? Setting::where('key', 'shop_top_fee_two')->value('value') : Setting::where('key', 'shop_top_fee')->value('value');
-//            $data['logo'] = json_encode($request->logo);
+            $data['logo']['store_logo']=$res->logo['store_logo'];
+            $data['logo']['with_iD_card']=$res->logo['with_iD_card'];
+            $data['logo']['business_license']=$request->logo['business_license'];
+            $data['logo']['professional_qualification']=$request->logo['professional_qualification'];
+
+            $data['logo'] = json_encode($data['logo']);
+
             $data['user_id'] = auth('api')->id();
             if ($request->shop_top_fee != 0 || $request->shop_top_fee_two != 0) {
                 $shop = Shop::orderBy('sort', 'desc')->first();

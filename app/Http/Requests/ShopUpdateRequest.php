@@ -40,7 +40,7 @@ class ShopUpdateRequest extends FormRequest
 //            'detailed_address' =>'required',
             'contact_phone' =>'required',
 //            'wechat' =>'required',
-//            'logo' =>'required',
+            'logo' =>'required',
 //            'service_price' =>'required',
 //            'merchant_introduction' =>'required',
             'lng' =>'required',
