@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Model\AbbrCategory;
 
 class ShopUpdateRequest extends FormRequest
 {
