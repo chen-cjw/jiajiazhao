@@ -25,8 +25,8 @@ class IndexController extends Controller
         $notice = Notice::where('is_display',1)->orderBy('sort','desc')->get();
 
         // 商户
-        $shopOne = AbbrCategory::where('parent_id',null)->where('is_display',1)->where('local','one')->orderBy('sort','desc')->take(15)->get();
-        $shopTwo = AbbrCategory::where('parent_id',null)->where('is_display',1)->where('local','two')->orderBy('sort','desc')->take(7)->get();
+        $shopOne = AbbrCategory::where('parent_id',null)->where('is_display',1)->where('local','one')->orderBy('sort','desc')->get();//->take(15)
+        $shopTwo = AbbrCategory::where('parent_id',null)->where('is_display',1)->where('local','two')->orderBy('sort','desc')->get();//->take(7)
         foreach ($shopOne as $k=>$v) {
             $shopOne[$k]['is_value']=1;//Shop::where('one_abbr0',$v->id)->orWhere('one_abbr1',$v->id)->orWhere('one_abbr2',$v->id)->first() ? 1 : 0;
         }
