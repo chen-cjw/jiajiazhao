@@ -363,7 +363,7 @@ class ShopController extends Controller
                 $data['images'] = json_encode($request->images);
             }
 //            $data['top_amount'] = $top_fee;// $request->shop_top_fee == 0 ? Setting::where('key', 'shop_top_fee_two')->value('value') : Setting::where('key', 'shop_top_fee')->value('value');
-            $data['logo'] = json_encode($request->logo);
+//            $data['logo'] = json_encode($request->logo);
             $data['user_id'] = auth('api')->id();
             if ($request->shop_top_fee != 0 || $request->shop_top_fee_two != 0) {
                 $shop = Shop::orderBy('sort', 'desc')->first();
