@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\ShopRequest;
+use App\Http\Requests\ShopUpdateRequest;
 use App\Model\AbbrCategory;
 use App\Model\History;
 use App\Model\Setting;
@@ -313,16 +314,15 @@ class ShopController extends Controller
     }
 
     // 编辑
-
-    public function update(ShopRequest $request,$id)
+    public function update(ShopUpdateRequest $request,$id)
     {
         //  商户认证必填
-        if (!isset($request->logo['store_logo'])) {
-            return $this->responseStyle('门店照/Logo必传',422,[]);
-        }
-        if (!isset($request->logo['with_iD_card'])) {
-            return $this->responseStyle('持身份证照必传',422,[]);
-        }
+//        if (!isset($request->logo['store_logo'])) {
+//            return $this->responseStyle('门店照/Logo必传',422,[]);
+//        }
+//        if (!isset($request->logo['with_iD_card'])) {
+//            return $this->responseStyle('持身份证照必传',422,[]);
+//        }
         // 编辑
         $res = Shop::where('id',$id)->where('user_id',auth('api')->id())->first();
         if(!$res) {
@@ -333,7 +333,7 @@ class ShopController extends Controller
             $data = $request->only([
                 'one_abbr0', 'one_abbr1', 'one_abbr2',
                 'two_abbr0', 'two_abbr1', 'two_abbr2', 'name', 'area', 'detailed_address', 'contact_phone', 'wechat',
-                'logo', 'service_price', 'merchant_introduction', 'is_top', 'lng', 'lat'
+                'service_price', 'merchant_introduction', 'is_top', 'lng', 'lat'
             ]);
             for ($i = 0; $i < count($request->one_abbr); $i++) {
                 $data['one_abbr' . $i] = $request->one_abbr[$i];
