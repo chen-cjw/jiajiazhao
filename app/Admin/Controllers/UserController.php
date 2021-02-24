@@ -43,6 +43,7 @@ class UserController extends AdminController
         $grid->column('balance', __('Balance'))->sortable();
         $grid->column('city_partner', __('City partner'))->using([1 => '是', 0 => '否']);
         $grid->column('ref_code', __('Ref code'));
+        $grid->column('display', __('是否禁用'))->using([1 => '是', 0 => '否']);
 //        $grid->column('code', __('Code'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -56,7 +57,7 @@ class UserController extends AdminController
 
         $grid->disableCreateButton();
         $grid->disableExport();
-        $grid->disableActions();
+//        $grid->disableActions();
 
         return $grid;
     }
@@ -99,17 +100,18 @@ class UserController extends AdminController
     {
         $form = new Form(new User());
 
-        $form->text('ml_openid', __('Ml openid'));
+//        $form->text('ml_openid', __('Ml openid'));
         $form->mobile('phone', __('Phone'));
-        $form->image('avatar', __('Avatar'));
+//        $form->image('avatar', __('Avatar'));
         $form->text('nickname', __('Nickname'));
-        $form->switch('sex', __('Sex'))->default(1);
-        $form->number('parent_id', __('Parent id'));
-        $form->switch('is_member', __('Is member'))->default(1);
-        $form->switch('is_certification', __('Is certification'));
-        $form->decimal('balance', __('Balance'))->default(0.000);
-        $form->switch('city_partner', __('City partner'));
-        $form->text('ref_code', __('Ref code'));
+//        $form->switch('sex', __('Sex'))->default(1);
+//        $form->number('parent_id', __('Parent id'));
+//        $form->switch('is_member', __('Is member'))->default(1);
+//        $form->switch('is_certification', __('Is certification'));
+//        $form->decimal('balance', __('Balance'))->default(0.000);
+//        $form->switch('city_partner', __('City partner'));
+//        $form->text('ref_code', __('Ref code'));
+        $form->switch('display', __('是否禁用'));
 //        $form->text('code', __('Code'));
         $form->footer(function ($footer) {
             // 去掉`重置`按钮
