@@ -24,6 +24,9 @@ $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api\V1',
     'middleware' => ['serializer:array']
 ], function ($api) {
+    // 提现
+    $api->post('pay','PayController@payment')->name('api.pay.payment');
+
     $api->post('make_hai_bao','MakeQrCodeController@makeHaiBao')->name('api.auth.makeHaiBao');
     $api->get('auth','AuthController@index')->name('api.auth.index');
     $api->post('test','AuthController@createTestUser')->name('api.auth.createTestUser');
