@@ -29,17 +29,18 @@ class IndexController extends Controller
         $shopTwo = AbbrCategory::where('parent_id',null)->where('is_display',1)->where('local','two')->orderBy('sort','desc')->get();//->take(7)
         foreach ($shopOne as $k=>$v) {
             if (config('app.city') == 1) {
-                $shopOne[$k]['is_value'] = Shop::where('one_abbr0',$v->id)->orWhere('one_abbr1',$v->id)->orWhere('one_abbr2',$v->id)->first() ? 1 : 0;
-            }else {
                 $shopOne[$k]['is_value'] = 1;
+
+            }else {
+                $shopOne[$k]['is_value'] = Shop::where('one_abbr0',$v->id)->orWhere('one_abbr1',$v->id)->orWhere('one_abbr2',$v->id)->first() ? 1 : 0;
             }
         }
         foreach ($shopTwo as $k=>$v) {
             if($v->type != 'other') {
                 if (config('app.city') == 1) {
-                    $shopTwo[$k]['is_value'] = Shop::where('one_abbr0',$v->id)->first() ? 1 : 0;
-                }else {
                     $shopTwo[$k]['is_value'] = 1;//Shop::where('one_abbr0',$v->id)->first() ? 1 : 0;
+                }else {
+                    $shopTwo[$k]['is_value'] = Shop::where('one_abbr0',$v->id)->first() ? 1 : 0;
                 }
                // Log::info($v->id.'/is_value'.$shopTwo[$k]['is_value']);
                // Log::info(Shop::where('one_abbr0',$v->id)->first());
@@ -53,9 +54,9 @@ class IndexController extends Controller
 
         foreach ($cardCategory as $k=>$v) {
             if (config('app.city') == 1) {
-                $cardCategory[$k]['is_value'] = ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;
-            }else {
                 $cardCategory[$k]['is_value'] = 1;//ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;
+            }else {
+                $cardCategory[$k]['is_value'] = ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;
             }
         }
         return [

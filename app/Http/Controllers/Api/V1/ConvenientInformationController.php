@@ -50,9 +50,9 @@ class ConvenientInformationController extends Controller
         $cardCategory = CardCategory::orderBy('sort','desc')->where('is_display',1)->get();
         foreach ($cardCategory as $k=>$v) {
             if (config('app.city') == 1) {
-                $cardCategory[$k]['is_value'] = ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;
-            }else {
                 $cardCategory[$k]['is_value'] = 1;//ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;
+            }else {
+                $cardCategory[$k]['is_value'] = ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;
             }
         }
 //        $cardIdDefault = \request('card_id')?:1;
