@@ -76,7 +76,7 @@ class AuthController extends Controller
 //                if($user->nickname) {
                 $token = \Auth::guard('api')->fromUser($user);
 
-                if($user->phone) {
+                if($user->phone || $user->nickname) {
                     Log::info(2);
 
                     return $this->response->array([
