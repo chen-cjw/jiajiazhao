@@ -19,4 +19,14 @@ class CardCategory extends Model
         }
         return \Storage::disk('public')->url($image);
     }
+
+    public function getIsValueAttribute()
+    {
+        if (config('app.city') == 1) {
+            return 1;
+        }else {
+            return ConvenientInformation::where('card_id',$this->attributes['id'])->first() ? 1 : 0;
+        }
+    }
+    protected $appends = ['is_value'];
 }
