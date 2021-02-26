@@ -48,7 +48,7 @@ class CarpoolingController extends AdminController
         $show = new Show(Carpooling::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('content', __('Content'));
+        $show->field('content', __('Content'))->unescape();
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
