@@ -16,7 +16,7 @@ class ConvenientInformationHtml extends Model
 
     public function getContentAttribute()
     {
-        return strip_tags($this->content);
+        return strip_tags($this->attributes['content']);
     }
     public function comments()
     {
