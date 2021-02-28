@@ -16,6 +16,7 @@ class ConvenientInformationHtml extends Model
 
     public function getContentAttribute()
     {
+        return preg_replace("/(\s|\&nbsp\;|　|\xc2\xa0)/", " ", strip_tags($this->attributes['content']));
         return strip_tags($this->attributes['content']);
     }
     public function comments()
