@@ -7,6 +7,7 @@ use App\Model\BannerCardCategory;
 use App\Model\CardCategory;
 use App\Model\Comment;
 use App\Model\ConvenientInformation;
+use App\Model\ConvenientInformationHtml;
 use App\Model\Setting;
 use App\Transformers\CardCategoryTransformer;
 use App\User;
@@ -104,7 +105,7 @@ class CardCategoryController extends Controller
 //                'banner' => $banner
 //        ]);
 
-        $query = ConvenientInformation::query()->whereNotNull('paid_at')->where('is_display',1);
+        $query = ConvenientInformationHtml::query()->whereNotNull('paid_at')->where('is_display',1);
         if($id != 'new') {
             $query = $query->where('card_id',$id);
         }
