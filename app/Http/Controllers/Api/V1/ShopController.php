@@ -43,7 +43,10 @@ class ShopController extends Controller
         $comment_count = \request()->comment_count;
         $start = \request()->page ?: 1;
         $limit = 15;
-        $sql = "select *, (lat * 1000000 ) AS subtotal  from shops ";//,int (lat * 1000000 ) AS subtotal
+        $sql = "select *, (lat * 1000000 ) AS subtotal 
+,ACOS(SIN(( $lat * 3.1415) / 180 ) *SIN((lat * 3.1415) / 180 ) +COS(( $lat* 3.1415) / 180 ) * COS((lat * 3.1415) / 180 ) *COS(( $lng* 3.1415) / 180 - (lng * 3.1415) / 180 ) ) * 6380*1000 AS juli
+
+ from shops ";//,int (lat * 1000000 ) AS subtotal
         $dueDate = date('Y-m-d H:i:s');
         $area = \request()->area;
         // 一级
@@ -95,7 +98,7 @@ class ShopController extends Controller
         }else if ($comment_count) { // 评论
             $sql = $sql." order by comment_count ".$comment_count;
         }else if (\request('lat_lng')) {
-            $sql = $sql." order by subtotal ".\request('lat_lng');
+            $sql = $sql." order by juli ".\request('lat_lng');
 
         }else{
             $sql = $sql." order by sort DESC,created_at DESC";//created_at
