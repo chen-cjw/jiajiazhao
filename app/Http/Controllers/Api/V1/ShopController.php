@@ -379,10 +379,12 @@ class ShopController extends Controller
             }
 //            $data['top_amount'] = $top_fee;// $request->shop_top_fee == 0 ? Setting::where('key', 'shop_top_fee_two')->value('value') : Setting::where('key', 'shop_top_fee')->value('value');
             $data['logo']['store_logo']=$res->logo['store_logo'];
-            if(!isset($res->logo['with_iD_card'])) {
-                $data['logo']['with_iD_card']=$res->logo['with_iD_card'];
+            $data['logo']['with_iD_card']=$res->logo['with_iD_card'];
+
+            if(!isset($res->logo['business_license'])) {
+                $data['logo']['business_license']=$request->logo['business_license'];
+
             }
-            $data['logo']['business_license']=$request->logo['business_license'];
             if(!isset($res->logo['professional_qualification'])) {
                 $data['logo']['professional_qualification'] = $request->logo['professional_qualification'];
             }
