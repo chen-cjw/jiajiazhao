@@ -179,7 +179,7 @@ class ShopController extends AdminController
         $form->text('detailed_address', __('Detailed address'));
         $form->text('contact_phone', __('Contact phone'));
         $form->text('wechat', __('Wechat'));
-        $form->multipleImage('logo', __('Logo'));
+        $form->multipleImage('logo', __('Logo'))->removable();
         $form->image('service_price', __('Service price'));
         $form->text('merchant_introduction', __('Merchant introduction'));
         $form->number('sort', __('Sort'));
