@@ -399,7 +399,7 @@ class ShopController extends Controller
                 }
             }
             Log::info($data);
-            return $data;
+//            return $data;
             Shop::where('id',$request->id)->update($data);
             DB::commit();
             return ['code'=>200,'msg'=>'ok','data'=>$res];
