@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/13.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/9.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" afterDir="false" />
-    </list>
+    <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -521,16 +503,15 @@
       <workItem from="1612319590041" duration="33350000" />
       <workItem from="1612512145844" duration="1139000" />
       <workItem from="1612513478440" duration="54441000" />
-      <workItem from="1613143753305" duration="43626000" />
+      <workItem from="1613143753305" duration="43832000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="557485000" />
+    <option name="totallyTimeSpent" value="557691000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50143063" side_tool="true" weight="0.3151515" />
@@ -538,9 +519,9 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.22060606" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.22060606" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22174536" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22174536" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32969698" />
