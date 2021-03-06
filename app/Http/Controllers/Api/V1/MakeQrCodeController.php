@@ -141,15 +141,140 @@ class MakeQrCodeController extends Controller
         $iFor =  ceil($textLength/$ccvv);
         $text1[] = $phone;
         $text1[] = $shopArea;
+        $strlen = $shop->name;
+        if (isset($strlen{45})) {
+            $strlen0 = mb_substr($strlen,0,8,"UTF-8");
+            $left = 220;
+            $top = 334;
+
+//            $background = config('app.url').'/16.jpg';
+            $strlen1 = mb_substr($strlen,8,8,"UTF-8");
+            $left1 = 220;
+            $top1 = 415;
+        }elseif (isset($strlen{42})) {
+            $strlen0 = mb_substr($strlen,0,7,"UTF-8");
+            $left = 260;
+            $top = 334;
+
+//            $background = config('app.url').'/15.jpg';
+            $strlen1 = mb_substr($strlen,7,8,"UTF-8");
+            $left1 = 220;
+            $top1 = 415;
+        }elseif (isset($strlen{39})) {
+            $strlen0 = mb_substr($strlen,0,7,"UTF-8");
+            $left = 260;
+            $top = 334;
+
+//            $background = config('app.url').'/14.jpg';
+            $strlen1 = mb_substr($strlen,7,7,"UTF-8");
+            $left1 = 260;
+            $top1 = 415;
+        }elseif (isset($strlen{36})) {
+            $strlen0 = mb_substr($strlen,0,6,"UTF-8");
+            $left = 300;
+            $top = 334;
+
+//            $background = config('app.url').'/13.jpg';
+            $strlen1 = mb_substr($strlen,6,7,"UTF-8");
+            $left1 = 260;
+            $top1 = 415;
+        }elseif (isset($strlen{33})) {
+            $strlen0 = mb_substr($strlen,0,6,"UTF-8");
+            $left = 300;
+            $top = 334;
+
+//            $background = config('app.url').'/12.jpg';
+            $strlen1 = mb_substr($strlen,6,6,"UTF-8");
+            $left1 = 300;
+            $top1 = 415;
+        }elseif (isset($strlen{30})) {
+            $strlen0 = mb_substr($strlen,0,5,"UTF-8");
+            $left = 340;
+            $top = 334;
+
+//            $background = config('app.url').'/11.jpg';
+            $strlen1 = mb_substr($strlen,5,6,"UTF-8");
+            $left1 = 300;
+            $top1 = 415;
+        }elseif (isset($strlen{27})) {
+            $strlen0 = mb_substr($strlen,0,5,"UTF-8");
+            $left = 340;
+            $top = 334;
+
+//            $background = config('app.url').'/10.jpg';
+            $strlen1 = mb_substr($strlen,5,5,"UTF-8");
+            $left1 = 340;
+            $top1 = 415;
+        }elseif (isset($strlen{24})) {
+            $strlen0 = mb_substr($strlen,0,4,"UTF-8");
+            $left = 380;
+            $top = 334;
+
+//            $background = config('app.url').'/9.jpg';
+            $strlen1 = mb_substr($strlen,4,5,"UTF-8");
+            $left1 = 340;
+            $top1 = 415;
+        }elseif (isset($strlen{21})) {
+            $strlen0 = $strlen;
+            $left = 216;
+            $top = 350;
+//            $background = config('app.url').'/8.jpg';
+        }elseif (isset($strlen{18})) {
+            $strlen0 = $strlen;
+
+            $left = 255;
+            $top = 350;
+//            $background = config('app.url').'/7.jpg';
+        }elseif (isset($strlen{15})) {
+            $strlen0 = $strlen;
+
+            $left = 300;
+            $top = 350;
+//            $background = config('app.url').'/6.jpg';
+        }elseif (isset($strlen{12})) {
+            $strlen0 = $strlen;
+
+            $left = 343;
+            $top = 350;
+//            $background = config('app.url').'/5.jpg';
+        }elseif (isset($strlen{9})) {
+            $strlen0 = $strlen;
+            $left = 376;
+            $top = 350;
+//            $background = config('app.url').'/4.jpg';
+        }elseif (isset($strlen{6})) {
+            $strlen0 = $strlen;
+
+            $left = 420;
+            $top = 350;
+//            $background = config('app.url').'/3.jpg';
+        }else {
+            $strlen0 = $strlen;
+
+            $left = 450;
+            $top = 350;
+//            $background = config('app.url').'/2.jpg';
+        }
         $text1[] = array(
-            'text'=>$shop->name,
-            'left'=>400,
-            'top'=>350,
+            'text'=>$strlen0,
+            'left'=>$left,
+            'top'=>$top,
             'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
             'fontSize'=>60,             //字号
             'fontColor'=>'0,0,0',       //字体颜色
             'angle'=>0,
         );
+        if (isset($strlen{24})) {
+            $text1[] = array(
+                'text'=>$strlen1,
+                'left'=>$left1,
+                'top'=>$top1,
+                'fontPath'=>$fontPath,//\Storage::disk('public')->url("Avenir.ttc"),//'qrcode/simhei.ttf',     //字体文件
+                'fontSize'=>60,             //字号
+                'fontColor'=>'0,0,0',       //字体颜色
+                'angle'=>0,
+            );
+        }
         $iFor = $iFor>4?4:$iFor;
         for ($i=0;$i < $iFor;$i++) {
             $text1[] = $this->content(mb_substr($textStr, $i*$ccvv,$ccvv),$i*70,$fontPath);
@@ -175,7 +300,8 @@ class MakeQrCodeController extends Controller
                 ),
                 array(
 //                    'url'=>$shop->images?$this->logo($shop,$shop->images[0]):config('app.url')."/null.png",
-                    'url'=>$this->logo($shop,$shop->logo['store_logo']),//"http://admin.jiajiazhao.dev/storage/3uGY8r8y0v12gpgAqjUP0DzMnAYp3j5GSq12HKL5.jpg",//str_replace("\/","/",json_encode($shop->logo['store_logo'])),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
+                    'url'=>$this->logo($shop,$shop->logo['store_logo']),// "http://admin.jiajiazhao.dev/storage/3uGY8r8y0v12gpgAqjUP0DzMnAYp3j5GSq12HKL5.jpg",//str_replace("\/","/",json_encode($shop->logo['store_logo'])),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
+//                    'url'=>"http://admin.jiajiazhao.dev/storage/3uGY8r8y0v12gpgAqjUP0DzMnAYp3j5GSq12HKL5.jpg",//str_replace("\/","/",json_encode($shop->logo['store_logo'])),//config('app.url')."/XuZBGE4VcDCcUqDbtzkzDfJ5wT9cEAl0SsHTBNWp.jpg",
 //$this->logo($shop,$shop->logo['store_logo']),//
                     'left'=>60,
                     'top'=>450,
@@ -198,6 +324,7 @@ class MakeQrCodeController extends Controller
 //                    'opacity'=>100
 //                ),
             ),
+//            'background'=>$background,
             'background'=>config('app.url').'/WechatIMG94.jpeg',
         );
 //        return $config;
