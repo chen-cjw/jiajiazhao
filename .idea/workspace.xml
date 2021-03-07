@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="" />
+    <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,8 +69,8 @@
       <file leaf-file-name="MakeQrCodeController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="332" column="16" lean-forward="true" selection-start-line="332" selection-start-column="16" selection-end-line="332" selection-end-column="16" />
+            <state relative-caret-position="228">
+              <caret line="144" column="26" selection-start-line="144" selection-start-column="26" selection-end-line="144" selection-end-column="26" />
               <folding>
                 <element signature="e#48#61#0#PHP" expanded="true" />
               </folding>
@@ -427,11 +429,6 @@
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -503,15 +500,16 @@
       <workItem from="1612319590041" duration="33350000" />
       <workItem from="1612512145844" duration="1139000" />
       <workItem from="1612513478440" duration="54441000" />
-      <workItem from="1613143753305" duration="43832000" />
+      <workItem from="1613143753305" duration="44317000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="557691000" />
+    <option name="totallyTimeSpent" value="558176000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50143063" side_tool="true" weight="0.3151515" />
@@ -519,9 +517,9 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.22060606" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" weight="0.83757573" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22174536" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22174536" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32969698" />
@@ -887,8 +885,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="332" column="16" lean-forward="true" selection-start-line="332" selection-start-column="16" selection-end-line="332" selection-end-column="16" />
+        <state relative-caret-position="228">
+          <caret line="144" column="26" selection-start-line="144" selection-start-column="26" selection-end-line="144" selection-end-column="26" />
           <folding>
             <element signature="e#48#61#0#PHP" expanded="true" />
           </folding>

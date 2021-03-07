@@ -142,7 +142,7 @@ class MakeQrCodeController extends Controller
         $text1[] = $phone;
         $text1[] = $shopArea;
         $strlen = $shop->name;
-        if (isset($strlen{45})) {
+        if (strlen($strlen) >45) {
             $strlen0 = mb_substr($strlen,0,8,"UTF-8");
             $left = 220;
             $top = 334;
@@ -151,7 +151,7 @@ class MakeQrCodeController extends Controller
             $strlen1 = mb_substr($strlen,8,8,"UTF-8");
             $left1 = 220;
             $top1 = 415;
-        }elseif (isset($strlen{42})) {
+        }elseif (strlen($strlen) >42) {
             $strlen0 = mb_substr($strlen,0,7,"UTF-8");
             $left = 260;
             $top = 334;
@@ -160,7 +160,7 @@ class MakeQrCodeController extends Controller
             $strlen1 = mb_substr($strlen,7,8,"UTF-8");
             $left1 = 220;
             $top1 = 415;
-        }elseif (isset($strlen{39})) {
+        }elseif (strlen($strlen) >39) {
             $strlen0 = mb_substr($strlen,0,7,"UTF-8");
             $left = 260;
             $top = 334;
@@ -169,7 +169,7 @@ class MakeQrCodeController extends Controller
             $strlen1 = mb_substr($strlen,7,7,"UTF-8");
             $left1 = 260;
             $top1 = 415;
-        }elseif (isset($strlen{36})) {
+        }elseif (strlen($strlen) >36) {
             $strlen0 = mb_substr($strlen,0,6,"UTF-8");
             $left = 300;
             $top = 334;
@@ -178,7 +178,7 @@ class MakeQrCodeController extends Controller
             $strlen1 = mb_substr($strlen,6,7,"UTF-8");
             $left1 = 260;
             $top1 = 415;
-        }elseif (isset($strlen{33})) {
+        }elseif (strlen($strlen) >33) {
             $strlen0 = mb_substr($strlen,0,6,"UTF-8");
             $left = 300;
             $top = 334;
@@ -187,7 +187,7 @@ class MakeQrCodeController extends Controller
             $strlen1 = mb_substr($strlen,6,6,"UTF-8");
             $left1 = 300;
             $top1 = 415;
-        }elseif (isset($strlen{30})) {
+        }elseif (strlen($strlen) >30) {
             $strlen0 = mb_substr($strlen,0,5,"UTF-8");
             $left = 340;
             $top = 334;
@@ -196,7 +196,7 @@ class MakeQrCodeController extends Controller
             $strlen1 = mb_substr($strlen,5,6,"UTF-8");
             $left1 = 300;
             $top1 = 415;
-        }elseif (isset($strlen{27})) {
+        }elseif (strlen($strlen) >27) {
             $strlen0 = mb_substr($strlen,0,5,"UTF-8");
             $left = 340;
             $top = 334;
@@ -205,7 +205,7 @@ class MakeQrCodeController extends Controller
             $strlen1 = mb_substr($strlen,5,5,"UTF-8");
             $left1 = 340;
             $top1 = 415;
-        }elseif (isset($strlen{24})) {
+        }elseif (strlen($strlen) >24) {
             $strlen0 = mb_substr($strlen,0,4,"UTF-8");
             $left = 380;
             $top = 334;
@@ -214,35 +214,35 @@ class MakeQrCodeController extends Controller
             $strlen1 = mb_substr($strlen,4,5,"UTF-8");
             $left1 = 340;
             $top1 = 415;
-        }elseif (isset($strlen{21})) {
+        }elseif (strlen($strlen) >21) {
             $strlen0 = $strlen;
             $left = 216;
             $top = 350;
 //            $background = config('app.url').'/8.jpg';
-        }elseif (isset($strlen{18})) {
+        }elseif (strlen($strlen) >18) {
             $strlen0 = $strlen;
 
             $left = 255;
             $top = 350;
 //            $background = config('app.url').'/7.jpg';
-        }elseif (isset($strlen{15})) {
+        }elseif (strlen($strlen) >15) {
             $strlen0 = $strlen;
 
             $left = 300;
             $top = 350;
 //            $background = config('app.url').'/6.jpg';
-        }elseif (isset($strlen{12})) {
+        }elseif (strlen($strlen) >12) {
             $strlen0 = $strlen;
 
             $left = 343;
             $top = 350;
 //            $background = config('app.url').'/5.jpg';
-        }elseif (isset($strlen{9})) {
+        }elseif (strlen($strlen) >9) {
             $strlen0 = $strlen;
             $left = 376;
             $top = 350;
 //            $background = config('app.url').'/4.jpg';
-        }elseif (isset($strlen{6})) {
+        }elseif (strlen($strlen) >6) {
             $strlen0 = $strlen;
 
             $left = 420;
