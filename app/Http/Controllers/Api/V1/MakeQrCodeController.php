@@ -264,7 +264,7 @@ class MakeQrCodeController extends Controller
             'fontColor'=>'0,0,0',       //字体颜色
             'angle'=>0,
         );
-        if (isset($strlen{24})) {
+        if (strlen($strlen) >24) {
             $text1[] = array(
                 'text'=>$strlen1,
                 'left'=>$left1,

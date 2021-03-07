@@ -69,8 +69,8 @@
       <file leaf-file-name="MakeQrCodeController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="144" column="26" selection-start-line="144" selection-start-column="26" selection-end-line="144" selection-end-column="26" />
+            <state relative-caret-position="357">
+              <caret line="266" column="31" selection-start-line="266" selection-start-column="31" selection-end-line="266" selection-end-column="31" />
               <folding>
                 <element signature="e#48#61#0#PHP" expanded="true" />
               </folding>
@@ -500,12 +500,12 @@
       <workItem from="1612319590041" duration="33350000" />
       <workItem from="1612512145844" duration="1139000" />
       <workItem from="1612513478440" duration="54441000" />
-      <workItem from="1613143753305" duration="44317000" />
+      <workItem from="1613143753305" duration="44635000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="558176000" />
+    <option name="totallyTimeSpent" value="558494000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -519,7 +519,7 @@
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" weight="0.83757573" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22174536" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22174536" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32969698" />
@@ -885,8 +885,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="144" column="26" selection-start-line="144" selection-start-column="26" selection-end-line="144" selection-end-column="26" />
+        <state relative-caret-position="357">
+          <caret line="266" column="31" selection-start-line="266" selection-start-column="31" selection-end-line="266" selection-end-column="31" />
           <folding>
             <element signature="e#48#61#0#PHP" expanded="true" />
           </folding>
