@@ -36,7 +36,7 @@ class ShopRequest extends FormRequest
                 },
             ], // 判断是否在 abbr_categories 数据库中，只可以选三个
             'name' =>'required',
-//            'area' =>'required',
+            'area' =>'required',
 //            'detailed_address' =>'required',
             'contact_phone' =>'required',
 //            'wechat' =>'required',
