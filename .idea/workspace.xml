@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Requests/ShopRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ShopRequest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +20,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
-              <caret line="160" column="32" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="32" />
+              <caret line="160" column="33" selection-start-line="160" selection-start-column="33" selection-end-line="160" selection-end-column="33" />
               <folding>
                 <element signature="e#47#81#0#PHP" expanded="true" />
               </folding>
@@ -32,34 +31,33 @@
       <file leaf-file-name="ShopRequest.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopRequest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+            <state relative-caret-position="530">
+              <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbbrCategoryController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AbbrCategoryController.php">
+      <file leaf-file-name="ShopUpdateRequest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopUpdateRequest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+            <state relative-caret-position="73">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
+      <file leaf-file-name="AuthMlOpenidStoreRequest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Requests/AuthMlOpenidStoreRequest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="54" selection-start-line="54" selection-end-line="55" />
-              <folding>
-                <element signature="e#2451#4926#0#PHP" />
-                <element signature="e#4941#7867#0#PHP" />
-                <element signature="e#7977#9567#0#PHP" />
-                <element signature="e#9574#12220#0#PHP" />
-              </folding>
+            <state relative-caret-position="420">
+              <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="33" selection-end-column="5" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShopCommentRequest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopCommentRequest.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="BannerInformationShowController.php" pinned="false" current-in-tab="false">
@@ -91,11 +89,6 @@
       </file>
       <file leaf-file-name="AbbrCategoryController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="Shop.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Shop.php">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -419,6 +412,13 @@
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Requests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -491,12 +491,12 @@
       <workItem from="1612512145844" duration="1139000" />
       <workItem from="1612513478440" duration="54441000" />
       <workItem from="1613143753305" duration="44869000" />
-      <workItem from="1514765447953" duration="903000" />
+      <workItem from="1514765447953" duration="1037000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="559631000" />
+    <option name="totallyTimeSpent" value="559765000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -567,10 +567,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2021_01_26_195734_create_transaction_records_table.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2021_02_24_230917_add_disable_to_user.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2021_02_24_231057_add_disable_to_users.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -769,13 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopUpdateRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-147">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/Model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -853,17 +842,34 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="160" column="32" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="32" />
+          <caret line="160" column="33" selection-start-line="160" selection-start-column="33" selection-end-line="160" selection-end-column="33" />
           <folding>
             <element signature="e#47#81#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopCommentRequest.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopUpdateRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/AuthMlOpenidStoreRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="33" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+        <state relative-caret-position="530">
+          <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
         </state>
       </provider>
     </entry>

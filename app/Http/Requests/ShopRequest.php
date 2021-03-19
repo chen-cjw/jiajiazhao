@@ -47,4 +47,10 @@ class ShopRequest extends FormRequest
             'lat' =>'required',
         ];
     }
+    public function messages()
+    {
+        return [
+            'area.required' => '所在地区未获取！'
+        ];
+    }
 }
