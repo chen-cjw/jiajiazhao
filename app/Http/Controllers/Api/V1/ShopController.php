@@ -65,6 +65,7 @@ class ShopController extends Controller
         // 同城搜索
         if (config('app.city') == 1) {
             if ($area != '') {
+                Log::info($area);
                 $sql = $sql . "and area LIKE '%" . $area . "%'";
             }
         }
