@@ -181,7 +181,7 @@ class ShopController extends AdminController
         $form->text('wechat', __('Wechat'));
         $form->multipleImage('logo', __('Logo'))->removable();
 
-        $form->image('store_logo', __('商户认证'));//商户认证必填
+        $form->image('store_logo', __('门店照/个人照'));//商户认证必填
         $form->image('with_iD_card', __('持身份证照'));//持身份证照必传
         $form->image('service_price', __('Service price'));
         $form->text('merchant_introduction', __('Merchant introduction'));
