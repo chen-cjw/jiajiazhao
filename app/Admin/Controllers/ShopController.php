@@ -180,6 +180,9 @@ class ShopController extends AdminController
         $form->text('contact_phone', __('Contact phone'));
         $form->text('wechat', __('Wechat'));
         $form->multipleImage('logo', __('Logo'))->removable();
+
+        $form->image('store_logo', __('商户认证'));//商户认证必填
+        $form->image('with_iD_card', __('持身份证照'));//持身份证照必传
         $form->image('service_price', __('Service price'));
         $form->text('merchant_introduction', __('Merchant introduction'));
         $form->number('sort', __('Sort'));
@@ -198,6 +201,46 @@ class ShopController extends AdminController
         $form->text('payment_method', __('Payment method'))->default('wechat');
         $form->text('payment_no', __('Payment no'));
         $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s'));
+        $form->saving(function (Form $form) {
+            $data = [];
+            if(request('store_logo')) {
+                $file = request('store_logo');
+                $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
+                // 如果 image 字段本身就已经是完整的 url 就直接返回
+                if (Str::startsWith($path, ['http://', 'https://'])) {
+                    return $path;
+                }
+                $store_logo = \Storage::disk('public')->url($path);
+                $data['logo']['store_logo']=$store_logo;//request('store_logo');
+            }else {
+                $data['logo']['store_logo']=$form->model()->logo['with_iD_card'];//request('with_iD_card');
+            }
+            if(request('with_iD_card')) {
+                $file = request('with_iD_card');
+                $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
+                // 如果 image 字段本身就已经是完整的 url 就直接返回
+                if (Str::startsWith($path, ['http://', 'https://'])) {
+                    return $path;
+                }
+                $with_iD_card = \Storage::disk('public')->url($path);
+                $data['logo']['with_iD_card']=$with_iD_card;//request('with_iD_card');
+            }else {
+                $data['logo']['with_iD_card']=$form->model()->logo['with_iD_card'];//request('with_iD_card');
+            }
+            if (isset($form->model()->logo['business_license'])) {
+                $data['logo']['business_license']=$form->model()->logo['business_license'];//request('with_iD_card');
+            }
+            if (isset($form->model()->logo['professional_qualification'])) {
+                $data['logo']['professional_qualification']=$form->model()->logo['professional_qualification'];//request('with_iD_card');
+            }
+
+//            $form->logo = json_encode($data['logo']);
+            $data['logo'] = json_encode($data['logo']);
+//            dd($data);
+            Shop::where('id',$form->model()->id)->update($data);
+
+        });
+
         $form->footer(function ($footer) {
             // 去掉`重置`按钮
             $footer->disableReset();
@@ -207,7 +250,10 @@ class ShopController extends AdminController
             $footer->disableEditingCheck();
             // 去掉`继续创建`checkbox
             $footer->disableCreatingCheck();
+
         });
+        $form->ignore(['store_logo', 'with_iD_card']);
+
         return $form;
     }
 }
