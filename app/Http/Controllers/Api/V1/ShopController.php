@@ -49,6 +49,8 @@ class ShopController extends Controller
  from shops ";//,int (lat * 1000000 ) AS subtotal
         $dueDate = date('Y-m-d H:i:s');
         $area = \request()->area;
+        Log::info('--------------该用户已经进入到商户列表中-------------------'.$area);
+
         // 一级
         if($one_abbr) {
             $sql = $sql."where (one_abbr0={$one_abbr} OR one_abbr1={$one_abbr} OR one_abbr2={$one_abbr})";
