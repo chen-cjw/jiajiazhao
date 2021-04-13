@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Shop;
 use App\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -44,6 +45,9 @@ class UserController extends AdminController
         $grid->column('city_partner', __('City partner'))->using([1 => '是', 0 => '否']);
         $grid->column('ref_code', __('Ref code'));
         $grid->column('display', __('是否禁用'))->using([1 => '是', 0 => '否']);
+        $grid->column('is_shop', __('商户入驻'))->display(function () {
+            return Shop::where('user_id',$this->id)->whereNotNull('payment_no')->first() ? '是' : '否';
+        });
 //        $grid->column('code', __('Code'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -51,6 +55,7 @@ class UserController extends AdminController
         $grid->filter(function ($filter) {
             $filter->like('nickname', '用户昵称');
             $filter->like('phone', '手机号');
+            $filter->equal('parent_id', '我邀请的用户');
             $filter->equal('is_member','商家/会员')->select([true=>'商家',false=>'会员']);
             $filter->equal('city_partner','城市合伙人')->select([true=>'是',false=>'否']);
         });
