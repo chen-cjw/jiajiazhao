@@ -283,6 +283,7 @@ class ShopController extends Controller
             return ['code'=>200,'msg'=>'ok','data'=>$res];
         } catch (\Exception $ex) {
             DB::rollback();
+            Log::info('商户入驻失败:'.$ex);
             throw new \Exception($ex); // 报错原因大多是因为taskFlowCollections表，name和user_id一致
         }
     }
