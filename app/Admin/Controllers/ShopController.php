@@ -83,12 +83,18 @@ class ShopController extends AdminController
 //        $grid->column('updated_at', __('Updated at'));
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();
-
+            $filter->where(function ($query) {
+                $input = $this->input;
+                $query->whereHas('user', function ($query) use ($input) {
+                    $query->where('phone', 'like', "%$input%");
+                });
+            }, '手机号码');
             $filter->column(1/2, function ($filter) {
                 $filter->like('name', '店铺名');
 //                $filter->like('contact_phone',  __('Contact phone'));
                 $filter->like('no',  __('No'));
                 $filter->like('payment_no',  __('Payment no'));
+
             });
             $filter->column(1/2, function ($filter) {
                 $filter->equal('is_top', __('Is top'))->select([true=>'是',false=>'否']);
