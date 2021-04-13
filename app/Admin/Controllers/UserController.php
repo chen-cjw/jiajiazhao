@@ -55,7 +55,7 @@ class UserController extends AdminController
         $grid->filter(function ($filter) {
             $filter->like('nickname', '用户昵称');
             $filter->like('phone', '手机号');
-            $filter->equal('parent_id', '我邀请的用户');
+            $filter->equal('parent_id', '我邀请的用户(输入邀请人用户ID)');
             $filter->equal('is_member','商家/会员')->select([true=>'商家',false=>'会员']);
             $filter->equal('city_partner','城市合伙人')->select([true=>'是',false=>'否']);
         });
