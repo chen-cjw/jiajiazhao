@@ -101,7 +101,7 @@ class ShopController extends Controller
         }else if ($comment_count) { // 评论
             $sql = $sql." order by comment_count ".$comment_count;
         }else if (\request('lat_lng')) {
-            $sql = $sql." order by juli ".'asc';//\request('lat_lng');
+            $sql = $sql." order by juli ASC";//\request('lat_lng');
 
         }else{
             $sql = $sql." order by sort DESC,created_at DESC";//created_at
