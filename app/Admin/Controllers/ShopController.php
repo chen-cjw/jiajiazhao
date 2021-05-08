@@ -89,7 +89,6 @@ class ShopController extends AdminController
                     $query->where('phone', 'like', "%$input%");
                 });
             }, '手机号码');
-            $filter->like('area', '店铺名');
 
             $filter->column(1/2, function ($filter) {
                 $filter->like('name', '店铺名');
@@ -102,6 +101,8 @@ class ShopController extends AdminController
                 $filter->equal('is_top', __('Is top'))->select([true=>'是',false=>'否']);
                 $filter->equal('is_accept', __('Is accept'))->select([true=>'是',false=>'否']);
                 $filter->equal('type', __('Type'))->select(['one'=>'第一部分','two'=>'第二部分']);
+                $filter->like('area', '地址');
+
             });
 
         });
