@@ -21,7 +21,7 @@ class CreatePaymentOrdersTable extends Migration
             $table->string('payment_no')->nullable()->comment('金额');
 //            $table->tinyInteger('type')->comment('1付款到微信,2付款到银行卡');
             $table->tinyInteger('status')->comment('1付款成功,2待付款,3付款失败')->default(2);
-            $table->text('intro')->comment('备注')->nullable(2);
+            $table->text('intro')->comment('备注');
             $table->timestamps();
         });
     }

@@ -89,6 +89,8 @@ class ShopController extends AdminController
                     $query->where('phone', 'like', "%$input%");
                 });
             }, '手机号码');
+            $filter->like('area', '店铺名');
+
             $filter->column(1/2, function ($filter) {
                 $filter->like('name', '店铺名');
 //                $filter->like('contact_phone',  __('Contact phone'));

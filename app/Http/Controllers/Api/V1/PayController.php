@@ -75,7 +75,7 @@ class PayController extends Controller
         if ($result['return_code'] != 'SUCCESS' || $result['result_code'] != 'SUCCESS') {
             $msg = data_get($result, 'err_code_des');
             \Log::error('付款失败:' . $msg);
-            $order->status = 3;
+            $order->status = 2;
             $order->intro = $msg;
             $order->save();
 
