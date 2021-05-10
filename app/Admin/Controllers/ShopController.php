@@ -173,17 +173,27 @@ class ShopController extends AdminController
     protected function form()
     {
         $form = new Form(new Shop());
+        if(request()->route('shop')) {
+            $form->display('one_abbr0', __('一级分类'));
+            $form->display('two_abbr0', __('二级分类'));
 
-        $form->display('one_abbr0', __('一级分类'));
-        $form->display('two_abbr0', __('二级分类'));
+        }else {
+            $form->select('one_abbr0', __('一级分类'))->options(AbbrCategory::where('parent_id',null)->pluck('abbr','id'))->load(
+                'two_abbr0','/abbr'
+            // AbbrCategory::where('parent_id',request('one_abbr0'))->get(['abbr','id'])
+            );
+            $form->select('two_abbr0', __('二级分类'))->options(AbbrCategory::where('parent_id','!=',null)->pluck('abbr','id'));
+
+        }
+
 //        $form->number('one_abbr1', __('One abbr1'));
 //        $form->number('one_abbr2', __('One abbr2'));
 //        $form->text('two_abbr0', __('Two abbr0'));
 //        $form->text('two_abbr1', __('Two abbr1'));
 //        $form->text('two_abbr2', __('Two abbr2'));
         $form->text('name', __('店铺名'));
-        $form->decimal('lng', __('Lng'));
         $form->decimal('lat', __('Lat'));
+        $form->decimal('lng', __('Lng'));
         $form->text('area', __('Area'));
         $form->text('detailed_address', __('Detailed address'));
         $form->text('contact_phone', __('Contact phone'));
@@ -194,23 +204,27 @@ class ShopController extends AdminController
         $form->image('with_iD_card', __('持身份证照'));//持身份证照必传
         $form->image('service_price', __('Service price'));
         $form->text('merchant_introduction', __('Merchant introduction'));
-        $form->number('sort', __('Sort'));
-        $form->number('view', __('View'));
+
         $form->switch('is_top', __('Is top'));
-        $form->switch('is_accept', __('Is accept'));
-        $form->text('type', __('Type'));
-        $form->number('comment_count', __('Comment count'));
-        $form->number('good_comment_count', __('Good comment count'));
-        $form->number('user_id', __('User id'));
-        $form->text('no', __('No'));
-        $form->decimal('amount', __('Amount'));
-        $form->decimal('top_amount', __('Top amount'));
-        $form->number('platform_licensing', __('Platform licensing'));
+        $form->switch('is_accept', __('Is accept'))->default(1);
+        $form->text('type', __('Type'))->default('one');
+        $form->number('comment_count', __('Comment count'))->default(0);
+        $form->number('good_comment_count', __('Good comment count'))->default(0);
+        $form->number('user_id', __('User id'))->default(1);
+        $form->text('no', __('No'))->default('j'.time());
+        $form->decimal('amount', __('Amount'))->default(299);
+        $form->decimal('top_amount', __('Top amount'))->default(0);
+        $form->number('platform_licensing', __('Platform licensing'))->default(0);
         $form->datetime('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
         $form->text('payment_method', __('Payment method'))->default('wechat');
-        $form->text('payment_no', __('Payment no'));
-        $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s'));
+        $form->text('payment_no', __('Payment no'))->default('jp'.time());
+        $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s',strtotime("+1year",time())));
+        $form->number('sort', __('Sort'))->default(0);
+        $form->number('view', __('View'))->default(1);
+
         $form->saving(function (Form $form) {
+
+//            dd($form) ;
             $data = [];
             if(request('store_logo')) {
                 $file = request('store_logo');
@@ -222,7 +236,8 @@ class ShopController extends AdminController
                 $store_logo = \Storage::disk('public')->url($path);
                 $data['logo']['store_logo']=$store_logo;//request('store_logo');
             }else {
-                $data['logo']['store_logo']=$form->model()->logo['with_iD_card'];//request('with_iD_card');
+                $data['logo']['store_logo']=$form->model()->logo['store_logo'];//request('with_iD_card');
+//                $data['logo']['store_logo']=$form->model()->logo['with_iD_card'];//request('with_iD_card');
             }
             if(request('with_iD_card')) {
                 $file = request('with_iD_card');
@@ -245,10 +260,21 @@ class ShopController extends AdminController
 
 //            $form->logo = json_encode($data['logo']);
             $data['logo'] = json_encode($data['logo']);
-//            dd($data);
-            Shop::where('id',$form->model()->id)->update($data);
+            //            dd($form);
+//            $form->logo = ($data['logo']);
+
+//            dd($form);
+////            dd($form);
+//            if (request()->isMethod('PUT')) {
+                Shop::where('id',$form->model()->id)->update($data);
+//            }else {
+////                dd(($data['logo']));
+//                $form->logo = ($data['logo']);
+//            }
+
 
         });
+
 
         $form->footer(function ($footer) {
             // 去掉`重置`按钮
