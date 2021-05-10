@@ -192,8 +192,8 @@ class ShopController extends AdminController
 //        $form->text('two_abbr1', __('Two abbr1'));
 //        $form->text('two_abbr2', __('Two abbr2'));
         $form->text('name', __('店铺名'));
-        $form->decimal('lat', __('Lat'));
         $form->decimal('lng', __('Lng'));
+        $form->decimal('lat', __('Lat'));
         $form->text('area', __('Area'));
         $form->text('detailed_address', __('Detailed address'));
         $form->text('contact_phone', __('Contact phone'));
