@@ -191,17 +191,17 @@ class ShopController extends AdminController
 //        $form->text('two_abbr0', __('Two abbr0'));
 //        $form->text('two_abbr1', __('Two abbr1'));
 //        $form->text('two_abbr2', __('Two abbr2'));
-        $form->text('name', __('店铺名'));
-        $form->decimal('lng', __('Lng'));
-        $form->decimal('lat', __('Lat'));
+        $form->text('name', __('店铺名'))->rules('required');
+        $form->decimal('lng', __('Lng'))->rules('required');
+        $form->decimal('lat', __('Lat'))->rules('required');
         $form->text('area', __('Area'));
         $form->text('detailed_address', __('Detailed address'));
         $form->text('contact_phone', __('Contact phone'));
         $form->text('wechat', __('Wechat'));
         $form->multipleImage('logo', __('Logo'))->removable();
 
-        $form->image('store_logo', __('门店照/个人照'));//商户认证必填
-        $form->image('with_iD_card', __('持身份证照'));//持身份证照必传
+        $form->image('store_logo', __('门店照/个人照'))->rules('required');//商户认证必填
+        $form->image('with_iD_card', __('持身份证照'))->rules('required');//持身份证照必传
         $form->image('service_price', __('Service price'));
         $form->text('merchant_introduction', __('Merchant introduction'));
 
