@@ -83,12 +83,12 @@ class ShopController extends AdminController
 //        $grid->column('updated_at', __('Updated at'));
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();
-            $filter->where(function ($query) {
-                $input = $this->input;
-                $query->whereHas('user', function ($query) use ($input) {
-                    $query->where('phone', 'like', "%$input%");
-                });
-            }, '手机号码');
+//            $filter->where(function ($query) {
+//                $input = $this->input;
+//                $query->whereHas('user', function ($query) use ($input) {
+//                    $query->where('phone', 'like', "%$input%");
+//                });
+//            }, '手机号码');
 
             $filter->column(1/2, function ($filter) {
                 $filter->like('name', '店铺名');
@@ -192,75 +192,107 @@ class ShopController extends AdminController
 //        $form->text('two_abbr1', __('Two abbr1'));
 //        $form->text('two_abbr2', __('Two abbr2'));
         $form->text('name', __('店铺名'))->rules('required');
-        $form->decimal('lng', __('Lng'))->rules('required');
-        $form->decimal('lat', __('Lat'))->rules('required');
-        $form->text('area', __('Area'));
-        $form->text('detailed_address', __('Detailed address'));
-        $form->text('contact_phone', __('Contact phone'));
-        $form->text('wechat', __('Wechat'));
-        $form->multipleImage('logo', __('Logo'))->removable();
+        $form->decimal('lng', __('Lat'))->rules('required');
+//        $form->decimal('lng', __('Lng'))->rules('required');
+//        $form->decimal('lat', __('Lat'))->rules('required');
+        $form->decimal('lat', __('Lng'))->rules('required');
+        $form->text('area', __('Area'))->rules('required');
+//        $form->text('detailed_address', __('Detailed address'));
+        $form->text('contact_phone', __('Contact phone'))->rules('required');
+//        $form->text('wechat', __('Wechat'));
+        if(request()->route('shop')) {
+            $form->multipleImage('logo', __('Logo'))->removable();
 
+        };
         $form->image('store_logo', __('门店照/个人照'))->rules('required');//商户认证必填
-        $form->image('with_iD_card', __('持身份证照'))->rules('required');//持身份证照必传
-        $form->image('service_price', __('Service price'));
-        $form->text('merchant_introduction', __('Merchant introduction'));
 
-        $form->switch('is_top', __('Is top'));
-        $form->switch('is_accept', __('Is accept'))->default(1);
-        $form->text('type', __('Type'))->default('one');
-        $form->number('comment_count', __('Comment count'))->default(0);
-        $form->number('good_comment_count', __('Good comment count'))->default(0);
-        $form->number('user_id', __('User id'))->default(1);
-        $form->text('no', __('No'))->default('j'.time());
-        $form->decimal('amount', __('Amount'))->default(299);
-        $form->decimal('top_amount', __('Top amount'))->default(0);
-        $form->number('platform_licensing', __('Platform licensing'))->default(0);
-        $form->datetime('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
-        $form->text('payment_method', __('Payment method'))->default('wechat');
-        $form->text('payment_no', __('Payment no'))->default('jp'.time());
-        $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s',strtotime("+1year",time())));
-        $form->number('sort', __('Sort'))->default(0);
-        $form->number('view', __('View'))->default(1);
 
-        $form->saving(function (Form $form) {
+        if(request()->route('shop')) {
+            $form->image('with_iD_card', __('持身份证照'))->rules('required');//持身份证照必传
+            $form->image('service_price', __('Service price'));
+
+            $form->text('merchant_introduction', __('Merchant introduction'));
+
+            $form->switch('is_top', __('Is top'));
+            $form->switch('is_accept', __('Is accept'))->default(1);
+            $form->text('type', __('Type'))->default('one');
+            $form->number('comment_count', __('Comment count'))->default(0);
+            $form->number('good_comment_count', __('Good comment count'))->default(0);
+            $form->number('user_id', __('User id'))->default(1);
+            $form->text('no', __('No'))->default('j'.time());
+            $form->decimal('amount', __('Amount'))->default(299);
+            $form->decimal('top_amount', __('Top amount'))->default(0);
+            $form->number('platform_licensing', __('Platform licensing'))->default(0);
+            $form->datetime('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
+            $form->text('payment_method', __('Payment method'))->default('wechat');
+            $form->text('payment_no', __('Payment no'))->default('jp'.time());
+            $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s',strtotime("+1year",time())));
+            $form->number('sort', __('Sort'))->default(0);
+            $form->number('view', __('View'))->default(1);
+        }else {
+            $form->hidden('logo', __('Logo'));
+
+            $form->hidden('merchant_introduction', __('Merchant introduction'));
+
+            $form->hidden('is_top', __('Is top'))->default(0);
+            $form->hidden('is_accept', __('Is accept'))->default(1);
+            $form->hidden('type', __('Type'))->default('one');
+            $form->hidden('comment_count', __('Comment count'))->default(0);
+            $form->hidden('good_comment_count', __('Good comment count'))->default(0);
+            $form->hidden('user_id', __('User id'))->default(1);
+            $form->hidden('no', __('No'))->default('j' . time());
+            $form->hidden('amount', __('Amount'))->default(299);
+            $form->hidden('top_amount', __('Top amount'))->default(0);
+            $form->hidden('platform_licensing', __('Platform licensing'))->default(0);
+            $form->hidden('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
+            $form->hidden('payment_method', __('Payment method'))->default('wechat');
+            $form->hidden('payment_no', __('Payment no'))->default('jp' . time());
+            $form->hidden('due_date', __('Due date'))->default(date('Y-m-d H:i:s', strtotime("+1year", time())));
+            $form->hidden('sort', __('Sort'))->default(0);
+            $form->hidden('view', __('View'))->default(1);
+        }
+
+
+        if (request()->isMethod('PUT')) {
+            $form->saving(function (Form $form) {
 
 //            dd($form) ;
-            $data = [];
-            if(request('store_logo')) {
-                $file = request('store_logo');
-                $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
-                // 如果 image 字段本身就已经是完整的 url 就直接返回
-                if (Str::startsWith($path, ['http://', 'https://'])) {
-                    return $path;
-                }
-                $store_logo = \Storage::disk('public')->url($path);
-                $data['logo']['store_logo']=$store_logo;//request('store_logo');
-            }else {
-                $data['logo']['store_logo']=$form->model()->logo['store_logo'];//request('with_iD_card');
+                $data = [];
+                if(request('store_logo')) {
+                    $file = request('store_logo');
+                    $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
+                    // 如果 image 字段本身就已经是完整的 url 就直接返回
+                    if (Str::startsWith($path, ['http://', 'https://'])) {
+                        return $path;
+                    }
+                    $store_logo = \Storage::disk('public')->url($path);
+                    $data['logo']['store_logo']=$store_logo;//request('store_logo');
+                }else {
+                    $data['logo']['store_logo']=$form->model()->logo['store_logo'];//request('with_iD_card');
 //                $data['logo']['store_logo']=$form->model()->logo['with_iD_card'];//request('with_iD_card');
-            }
-            if(request('with_iD_card')) {
-                $file = request('with_iD_card');
-                $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
-                // 如果 image 字段本身就已经是完整的 url 就直接返回
-                if (Str::startsWith($path, ['http://', 'https://'])) {
-                    return $path;
                 }
-                $with_iD_card = \Storage::disk('public')->url($path);
-                $data['logo']['with_iD_card']=$with_iD_card;//request('with_iD_card');
-            }else {
-                $data['logo']['with_iD_card']=$form->model()->logo['with_iD_card'];//request('with_iD_card');
-            }
-            if (isset($form->model()->logo['business_license'])) {
-                $data['logo']['business_license']=$form->model()->logo['business_license'];//request('with_iD_card');
-            }
-            if (isset($form->model()->logo['professional_qualification'])) {
-                $data['logo']['professional_qualification']=$form->model()->logo['professional_qualification'];//request('with_iD_card');
-            }
+                if(request('with_iD_card')) {
+                    $file = request('with_iD_card');
+                    $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
+                    // 如果 image 字段本身就已经是完整的 url 就直接返回
+                    if (Str::startsWith($path, ['http://', 'https://'])) {
+                        return $path;
+                    }
+                    $with_iD_card = \Storage::disk('public')->url($path);
+                    $data['logo']['with_iD_card']=$with_iD_card;//request('with_iD_card');
+                }else {
+                    $data['logo']['with_iD_card']=$form->model()->logo['with_iD_card'];//request('with_iD_card');
+                }
+                if (isset($form->model()->logo['business_license'])) {
+                    $data['logo']['business_license']=$form->model()->logo['business_license'];//request('with_iD_card');
+                }
+                if (isset($form->model()->logo['professional_qualification'])) {
+                    $data['logo']['professional_qualification']=$form->model()->logo['professional_qualification'];//request('with_iD_card');
+                }
 
 //            $form->logo = json_encode($data['logo']);
-            $data['logo'] = json_encode($data['logo']);
-            //            dd($form);
+                $data['logo'] = json_encode($data['logo']);
+                //            dd($form);
 //            $form->logo = ($data['logo']);
 
 //            dd($form);
@@ -273,7 +305,24 @@ class ShopController extends AdminController
 //            }
 
 
-        });
+            });
+
+        }else {
+            $form->saving(function (Form $form) {
+                $data = [];
+
+                $file = request('store_logo');
+                $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
+                // 如果 image 字段本身就已经是完整的 url 就直接返回
+                if (Str::startsWith($path, ['http://', 'https://'])) {
+                    return $path;
+                }
+                $store_logo = \Storage::disk('public')->url($path);
+                $data['logo']['store_logo']=$store_logo;
+                $form->logo = json_encode($data['logo']);
+
+            });
+        }
 
 
         $form->footer(function ($footer) {
