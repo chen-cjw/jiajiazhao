@@ -215,7 +215,7 @@ class ShopController extends AdminController
 
             $form->switch('is_top', __('Is top'));
             $form->switch('is_accept', __('Is accept'))->default(1);
-            $form->text('type', __('Type'))->default('one');
+//            $form->text('type', __('Type'))->default('one');
             $form->number('comment_count', __('Comment count'))->default(0);
             $form->number('good_comment_count', __('Good comment count'))->default(0);
             $form->number('user_id', __('User id'))->default(1);
@@ -236,7 +236,6 @@ class ShopController extends AdminController
 
             $form->hidden('is_top', __('Is top'))->default(0);
             $form->hidden('is_accept', __('Is accept'))->default(1);
-            $form->hidden('type', __('Type'))->default('one');
             $form->hidden('comment_count', __('Comment count'))->default(0);
             $form->hidden('good_comment_count', __('Good comment count'))->default(0);
             $form->hidden('user_id', __('User id'))->default(1);
@@ -251,6 +250,7 @@ class ShopController extends AdminController
             $form->hidden('sort', __('Sort'))->default(0);
             $form->hidden('view', __('View'))->default(1);
         }
+        $form->select('type', __('Type'))->default('one')->options(['one'=>'第一部份','two'=>'第二部分']);
 
 
         if (request()->isMethod('PUT')) {
