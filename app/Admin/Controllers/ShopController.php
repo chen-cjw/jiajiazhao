@@ -201,7 +201,7 @@ class ShopController extends AdminController
         $form->text('contact_phone', __('Contact phone'))->rules('required');
 //        $form->text('wechat', __('Wechat'));
         if(request()->route('shop')) {
-            $form->multipleImage('logo', __('商铺资料'))->disable()->removable();
+            $form->multipleImage('logo', __('商铺资料'))->disable();//->removable();
 
         };
 
