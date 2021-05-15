@@ -37,8 +37,8 @@
       <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ShopController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="335" column="86" selection-start-line="335" selection-start-column="86" selection-end-line="335" selection-end-column="86" />
+            <state relative-caret-position="229">
+              <caret line="203" column="63" selection-start-line="203" selection-start-column="63" selection-end-line="203" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -477,12 +477,12 @@
       <workItem from="1612513478440" duration="54441000" />
       <workItem from="1613143753305" duration="44869000" />
       <workItem from="1514765447953" duration="18529000" />
-      <workItem from="1620347045208" duration="14483000" />
+      <workItem from="1620347045208" duration="15001000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="591740000" />
+    <option name="totallyTimeSpent" value="592258000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -494,9 +494,9 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.2569697" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.2569697" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25822604" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25822604" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32969698" />
@@ -866,8 +866,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ShopController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="335" column="86" selection-start-line="335" selection-start-column="86" selection-end-line="335" selection-end-column="86" />
+        <state relative-caret-position="229">
+          <caret line="203" column="63" selection-start-line="203" selection-start-column="63" selection-end-line="203" selection-end-column="63" />
         </state>
       </provider>
     </entry>
