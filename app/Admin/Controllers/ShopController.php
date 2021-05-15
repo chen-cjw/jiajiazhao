@@ -204,11 +204,14 @@ class ShopController extends AdminController
             $form->multipleImage('logo', __('Logo'))->removable();
 
         };
-        $form->image('store_logo', __('门店照/个人照'))->rules('required');//商户认证必填
+
+//        $form->image('store_logo', __('门店照/个人照'))->rules('required');//商户认证必填
 
 
         if(request()->route('shop')) {
-            $form->image('with_iD_card', __('持身份证照'))->rules('required');//持身份证照必传
+            $form->image('store_logo', __('门店照/个人照'));//商户认证必填
+
+            $form->image('with_iD_card', __('持身份证照'));//持身份证照必传
             $form->image('service_price', __('Service price'));
 
             $form->text('merchant_introduction', __('Merchant introduction'));
@@ -230,6 +233,9 @@ class ShopController extends AdminController
             $form->number('sort', __('Sort'))->default(0);
             $form->number('view', __('View'))->default(1);
         }else {
+            $form->image('store_logo', __('门店照/个人照'))->rules('required');//商户认证必填
+            $form->image('with_iD_card', __('持身份证照'))->rules('required');//持身份证照必传
+
             $form->hidden('logo', __('Logo'));
 
             $form->hidden('merchant_introduction', __('Merchant introduction'));
@@ -319,6 +325,15 @@ class ShopController extends AdminController
                 }
                 $store_logo = \Storage::disk('public')->url($path);
                 $data['logo']['store_logo']=$store_logo;
+
+                $file = request('with_iD_card');
+                $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
+                // 如果 image 字段本身就已经是完整的 url 就直接返回
+                if (Str::startsWith($path, ['http://', 'https://'])) {
+                    return $path;
+                }
+                $with_iD_card = \Storage::disk('public')->url($path);
+                $data['logo']['with_iD_card']=$with_iD_card;//request('with_iD_card');
                 $form->logo = json_encode($data['logo']);
 
             });
