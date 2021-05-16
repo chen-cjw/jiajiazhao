@@ -268,7 +268,7 @@ class ShopController extends AdminController
             $form->hidden('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
             $form->hidden('payment_method', __('Payment method'))->default('wechat');
             $form->hidden('payment_no', __('Payment no'))->default('jp' . time());
-            $form->hidden('due_date', __('Due date'))->default(date('Y-m-d H:i:s', strtotime("+1year", time())));
+            $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s', strtotime("+1year", time())));
             $form->hidden('sort', __('Sort'))->default(0);
             $form->hidden('view', __('View'))->default(1);
         }
