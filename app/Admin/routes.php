@@ -9,6 +9,10 @@ Route::group([
     'namespace'     => config('admin.route.namespace'),
     'middleware'    => config('admin.route.middleware'),
 ], function (Router $router) {
+    $router->group([
+        'middleware' => 'admin.permission:allow,administrator',
+    ], function ($router) {
+
 
     $router->get('/', 'HomeController@index')->name('admin.home');
     $router->resource('users', 'UserController');
@@ -22,7 +26,6 @@ Route::group([
     $router->resource('notices', 'NoticeController');// 公告
     $router->resource('settings', 'SettingController');// 设置
     $router->resource('settlement_agreements', 'SettlementAgreementController');// 入住协议
-    $router->resource('shops', 'ShopController');// 商户
     $router->resource('suggestions', 'SuggestionsController'); // 投诉建议
     $router->resource('banner_information_show', 'BannerInformationShowController'); // 帖子详情广告
     $router->resource('banner_person', 'BannerPersonController'); // 个人中心广告
@@ -40,5 +43,9 @@ Route::group([
     $router->resource('share_home', 'ShareHomeController'); // 商户入驻申请轮播图
     $router->resource('banner_shop_show', 'BannerShopShowController'); // 商户入驻申请轮播图
 //    $router->resource('users', \App\Admin\Controllers\UserController::class);
+    });
+
+    $router->resource('shops', 'ShopController');// 商户
+
 
 });

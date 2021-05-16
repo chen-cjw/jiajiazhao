@@ -6,6 +6,7 @@ use App\Model\AbbrCategory;
 use App\Shop;
 use App\User;
 use Encore\Admin\Controllers\AdminController;
+use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
@@ -83,14 +84,15 @@ class ShopController extends AdminController
 //        $grid->column('updated_at', __('Updated at'));
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();
-//            $filter->where(function ($query) {
-//                $input = $this->input;
-//                $query->whereHas('user', function ($query) use ($input) {
-//                    $query->where('phone', 'like', "%$input%");
-//                });
-//            }, '手机号码');
+            $filter->where(function ($query) {
+                $input = $this->input;
+                $query->whereHas('user', function ($query) use ($input) {
+                    $query->where('nickname', 'like', "%$input");
+                });
+            }, '用户名');
 
             $filter->column(1/2, function ($filter) {
+                $filter->like('contact_phone', __('Contact phone'));
                 $filter->like('name', '店铺名');
 //                $filter->like('contact_phone',  __('Contact phone'));
                 $filter->like('no',  __('No'));
@@ -216,22 +218,27 @@ class ShopController extends AdminController
 
             $form->text('merchant_introduction', __('Merchant introduction'));
 
-            $form->switch('is_top', __('Is top'));
-            $form->switch('is_accept', __('Is accept'))->default(1);
+
+            if (Admin::user()->can('Administrator')) {
+                $form->datetime('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
+                $form->text('payment_method', __('Payment method'))->default('wechat');
+                $form->text('payment_no', __('Payment no'))->default('jp'.time());
+                $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s',strtotime("+1year",time())));
+                $form->number('sort', __('Sort'))->default(0);
+                $form->number('view', __('View'))->default(1);
+                $form->switch('is_top', __('Is top'));
+                $form->switch('is_accept', __('Is accept'))->default(1);
 //            $form->text('type', __('Type'))->default('one');
-            $form->number('comment_count', __('Comment count'))->default(0);
-            $form->number('good_comment_count', __('Good comment count'))->default(0);
-            $form->number('user_id', __('User id'))->default(1);
-            $form->text('no', __('No'))->default('j'.time());
-            $form->decimal('amount', __('Amount'))->default(299);
-            $form->decimal('top_amount', __('Top amount'))->default(0);
-            $form->number('platform_licensing', __('Platform licensing'))->default(0);
-            $form->datetime('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
-            $form->text('payment_method', __('Payment method'))->default('wechat');
-            $form->text('payment_no', __('Payment no'))->default('jp'.time());
-            $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s',strtotime("+1year",time())));
-            $form->number('sort', __('Sort'))->default(0);
-            $form->number('view', __('View'))->default(1);
+                $form->number('comment_count', __('Comment count'))->default(0);
+                $form->number('good_comment_count', __('Good comment count'))->default(0);
+                $form->number('user_id', __('User id'))->default(1);
+                $form->text('no', __('No'))->default('j'.time());
+                $form->decimal('amount', __('Amount'))->default(299);
+                $form->decimal('top_amount', __('Top amount'))->default(0);
+                $form->number('platform_licensing', __('Platform licensing'))->default(0);
+            }
+
+
         }else {
             $form->image('store_logo', __('门店照/个人照'))->rules('required');//商户认证必填
             $form->image('with_iD_card', __('持身份证照'))->rules('required');//持身份证照必传
