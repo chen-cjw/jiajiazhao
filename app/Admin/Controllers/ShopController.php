@@ -169,7 +169,10 @@ class ShopController extends AdminController
         $show->field('due_date', __('Due date'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
-
+        $show->panel()
+            ->tools(function ($tools) {
+                $tools->disableDelete();
+            });;
         return $show;
     }
 
