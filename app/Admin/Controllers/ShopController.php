@@ -109,7 +109,13 @@ class ShopController extends AdminController
 
         });
 
+        $grid->actions(function ($actions) {
 
+            // 没有`delete-image`权限的角色不显示删除按钮
+            if (!Admin::user()->can('Administrator')) {
+                $actions->disableDelete();
+            }
+        });
         return $grid;
     }
 
@@ -348,6 +354,7 @@ class ShopController extends AdminController
 
 
         $form->footer(function ($footer) {
+
             // 去掉`重置`按钮
             $footer->disableReset();
             // 去掉`查看`checkbox
@@ -357,7 +364,15 @@ class ShopController extends AdminController
             // 去掉`继续创建`checkbox
             $footer->disableCreatingCheck();
 
+
         });
+        $form->tools(function (Form\Tools $tools) {
+
+            // 去掉`删除`按钮
+            $tools->disableDelete();
+
+        });
+
         $form->ignore(['store_logo', 'with_iD_card']);
 
         return $form;
