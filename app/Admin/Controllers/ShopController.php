@@ -232,7 +232,6 @@ class ShopController extends AdminController
                 $form->datetime('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
                 $form->text('payment_method', __('Payment method'))->default('wechat');
                 $form->text('payment_no', __('Payment no'))->default('jp'.time());
-                $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s',strtotime("+1year",time())));
                 $form->number('sort', __('Sort'))->default(0);
                 $form->number('view', __('View'))->default(1);
                 $form->switch('is_top', __('Is top'));
@@ -268,11 +267,12 @@ class ShopController extends AdminController
             $form->hidden('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
             $form->hidden('payment_method', __('Payment method'))->default('wechat');
             $form->hidden('payment_no', __('Payment no'))->default('jp' . time());
-            $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s', strtotime("+1year", time())));
+//            $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s', strtotime("+1year", time())));
             $form->hidden('sort', __('Sort'))->default(0);
             $form->hidden('view', __('View'))->default(1);
         }
         $form->select('type', __('Type'))->default('one')->options(['one'=>'第一部份','two'=>'第二部分']);
+        $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s',strtotime("+1year",time())));
 
 
         if (request()->isMethod('PUT')) {
