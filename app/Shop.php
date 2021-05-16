@@ -3,6 +3,8 @@
 namespace App;
 
 use App\Model\AbbrCategory;
+use App\Model\AdminShop;
+use App\Model\AdminUser;
 use App\Model\Model;
 use App\Model\ShopComment;
 use App\User;
@@ -18,6 +20,10 @@ class Shop extends Model
         'no','amount','lng','lat','user_id','due_date'
     ];
 
+    public function adminUser()
+    {
+        return $this->belongsToMany(AdminUser::class,'admin_shops','shop_id','admin_id');
+    }
     public function user()
     {
         return $this->belongsTo(User::class);

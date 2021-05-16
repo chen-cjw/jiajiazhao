@@ -3,6 +3,8 @@
 namespace App\Admin\Controllers;
 
 use App\Model\AbbrCategory;
+use App\Model\AdminShop;
+use App\Model\AdminUser;
 use App\Shop;
 use App\User;
 use Encore\Admin\Controllers\AdminController;
@@ -10,6 +12,7 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class ShopController extends AdminController
@@ -32,6 +35,11 @@ class ShopController extends AdminController
         $grid->model()->orderBy('id','desc')->where('paid_at','!=',null);
 
         $grid->column('id', __('Id'));
+        $grid->column('admin_user', __('管理员'))->display(function ($adminUser) {
+            $adminShop = AdminShop::where('shop_id',$this->id)->value('admin_id');
+            return $adminShop ? AdminUser::where('id',$adminShop)->value('username') : AdminUser::where('id',1)->value('username');
+        });
+
         $grid->column('user_id', __('User id'))->display(function ($userId) {
             return User::where('id',$userId)->value('nickname');
         });
@@ -84,6 +92,12 @@ class ShopController extends AdminController
 //        $grid->column('updated_at', __('Updated at'));
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();
+            $filter->where(function ($query) {
+                $input = $this->input;
+                $adminUserId = AdminUser::where('username',$input)->value('id');
+                $adminShopId = AdminShop::where('admin_id',$adminUserId)->pluck('shop_id');
+                $query->whereIn('id',$adminShopId);
+            }, '管理员')->select(AdminUser::pluck('username','username'));
             $filter->where(function ($query) {
                 $input = $this->input;
                 $query->whereHas('user', function ($query) use ($input) {
@@ -377,7 +391,16 @@ class ShopController extends AdminController
         });
 
         $form->ignore(['store_logo', 'with_iD_card']);
+        // -- 创建之后添加关联
+        if (request()->isMethod('POST')) {
 
+            $form->saved(function (Form $form) {
+                AdminShop::create([
+                    'admin_id' => Auth::guard('admin')->id(),
+                    'shop_id' => $form->model()->id,
+                ]);
+            });
+        };
         return $form;
     }
 }
