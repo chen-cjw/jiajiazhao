@@ -37,7 +37,7 @@ class ShopController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('admin_user', __('管理员'))->display(function ($adminUser) {
             $adminShop = AdminShop::where('shop_id',$this->id)->value('admin_id');
-            return $adminShop ? AdminUser::where('id',$adminShop)->value('username') : AdminUser::where('id',1)->value('username');
+            return $adminShop ? AdminUser::where('id',$adminShop)->value('username') : "超级管理员";
         });
 
         $grid->column('user_id', __('User id'))->display(function ($userId) {
