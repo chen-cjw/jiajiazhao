@@ -87,7 +87,7 @@ class ShopController extends AdminController
             $filter->where(function ($query) {
                 $input = $this->input;
                 $query->whereHas('user', function ($query) use ($input) {
-                    $query->where('nickname', 'like', "%$input");
+                    $query->where('nickname', 'like', "%$input%");
                 });
             }, '用户名');
 
