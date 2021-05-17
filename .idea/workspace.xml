@@ -34,6 +34,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="975">
+              <caret line="78" column="50" selection-start-line="78" selection-start-column="50" selection-end-line="78" selection-end-column="50" />
+              <folding>
+                <element signature="e#7814#7996#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="WithdrawalController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/WithdrawalController.php">
           <provider selected="true" editor-type-id="text-editor" />
@@ -43,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="28" column="48" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="48" />
+              <caret line="28" column="23" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -51,8 +63,8 @@
       <file leaf-file-name="PayController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/PayController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="46" column="58" selection-start-line="46" selection-start-column="58" selection-end-line="46" selection-end-column="58" />
+            <state relative-caret-position="37">
+              <caret line="46" column="55" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -123,10 +135,10 @@
       <find>attemptCreatePaymentOrder</find>
       <find>APP_URL</find>
       <find>logo</find>
-      <find>payment</find>
       <find>dhg0q824gnw34tur023hgfnpwef2q93y</find>
-      <find>1579420761</find>
       <find>wx693aa465df66510b</find>
+      <find>1579420761</find>
+      <find>payment</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -488,12 +500,12 @@
       <workItem from="1612513478440" duration="54441000" />
       <workItem from="1613143753305" duration="44869000" />
       <workItem from="1514765447953" duration="18529000" />
-      <workItem from="1620347045208" duration="24251000" />
+      <workItem from="1620347045208" duration="24586000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="601508000" />
+    <option name="totallyTimeSpent" value="601843000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -647,16 +659,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShareHomeController.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="78" column="50" selection-start-line="78" selection-start-column="50" selection-end-line="78" selection-end-column="50" />
-          <folding>
-            <element signature="e#7814#7996#0#PHP" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
       <provider selected="true" editor-type-id="text-editor" />
@@ -854,13 +856,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="28" column="48" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/wechat.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
@@ -875,10 +870,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="78" column="50" selection-start-line="78" selection-start-column="50" selection-end-line="78" selection-end-column="50" />
+          <folding>
+            <element signature="e#7814#7996#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/PayController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="46" column="58" selection-start-line="46" selection-start-column="58" selection-end-line="46" selection-end-column="58" />
+        <state relative-caret-position="37">
+          <caret line="46" column="55" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
         </state>
       </provider>
     </entry>

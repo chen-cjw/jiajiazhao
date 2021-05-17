@@ -44,7 +44,7 @@ class PayController extends Controller
     public function payment(
 
     ){
-        $order = $this->attemptCreatePaymentOrder(55, 0.01 , 1);
+        $order = $this->attemptCreatePaymentOrder(55, 1 , 1);
 //        $order = $this->attemptCreatePaymentOrder(\request('user_id'), \request('amount') , 1);
         Log::info($order);
         $this->app = Factory::payment([
