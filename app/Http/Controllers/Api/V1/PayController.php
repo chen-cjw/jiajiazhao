@@ -19,8 +19,8 @@ class PayController extends Controller
 //    protected $config = [
 //        // 必要配置
 //        'app_id' => 'wx693aa465df66510b',
-//        'mch_id'             => '1579420761',
-//        'key'                => 'dhg0q824gnw34tur023hgfnpwef2q93y',   // API 密钥
+//        'mch_id'             => '',
+//        'key'                => '',   // API 密钥
 //        //         $fontPath = config('app.fontPath');//'/System/Library/Fonts/Hiragino Sans GB.ttc';
 //        // 如需使用敏感接口（如退款、发送红包等）需要配置 API 证书路径(登录商户平台下载 API 证书)
 //        'cert_path'          => config('app.cert'),
@@ -44,13 +44,14 @@ class PayController extends Controller
     public function payment(
 
     ){
-        $order = $this->attemptCreatePaymentOrder(\request('user_id'), \request('amount') , 1);
+        $order = $this->attemptCreatePaymentOrder(55, 0.01 , 1);
+//        $order = $this->attemptCreatePaymentOrder(\request('user_id'), \request('amount') , 1);
         Log::info($order);
         $this->app = Factory::payment([
             // 必要配置
-            'app_id' => 'wx693aa465df66510b',
-            'mch_id'             => '',
-            'key'                => '',   // API 密钥
+            'app_id' => env('WECHAT_PAYMENT_APPID'),
+            'mch_id'             => env('WECHAT_PAYMENT_MCH_ID'),
+            'key'                => env('WECHAT_PAYMENT_KEY'),   // API 密钥
             //         $fontPath = config('app.fontPath');//'/System/Library/Fonts/Hiragino Sans GB.ttc';
             // 如需使用敏感接口（如退款、发送红包等）需要配置 API 证书路径(登录商户平台下载 API 证书)
             'cert_path'          => "/www/wwwroot/jiajiazhao3/public//apiclient_cert.pem",
