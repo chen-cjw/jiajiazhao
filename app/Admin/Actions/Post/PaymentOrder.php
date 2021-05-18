@@ -2,6 +2,7 @@
 
 namespace App\Admin\Actions\Post;
 
+use App\User;
 use Encore\Admin\Actions\RowAction;
 use Illuminate\Database\Eloquent\Model;
 use EasyWeChat\Factory;
@@ -14,6 +15,10 @@ class PaymentOrder extends RowAction
 
     public function handle(Model $model)
     {
+        if ($model->status == 1) {
+            return $this->response()->error('提现失败.')->refresh();
+
+        }
         // $model ...
         $this->app = Factory::payment([
             // 必要配置
@@ -33,8 +38,8 @@ class PaymentOrder extends RowAction
 //        return $this->app;
         $balanceData = [
             'partner_trade_no' => $model->order_number,
-            'openid' => "oHIUO5BDkECawMJtgbbVmIzHyXMY",
-            'amount' => 200,//0.01 * 100,
+            'openid' => User::where('id',$model->user_id)->value(),
+            'amount' => $model->amount * 100,//0.01 * 100,
             'desc' => '提现',
             're_user_name' => ""
         ];
