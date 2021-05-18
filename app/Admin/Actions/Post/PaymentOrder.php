@@ -38,7 +38,7 @@ class PaymentOrder extends RowAction
 //        return $this->app;
         $balanceData = [
             'partner_trade_no' => $model->order_number,
-            'openid' => User::where('id',$model->user_id)->value(),
+            'openid' => User::where('id',$model->user_id)->value('ml_openid'),
             'amount' => $model->amount * 100,//0.01 * 100,
             'desc' => '提现',
             're_user_name' => ""
