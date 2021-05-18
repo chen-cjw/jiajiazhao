@@ -26,7 +26,11 @@ class IndexController extends Controller
 
         // 商户
         $shopOne = AbbrCategory::where('parent_id',null)->where('is_display',1)->where('local','one')->orderBy('sort','desc')->get();//->take(15)
-        $shopTwo = AbbrCategory::where('parent_id',null)->where('is_display',1)->where('local','two')->orderBy('sort','desc')->get();//->take(7)
+        if (config('app.city') == 1) {
+            $shopTwo = AbbrCategory::where('parent_id',null)->where('is_display',1)->where('local','two')->whereNotIn('abbr',['本地拼车','跑腿服务','婚庆服务'])->orderBy('sort','desc')->get();//->take(7)
+        }else {
+            $shopTwo = AbbrCategory::where('parent_id',null)->where('is_display',1)->where('local','two')->orderBy('sort','desc')->get();//->take(7)
+        }
         foreach ($shopOne as $k=>$v) {
             if (config('app.city') == 1) {
                 $shopOne[$k]['is_value'] = 1;
@@ -50,20 +54,13 @@ class IndexController extends Controller
             }
         }
         // 帖子分类
-        if (config('app.city') == 0) {
-            $cardCategory = CardCategory::where('is_display', 1)->orderBy('sort', 'desc')->get();
+        $cardCategory = CardCategory::where('is_display',1)->orderBy('sort','desc')->get();
 
-            foreach ($cardCategory as $k => $v) {
-                if (config('app.city') == 1) {
-                    $cardCategory[$k]['is_value'] = 1;//ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;
-                } else {
-                    $cardCategory[$k]['is_value'] = ConvenientInformation::where('card_id', $v->id)->first() ? 1 : 0;
-                }
-            }
-        }else {
-            $cardCategory = CardCategory::where('is_display', 1)->orderBy('sort', 'desc')->take(5)->get();
-            foreach ($cardCategory as $k => $v) {
+        foreach ($cardCategory as $k=>$v) {
+            if (config('app.city') == 1) {
                 $cardCategory[$k]['is_value'] = 1;//ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;
+            }else {
+                $cardCategory[$k]['is_value'] = ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;
             }
         }
         return [
