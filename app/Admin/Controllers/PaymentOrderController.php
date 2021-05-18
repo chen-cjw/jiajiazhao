@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Model\PaymentOrder;
 use App\Admin\Actions\Post\PaymentOrder as Pay;
+use App\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -26,9 +27,13 @@ class PaymentOrderController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new PaymentOrder());
+        $grid->model()->orderBy('id','desc');//->whereNull('parent_id')
 
         $grid->column('id', __('Id'));
-        $grid->column('user_id', __('User id'));
+//        $grid->column('user_id', __('User id'));
+        $grid->column('user_id', __('User id'))->display(function ($userId) {
+            return User::where('id',$userId)->value('nickname');
+        });
         $grid->column('order_number', __('Order number'));
         $grid->column('amount', __('Amount'));
         $grid->column('payment_no', __('Payment no'));
@@ -36,6 +41,18 @@ class PaymentOrderController extends AdminController
 //        $grid->column('intro', __('Intro'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
+
+        $grid->filter(function ($filter) {
+            $filter->like('payment_no', __('Payment no'));
+            $filter->equal('status', __('Status'))->select([1 => '付款成功', 2 => '待付款',3 => '付款失败']);
+            $filter->where(function ($query) {
+                $input = $this->input;
+                $query->whereHas('user', function ($query) use ($input) {
+                    $query->where('nickname', 'like', "%$input%");
+                });
+            }, '用户名');
+        });
+
         $grid->actions(function ($actions) {
             $actions->add(new Pay());
         });

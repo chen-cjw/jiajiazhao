@@ -52,6 +52,7 @@ class PaymentOrder extends RowAction
             $model->status = 2;
             $model->intro = $msg;
             $model->save();
+            return $this->response()->error('$result.');
 
             throw new \Exception($result, $model);
         }
