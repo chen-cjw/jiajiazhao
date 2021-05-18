@@ -50,13 +50,20 @@ class IndexController extends Controller
             }
         }
         // 帖子分类
-        $cardCategory = CardCategory::where('is_display',1)->orderBy('sort','desc')->get();
+        if (config('app.city') == 0) {
+            $cardCategory = CardCategory::where('is_display', 1)->orderBy('sort', 'desc')->get();
 
-        foreach ($cardCategory as $k=>$v) {
-            if (config('app.city') == 1) {
+            foreach ($cardCategory as $k => $v) {
+                if (config('app.city') == 1) {
+                    $cardCategory[$k]['is_value'] = 1;//ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;
+                } else {
+                    $cardCategory[$k]['is_value'] = ConvenientInformation::where('card_id', $v->id)->first() ? 1 : 0;
+                }
+            }
+        }else {
+            $cardCategory = CardCategory::where('is_display', 1)->orderBy('sort', 'desc')->take(5)->get();
+            foreach ($cardCategory as $k => $v) {
                 $cardCategory[$k]['is_value'] = 1;//ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;
-            }else {
-                $cardCategory[$k]['is_value'] = ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;
             }
         }
         return [
