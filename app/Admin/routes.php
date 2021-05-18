@@ -42,6 +42,7 @@ Route::group([
     $router->resource('banner_post_shop', 'BannerPostShopController'); // 商户入驻申请轮播图
     $router->resource('share_home', 'ShareHomeController'); // 商户入驻申请轮播图
     $router->resource('banner_shop_show', 'BannerShopShowController'); // 商户入驻申请轮播图
+    $router->resource('payment_order', 'PaymentOrderController'); // 提现到零钱
 //    $router->resource('users', \App\Admin\Controllers\UserController::class);
     });
 

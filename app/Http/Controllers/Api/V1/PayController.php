@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\Controller;
 use App\Model\PaymentOrder;
+use App\User;
 use EasyWeChat\Factory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class PayController extends Controller
@@ -14,7 +15,16 @@ class PayController extends Controller
      * @var \EasyWeChat\Payment\Application $app
      **/
     protected $app = null;
-
+    // 提现到零钱 1付款成功,2待付款,3付款失败
+    public function index()
+    {
+        $query = auth('api')->user()->pays();
+        if($status = \request('status')) {
+            $query = $query->where('status',$status);
+        }
+        $res = $query->paginate();
+        return $this->responseStyle('ok',200,$res);
+    }
     //小程序配置
 //    protected $config = [
 //        // 必要配置
@@ -31,7 +41,51 @@ class PayController extends Controller
 //
 ////        'notify_url'         => 'https://xxxxxx/api/order_pay_url',     // 你也可以在下单时单独设置来想覆盖它
 //    ];
+    // 提现到零钱 1付款成功,2待付款,3付款失败
+    public function store(Request $request)
+    {
+        $user = auth('api')->user();
+        $amount = $request->amount;
+        DB::beginTransaction();
+        try {
+            if (bccomp($user->balance, $amount, 3) == -1) {
+                return [
+                    'msg'=>'余额不足',
+                    'code'=>422,
+                    'date'=>[]
+                ];
+                return $this->responseStyle('余额不足', 422, []);
+            }
+            $payOrder = new PaymentOrder();
+            $payOrder->fill([
+                'user_id' => $user->id,
+                'order_number' => $this->getordernumber(),
+                'amount' => $amount,
+                'status' => 2,
+            ]);
 
+            $payOrder->save();
+
+            User::where('id', $user->id)->decrement('balance', $amount);
+            Log::info(123);
+
+            DB::commit();
+            return [
+                'msg'=>'ok',
+                'code'=>200,
+                'date'=>$payOrder
+            ];
+
+        } catch (\Exception $ex) {
+            DB::rollback();
+            \Log::error('提现出错', ['error' => $ex]);
+            return [
+                'msg'=>'提现出错',
+                'code'=>422,
+                'date'=>$ex
+            ];
+        }
+    }
     /**
      * 付款到微信
      *  string $amount,

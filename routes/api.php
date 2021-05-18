@@ -27,6 +27,9 @@ $api->version('v1', [
     $api->group(['middleware' => ['auth:api']], function ($api) {
         // 提现
         $api->post('pay', 'PayController@payment')->name('api.pay.payment');
+        // 提现到零钱
+        $api->get('/wechat/pay', 'PayController@index')->name('api.pay.index');
+        $api->post('/wechat/pay', 'PayController@store')->name('api.pay.store');
     });
     $api->post('make_hai_bao','MakeQrCodeController@makeHaiBao')->name('api.auth.makeHaiBao');
     $api->get('auth','AuthController@index')->name('api.auth.index');
@@ -184,6 +187,7 @@ $api->version('v1', [
             $api->post('/suggestion', 'SuggestionController@store')->name('api.suggestion.store');
 
             $api->post('/shop/{id}/shop_comment', 'ShopCommentController@store')->name('api.shop_comment.store'); // 入住
+
 
         });
 

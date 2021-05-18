@@ -78,5 +78,7 @@
   "Closed":"过期",
   "Bank of deposit":"开户行",
   "Bank card number":"银行卡号",
-  "Abbr":"分类名"
+  "Abbr":"分类名",
+  "Order number":"单号",
+  "Status":"状态"
 }

@@ -6,6 +6,7 @@ use App\Model\ConvenientInformation;
 use App\Model\Dialing;
 use App\Model\DriverCertification;
 use App\Model\LocalCarpooling;
+use App\Model\PaymentOrder;
 use App\Model\Shop;
 use App\Model\Suggestions;
 use App\Model\Withdrawal;
@@ -137,6 +138,11 @@ class User extends Authenticatable implements JWTSubject
     public function withdrawals()
     {
         return $this->hasMany(Withdrawal::class);
+    }
+    // 提现到零钱
+    public function pays()
+    {
+        return $this->hasMany(PaymentOrder::class);
     }
 
     // 邀请码
