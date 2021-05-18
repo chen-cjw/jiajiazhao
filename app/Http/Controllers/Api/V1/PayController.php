@@ -22,7 +22,7 @@ class PayController extends Controller
         if($status = \request('status')) {
             $query = $query->where('status',$status);
         }
-        $res = $query->paginate();
+        $res = $query->orderBy('id','desc')->paginate();
         return $this->responseStyle('ok',200,$res);
     }
     //小程序配置
