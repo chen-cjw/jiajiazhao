@@ -10,7 +10,7 @@ class AbbrCategoryController extends Controller
     // 行业分类(后台)
     public function index()
     {
-        if (config('app.city') == 0) {
+        if (config('app.city') == 1) {
             $abbrCategory = AbbrCategory::orderBy('sort','desc')->where('type','shop')->where('is_display',1)->where('parent_id',null)->get();
         }else {
             $abbrCategory = AbbrCategory::orderBy('sort','desc')->where('type','shop')->where('is_display',1)->take(5)->where('parent_id',null)->get();

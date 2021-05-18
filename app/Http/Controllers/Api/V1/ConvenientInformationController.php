@@ -47,7 +47,7 @@ class ConvenientInformationController extends Controller
         $advertisingSpace = AdvertisingSpace::orderBy('sort','desc')->where('is_display',1)->take(3)->get();
 
         // 帖子分类
-        if (config('app.city') == 1) {
+        if (config('app.city') == 0) {
             $cardCategory = CardCategory::orderBy('sort','desc')->where('is_display',1)->take(5)->get();
             foreach ($cardCategory as $k=>$v) {
                 $cardCategory[$k]['is_value'] = 1;//ConvenientInformation::where('card_id',$v->id)->first() ? 1 : 0;

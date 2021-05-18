@@ -26,7 +26,7 @@ class IndexController extends Controller
 
         // 商户
         $shopOne = AbbrCategory::where('parent_id',null)->where('is_display',1)->where('local','one')->orderBy('sort','desc')->get();//->take(15)
-        if (config('app.city') == 1) {
+        if (config('app.city') == 0) {
             $shopTwo = AbbrCategory::where('parent_id',null)->where('is_display',1)->where('local','two')->whereNotIn('abbr',['本地拼车','跑腿服务','婚庆服务'])->orderBy('sort','desc')->get();//->take(7)
         }else {
             $shopTwo = AbbrCategory::where('parent_id',null)->where('is_display',1)->where('local','two')->orderBy('sort','desc')->get();//->take(7)
