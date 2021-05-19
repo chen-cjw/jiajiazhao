@@ -43,13 +43,13 @@ class UserController extends AdminController
             return  $isMember == '0' ? '商家' : '会员';
         });
         $grid->column('is_certification', __('Is certification'));
-        $grid->column('balance', __('Balance'))->sortable();
+        $grid->column('balance', __('可提现'))->sortable();
 //        $res['with_balance']=//;
 //        $res['all_balance']=bcadd($res['with_balance'],$res->balance,3);
         $grid->column('all_balance', __('总收益'))->display(function ($isMember) {
             return bcadd($this->balance,bcadd(PaymentOrder::where('user_id',$this->id)->sum('amount'),Withdrawal::where('user_id',$this->id)->sum('amount')),3);
         });
-        $grid->column('withdraw_balance', __('累计提现'))->display(function ($isMember) {
+        $grid->column('withdraw_balance', __('已提现'))->display(function ($isMember) {
             return bcadd(PaymentOrder::where('user_id',$this->id)->sum('amount'),Withdrawal::where('user_id',$this->id)->sum('amount'));
 
             return  $isMember == '0' ? '商家' : '会员';
