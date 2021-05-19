@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Requests\PaymentOrderRequest;
 use App\Model\PaymentOrder;
 use App\User;
 use EasyWeChat\Factory;
@@ -42,7 +43,7 @@ class PayController extends Controller
 ////        'notify_url'         => 'https://xxxxxx/api/order_pay_url',     // 你也可以在下单时单独设置来想覆盖它
 //    ];
     // 提现到零钱 1付款成功,2待付款,3付款失败
-    public function store(Request $request)
+    public function store(PaymentOrderRequest $request)
     {
         $user = auth('api')->user();
         $amount = $request->amount;
