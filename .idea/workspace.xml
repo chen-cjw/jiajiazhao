@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/UserController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="228" column="94" lean-forward="true" selection-start-line="228" selection-start-column="94" selection-end-line="228" selection-end-column="94" />
+            <state relative-caret-position="386">
+              <caret line="226" column="8" selection-start-line="226" selection-start-column="8" selection-end-line="227" selection-end-column="72" />
               <folding>
                 <element signature="e#7814#7996#0#PHP" />
               </folding>
@@ -31,7 +31,7 @@
       <file leaf-file-name="PersonalController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
+            <state relative-caret-position="925">
               <caret line="136" column="42" lean-forward="true" selection-start-line="136" selection-start-column="42" selection-end-line="136" selection-end-column="42" />
             </state>
           </provider>
@@ -64,13 +64,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="54" column="8" lean-forward="true" selection-start-line="54" selection-start-column="8" selection-end-line="61" />
+            <state relative-caret-position="319">
+              <caret line="49" column="158" selection-start-line="49" selection-start-column="158" selection-end-line="49" selection-end-column="158" />
               <folding>
-                <element signature="e#41#54#0#PHP" expanded="true" />
+                <element signature="e#41#68#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -198,7 +198,6 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/storage/logs/laravel.log" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" />
-        <option value="$PROJECT_DIR$/app/Admin/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/app/Model/AdminShop.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_05_16_221400_create_admin_shops_table.php" />
         <option value="$PROJECT_DIR$/app/Shop.php" />
@@ -217,6 +216,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PayController.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/PaymentOrderRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" />
+        <option value="$PROJECT_DIR$/app/Admin/Controllers/UserController.php" />
       </list>
     </option>
   </component>
@@ -539,12 +539,12 @@
       <workItem from="1613143753305" duration="44869000" />
       <workItem from="1514765447953" duration="18529000" />
       <workItem from="1620347045208" duration="24862000" />
-      <workItem from="1621309126284" duration="8491000" />
+      <workItem from="1621309126284" duration="9101000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="610610000" />
+    <option name="totallyTimeSpent" value="611220000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -556,9 +556,9 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.2569697" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.2569697" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26180258" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26180258" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -873,13 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="136" column="42" lean-forward="true" selection-start-line="136" selection-start-column="42" selection-end-line="136" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/WithdrawalRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -924,22 +917,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/UserController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="8" lean-forward="true" selection-start-line="54" selection-start-column="8" selection-end-line="61" />
-          <folding>
-            <element signature="e#41#54#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="925">
+          <caret line="136" column="42" lean-forward="true" selection-start-line="136" selection-start-column="42" selection-end-line="136" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="228" column="94" lean-forward="true" selection-start-line="228" selection-start-column="94" selection-end-line="228" selection-end-column="94" />
+        <state relative-caret-position="386">
+          <caret line="226" column="8" selection-start-line="226" selection-start-column="8" selection-end-line="227" selection-end-column="72" />
           <folding>
             <element signature="e#7814#7996#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="49" column="158" selection-start-line="49" selection-start-column="158" selection-end-line="49" selection-end-column="158" />
+          <folding>
+            <element signature="e#41#68#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

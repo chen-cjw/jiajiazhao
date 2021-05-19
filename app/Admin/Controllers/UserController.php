@@ -2,6 +2,8 @@
 
 namespace App\Admin\Controllers;
 
+use App\Model\PaymentOrder;
+use App\Model\Withdrawal;
 use App\Shop;
 use App\User;
 use Encore\Admin\Controllers\AdminController;
@@ -42,6 +44,16 @@ class UserController extends AdminController
         });
         $grid->column('is_certification', __('Is certification'));
         $grid->column('balance', __('Balance'))->sortable();
+//        $res['with_balance']=//;
+//        $res['all_balance']=bcadd($res['with_balance'],$res->balance,3);
+        $grid->column('all_balance', __('总收益'))->display(function ($isMember) {
+            return bcadd($this->balance,bcadd(PaymentOrder::where('user_id',$this->id)->sum('amount'),Withdrawal::where('user_id',$this->id)->sum('amount')),3);
+        });
+        $grid->column('withdraw_balance', __('累计提现'))->display(function ($isMember) {
+            return bcadd(PaymentOrder::where('user_id',$this->id)->sum('amount'),Withdrawal::where('user_id',$this->id)->sum('amount'));
+
+            return  $isMember == '0' ? '商家' : '会员';
+        });
         $grid->column('city_partner', __('City partner'))->using([1 => '是', 0 => '否']);
         $grid->column('ref_code', __('Ref code'));
         $grid->column('display', __('是否禁用'))->using([1 => '是', 0 => '否']);
