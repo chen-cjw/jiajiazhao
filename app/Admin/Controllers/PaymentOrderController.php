@@ -56,7 +56,7 @@ class PaymentOrderController extends AdminController
         $grid->actions(function ($actions) {
             $actions->add(new Pay());
             $actions->disableDelete();
-            $actions->disableEdit();
+//            $actions->disableEdit();
         });
         $grid->disableCreateButton();
         return $grid;
@@ -94,10 +94,10 @@ class PaymentOrderController extends AdminController
     {
         $form = new Form(new PaymentOrder());
 
-        $form->text('user_id', __('User id'));
-        $form->text('order_number', __('Order number'));
-        $form->number('amount', __('Amount'));
-        $form->text('payment_no', __('Payment no'));
+//        $form->text('user_id', __('User id'));
+//        $form->text('order_number', __('Order number'));
+//        $form->number('amount', __('Amount'));
+//        $form->text('payment_no', __('Payment no'));
         $form->switch('status', __('Status'))->default(2);
 //        $form->textarea('intro', __('Intro'));
 

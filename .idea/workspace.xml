@@ -28,8 +28,8 @@
       <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1287">
-              <caret line="256" column="44" selection-start-line="256" selection-start-column="36" selection-end-line="256" selection-end-column="44" />
+            <state relative-caret-position="-971">
+              <caret line="110" column="27" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="27" />
               <folding>
                 <element signature="e#7814#7996#0#PHP" />
               </folding>
@@ -87,8 +87,8 @@
       <file leaf-file-name="PaymentOrderController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/PaymentOrderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="61" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="423">
+              <caret line="59" column="11" lean-forward="true" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
               <folding>
                 <element signature="e#41#68#0#PHP" expanded="true" />
               </folding>
@@ -121,7 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>order</find>
       <find>$fontPath</find>
       <find>oHIUO5BDkECawMJtgbbVmIzHyXMY</find>
       <find>1</find>
@@ -151,6 +150,7 @@
       <find>userWithdrawalIndex</find>
       <find>pay</find>
       <find>mlOpenidStore</find>
+      <find>创建用户</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -527,12 +527,12 @@
       <workItem from="1613143753305" duration="44869000" />
       <workItem from="1514765447953" duration="18529000" />
       <workItem from="1620347045208" duration="24862000" />
-      <workItem from="1621309126284" duration="11025000" />
+      <workItem from="1621309126284" duration="11606000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="613144000" />
+    <option name="totallyTimeSpent" value="613725000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -895,6 +895,13 @@
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ShopController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="100" column="11" lean-forward="true" selection-start-line="100" selection-start-column="11" selection-end-line="105" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
@@ -907,25 +914,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1287">
-          <caret line="256" column="44" selection-start-line="256" selection-start-column="36" selection-end-line="256" selection-end-column="44" />
+        <state relative-caret-position="-971">
+          <caret line="110" column="27" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="27" />
           <folding>
             <element signature="e#7814#7996#0#PHP" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ShopController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="100" column="11" lean-forward="true" selection-start-line="100" selection-start-column="11" selection-end-line="105" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/PaymentOrderController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="423">
+          <caret line="59" column="11" lean-forward="true" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
           <folding>
             <element signature="e#41#68#0#PHP" expanded="true" />
           </folding>
