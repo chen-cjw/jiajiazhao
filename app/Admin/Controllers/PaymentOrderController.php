@@ -55,12 +55,10 @@ class PaymentOrderController extends AdminController
 
         $grid->actions(function ($actions) {
             $actions->add(new Pay());
-        });
-        $grid->disableCreateButton();
-        $grid->actions(function ($actions) {
             $actions->disableDelete();
             $actions->disableEdit();
         });
+        $grid->disableCreateButton();
         return $grid;
     }
 
