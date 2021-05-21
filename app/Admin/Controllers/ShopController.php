@@ -33,12 +33,11 @@ class ShopController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Shop());
-        $grid->model()->orderBy('id','desc')->where('paid_at','!=',null);
-
+        $grid->model()->orderBy('id','desc');//->where('paid_at','!=',null);
         if (!Admin::user()->can('Administrator')) {
             //
-            $shopID = AdminShop::where('admin_id',Admin::user()->id)->pluck('shop_id');
-            $grid->whereIn('id',$shopID);
+            $shopID = AdminShop::where('admin_id',Admin::user()->id)->get('shop_id');
+            $grid->model()->whereIn('id',$shopID);
         }
 
         $grid->column('id', __('Id'));
