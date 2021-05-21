@@ -98,7 +98,7 @@ class PaymentOrderController extends AdminController
 //        $form->text('order_number', __('Order number'));
 //        $form->number('amount', __('Amount'));
 //        $form->text('payment_no', __('Payment no'));
-        $form->switch('status', __('Status'))->default(2);
+        $form->select('status', __('Status'))->options([1 => '付款成功', 2 => '待付款',3 => '付款失败']);
 //        $form->textarea('intro', __('Intro'));
 
         return $form;

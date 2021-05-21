@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Filters\TimestampBetween;
 use App\Model\AbbrCategory;
 use App\Model\AdminShop;
 use App\Model\AdminUser;
@@ -33,6 +34,12 @@ class ShopController extends AdminController
     {
         $grid = new Grid(new Shop());
         $grid->model()->orderBy('id','desc')->where('paid_at','!=',null);
+
+        if (!Admin::user()->can('Administrator')) {
+            //
+            $shopID = AdminShop::where('admin_id',Admin::user()->id)->pluck('shop_id');
+            $grid->whereIn('id',$shopID);
+        }
 
         $grid->column('id', __('Id'));
         $grid->column('admin_user', __('管理员'))->display(function ($adminUser) {
@@ -104,7 +111,8 @@ class ShopController extends AdminController
                     $query->where('nickname', 'like', "%$input%");
                 });
             }, '用户名');
-
+//            $filter->between('due_date', __('Due date'))->datetime();
+            $filter->use(new TimestampBetween('due_date', __('Due date')))->datetime();
             $filter->column(1/2, function ($filter) {
                 $filter->like('contact_phone', __('Contact phone'));
                 $filter->like('name', '店铺名');
@@ -122,7 +130,9 @@ class ShopController extends AdminController
             });
 
         });
-
+        if (!Admin::user()->can('Administrator')) {
+            $grid->disableExport();
+        }
         $grid->actions(function ($actions) {
 
             // 没有`delete-image`权限的角色不显示删除按钮
