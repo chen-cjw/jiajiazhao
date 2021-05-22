@@ -36,7 +36,9 @@ class SuggestionsController extends AdminController
 //            return User::where('id',$userId)->value('phone');
 //        });
         $grid->column('user_id', __('用户ID'))->display(function ($user_id) {
+            if ($this->localCarpooling_id==0) {
                 return "<a href='/admin/users?&id={$user_id}'>$user_id</a>";
+            }
         });
         $grid->column('localCarpooling_id', __('投诉的帖子'))->display(function ($localCarpooling_id) {
             if($localCarpooling_id == 0) {
