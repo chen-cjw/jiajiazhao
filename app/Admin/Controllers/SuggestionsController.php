@@ -29,11 +29,14 @@ class SuggestionsController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('content', __('Content'));
-        $grid->column('user_id', __('User id'))->display(function ($userId){
-            return User::where('id',$userId)->value('nickname');
+        $grid->column('username', __('User id'))->display(function ($userId){
+            return User::where('id',$this->user_id)->value('nickname');
         });
-        $grid->column('user_id', __('User id'))->display(function ($userId){
-            return User::where('id',$userId)->value('phone');
+//        $grid->column('user_id', __('User id'))->display(function ($userId){
+//            return User::where('id',$userId)->value('phone');
+//        });
+        $grid->column('user_id', __('用户ID'))->display(function ($user_id) {
+                return "<a href='/admin/users?&id={$user_id}'>$user_id</a>";
         });
         $grid->column('localCarpooling_id', __('投诉的帖子'))->display(function ($localCarpooling_id) {
             if($localCarpooling_id == 0) {
