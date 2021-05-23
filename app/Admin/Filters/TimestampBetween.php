@@ -12,9 +12,9 @@ class TimestampBetween extends Between
         // $inputs即为传进来的参数，格式化成timestamp再去构建条件
 
 //        if (!array_has($inputs, $this->column)) {
-        if (!array_key_exists($inputs, $this->column)) {
-            return;
-        }
+//        if (!array_key_exists($inputs, $this->column)) {
+//            return;
+//        }
 
         $this->value = array_get($inputs, $this->column);
 
