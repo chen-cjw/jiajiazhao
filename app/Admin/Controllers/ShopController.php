@@ -301,6 +301,19 @@ class ShopController extends AdminController
         if (request()->isMethod('PUT')) {
             $form->saving(function (Form $form) {
 
+                if (!Admin::user()->can('Administrator')) {
+
+                        // 不是超级管理员，就判断
+                    if(AdminShop::where('shop_id',$form->model()->id)->value('admin_id') == Admin::user()->id ) {
+
+                    }else {
+                        throw new \Exception('请不要随意修改数据！');
+                    }
+
+
+                }else {
+
+                }
 //            dd($form) ;
                 $data = [];
                 if(request('store_logo')) {
