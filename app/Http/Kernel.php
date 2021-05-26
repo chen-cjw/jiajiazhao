@@ -6,6 +6,7 @@ use App\Http\Middleware\PhoneVerify;
 use App\Http\Middleware\RefreshToken;
 use App\Http\Middleware\UserDisplay;
 use App\Http\Middleware\UserInfoVerify;
+use App\Http\Middleware\WxMsgSecCheckMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -71,6 +72,7 @@ class Kernel extends HttpKernel
         'wechat.oauth' => \Overtrue\LaravelWeChat\Middleware\OAuthAuthenticate::class,
         'phone.verify' => PhoneVerify::class,
         'userInfo.verify' => UserInfoVerify::class,
-        'user_display' => UserDisplay::class
+        'user_display' => UserDisplay::class,
+        'wx_msg' => WxMsgSecCheckMiddleware::class
     ];
 }

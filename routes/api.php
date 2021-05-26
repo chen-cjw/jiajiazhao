@@ -185,16 +185,19 @@ $api->version('v1', [
             $api->post('/dialing', 'DialingController@store')->name('api.dialing.store');
             $api->post('/dialing/delete', 'DialingController@delete')->name('api.dialing.delete');
             $api->post('/suggestion', 'SuggestionController@store')->name('api.suggestion.store');
-
-            $api->post('/shop/{id}/shop_comment', 'ShopCommentController@store')->name('api.shop_comment.store'); // 入住
-
+            // 添加一个微信验证
+            $api->group(['middleware' => ['wx_msg']], function ($api) {
+                $api->post('/shop/{id}/shop_comment', 'ShopCommentController@store')->name('api.shop_comment.store'); // 入住
+            });
 
         });
 
 //        $api->group(['middleware' => ['phone.verify']], function ($api) {
         $api->group(['middleware' => ['userInfo.verify','phone.verify']], function ($api) {
             // 评论
-            $api->post('/comment', 'CommentController@store')->name('api.comment.store'); // 认证
+            $api->group(['middleware' => ['wx_msg']], function ($api) {
+                $api->post('/comment', 'CommentController@store')->name('api.comment.store'); // 认证
+            });
             $api->post('/local_carpooling', 'LocalCarpoolingController@store')->name('api.local_carpooling.store'); // 发布拼车
 
             // 操作之前要获取用户信息
