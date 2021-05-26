@@ -7,6 +7,7 @@ use App\Http\Middleware\RefreshToken;
 use App\Http\Middleware\UserDisplay;
 use App\Http\Middleware\UserInfoVerify;
 use App\Http\Middleware\WxMsgSecCheckMiddleware;
+use App\Http\Middleware\WxMsgTitle;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -73,6 +74,7 @@ class Kernel extends HttpKernel
         'phone.verify' => PhoneVerify::class,
         'userInfo.verify' => UserInfoVerify::class,
         'user_display' => UserDisplay::class,
-        'wx_msg' => WxMsgSecCheckMiddleware::class
+        'wx_msg' => WxMsgSecCheckMiddleware::class,
+        'wx_msg_title' => WxMsgTitle::class
     ];
 }

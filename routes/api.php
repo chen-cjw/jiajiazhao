@@ -204,8 +204,10 @@ $api->version('v1', [
             $api->post('/shop', 'ShopController@store')->name('api.shop.store'); // 入住
             // 我发布本地拼车列表 localCarpool
             $api->post('/local_carpool', 'PersonalController@localCarpool')->name('api.personal.localCarpool');
-            $api->post('/convenient_information', 'ConvenientInformationController@store')->name('api.convenient_information.store'); // 认证
+            $api->group(['middleware' => ['wx_msg','wx_msg_title']], function ($api) {
 
+                $api->post('/convenient_information', 'ConvenientInformationController@store')->name('api.convenient_information.store'); // 认证
+            });
         });
 
     });
