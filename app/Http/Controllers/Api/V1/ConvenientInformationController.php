@@ -316,7 +316,12 @@ class ConvenientInformationController extends Controller
         }else {
             $convenientInformation['favoriteCards'] = 0;
         }
-        $comment = Comment::where('information_id',$convenientInformation->id)->whereNull('parent_reply_id')->orderBy('created_at','desc')->paginate();
+
+        if (config('app.city') == 1) {
+            $comment = Comment::where('information_id',$convenientInformation->id)->whereNull('parent_reply_id')->orderBy('created_at','desc')->paginate();
+        }else {
+            $comment = Comment::where('information_id','ceshi')->paginate();
+        }
 
         $this->history(ConvenientInformation::class,$id,$user);
 
