@@ -441,11 +441,11 @@ class ShopController extends Controller
 //        }else {
 //            $user->favoriteShops()->attach(Shop::find($id));
 //        }
-        if (config('app.city') == 1) {
+//        if (config('app.city') == 1) {
             $shopComment = ShopComment::where('shop_id', $id)->whereNull('parent_reply_id')->orderBy('created_at', 'desc')->paginate();
-        }else {
+//        }else {
             $shopComment = ShopComment::where('shop_id','ceshi')->paginate();
-        }
+//        }
         // 浏览记录贴
         $this->history(Shop::class,$id,$user);
 
