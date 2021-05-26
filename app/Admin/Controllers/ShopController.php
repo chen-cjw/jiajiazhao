@@ -99,11 +99,17 @@ class ShopController extends AdminController
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();
             $filter->where(function ($query) {
+
                 $input = $this->input;
-                $adminUserId = AdminUser::where('username',$input)->value('id');
-                $adminShopId = AdminShop::where('admin_id',$adminUserId)->pluck('shop_id');
-                $query->whereIn('id',$adminShopId);
-            }, '管理员')->select(AdminUser::pluck('username','username'));
+                if ($input == '超级管理员') {
+                    $query->whereNotIn('id',AdminShop::pluck('shop_id'));
+                }else {
+                    $adminUserId = AdminUser::where('username',$input)->value('id');
+                    $adminShopId = AdminShop::where('admin_id',$adminUserId)->pluck('shop_id');
+                    $query->whereIn('id',$adminShopId);
+                }
+
+                }, '管理员')->select((array_merge(['超级管理员'=>'超级管理员'],json_decode(AdminUser::pluck('username','username'),true))));
             $filter->where(function ($query) {
                 $input = $this->input;
                 $query->whereHas('user', function ($query) use ($input) {
