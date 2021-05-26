@@ -15,24 +15,35 @@ class WxMsgSecCheckMiddleware
      */
     public function handle($request, Closure $next)
     {
-
-        $response = file_get_contents( 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&'.'&appid='.config('wechat.mini_program.default.app_id').'&secret='.config('wechat.mini_program.default.secret'));
-
-        $access_token =  \json_decode($response, true)['access_token'];
-
-        $url = 'https://api.weixin.qq.com/wxa/msg_sec_check?access_token='.$access_token;
+        $app = app('wechat.mini_program');
 
         if (!request('content')) {
             throw new \Exception('请输入内容！');
         }
-        $data = ['content'=>request('content')];
-
-        $res = $this->httpPost($url, json_encode($data));
-        if (\json_decode($res, true)['errcode'] == 0) {
+        $res = $app->content_security->checkText(request('content'));
+        if ($res['errcode'] == 0) {
             return $next($request);
         }else {
             throw new \Exception('请输入健康积极向上的内容！');
         }
+
+//        $response = file_get_contents( 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&'.'&appid='.config('wechat.mini_program.default.app_id').'&secret='.config('wechat.mini_program.default.secret'));
+//
+//        $access_token =  \json_decode($response, true)['access_token'];
+//
+//        $url = 'https://api.weixin.qq.com/wxa/msg_sec_check?access_token='.$access_token;
+//
+//        if (!request('content')) {
+//            throw new \Exception('请输入内容！');
+//        }
+//        $data = ['content'=>request('content')];
+//
+//        $res = $this->httpPost($url, json_encode($data));
+//        if (\json_decode($res, true)['errcode'] == 0) {
+//            return $next($request);
+//        }else {
+//            throw new \Exception('请输入健康积极向上的内容！');
+//        }
     }
     private function httpPost($url, $data) {
 
