@@ -444,7 +444,7 @@ class ShopController extends Controller
         if (config('app.city') == 1) {
             $shopComment = ShopComment::where('shop_id', $id)->whereNull('parent_reply_id')->orderBy('created_at', 'desc')->paginate();
         }else {
-            $shopComment = ShopComment::where('id','>','155')->paginate();
+            $shopComment = ShopComment::where('shop_id', $id)->whereNull('parent_reply_id')->orderBy('created_at', 'desc')->where('id','>','155')->paginate();
         }
         // 浏览记录贴
         $this->history(Shop::class,$id,$user);
