@@ -17,8 +17,11 @@ class PaymentOrderRequest extends FormRequest
         return [
             'amount'=>['required',
                 function ($attribute, $value, $fail) {
+                    if(bccomp($value,1)==-1) {
+                        return $fail('最低提现1元');
+                    }
                     if(bccomp($value,Setting::where('key','withdrawal_low')->value('value'),  3)==-1) {
-                        return $fail('最低提现'. Setting::where('key','withdrawal_low')->value('value'));
+                        return $fail('最低提现'. Setting::where('key','withdrawal_low')->value('value').'元');
                     }
                 }],
         ];
