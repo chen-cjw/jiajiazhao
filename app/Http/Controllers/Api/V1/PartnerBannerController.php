@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\Controller;
+use App\Model\PartnerBanner;
 use Illuminate\Http\Request;
 
 class PartnerBannerController extends Controller
@@ -13,5 +13,14 @@ class PartnerBannerController extends Controller
     public function index()
     {
         // where('area',$area)->where('area',null);
+        if (\request('area')) {
+            $res = PartnerBanner::where('area',\request('area'))->where(function ($query) {
+                $query->orWhere('area',null);
+            })->where('is_display',1)->orderBy('updated_at','desc')->get();
+        }else {
+            $res = PartnerBanner::where('is_display',1)->orderBy('updated_at','desc')->get();
+        }
+
+        return $this->responseStyle('ok',200,$res);
     }
 }

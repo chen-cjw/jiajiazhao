@@ -24,6 +24,35 @@ $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api\V1',
     'middleware' => ['serializer:array']
 ], function ($api) {
+    // 四大收益
+    $api->get('city_partner_profit', 'CityPartnerProfitController@index')->name('api.city_partner_profit.index');
+    // 城市合伙人常见问题
+    $api->get('city_partner_question', 'CityPartnerQuestionController@index')->name('api.city_partner_question.index');
+
+    // 合伙人
+    $api->group(['middleware' => ['auth:api']], function ($api) {
+
+        $api->get('city_partner', 'CityPartnerController@index')->name('api.city_partner.index');// 城市合伙人信息
+        $api->post('city_partner', 'CityPartnerController@store')->name('api.city_partner.store');// 入住
+      // 提现记录
+        $api->get('city_partner_payment_order', 'CityPartnerPaymentOrderController@index')->name('api.city_partner_payment_order.index');
+        $api->post('city_partner_payment_order', 'CityPartnerPaymentOrderController@store')->name('api.city_partner_payment_order.store');
+
+        // 商户抽成
+        $api->get('shop_index', 'CityPartnerController@shopIndex')->name('api.city_partner.shop_index');
+
+        // 发帖抽成 -- 这个不是合伙人的是团长的
+        $api->get('information_index', 'CityPartnerController@informationIndex')->name('api.city_partner.information_index');// 入住
+
+        // 交易流水抽成 -- todo暂时未开发
+
+    });
+
+    //
+
+    $api->get('partner_banner', 'PartnerBannerController@index')->name('api.partner_banner.index');
+
+
     $api->group(['middleware' => ['auth:api']], function ($api) {
         // 提现
         $api->post('pay', 'PayController@payment')->name('api.pay.payment');

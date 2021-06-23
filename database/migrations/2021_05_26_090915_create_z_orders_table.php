@@ -24,11 +24,11 @@ class CreateZOrdersTable extends Migration
             $table->dateTime('paid_at')->nullable();
             $table->string('payment_method')->nullable();
             $table->string('payment_no')->nullable();
-            $table->string('refund_status')->default(\App\Models\Order::REFUND_STATUS_PENDING);
+            $table->string('refund_status')->default(1);// \App\Models\Order::REFUND_STATUS_PENDING
             $table->string('refund_no')->unique()->nullable();
             $table->boolean('closed')->default(false);
             $table->boolean('reviewed')->default(false);
-            $table->string('ship_status')->default(\App\Models\Order::SHIP_STATUS_PENDING);
+            $table->string('ship_status')->default(1);// \App\Models\Order::SHIP_STATUS_PENDING
             $table->text('ship_data')->nullable();
             $table->text('extra')->nullable();
             $table->timestamps();

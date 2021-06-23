@@ -2,8 +2,6 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
-
 class TransactionRecord extends Model
 {
 //$table->unsignedDecimal('amount',10,2)->comment('收益金额');

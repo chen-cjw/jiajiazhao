@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Model\CityPartner;
+use App\Model\CityPartnerPaymentOrder;
 use App\Model\ConvenientInformation;
 use App\Model\Dialing;
 use App\Model\DriverCertification;
@@ -167,6 +169,16 @@ class User extends Authenticatable implements JWTSubject
     public function getUpdatedAtAttribute()
     {
         return $this->attributes['updated_at'];//->toDateTimeString();
+    }
+
+    public function cityPartner()
+    {
+        return $this->hasOne(CityPartner::class);
+    }
+    // 合伙人提现到零钱
+    public function cityPartnerPaymentOrders()
+    {
+        return $this->hasMany(CityPartnerPaymentOrder::class);
     }
 
 }

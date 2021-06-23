@@ -16,9 +16,9 @@ class CreateZOrderItemsTable extends Migration
         Schema::create('z_order_items', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id')->comment('所属订单 ID');
-            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->foreign('order_id')->references('id')->on('z_orders')->onDelete('cascade');
             $table->unsignedBigInteger('product_id')->comment('对应商品 ID');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('z_products')->onDelete('cascade');
             $table->unsignedInteger('sample_quantity')->comment('样品数量');
             $table->decimal('price', 10, 2)->comment('单价');
             $table->unsignedInteger('rating')->nullable()->comment('用户打分');

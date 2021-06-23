@@ -15,7 +15,6 @@ class CreateZNoticesTable extends Migration
     {
         Schema::create('z_notices', function (Blueprint $table) {
             $table->id();
-            $table->bigIncrements('id');
             $table->string('name')->nullable()->comment('通知标题');
             $table->text('content')->nullable()->comment('通知内容');
             $table->string('image')->comment('图片');

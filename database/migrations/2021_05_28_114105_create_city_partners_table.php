@@ -23,6 +23,14 @@ class CreateCityPartnersTable extends Migration
             $table->unsignedBigInteger('user_id')->unique(); // 不可以重复申请
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
+            $table->string('no')->unique()->comment('订单流水号');
+            $table->decimal('amount', 10, 2)->comment('费用');
+            $table->decimal('balance', 10, 3)->default(0)->comment('可提金额');
+            $table->decimal('total_balance', 10, 3)->default(0)->comment('总金额');
+;
+            $table->dateTime('paid_at')->nullable()->comment('支付时间');
+            $table->string('payment_method')->default('wechat')->nullable()->comment('支付方式');
+            $table->string('payment_no')->nullable()->comment('支付平台订单号');
             $table->timestamps();
         });
     }

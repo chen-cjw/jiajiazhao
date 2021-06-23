@@ -20,7 +20,7 @@ class CreateZProductSkusTable extends Migration
             $table->decimal('price', 10, 2);
             $table->unsignedInteger('stock');
             $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('z_products')->onDelete('cascade');
             $table->timestamps();
         });
     }

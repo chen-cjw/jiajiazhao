@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\ShopRequest;
 use App\Http\Requests\ShopUpdateRequest;
 use App\Model\AbbrCategory;
+use App\Model\CityPartner;
 use App\Model\History;
 use App\Model\Setting;
 use App\Model\Shop;
 use App\Model\ShopComment;
+use App\Model\ShopCommission;
 use App\Model\TransactionRecord;
 use App\Model\UserFavoriteShop;
 use App\Transformers\ShopTransformer;
@@ -278,6 +280,22 @@ class ShopController extends Controller
 //            }
                 }
             }
+
+            // todo 合伙人获得收入
+            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_pay',1)->first()) {
+                $rate = Setting::where('key', 'city_partner_rate')->value('value')?:0.4;
+                $amount = bcadd($res->amount,$res->top_amount,4);
+                ShopCommission::create([
+                    'amount'=>$amount,// 商户入住金额
+                    'commissions'=>bcmul($rate,$amount,4),// 佣金
+                    'rate'=>$rate,// 比例
+                    'user_id'=>$res->user_id, // 用户
+                    'parent_id'=>$cityPartner->user_id,// 城市合伙人ID
+                    'shop_id'=>$res->id,// 那个店铺
+                    'district'=>$request->district// 区域(例如：新沂市)
+                ]);
+            }
+
 
             DB::commit();
             return ['code'=>200,'msg'=>'ok','data'=>$res];
@@ -641,6 +659,13 @@ class ShopController extends Controller
                                 'is_pay'=>1
                             ]);
                         }
+                    }
+                    // todo 第二期项目---------------- 城市合伙人入账，这里比以前多了一个新沂市的区在里面,后台审核通过才可以获取佣金 ----------
+                    if ($cityPartner = ShopCommission::where('shop_id',$order->id)->first()) {
+                        CityPartner::where('in_city',$cityPartner->district)->increment('balance',$cityPartner->commissions);
+                        ShopCommission::where('shop_id',$order->id)->update([
+                            'is_pay'=>1
+                        ]);
                     }
 
                     // 用户支付失败

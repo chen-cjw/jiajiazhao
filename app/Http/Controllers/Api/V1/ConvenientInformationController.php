@@ -169,30 +169,30 @@ class ConvenientInformationController extends Controller
 //            $data['payment_no'] = ''; // 支付平台订单号
 //        }
             $res = ConvenientInformation::create($data);
-            // todo 发布便民信息得到的分佣
-//            $parentId = auth('api')->user()->parent_id;
-//            if ($parentId) {
-//                $userParent = User::where('parent_id', $parentId)->first();
-//                // 邀请人获取积分
-//                if ($userParent) {
-////            if($userParent->city_partner== 1) {
-//                    // 数据库的邀请人的额度就是增加百分之 50
-//                    $balanceCount = bcadd($request->card_fee, $request->top_fee, 3);
-//                    $balance = bcdiv($balanceCount, 2, 3);
-//                    // 形成一个订单 ，支付成功修改这个订单状态，然后钱到会员余额
-//                    TransactionRecord::create([
-//                        'amount' => $balance,
-//                        'come_from' => auth('api')->user()->nickname . '发布了一条便民信息',
-//                        'user_id' => auth()->id(),
-//                        'parent_id' => $parentId,
-//                        'model_id' => $res->id,
-//                        'model_type' => ConvenientInformation::class
-//                    ]);
-//
-//                    //$userParent->update(['balance'=>$balance]);// 分一半给邀请人，这个只是积分，其实所有的钱是到了商户里面。
-////            }
-//                }
+            // todo 第二期项目----------- 发布便民信息得到的分佣
+            $parentId = auth('api')->user()->parent_id;
+            if ($parentId) {
+                $userParent = User::where('parent_id', $parentId)->first();
+                // 邀请人获取积分
+                if ($userParent) {
+//            if($userParent->city_partner== 1) {
+                    // 数据库的邀请人的额度就是增加百分之 50
+                    $balanceCount = bcadd($request->card_fee, $request->top_fee, 3);
+                    $balance = bcdiv($balanceCount, 2, 3);
+                    // 形成一个订单 ，支付成功修改这个订单状态，然后钱到会员余额
+                    TransactionRecord::create([
+                        'amount' => $balance,
+                        'come_from' => auth('api')->user()->nickname . '发布了一条便民信息',
+                        'user_id' => auth()->id(),
+                        'parent_id' => $parentId,
+                        'model_id' => $res->id,
+                        'model_type' => ConvenientInformation::class
+                    ]);
+
+                    //$userParent->update(['balance'=>$balance]);// 分一半给邀请人，这个只是积分，其实所有的钱是到了商户里面。
 //            }
+                }
+            }
             DB::commit();
             return ['code'=>200,'msg'=>'ok','data'=>$res];
         } catch (\Exception $ex) {
@@ -278,13 +278,13 @@ class ConvenientInformationController extends Controller
 //                    $order->status = 'paid';
                     $order->paid_at = Carbon::now(); // 更新支付时间为当前时间
                     $order->payment_no = $message['transaction_id']; // 支付平台订单号
-                    // todo 如果 已经生成了订单那么这里支付成功了，就给推广人员到账
-//                    if ($record = TransactionRecord::where('model_id',$order->id)->where('model_type',ConvenientInformation::class)->first()) {
-//                         User::where('id',$record->parent_id)->increment('balance');
-//                         TransactionRecord::where('model_id',$order->id)->where('model_type',ConvenientInformation::class)->update([
-//                             'is_pay'=>1
-//                         ]);
-//                    }
+                    // todo 第二期项目---------如果 已经生成了订单那么这里支付成功了，就给推广人员到账
+                    if ($record = TransactionRecord::where('model_id',$order->id)->where('model_type',ConvenientInformation::class)->first()) {
+                        User::where('id',$record->parent_id)->increment('balance',Setting::where('key','award')->value('value')?:0.03);
+                        TransactionRecord::where('model_id',$order->id)->where('model_type',ConvenientInformation::class)->update([
+                             'is_pay'=>1
+                        ]);
+                    }
                     // 用户支付失败
                 } elseif (array_get($message, 'result_code') === 'FAIL') {
                     Log::info('用户支付失败');

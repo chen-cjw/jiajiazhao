@@ -15,7 +15,6 @@ class CreateZCategoriesTable extends Migration
     {
         Schema::create('z_categories', function (Blueprint $table) {
             $table->id();
-            $table->bigIncrements('id');
             $table->string('name')->nullable()->comment('分类名');
             $table->unsignedInteger('sort_num')->default(0)->comment('排序');
             $table->boolean('on_sale')->default(true)->comment('此类型是否显示');
