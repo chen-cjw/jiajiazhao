@@ -9,9 +9,11 @@ use App\Http\Requests\AuthUserInfoRequest;
 use App\Model\PaymentOrder;
 use App\Model\Setting;
 use App\Model\Shop;
+use App\Model\ShopCommission;
 use App\Model\Withdrawal;
 use App\Transformers\UserTransformer;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -227,6 +229,24 @@ class AuthController extends Controller
         $res['all_balance']=bcadd($res['with_balance'],$res->balance,3);
         $res['is_shop']=Shop::where('user_id',$res->id)->whereNotNull('paid_at')->first()?1:0;
         $res['withdrawal_low'] = Setting::where('key','withdrawal_low')->value('value');
+
+        $resCityPartner = auth('api')->user()->cityPartner()->whereNotNull('paid_at')->first();
+        if ($resCityPartner) {
+            // 今日收益
+            $nowDay = ShopCommission::where('parent_id',$resCityPartner->id)->where('is_pay',1)->whereBetWeen('created_at',[
+                Carbon::now()->startOfDay(),Carbon::now()->endOfDay()
+            ])->sum('commissions');
+            // 累计收益
+            $sunDay = ShopCommission::where('parent_id',$resCityPartner->id)->where('is_pay',1)->sum('commissions');
+            $res['nowDay'] = $nowDay;
+            $res['allDay'] = $sunDay;
+            $res['is_city_partner'] = 1;
+        }else {
+            $res['is_city_partner'] = 0;
+        }
+
+
+
         return $this->responseStyle('ok',200,$res);
     }
 
