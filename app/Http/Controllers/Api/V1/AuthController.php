@@ -233,16 +233,9 @@ class AuthController extends Controller
         $resCityPartner = auth('api')->user()->cityPartner()->whereNotNull('paid_at')->first();
         if ($resCityPartner) {
             // 今日收益
-            $nowDay = ShopCommission::where('parent_id',$resCityPartner->id)->where('is_pay',1)->whereBetWeen('created_at',[
-                Carbon::now()->startOfDay(),Carbon::now()->endOfDay()
-            ])->sum('commissions');
-            // 累计收益
-            $sunDay = ShopCommission::where('parent_id',$resCityPartner->id)->where('is_pay',1)->sum('commissions');
-            $res['nowDay'] = $nowDay;
-            $res['allDay'] = $sunDay;
-            $res['is_city_partner'] = 1;
+            $res['is_partners'] = $resCityPartner->is_partners;
         }else {
-            $res['is_city_partner'] = 0;
+            $res['is_partners'] = 0;
         }
 
 
