@@ -31,7 +31,10 @@ class CityPartnerController extends Controller
     // 合伙人中心 = 今日收益+累计收益
     public function index()
     {
-        $res = auth('api')->user()->cityPartner;
+        $res = auth('api')->user()->cityPartner()->whereNotNull('paid_at')->first();
+        if (!$res) {
+            return ['code'=>200,'msg'=>'ok','data'=>['is_city_partner'=>0]];
+        }
         // 今日收益
         $nowDay = ShopCommission::where('parent_id',$res->id)->where('is_pay',1)->whereBetWeen('created_at',[
             Carbon::now()->startOfDay(),Carbon::now()->endOfDay()
@@ -40,6 +43,7 @@ class CityPartnerController extends Controller
         $sunDay = ShopCommission::where('parent_id',$res->id)->where('is_pay',1)->sum('commissions');
         $res['nowDay'] = $nowDay;
         $res['allDay'] = $sunDay;
+        $res['is_city_partner'] = 1;
         return ['code'=>200,'msg'=>'ok','data'=>$res];
 
     }

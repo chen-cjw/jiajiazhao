@@ -45,8 +45,9 @@ Route::group([
         $router->resource('payment_order', 'PaymentOrderController'); // 提现到零钱
         $router->resource('city_partner', 'CityPartnerController'); // 城市合伙人
         $router->resource('partner_banner', 'PartnerBannerController'); // 城市合伙人-轮播广告位
-        $router->resource('partner_banner', 'CityPartnerProfitController'); // 城市合伙人-四大收益
-        $router->resource('partner_banner', 'CityPartnerQuestionController'); // 城市合伙人-常见问题
+        $router->resource('city_partner_profit', 'CityPartnerProfitController'); // 城市合伙人-四大收益
+        $router->resource('city_partner_question', 'CityPartnerQuestionController'); // 城市合伙人-常见问题
+        $router->resource('city_partner_agreement', 'CityPartnerAgreementController'); // 城市合伙人-协议
 
 //    $router->resource('users', \App\Admin\Controllers\UserController::class);
     });
