@@ -24,7 +24,7 @@ class CityPartnerRequest extends FormRequest
                     return $fail('您已申请城市合伙人！');
                 }
             }],
-            'in_city'=>'required|min:2|max:5',
+            'in_city'=>'required|min:2|max:10',
             'agree'=>'required|in:1',
         ];
     }
