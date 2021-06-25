@@ -48,6 +48,26 @@ class CityPartnerController extends Controller
 
     }
 
+    public function updatePartner()
+    {
+        $q = auth('api')->user()->cityPartner()->whereNotNull('paid_at')->first();
+        if($q->is_partners == 2) {
+            $q->update([
+                'is_partners' => 3 // 通过审核,2=>3 说明审核已经通过已经给前端提示过了
+            ]);
+            return ['code'=>200,'msg'=>'ok','data'=>'操作成功'];
+
+        }else {
+            return ['code'=>200,'msg'=>'error','data'=>'非法操作'];
+
+        }
+//        $res = auth('api')->user()->cityPartner()->whereNotNull('paid_at')->update([
+//            'is_partners' => 3 // 通过审核,2=>3 说明审核已经通过已经给前端提示过了
+//        ]);
+//        return ['code'=>200,'msg'=>'ok','data'=>$res];
+
+    }
+
     // 合伙人入住
     public function store(CityPartnerRequest $request)
     {
@@ -132,7 +152,7 @@ class CityPartnerController extends Controller
         $response = $this->app->handlePaidNotify(function($message, $fail){
             Log::info('微信支付订单号');
             // 使用通知里的 "微信支付订单号" 或者 "商户订单号" 去自己的数据库找到订单
-            $order = PaymentOrder::where('no',$message['out_trade_no'])->first();
+            $order = CityPartner::where('no',$message['out_trade_no'])->first();
             if (!$order) {
                 Log::error('订单不存在则告知微信支付');
                 return 'fail';
@@ -159,6 +179,7 @@ class CityPartnerController extends Controller
 //                    $order->status = 'paid';
                     $order->paid_at = Carbon::now(); // 更新支付时间为当前时间
                     $order->payment_no = $message['transaction_id']; // 支付平台订单号
+                    $order->is_partners = 1; // 支付平台订单号
                     Log::info($order);
 
                     // 用户支付失败
