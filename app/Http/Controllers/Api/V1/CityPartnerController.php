@@ -5,6 +5,7 @@ namespace App\Http\Controllers\APi\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CityPartnerRequest;
 use App\Model\CityPartner;
+use App\Model\CityPartnerPaymentOrder;
 use App\Model\PaymentOrder;
 use App\Model\ShopCommission;
 use App\Model\TransactionRecord;
@@ -44,6 +45,10 @@ class CityPartnerController extends Controller
         $res['nowDay'] = $nowDay;
         $res['allDay'] = $sunDay;
         $res['is_city_partner'] = 1;
+        $res['shop_commission'] = 0;// 商户抽成
+        $res['information_commission'] = 0;// 发帖抽成
+        $res['transaction_flow_commission'] = 0;// 交易流水抽成
+        $res['cash_withdrawn'] = CityPartnerPaymentOrder::where('user_id',auth('api')->id())->sum('amount');// 已提现金额
         return ['code'=>200,'msg'=>'ok','data'=>$res];
 
     }

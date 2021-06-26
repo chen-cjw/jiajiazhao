@@ -11,6 +11,15 @@ use Illuminate\Support\Facades\Log;
 
 class CityPartnerPaymentOrderController extends Controller
 {
+    public function allIndex()
+    {
+        $query = CityPartnerPaymentOrder::with('user');
+        if($status = \request('status')) {
+            $query = $query->where('status',$status);
+        }
+        $res = $query->orderBy('id','desc')->paginate();
+        return $this->responseStyle('ok',200,$res);
+    }
     // 城市合伙人提现记录
     public function index()
     {

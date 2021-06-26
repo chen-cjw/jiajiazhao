@@ -29,6 +29,7 @@ $api->version('v1', [
     // 城市合伙人常见问题
     $api->get('city_partner_question', 'CityPartnerQuestionController@index')->name('api.city_partner_question.index');
     $api->get('city_partner_agreement', 'CityPartnerAgreementController@index')->name('api.city_partner_question.index');
+    $api->get('city_partner_payment_order_all', 'CityPartnerPaymentOrderController@allIndex')->name('api.city_partner_payment_order.allIndex');
 
     // 合伙人
     $api->group(['middleware' => ['auth:api']], function ($api) {
