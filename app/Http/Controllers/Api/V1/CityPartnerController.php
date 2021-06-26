@@ -80,11 +80,11 @@ class CityPartnerController extends Controller
         $data['user_id'] = auth('api')->id();
         $data['amount'] = 1;// todo 获取默认配置
         if ($id = CityPartner::where('user_id',$data['user_id'])->whereNull('paid_at')->value('id')) {
-            CityPartner::where('id',$id)->update($data);
+            $res =  CityPartner::where('id',$id)->update($data);
         }else {
-            CityPartner::create($data);
+            $res = CityPartner::create($data);
         }
-        return ['code'=>200,'msg'=>'ok','data'=>$data];
+        return ['code'=>200,'msg'=>'ok','data'=>$res];
 
     }
 
