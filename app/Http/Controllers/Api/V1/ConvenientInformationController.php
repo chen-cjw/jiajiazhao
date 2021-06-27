@@ -140,10 +140,13 @@ class ConvenientInformationController extends Controller
     {
         DB::beginTransaction();
         try {
-            $data = $request->only(['card_id', 'title', 'content', 'location', 'lng', 'lat','area']);
             // todo 测试版本必须，测试阶段是无法获取 区域的
             if(env('app.env') == 'test') {
+                $data = $request->only(['card_id', 'title', 'content', 'location', 'lng', 'lat']);
+
                 $data['area'] = '新沂';
+            }else {
+                $data = $request->only(['card_id', 'title', 'content', 'location', 'lng', 'lat','area']);
             }
             $data['user_id'] = auth()->id();
             // 发帖的时候，有一部分的钱是到了邀请人哪里去了
