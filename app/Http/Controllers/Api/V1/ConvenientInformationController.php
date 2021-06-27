@@ -141,7 +141,8 @@ class ConvenientInformationController extends Controller
         DB::beginTransaction();
         try {
             // todo 测试版本必须，测试阶段是无法获取 区域的
-            if(env('app.env') == 'test') {
+            Log::info(config('app.env'));
+            if(config('app.env') == 'test') {
                 $data = $request->only(['card_id', 'title', 'content', 'location', 'lng', 'lat']);
 
                 $data['area'] = '新沂';
