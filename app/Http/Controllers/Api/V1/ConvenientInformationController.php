@@ -287,11 +287,16 @@ class ConvenientInformationController extends Controller
                     $order->paid_at = Carbon::now(); // 更新支付时间为当前时间
                     $order->payment_no = $message['transaction_id']; // 支付平台订单号
                     // todo 第二期项目---------如果 已经生成了订单那么这里支付成功了，就给推广人员到账
+                    Log::info(TransactionRecord::where('model_id',$order->id)->where('model_type',ConvenientInformation::class)->first());
+                    Log::info($order->id);
+                    Log::info(ConvenientInformation::class);
                     if ($record = TransactionRecord::where('model_id',$order->id)->where('model_type',ConvenientInformation::class)->first()) {
+                        Log::info(99999);
                         User::where('id',$record->parent_id)->increment('balance',Setting::where('key','award')->value('value')?:0.03);
                         TransactionRecord::where('model_id',$order->id)->where('model_type',ConvenientInformation::class)->update([
                              'is_pay'=>1
                         ]);
+
                     }
                     // 用户支付失败
                 } elseif (array_get($message, 'result_code') === 'FAIL') {
