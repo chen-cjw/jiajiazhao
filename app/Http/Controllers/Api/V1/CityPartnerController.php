@@ -130,7 +130,7 @@ class CityPartnerController extends Controller
                 'body' => '加入城市合伙人：' . $partner->no,
                 'out_trade_no' => $partner->no,
                 'total_fee' => $partner->amount * 100,//$wechatPay->total_fee * 100,
-                'notify_url' => "https://api.jjz369.com/partner_wechat_notify", // 支付结果通知网址，如果不设置则会使用配置里的默认地址
+                'notify_url' => config('app.app_pay_url')."partner_wechat_notify", // 支付结果通知网址，如果不设置则会使用配置里的默认地址
                 'openid' => auth('api')->user()->ml_openid,
                 'trade_type' => 'JSAPI', // 请对应换成你的支付方式对应的值类型
             ]);
