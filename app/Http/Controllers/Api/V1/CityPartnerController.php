@@ -76,7 +76,7 @@ class CityPartnerController extends Controller
     // 合伙人入住
     public function store(CityPartnerRequest $request)
     {
-        // 判断这个城市是否已经有了合伙人
+        // 判断这个城市是否已经有了合伙人 todo 这里用is_partners
         if(CityPartner::where('in_city',$request->in_city)->whereNotNull('paid_at')->first()) {
             throw new ResourceException('该地区已有合伙人，请联系我们！');
         }
@@ -114,7 +114,7 @@ class CityPartnerController extends Controller
                 throw new ResourceException('此订单已支付！');
             }
             // 判断这个城市是否已经有了合伙人
-            if(CityPartner::where('in_city',$partner->in_city)->where('is_pay',1)->first()) {
+            if(CityPartner::where('in_city',$partner->in_city)->whereNotNull('paid_at')->first()) {
                 throw new ResourceException('该地区已有合伙人，请联系我们！');
             }
 
