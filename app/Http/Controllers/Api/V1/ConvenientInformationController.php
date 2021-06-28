@@ -292,7 +292,7 @@ class ConvenientInformationController extends Controller
                     Log::info(ConvenientInformation::class);
                     if ($record = TransactionRecord::where('model_id',$order->id)->where('model_type',ConvenientInformation::class)->first()) {
                         Log::info(99999);
-                        User::where('id',$record->parent_id)->increment('balance',Setting::where('key','award')->value('value')?:0.03);
+                        User::where('id',$record->parent_id)->increment('balance',Setting::where('key','post_commission')->value('value')?:0.03);
                         TransactionRecord::where('model_id',$order->id)->where('model_type',ConvenientInformation::class)->update([
                              'is_pay'=>1
                         ]);
