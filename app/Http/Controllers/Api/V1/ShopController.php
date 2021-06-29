@@ -35,8 +35,6 @@ class ShopController extends Controller
     // 商户列表
     public function index()
     {
-        $Res = CityPartner::where('in_city','新沂')->where('is_partners','>',1)->whereNotNull('paid_at')->first();
-        Log::info($Res);
         $name = \request()->name;
         $lat = \request('lat');
         $lng = \request('lng');
