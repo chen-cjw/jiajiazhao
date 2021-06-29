@@ -26,8 +26,9 @@ class CityPartnerController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new CityPartner());
+        $grid->model()->orderBy('id','desc');//->where('paid_at','!=',null);
 
-        $grid->column('id', __('Id'));
+        $grid->column('id', __('Id'))->sortable();
         $grid->column('name', __('姓名'));
         $grid->column('phone', __('Phone'));
         $grid->column('IDCard', __('IDCard'));
