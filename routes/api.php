@@ -37,6 +37,7 @@ $api->version('v1', [
         $api->get('city_partner', 'CityPartnerController@index')->name('api.city_partner.index');// 城市合伙人信息
         $api->post('city_partner', 'CityPartnerController@store')->name('api.city_partner.store');// 入住
         $api->get('/city_partner/pay_by_wechat/{id}', 'CityPartnerController@payByWechat')->name('api.city_partner.payByWechat'); // 唤起支付
+        $api->any('/pay_by_wechat', 'CityPartnerController@payByWechat')->name('api.city_partner.wechatNotify'); // 回调
 
         $api->post('city_partner/update_partner', 'CityPartnerController@updatePartner')->name('api.city_partner.update_partner');// 入住
       // 提现记录
