@@ -318,7 +318,8 @@ class ShopController extends Controller
                     'user_id'=>$res->user_id, // 用户
                     'parent_id'=>$cityPartner->user_id,// 城市合伙人ID
                     'shop_id'=>$res->id,// 那个店铺
-                    'district'=>$request->district// 区域(例如：新沂市)
+//                    'district'=>$request->district// 区域(例如：新沂市)
+                    'district'=>'新沂'// 区域(例如：新沂市)
                 ]);
             }
 
