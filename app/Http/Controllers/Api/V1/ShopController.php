@@ -165,6 +165,7 @@ class ShopController extends Controller
     // 入住 service_price 这个是一个图片
     public function store(ShopRequest $request)
     {
+        Log::info(1);
         //  商户认证必填
         if (!isset($request->logo['store_logo'])) {
             return $this->responseStyle('门店照/Logo必传',422,[]);
@@ -185,8 +186,12 @@ class ShopController extends Controller
                 return $this->responseStyle('您已注册商户！',422,"");
             }
         }
+        Log::info(2);
+
         DB::beginTransaction();
         try {
+            Log::info(3);
+
             $data = $request->only([
                 'one_abbr0', 'one_abbr1', 'one_abbr2',
                 'two_abbr0', 'two_abbr1', 'two_abbr2', 'name', 'area', 'detailed_address', 'contact_phone', 'wechat',
@@ -198,6 +203,7 @@ class ShopController extends Controller
             for ($i = 0; $i < count($request->two_abbr); $i++) {
                 $data['two_abbr' . $i] = $request->two_abbr[$i];
             }
+            Log::info(4);
 
             $data['no'] = Shop::findAvailableNo();
             $data['amount'] = $request->shop_fee == 0 ? Setting::where('key', 'shop_fee_two')->value('value') : Setting::where('key', 'shop_fee')->value('value');
@@ -210,8 +216,11 @@ class ShopController extends Controller
 //                }else {
 //                    $data['due_date'] = date('Y-m-d H:i:s',strtotime('+1year'));
 //                }
+                Log::info(5);
 
             }else if ($request->shop_fee_two == 1){
+                Log::info(6);
+
                 $data['amount'] = Setting::where('key', 'shop_fee_two')->value('value');
                 // 编辑
 //                if ($res) {
@@ -234,6 +243,8 @@ class ShopController extends Controller
             }else {
                 $top_fee = 0;
             }
+            Log::info(7);
+
             // 多图片上传
             if ($request->images) {
                 $data['images'] = json_encode($request->images);
@@ -252,19 +263,26 @@ class ShopController extends Controller
             }
             // 入驻商户是否需要审核
             $data['is_accept'] = Setting::where('key','shop_verify')->value('value')?:0;
+            Log::info(8);
+
             Log::info($data);
             if ($res) {
                 $shop = Shop::where('id',$request->id)->update($data);
             }else {
                 $res = Shop::create($data);
             }
+            Log::info(9);
 
             // todo
             $parentId = auth('api')->user()->parent_id;
             if ($parentId) {
+                Log::info(10);
+
                 $userParent = User::where('parent_id', $parentId)->first();
                 // 邀请人获取积分
                 if ($userParent) {
+                    Log::info(11);
+
 //            if($userParent->city_partner== 1) {
                     // 数据库的邀请人的额度就是增加百分之 50
                     $balanceCount = bcadd($data['amount'], $data['top_amount'], 3);
@@ -280,6 +298,7 @@ class ShopController extends Controller
 //            }
                 }
             }
+            Log::info(12);
 
             // todo 合伙人获得收入
 //            Log::info($request->district);
@@ -287,6 +306,8 @@ class ShopController extends Controller
             Log::info('新沂0');
 
             if ($cityPartner = CityPartner::where('in_city','新沂')->where('is_partners','>',1)->first()) {
+                Log::info(13);
+
                 Log::info('新沂1');
                 $rate = Setting::where('key', 'city_partner_rate')->value('value')?:0.4;
                 $amount = bcadd($res->amount,$res->top_amount,4);
@@ -301,6 +322,7 @@ class ShopController extends Controller
                 ]);
             }
 
+            Log::info(14);
 
             DB::commit();
             return ['code'=>200,'msg'=>'ok','data'=>$res];
