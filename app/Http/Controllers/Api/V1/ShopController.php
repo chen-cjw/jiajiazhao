@@ -282,7 +282,7 @@ class ShopController extends Controller
             }
 
             // todo 合伙人获得收入
-            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_pay',1)->first()) {
+            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_partners','>',1)->first()) {
                 $rate = Setting::where('key', 'city_partner_rate')->value('value')?:0.4;
                 $amount = bcadd($res->amount,$res->top_amount,4);
                 ShopCommission::create([
