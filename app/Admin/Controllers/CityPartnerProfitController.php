@@ -15,7 +15,7 @@ class CityPartnerProfitController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\CityPartnerProfit';
+    protected $title = '四大收益';
 
     /**
      * Make a grid builder.
@@ -63,8 +63,8 @@ class CityPartnerProfitController extends AdminController
     {
         $form = new Form(new CityPartnerProfit());
 
-        $form->textarea('content', __('Content'));
-        $form->number('sort', __('Sort'));
+        $form->UEditor('content', __('Content'));
+        $form->number('sort', __('Sort'))->default(0);
 
         return $form;
     }

@@ -15,7 +15,7 @@ class CityPartnerQuestionController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\CityPartnerQuestion';
+    protected $title = '常见问题';
 
     /**
      * Make a grid builder.
@@ -63,8 +63,8 @@ class CityPartnerQuestionController extends AdminController
     {
         $form = new Form(new CityPartnerQuestion());
 
-        $form->textarea('content', __('Content'));
-        $form->number('sort', __('Sort'));
+        $form->UEditor('content', __('Content'));
+        $form->number('sort', __('Sort'))->default(0);
 
         return $form;
     }

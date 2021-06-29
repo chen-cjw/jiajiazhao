@@ -48,6 +48,7 @@ Route::group([
         $router->resource('city_partner_profit', 'CityPartnerProfitController'); // 城市合伙人-四大收益
         $router->resource('city_partner_question', 'CityPartnerQuestionController'); // 城市合伙人-常见问题
         $router->resource('city_partner_agreement', 'CityPartnerAgreementController'); // 城市合伙人-协议
+        $router->resource('city_partner_payment_order', 'CityPartnerPaymentOrderController'); // 城市合伙人-提现
 
 //    $router->resource('users', \App\Admin\Controllers\UserController::class);
     });
