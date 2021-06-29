@@ -55,8 +55,8 @@ class CityPartnerController extends Controller
 
     public function updatePartner()
     {
-        $q = auth('api')->user()->cityPartner()->whereNotNull('paid_at')->first();
-        if($q->is_partners == 2) {
+        $q = auth('api')->user()->cityPartner()->whereNotNull('paid_at');
+        if($q->value('is_partners') == 2) {
             $q->update([
                 'is_partners' => 3 // 通过审核,2=>3 说明审核已经通过已经给前端提示过了
             ]);
