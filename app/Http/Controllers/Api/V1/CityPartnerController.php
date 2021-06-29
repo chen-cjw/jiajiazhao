@@ -83,7 +83,7 @@ class CityPartnerController extends Controller
         $data = $request->only('name','phone','IDCard','in_city');
         $data['no'] = CityPartner::findAvailableNo();
         $data['user_id'] = auth('api')->id();
-        $data['amount'] = 1;// todo 获取默认配置
+        $data['amount'] = 0.01;// todo 获取默认配置
         if ($id = CityPartner::where('user_id',$data['user_id'])->whereNull('paid_at')->value('id')) {
             $res =  CityPartner::where('id',$id)->update($data);
             return ['code'=>200,'msg'=>'ok','data'=>CityPartner::where('id',$id)->first()];
