@@ -92,7 +92,11 @@ class CityPartnerController extends AdminController
         $form->mobile('phone', __('Phone'));
         $form->text('IDCard', __('IDCard'));
         $form->text('in_city', __('In city'));
-        $form->text('is_partners', __('Is partners'));
+        $form->select('is_partners', __('Is partners'))->options([
+            '0'=>'未付款',
+            '1'=>'已付款',
+            '2'=>'审核通过',
+        ]);
         $form->number('user_id', __('User id'));
         $form->text('no', __('No'));
         $form->decimal('amount', __('Amount'));
