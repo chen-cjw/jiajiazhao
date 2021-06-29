@@ -80,5 +80,9 @@
   "Bank card number":"银行卡号",
   "Abbr":"分类名",
   "Order number":"单号",
-  "Status":"状态"
+  "Status":"状态",
+  "IDCard":"身份证",
+  "In city":"所在城市",
+  "Is partners":"城市合伙人",
+  "Total balance":"总金额"
 }

@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Model\CityPartner;
+use App\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -15,7 +16,7 @@ class CityPartnerController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Model\CityPartner';
+    protected $title = '城市合伙人';
 
     /**
      * Make a grid builder.
@@ -27,18 +28,20 @@ class CityPartnerController extends AdminController
         $grid = new Grid(new CityPartner());
 
         $grid->column('id', __('Id'));
-        $grid->column('name', __('Name'));
+        $grid->column('name', __('姓名'));
         $grid->column('phone', __('Phone'));
         $grid->column('IDCard', __('IDCard'));
         $grid->column('in_city', __('In city'));
-        $grid->column('is_partners', __('Is partners'));
-        $grid->column('user_id', __('User id'));
+        $grid->column('is_partners', __('Is partners'))->using([0 => '未付款',1 => '已付款', 2=>'审核通过',3=>'运行中']);
+        $grid->column('user_id', __('User id'))->display(function ($userId) {
+            return User::where('id',$userId)->value('nickname');
+        });
         $grid->column('no', __('No'));
         $grid->column('amount', __('Amount'));
         $grid->column('balance', __('Balance'));
         $grid->column('total_balance', __('Total balance'));
         $grid->column('paid_at', __('Paid at'));
-        $grid->column('payment_method', __('Payment method'));
+//        $grid->column('payment_method', __('Payment method'));
         $grid->column('payment_no', __('Payment no'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -57,7 +60,7 @@ class CityPartnerController extends AdminController
         $show = new Show(CityPartner::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('name', __('Name'));
+        $show->field('name', __('姓名'));
         $show->field('phone', __('Phone'));
         $show->field('IDCard', __('IDCard'));
         $show->field('in_city', __('In city'));
@@ -85,7 +88,7 @@ class CityPartnerController extends AdminController
     {
         $form = new Form(new CityPartner());
 
-        $form->text('name', __('Name'));
+        $form->text('name', __('姓名'));
         $form->mobile('phone', __('Phone'));
         $form->text('IDCard', __('IDCard'));
         $form->text('in_city', __('In city'));
