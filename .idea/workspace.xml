@@ -37,8 +37,8 @@
       <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="285" column="61" selection-start-line="285" selection-start-column="61" selection-end-line="285" selection-end-column="61" />
+            <state relative-caret-position="193">
+              <caret line="287" lean-forward="true" selection-start-line="287" selection-end-line="287" />
               <folding>
                 <element signature="e#47#81#0#PHP" expanded="true" />
                 <element signature="e#11847#12995#0#PHP" />
@@ -119,7 +119,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>创建用户</find>
       <find>ShopCommentController</find>
       <find>CommentController</find>
       <find>access_token</find>
@@ -149,6 +148,7 @@
       <find>partner_wechat_notify</find>
       <find>shop_wechat_notify</find>
       <find>is_pay</find>
+      <find>district</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -519,12 +519,12 @@
       <workItem from="1620347045208" duration="24862000" />
       <workItem from="1621309126284" duration="21026000" />
       <workItem from="1621860995332" duration="49523000" />
-      <workItem from="1624514132208" duration="22921000" />
+      <workItem from="1624514132208" duration="23358000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="695589000" />
+    <option name="totallyTimeSpent" value="696026000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -956,8 +956,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="285" column="61" selection-start-line="285" selection-start-column="61" selection-end-line="285" selection-end-column="61" />
+        <state relative-caret-position="193">
+          <caret line="287" lean-forward="true" selection-start-line="287" selection-end-line="287" />
           <folding>
             <element signature="e#47#81#0#PHP" expanded="true" />
             <element signature="e#11847#12995#0#PHP" />

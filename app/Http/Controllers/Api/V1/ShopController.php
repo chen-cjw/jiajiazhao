@@ -282,7 +282,12 @@ class ShopController extends Controller
             }
 
             // todo 合伙人获得收入
-            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_partners','>',1)->first()) {
+//            Log::info($request->district);
+//            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_partners','>',1)->first()) {
+            Log::info('新沂0');
+
+            if ($cityPartner = CityPartner::where('in_city','新沂')->where('is_partners','>',1)->first()) {
+                Log::info('新沂1');
                 $rate = Setting::where('key', 'city_partner_rate')->value('value')?:0.4;
                 $amount = bcadd($res->amount,$res->top_amount,4);
                 ShopCommission::create([
