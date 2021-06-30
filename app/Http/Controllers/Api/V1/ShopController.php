@@ -305,16 +305,16 @@ class ShopController extends Controller
 //            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_partners','>',1)->first()) {
             Log::info('新沂0');
             // todo 这里最好是模糊查找城市
-            if ($cityPartner = CityPartner::where('in_city','新沂')->where('is_partners','>',1)->whereNotNull('paid_at')->first()) {
+            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_partners','>',1)->whereNotNull('paid_at')->first()) {
                 Log::info(13);
 
                 Log::info('新沂1');
-                $rate = Setting::where('key', 'city_partner_rate')->value('value')?:0.4;
+                $rate = Setting::where('key', 'city_partner_rate')->value('value')?:0;
                 $amount = bcadd($res->amount,$res->top_amount,4);
                 ShopCommission::create([
                     'amount'=>$amount,// 商户入住金额
-                    'commissions'=>bcmul($rate,$amount,4),// 佣金
-                    'rate'=>$rate,// 比例
+                    'commissions'=>Setting::where('key', 'city_partner_rate')->value('value')?:38,//bcmul($rate,$amount,4),// 佣金
+                    'rate'=>0,// 比例
                     'user_id'=>$res->user_id, // 用户
                     'parent_id'=>$cityPartner->user_id,// 城市合伙人ID
                     'shop_id'=>$res->id,// 那个店铺
