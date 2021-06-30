@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="316" column="35" lean-forward="true" selection-start-line="316" selection-start-column="35" selection-end-line="316" selection-end-column="35" />
+            <state relative-caret-position="173">
+              <caret line="306" column="40" selection-start-line="306" selection-start-column="40" selection-end-line="306" selection-end-column="40" />
               <folding>
                 <element signature="e#47#81#0#PHP" expanded="true" />
                 <element signature="e#800#4890#0#PHP" />
@@ -517,12 +516,12 @@
       <workItem from="1620347045208" duration="24862000" />
       <workItem from="1621309126284" duration="21026000" />
       <workItem from="1621860995332" duration="49523000" />
-      <workItem from="1624514132208" duration="27834000" />
+      <workItem from="1624514132208" duration="28753000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="700502000" />
+    <option name="totallyTimeSpent" value="701421000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -954,8 +953,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="316" column="35" lean-forward="true" selection-start-line="316" selection-start-column="35" selection-end-line="316" selection-end-column="35" />
+        <state relative-caret-position="173">
+          <caret line="306" column="40" selection-start-line="306" selection-start-column="40" selection-end-line="306" selection-end-column="40" />
           <folding>
             <element signature="e#47#81#0#PHP" expanded="true" />
             <element signature="e#800#4890#0#PHP" />

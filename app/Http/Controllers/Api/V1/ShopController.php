@@ -304,6 +304,7 @@ class ShopController extends Controller
 //            Log::info($request->district);
 //            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_partners','>',1)->first()) {
             Log::info('新沂0');
+            Log::info($request->district);
             // todo 这里最好是模糊查找城市
             if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_partners','>',1)->whereNotNull('paid_at')->first()) {
                 Log::info(13);
