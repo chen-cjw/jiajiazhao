@@ -39,15 +39,15 @@ class CityPartnerController extends Controller
         // 今日收益
         $beginToday=mktime(0,0,0,date('m'),date('d'),date('Y'));
         $endToday=mktime(0,0,0,date('m'),date('d')+1,date('Y'))-1;
-        $nowDay = ShopCommission::where('parent_id',$res->id)->where('is_pay',1)->whereBetWeen('created_at',[
-            date('Y:m:d H:i:s',$beginToday),date('Y:m:d H:i:s',$endToday)
+        $nowDay = ShopCommission::where('parent_id',auth('api')->id())->where('is_pay',1)->whereBetween('created_at',[
+            $beginToday,$endToday
         ])->sum('commissions');
         // 累计收益
-        $sunDay = ShopCommission::where('parent_id',$res->id)->where('is_pay',1)->sum('commissions');
+        $sunDay = ShopCommission::where('parent_id',auth('api')->id())->where('is_pay',1)->sum('commissions');
         $res['nowDay'] = $nowDay;
         $res['allDay'] = $sunDay;
         $res['is_city_partner'] = 1;
-        $res['shop_commission'] = ShopCommission::where('parent_id',$res->id)->where('is_pay',1)->sum('commissions');// 商户抽成
+        $res['shop_commission'] = ShopCommission::where('parent_id',auth('api')->id())->where('is_pay',1)->sum('commissions');// 商户抽成
         $res['information_commission'] = 0;// 发帖抽成
         $res['transaction_flow_commission'] = 0;// 交易流水抽成
         $res['cash_withdrawn'] = CityPartnerPaymentOrder::where('user_id',auth('api')->id())->sum('amount');// 已提现金额
