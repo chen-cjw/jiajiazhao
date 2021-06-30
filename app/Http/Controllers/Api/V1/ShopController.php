@@ -691,7 +691,7 @@ class ShopController extends Controller
                     }
                     // todo 第二期项目---------------- 城市合伙人入账，这里比以前多了一个新沂市的区在里面,后台审核通过才可以获取佣金 ----------
                     if ($cityPartner = ShopCommission::where('shop_id',$order->id)->first()) {
-                        CityPartner::where('in_city',$cityPartner->district)->increment('balance',$cityPartner->commissions);
+                        CityPartner::where('in_city','like',$cityPartner->district.'%')->increment('balance',$cityPartner->commissions);
                         ShopCommission::where('shop_id',$order->id)->update([
                             'is_pay'=>1
                         ]);
