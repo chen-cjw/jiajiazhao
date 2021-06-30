@@ -37,10 +37,10 @@ class CityPartnerController extends Controller
             return ['code'=>200,'msg'=>'ok','data'=>['is_city_partner'=>0]];
         }
         // 今日收益
-        $beginToday=mktime(0,0,0,date('m'),date('d'),date('Y'));
-        $endToday=mktime(0,0,0,date('m'),date('d')+1,date('Y'))-1;
-        $nowDay = ShopCommission::where('parent_id',auth('api')->id())->where('is_pay',1)->whereBetween('created_at',[
-            $beginToday,$endToday
+        $start_time=Carbon::now()->startOfDay();
+        $end_time=Carbon::now()->endOfDay();
+        $nowDay = ShopCommission::where('parent_id',auth('api')->id())->where('is_pay',1)->whereBetWeen('created_at',[
+            $start_time,$end_time
         ])->sum('commissions');
         // 累计收益
         $sunDay = ShopCommission::where('parent_id',auth('api')->id())->where('is_pay',1)->sum('commissions');
