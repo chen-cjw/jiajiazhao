@@ -15,7 +15,7 @@ class CityPartnerProfitController extends Controller
     // 城市合伙人收益
     public function index()
     {
-        $res = Setting::whereIn('key',['city_shop_fee','information_fee','city_transition_flow_fee','adv'])->get();
+        $res = Setting::whereIn('key',['city_shop_fee','information_fee','city_transition_flow_fee','adv','city_partner_amount'])->get();
         return $this->responseStyle('ok',200,$res);
 
         $cityPartnerQuestion = CityPartnerProfit::orderBy('sort','desc')->first();
