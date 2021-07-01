@@ -8,6 +8,7 @@ use App\Model\AdminUser;
 use App\Model\Model;
 use App\Model\ShopComment;
 use App\User;
+use Encore\Admin\Facades\Admin;
 use Illuminate\Support\Str;
 
 class Shop extends Model
@@ -126,5 +127,21 @@ class Shop extends Model
 //    {
 //
 //    }
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($model)
+        {
+            //这样可以拿到当前操作id
+//            $model->id
+            if (!Admin::user()->can('Administrator')) {
+                if (Admin::user()->id != AdminShop::where('shop_id', $model->id)->value('admin_id')) {
+                    throw new \Exception('请不要随意修改数据！');
+
+                }
+            }
+        });
+    }
 
 }
