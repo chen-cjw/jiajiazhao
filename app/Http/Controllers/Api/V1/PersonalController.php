@@ -196,7 +196,7 @@ class PersonalController extends Controller
     // 我邀请的人
     public function refUser()
     {
-        $user = User::where('parent_id',auth('api')->id())->whereHas('shops',function ($query) {
+        $user = User::where('parent_id',auth('api')->id())->orderBy('created_at','desc')->whereHas('shops',function ($query) {
             $query->whereNotNull('payment_no');
         });
 //        $user['data']['ref_user_count']=User::where('parent_id',auth('api')->id())->count();
@@ -207,7 +207,7 @@ class PersonalController extends Controller
     // 发帖抽成
     public function informationCommission()
     {
-        $user = TransactionRecord::where('parent_id',auth('api')->id())->where('is_pay',1)->where('model_type',ConvenientInformation::class)->with('user');
+        $user = TransactionRecord::where('parent_id',auth('api')->id())->where('is_pay',1)->where('model_type',ConvenientInformation::class)->orderBy('created_at','desc')->with('user');
         return $this->responseStyle('ok',200,['ref_user'=>$user->paginate(),'ref_user_count'=>$user->count()]);
 
     }

@@ -14,7 +14,7 @@ class CityPartnerPaymentOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'amount'=>['required',
+            'balance'=>['required',
                 function ($attribute, $value, $fail) {
                     if(bccomp($value,1)==-1) {
                         return $fail('最低提现1元');
