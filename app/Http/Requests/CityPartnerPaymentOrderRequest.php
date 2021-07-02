@@ -14,15 +14,16 @@ class CityPartnerPaymentOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'balance'=>['required',
-                function ($attribute, $value, $fail) {
-                    if(bccomp($value,1)==-1) {
-                        return $fail('最低提现1元');
-                    }
-                    if(bccomp($value,Setting::where('key','city_partner_withdrawal_low')->value('value'),  3)==-1) {
-                        return $fail('最低提现'. Setting::where('key','city_partner_withdrawal_low')->value('value').'元');
-                    }
-                }],
+            'amount'=>['required', // 这里写的有问题
+//                function ($attribute, $value, $fail) {
+//                    if(bccomp($value,1)==-1) {
+//                        return $fail('最低提现1元');
+//                    }
+//                    if(bccomp($value,Setting::where('key','city_partner_withdrawal_low')->value('value'),  3)==-1) {
+//                        return $fail('最低提现'. Setting::where('key','city_partner_withdrawal_low')->value('value').'元');
+//                    }
+//                }
+                ],
         ];
     }
 }

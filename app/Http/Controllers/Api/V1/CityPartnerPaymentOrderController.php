@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\CityPartnerPaymentOrderRequest;
 use App\Model\CityPartnerPaymentOrder;
+use App\Model\Setting;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -41,7 +42,20 @@ class CityPartnerPaymentOrderController extends Controller
             ];
         }
         $amount = $request->amount;
-
+        if(bccomp($amount,1)==-1) {
+            return [
+                'msg' => '最低提现1元',
+                'code' => 422,
+                'date' => []
+            ];
+        }
+        if(bccomp($amount,Setting::where('key','city_partner_withdrawal_low')->value('value'),  3)==-1) {
+            return [
+                'msg'=>'最低提现'. Setting::where('key','city_partner_withdrawal_low')->value('value').'元',
+                'code'=>422,
+                'date'=>[]
+            ];
+        }
 //        $table->decimal('amount', 10, 2)->comment('费用');
 //        $table->decimal('balance', 10, 3)->default(0)->comment('可提金额');
 //        $table->decimal('total_balance', 10, 3)->default(0)->comment('总金额');
