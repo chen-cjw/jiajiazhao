@@ -10,6 +10,7 @@ use App\Model\History;
 use App\Model\LocalCarpooling;
 use App\Model\Shop;
 use App\Model\ShopComment;
+use App\Model\TransactionRecord;
 use App\Model\UserFavoriteCard;
 use App\Model\UserFavoriteShop;
 use App\Model\Withdrawal;
@@ -203,7 +204,13 @@ class PersonalController extends Controller
 
         return $this->responseStyle('ok',200,['ref_user'=>$user->paginate(),'ref_user_count'=>$user->count()]);
     }
+    // 发帖抽成
+    public function informationCommission()
+    {
+        $user = TransactionRecord::where('parent_id',auth('api')->id())->where('is_pay',1)->where('model_type',ConvenientInformation::class)->with('user');
+        return $this->responseStyle('ok',200,['ref_user'=>$user->paginate(),'ref_user_count'=>$user->count()]);
 
+    }
     public function banner()
     {
         $res = BannerPerson::where('is_display',1)->orderBy('sort','desc')->get();

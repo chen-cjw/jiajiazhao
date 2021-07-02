@@ -196,7 +196,9 @@ $api->version('v1', [
             $api->post('/history_del', 'PersonalController@historyDel')->name('api.personal.historyDel'); // 浏览管理
 
             // 我邀请的用户 refUser
-            $api->get('/ref_user', 'PersonalController@refUser')->name('api.personal.refUser'); // 删除收藏
+            $api->get('/ref_user', 'PersonalController@refUser')->name('api.personal.refUser'); // 我的业绩
+            $api->get('/information_commission', 'PersonalController@informationCommission')->name('api.personal.informationCommission'); // 发帖抽成
+
             // 商铺管理
             $api->get('/shop_manage', 'PersonalController@shopManage')->name('api.personal.shopManage'); // 删除收藏
 
