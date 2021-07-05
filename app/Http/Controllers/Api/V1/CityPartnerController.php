@@ -187,7 +187,7 @@ class CityPartnerController extends Controller
 //                    $order->status = 'paid';
                     $order->paid_at = Carbon::now(); // 更新支付时间为当前时间
                     $order->payment_no = $message['transaction_id']; // 支付平台订单号
-                    $order->is_partners = 1; // 支付平台订单号
+                    $order->is_partners = 2; // 支付平台订单号
                     Log::info($order);
 
                     // 用户支付失败

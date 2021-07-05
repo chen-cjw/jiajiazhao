@@ -8,9 +8,11 @@ use App\Model\AdvertisingSpace;
 use App\Model\Banner;
 use App\Model\BannerInformation;
 use App\Model\CardCategory;
+use App\Model\CityPartner;
 use App\Model\Comment;
 use App\Model\ConvenientInformation;
 use App\Model\History;
+use App\Model\InformationCommission;
 use App\Model\PostDescription;
 use App\Model\Setting;
 use App\Model\Shop;
@@ -201,6 +203,30 @@ class ConvenientInformationController extends Controller
 //            }
                 }
             }
+
+            // todo 合伙人获得收入
+            Log::info('新沂0');
+            Log::info($request->district);
+            // todo 这里最好是模糊查找城市
+            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_partners','>',1)->whereNotNull('paid_at')->first()) {
+                Log::info(13);
+
+                Log::info('新沂1');
+                $amount = bcadd($request->card_fee, $request->top_fee, 3);
+
+//                $amount = bcadd($res->amount,$res->top_amount,4);
+                InformationCommission::create([
+                    'amount'=>$amount,// 商户入住金额
+                    'commissions'=>Setting::where('key', 'city_information_fee')->value('value')?:0.3,//bcmul($rate,$amount,4),// 佣金
+                    'rate'=>0,// 比例
+                    'user_id'=>auth('api')->id(), // 用户
+                    'parent_id'=>$cityPartner->user_id,// 城市合伙人ID
+                    'information_id'=>$res->id,// 那个店铺
+//                    'district'=>$request->district// 区域(例如：新沂市)
+                    'district'=>'新沂'// 区域(例如：新沂市) todo
+                ]);
+            }
+
             DB::commit();
             return ['code'=>200,'msg'=>'ok','data'=>$res];
         } catch (\Exception $ex) {
@@ -297,6 +323,12 @@ class ConvenientInformationController extends Controller
                              'is_pay'=>1
                         ]);
 
+                    }
+                    if ($cityPartner = InformationCommission::where('information_id',$order->id)->first()) {
+                        CityPartner::where('in_city','like',$cityPartner->district.'%')->increment('balance',$cityPartner->commissions);
+                        InformationCommission::where('information_id',$order->id)->update([
+                            'is_pay'=>1
+                        ]);
                     }
                     // 用户支付失败
                 } elseif (array_get($message, 'result_code') === 'FAIL') {
