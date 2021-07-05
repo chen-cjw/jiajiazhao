@@ -76,6 +76,26 @@ class SettingController extends AdminController
             if ($key=='timeSearch') {
                 return '帖子时间设置/天数';
             }
+            if ($key=='city_partner_amount') {
+                return '入住费';
+            }
+            if ($key=='information_fee') {
+                return '便民发帖抽佣/邀请人';
+            }
+            if ($key=='city_information_fee') {
+                return '便民发帖抽佣/合伙人';
+            }
+
+            if ($key=='city_transition_flow_fee') {
+                return '商户交易流水';
+            }
+            if ($key=='adv') {
+                return '地接广告的';
+            }
+            if ($key=='city_shop_fee') {
+                return '商户入住抽佣/合伙人';
+            }
+
         });
         $grid->column('value', __('Value'));
         $grid->column('created_at', __('Created at'));
