@@ -77,7 +77,7 @@ class SettingController extends AdminController
                 return '帖子时间设置/天数';
             }
             if ($key=='city_partner_amount') {
-                return '入住费';
+                return '合伙人加盟费';
             }
             if ($key=='information_fee') {
                 return '便民发帖抽佣/邀请人';
@@ -93,7 +93,7 @@ class SettingController extends AdminController
                 return '地接广告的';
             }
             if ($key=='city_shop_fee') {
-                return '商户入住抽佣/合伙人';
+                return '商户入驻抽佣/合伙人';
             }
             // city_partner_withdrawal_low
             if ($key=='city_partner_withdrawal_low') {
