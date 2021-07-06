@@ -95,7 +95,10 @@ class SettingController extends AdminController
             if ($key=='city_shop_fee') {
                 return '商户入住抽佣/合伙人';
             }
-
+            // city_partner_withdrawal_low
+            if ($key=='city_partner_withdrawal_low') {
+                return '最低提现金额/合伙人';
+            }
         });
         $grid->column('value', __('Value'));
         $grid->column('created_at', __('Created at'));
