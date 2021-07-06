@@ -201,7 +201,7 @@ class ConvenientInformationController extends Controller
 
                     // 形成一个订单 ，支付成功修改这个订单状态，然后钱到会员余额
                     TransactionRecord::create([
-                        'amount' => $balance,
+                        'amount' => Setting::where('key', 'information_fee')->value('value')?:0.3,
                         'come_from' => auth('api')->user()->nickname . '发布了一条便民信息',
                         'user_id' => auth()->id(),
                         'parent_id' => $parentId,
