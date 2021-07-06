@@ -195,8 +195,8 @@ class ConvenientInformationController extends Controller
                 if ($userParent) {
 //            if($userParent->city_partner== 1) {
                     // 数据库的邀请人的额度就是增加百分之 50
-                    $balanceCount = bcadd($request->card_fee, $request->top_fee, 3);
-                    $balance = bcdiv($balanceCount, 2, 3);
+//                    $balanceCount = bcadd($request->card_fee, $request->top_fee, 3);
+//                    $balance = bcdiv($balanceCount, 2, 3);
                     Log::info(123);
 
                     // 形成一个订单 ，支付成功修改这个订单状态，然后钱到会员余额
