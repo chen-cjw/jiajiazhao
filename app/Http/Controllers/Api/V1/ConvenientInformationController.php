@@ -182,7 +182,7 @@ class ConvenientInformationController extends Controller
             // todo 第二期项目----------- 发布便民信息得到的分佣
             $parentId = auth('api')->user()->parent_id;
             if ($parentId) {
-                $userParent = User::where('parent_id', $parentId)->first();
+                $userParent = User::where('id', $parentId)->first(); // todo 这里应该是id不是parent_id
                 // 邀请人获取积分
                 if ($userParent) {
 //            if($userParent->city_partner== 1) {
