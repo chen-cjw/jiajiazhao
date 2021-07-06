@@ -26,7 +26,7 @@ class CityPartnerPaymentOrderController extends Controller
     {
         Log::info(\request()->all());
         $query = auth('api')->user()->cityPartnerPaymentOrders();
-        if($status = \request('is_accept')) {
+        if($status = \request('status')) {
             $query = $query->where('status',$status);
         }
         $res = $query->orderBy('id','desc')->paginate();
