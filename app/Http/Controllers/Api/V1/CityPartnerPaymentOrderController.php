@@ -24,6 +24,7 @@ class CityPartnerPaymentOrderController extends Controller
     // 城市合伙人提现记录
     public function index()
     {
+        Log::info(\request()->all());
         $query = auth('api')->user()->cityPartnerPaymentOrders();
         if($status = \request('is_accept')) {
             $query = $query->where('status',$status);
