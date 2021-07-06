@@ -15,7 +15,7 @@ class CityPartnerPaymentOrderController extends Controller
     public function allIndex()
     {
         $query = CityPartnerPaymentOrder::with('user');
-        if($status = \request('status')) {
+        if($status = \request('is_accept')) {
             $query = $query->where('status',$status);
         }
         $res = $query->orderBy('id','desc')->paginate();
@@ -25,7 +25,7 @@ class CityPartnerPaymentOrderController extends Controller
     public function index()
     {
         $query = auth('api')->user()->cityPartnerPaymentOrders();
-        if($status = \request('status')) {
+        if($status = \request('is_accept')) {
             $query = $query->where('status',$status);
         }
         $res = $query->orderBy('id','desc')->paginate();
@@ -71,7 +71,7 @@ class CityPartnerPaymentOrderController extends Controller
             }
             $payOrder = new CityPartnerPaymentOrder();
             $payOrder->fill([
-                'user_id' => $user->id,
+                'user_id' => $user->user_id,
                 'order_number' => $this->getordernumber(),
                 'amount' => $amount,
                 'status' => 2,
