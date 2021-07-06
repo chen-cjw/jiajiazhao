@@ -335,7 +335,14 @@ class ConvenientInformationController extends Controller
                         ]);
 
                     }
+                    Log::info(1111111);
+                    Log::info($order);
+                    Log::info(2222222);
+                    Log::info(InformationCommission::where('information_id',$order->id)->first());
+                    Log::info(2222222);
                     if ($cityPartner = InformationCommission::where('information_id',$order->id)->first()) {
+                        Log::info(333333333);
+
                         CityPartner::where('in_city','like',$cityPartner->district.'%')->increment('balance',$cityPartner->commissions);
                         InformationCommission::where('information_id',$order->id)->update([
                             'is_pay'=>1
