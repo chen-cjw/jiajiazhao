@@ -181,14 +181,24 @@ class ConvenientInformationController extends Controller
             $res = ConvenientInformation::create($data);
             // todo 第二期项目----------- 发布便民信息得到的分佣
             $parentId = auth('api')->user()->parent_id;
+            Log::info(123);
+            Log::info($request->district);
+            Log::info(123);
+            Log::info($parentId);
+
             if ($parentId) {
                 $userParent = User::where('id', $parentId)->first(); // todo 这里应该是id不是parent_id
+                Log::info($userParent);
+                Log::info($parentId);
+
                 // 邀请人获取积分
                 if ($userParent) {
 //            if($userParent->city_partner== 1) {
                     // 数据库的邀请人的额度就是增加百分之 50
                     $balanceCount = bcadd($request->card_fee, $request->top_fee, 3);
                     $balance = bcdiv($balanceCount, 2, 3);
+                    Log::info(123);
+
                     // 形成一个订单 ，支付成功修改这个订单状态，然后钱到会员余额
                     TransactionRecord::create([
                         'amount' => $balance,
@@ -198,6 +208,7 @@ class ConvenientInformationController extends Controller
                         'model_id' => $res->id,
                         'model_type' => ConvenientInformation::class
                     ]);
+                    Log::info(123);
 
                     //$userParent->update(['balance'=>$balance]);// 分一半给邀请人，这个只是积分，其实所有的钱是到了商户里面。
 //            }
@@ -223,7 +234,7 @@ class ConvenientInformationController extends Controller
                     'parent_id'=>$cityPartner->user_id,// 城市合伙人ID
                     'information_id'=>$res->id,// 那个店铺
 //                    'district'=>$request->district// 区域(例如：新沂市)
-                    'district'=>'新沂'// 区域(例如：新沂市) todo
+                    'district'=>$request->district// 区域(例如：新沂市) todo
                 ]);
             }
 
