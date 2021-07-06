@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CityPartnerRequest;
 use App\Model\CityPartner;
 use App\Model\CityPartnerPaymentOrder;
+use App\Model\InformationCommission;
 use App\Model\PaymentOrder;
 use App\Model\ShopCommission;
 use App\Model\TransactionRecord;
@@ -39,16 +40,23 @@ class CityPartnerController extends Controller
         // 今日收益
         $start_time=Carbon::now()->startOfDay();
         $end_time=Carbon::now()->endOfDay();
-        $nowDay = ShopCommission::where('parent_id',auth('api')->id())->where('is_pay',1)->whereBetWeen('created_at',[
+        $nowDaySh = ShopCommission::where('parent_id',auth('api')->id())->where('is_pay',1)->whereBetWeen('created_at',[
+            $start_time,$end_time
+        ])->sum('commissions');
+        $nowDayInf = InformationCommission::where('parent_id',auth('api')->id())->where('is_pay',1)->whereBetWeen('created_at',[
             $start_time,$end_time
         ])->sum('commissions');
         // 累计收益
-        $sunDay = ShopCommission::where('parent_id',auth('api')->id())->where('is_pay',1)->sum('commissions');
-        $res['nowDay'] = $nowDay;
-        $res['allDay'] = $sunDay;
+        $sunDaySh = ShopCommission::where('parent_id',auth('api')->id())->where('is_pay',1)->sum('commissions');
+        $sunDayInf = InformationCommission::where('parent_id',auth('api')->id())->where('is_pay',1)->sum('commissions');
+        $nowDay = bcadd($nowDaySh,$nowDayInf,3);
+        $sunDay = bcadd($sunDaySh,$sunDayInf,3);
+
+        $res['nowDay'] = $nowDay; // 今日收益
+        $res['allDay'] = $sunDay; // 累计收益
         $res['is_city_partner'] = 1;
         $res['shop_commission'] = ShopCommission::where('parent_id',auth('api')->id())->where('is_pay',1)->sum('commissions');// 商户抽成
-        $res['information_commission'] = 0;// 发帖抽成
+        $res['information_commission'] = InformationCommission::where('parent_id',auth('api')->id())->where('is_pay',1)->sum('commissions');// 发帖抽成
         $res['transaction_flow_commission'] = 0;// 交易流水抽成
         $res['cash_withdrawn'] = CityPartnerPaymentOrder::where('user_id',auth('api')->id())->sum('amount');// 已提现金额
         return ['code'=>200,'msg'=>'ok','data'=>$res];
