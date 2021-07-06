@@ -681,14 +681,14 @@ class ShopController extends Controller
 
                     // 生成一条 邀请人获取佣金的记录
                     // todo 如果 已经生成了订单那么这里支付成功了，就给推广人员到账
-                    if ($order->updated_at == $order->created_at) {
+//                    if ($order->updated_at == $order->created_at) {
                         if ($record = TransactionRecord::where('model_id',$order->id)->where('model_type',Shop::class)->first()) {
                             User::where('id',$record->parent_id)->increment('balance',Setting::where('key','award')->value('value'));
                             TransactionRecord::where('model_id',$order->id)->where('model_type',Shop::class)->update([
                                 'is_pay'=>1
                             ]);
                         }
-                    }
+//                    }
                     // todo 第二期项目---------------- 城市合伙人入账，这里比以前多了一个新沂市的区在里面,后台审核通过才可以获取佣金 ----------
                     if ($cityPartner = ShopCommission::where('shop_id',$order->id)->first()) {
                         CityPartner::where('in_city','like',$cityPartner->district.'%')->increment('balance',$cityPartner->commissions);
