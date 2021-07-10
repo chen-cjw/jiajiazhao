@@ -36,6 +36,8 @@ $api->version('v1', [
     // 合伙人
     $api->group(['middleware' => ['auth:api']], function ($api) {
 
+        $api->get('information_history', 'CityPartnerController@informationHistory')->name('api.city_partner.informationHistory');// 发帖抽成明细
+        $api->get('shop_history', 'CityPartnerController@shopHistory')->name('api.city_partner.shopHistory');// 商户抽成明细
         $api->get('city_partner', 'CityPartnerController@index')->name('api.city_partner.index');// 城市合伙人信息
         $api->post('city_partner', 'CityPartnerController@store')->name('api.city_partner.store');// 入住
         $api->get('/city_partner/pay_by_wechat/{id}', 'CityPartnerController@payByWechat')->name('api.city_partner.payByWechat'); // 唤起支付

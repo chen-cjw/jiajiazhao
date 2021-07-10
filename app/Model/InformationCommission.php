@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class InformationCommission extends Model
@@ -12,5 +13,10 @@ class InformationCommission extends Model
     public function information()
     {
         return $this->belongsTo(ConvenientInformation::class,'information_id','id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

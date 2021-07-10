@@ -22,6 +22,18 @@ class CityPartnerController extends Controller
     {
         $this->app = app('wechat.payment');
     }
+    // 发帖抽成明细
+    public function informationHistory()
+    {
+        $res = InformationCommission::where('is_pay',1)->where('parent_id',auth('api')->id())->with('user','information')->orderBy('id','desc')->paginate(10);
+        return ['code'=>200,'msg'=>'ok','data'=>$res];
+    }
+    // 商户抽成明细
+    public function shopHistory()
+    {
+        $res = ShopCommission::where('is_pay',1)->where('parent_id',auth('api')->id())->with('shop')->orderBy('id','desc')->paginate(10);
+        return ['code'=>200,'msg'=>'ok','git'=>$res];
+    }
     // 商户入住费 city_shop_fee
     // 便民发帖抽佣 information_fee
     // 商户交易流水 city_transition_flow_fee
