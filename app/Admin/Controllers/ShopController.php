@@ -131,7 +131,7 @@ class ShopController extends AdminController
                 $filter->equal('is_accept', __('Is accept'))->select([true=>'是',false=>'否']);
                 $filter->equal('type', __('Type'))->select(['one'=>'第一部分','two'=>'第二部分']);
                 $filter->like('area', '地址');
-                $filter->lt('due_date', '过期时间查询');
+                $filter->lt('due_date', '过期时间查询')->datetime();
 
             });
 
