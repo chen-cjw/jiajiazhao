@@ -405,7 +405,14 @@ return [
             'config' => [
                 'initialFrameHeight' => 400, // 例如初始化高度
             ],
+
             // 'field_type' => '自定义名字'
+        ],
+
+        'china-distpicker' => [
+
+            // 如果要关掉这个扩展，设置为false
+            'enable' => true,
         ]
     ],
 ];

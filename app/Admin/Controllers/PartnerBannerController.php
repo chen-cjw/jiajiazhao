@@ -71,6 +71,7 @@ class PartnerBannerController extends AdminController
         $form->text('area', __('Area'));
         $form->text('link_url', __('外链地址'));
         $form->switch('is_display', __('Is display'))->default(1);
+        $form->distpicker(['province_id', 'city_id', 'district_id']);
 
         return $form;
     }
