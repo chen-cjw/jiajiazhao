@@ -19,6 +19,9 @@ class CreatePartnerBannersTable extends Migration
             $table->string('image')->default(null)->comment('图片');
             $table->string('area')->default(null)->comment('城市下面的区域');
             $table->boolean('is_display')->default(1)->comment('是否显示 0/1');
+            $table->string('province_id');
+            $table->string('city_id');
+            $table->string('district_id');
             $table->timestamps();
         });
     }

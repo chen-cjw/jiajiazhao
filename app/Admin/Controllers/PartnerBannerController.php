@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Model\ChinaArea;
 use App\Model\PartnerBanner;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -29,8 +30,8 @@ class PartnerBannerController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('image', __('图片'))->image('',50,50);
         $grid->column('area', __('地区'));
-        $grid->column('is_display', __('是否显示'));
-        $grid->column('link_url', __('外链地址'));
+        $grid->column('link_url', __('外链地址'))->link();
+        $grid->column('is_display', __('是否显示'))->using(['1'=>'是','0'=>'否']);
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -70,9 +71,16 @@ class PartnerBannerController extends AdminController
         $form->image('image', __('Image'));
         $form->text('area', __('Area'));
         $form->text('link_url', __('外链地址'));
-        $form->switch('is_display', __('Is display'))->default(1);
-        $form->distpicker(['province_id', 'city_id', 'district_id']);
+        $form->distpicker(['province_id', 'city_id', 'district_id'])->autoselect(1);
 
+        $form->saving(function (Form $form) {
+            $form->area = ChinaArea::where('code',$form->district_id)->value('name');
+//            dd([$form->area,$form->district_id]);
+
+        });
+        $form->switch('is_display', __('Is display'))->default(1);
+
+//        dd($form);
         return $form;
     }
 }
