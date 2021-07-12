@@ -12,10 +12,11 @@ use Illuminate\Support\Facades\Log;
 
 class CityPartnerPaymentOrderController extends Controller
 {
+    // 最近提现
     public function allIndex()
     {
-        $query = CityPartnerPaymentOrder::with('user');
-        if($status = \request('is_accept')) {
+        $query = CityPartnerPaymentOrder::with('user')->where('status',1);
+        if($status = \request('status')) {
             $query = $query->where('status',$status);
         }
         $res = $query->orderBy('id','desc')->paginate();
