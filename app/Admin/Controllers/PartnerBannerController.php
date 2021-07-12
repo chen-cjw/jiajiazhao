@@ -69,7 +69,7 @@ class PartnerBannerController extends AdminController
         $form = new Form(new PartnerBanner());
 
         $form->image('image', __('Image'));
-        $form->text('area', __('Area'));
+        $form->hidden('area', __('Area'));
         $form->text('link_url', __('外链地址'));
         $form->distpicker(['province_id', 'city_id', 'district_id'])->autoselect(1);
 
