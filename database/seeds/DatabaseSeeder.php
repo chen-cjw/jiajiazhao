@@ -11,7 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(UserSeeder::class);
+        $this->call(CityPayOrderSeeder::class);
+//         $this->call(UserSeeder::class);//3
 //         $this->call(CardCategorySeeder::class);
 //         $this->call(AbbrCategorySeeder::class);
 //         $this->call(LocalCarpoolingSeeder::class);
@@ -19,13 +20,13 @@ class DatabaseSeeder extends Seeder
 //         $this->call(BannerSeeder::class);
 //         $this->call(ConvenientInformationSeeder::class);
 //         $this->call(ShopSeeder::class);
-         $this->call(SettingSeeder::class);
+//         $this->call(SettingSeeder::class);//2
 //         $this->call(BannerSeeder::class);
 //         $this->call(AdvertisingSpaceSeeder::class);
 //         $this->call(PostDescriptionSeeder::class);
 //         $this->call(CommentSeed::class);
 //        $this->call(CarpoolingSeed::class);
-        $this->call(AdminTablesSeeder::class);
+//        $this->call(AdminTablesSeeder::class);//1
 //        $this->call(DialingSeed::class);
 //        $this->call(AbbrTwoCategorySeeder::class);
 //        $this->call(UserFavoriteCardSeeder::class);
