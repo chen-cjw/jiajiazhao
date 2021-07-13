@@ -261,7 +261,7 @@ class ShopController extends AdminController
             if (Admin::user()->can('Administrator')) {
                 $form->datetime('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
                 $form->text('payment_method', __('Payment method'))->default('wechat');
-                $form->text('payment_no', __('Payment no'))->default('jp'.time());
+                $form->text('payment_no', __('Payment no'))->default('jp'.time().rand(1111,9999));
                 $form->number('sort', __('Sort'))->default(0);
                 $form->number('view', __('View'))->default(1);
                 $form->switch('is_top', __('Is top'));
@@ -270,7 +270,7 @@ class ShopController extends AdminController
                 $form->number('comment_count', __('Comment count'))->default(0);
                 $form->number('good_comment_count', __('Good comment count'))->default(0);
                 $form->number('user_id', __('User id'))->default(1);
-                $form->text('no', __('No'))->default('j'.time());
+                $form->text('no', __('No'))->default('j'.time().rand(1111,9999));
                 $form->decimal('amount', __('Amount'))->default(299);
                 $form->decimal('top_amount', __('Top amount'))->default(0);
                 $form->number('platform_licensing', __('Platform licensing'))->default(0);
