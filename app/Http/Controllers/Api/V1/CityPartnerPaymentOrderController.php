@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\CityPartnerPaymentOrderRequest;
 use App\Model\CityPartnerPaymentOrder;
+use App\Model\CityPayOrder;
 use App\Model\Setting;
 use App\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class CityPartnerPaymentOrderController extends Controller
     // 最近提现
     public function allIndex()
     {
-        $query = CityPartnerPaymentOrder::with('user')->where('status',1);
+//        $query = CityPartnerPaymentOrder::with('user')->where('status',1);
+        $query = CityPayOrder::with('user')->where('status',1);
         if($status = \request('status')) {
             $query = $query->where('status',$status);
         }
