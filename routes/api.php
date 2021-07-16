@@ -33,6 +33,7 @@ $api->version('v1', [
 
     $api->any('/partner_wechat_notify', 'CityPartnerController@wechatNotify')->name('api.city_partner.wechatNotify'); // 合伙人支付回调
 
+
     // 合伙人
     $api->group(['middleware' => ['auth:api']], function ($api) {
 
@@ -55,6 +56,8 @@ $api->version('v1', [
 
         // 交易流水抽成 -- todo暂时未开发
 
+        // 商铺置顶
+        $api->post('shop_top/{id}', 'ShopTopController@store')->name('api.shop_top.store');
     });
 
     //
@@ -106,6 +109,9 @@ $api->version('v1', [
     $api->any('/wechat_notify', 'LocalCarpoolingController@wechatNotify')->name('api.local_carpooling.wechatNotify'); // 发布
     $api->any('/shop_wechat_notify', 'ShopController@wechatNotify')->name('api.shop_wechat_notify.wechatNotify'); // 发布
     $api->any('/information_wechat_notify', 'ConvenientInformationController@wechatNotify')->name('api.information_wechat_notify.wechatNotify'); // 发布
+    $api->any('/information_wechat_notify', 'ConvenientInformationController@wechatNotify')->name('api.information_wechat_notify.wechatNotify'); // 发布
+    $api->any('shop_top_wechat_notify', 'ShopTopController@wechatNotify')->name('api.shop_top_wechat_notify.wechatNotify');
+
     // AbbrCategoryController
     $api->get('/search_two_cate', 'AbbrCategoryController@searchTwoCate')->name('api.abbrCategory.searchTwoCate'); // 发起支付
 
@@ -166,6 +172,7 @@ $api->version('v1', [
         $api->get('/convenient_information/{id}', 'ConvenientInformationController@show')->name('api.convenient_information.show'); // 认证
         // 发布信息唤起支付页面
         $api->get('/convenient_information/pay_by_wechat/{id}', 'ConvenientInformationController@payByWechat')->name('api.convenient_information.payByWechat'); // 发布
+        $api->get('/shop_top/pay_by_wechat/{id}', 'ShopTopController@payByWechat')->name('api.shop_top.payByWechat');
 
         // 要授权手机号
         $api->group(['middleware' => ['phone.verify']], function ($api) {

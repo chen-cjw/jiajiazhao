@@ -29,12 +29,29 @@ class BannerInformationShowController extends Controller
                     $query = $query->where('location', 'like', '%' . $area . '%');
                 }
             }
+//            if ($area) {
+//                $query = $query->where(function ($query) {
+//                    $query->where('area',\request('area'))->orWhere('area',null);
+//                });
+//            }
             $bannerInformationShowOne = $query->get();
         }else {
-            $bannerInformationShowOne = ConvenientInformation::where('is_display',2)->get();
+            $bannerInformationShowOneQuery = ConvenientInformation::where('is_display',2)->get();
+//            if ($area) {
+//                $bannerInformationShowOneQuery = $bannerInformationShowOneQuery->where(function ($query) {
+//                    $query->where('area',\request('area'))->orWhere('area',null);
+//                });
+//            }
+            $bannerInformationShowOne = $bannerInformationShowOneQuery->get();
         }
-        $bannerInformationShowTwo = BannerInformationShow::where('is_display',1)->where('type','two')->orderBy('sort','desc')->get();
+        $bannerInformationShowTwoQuery = BannerInformationShow::where('is_display',1)->where('type','two')->orderBy('sort','desc');
 
+        if ($area) {
+            $bannerInformationShowTwoQuery = $bannerInformationShowTwoQuery->where(function ($query) {
+                $query->where('area',\request('area'))->orWhere('area',null);
+            });
+        }
+        $bannerInformationShowTwo = $bannerInformationShowTwoQuery->get();
         return $this->responseStyle('ok',200,[
             'one'=>$bannerInformationShowOne,
             'two'=>$bannerInformationShowTwo,

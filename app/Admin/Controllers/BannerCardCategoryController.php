@@ -31,6 +31,7 @@ class BannerCardCategoryController extends AdminController
         $grid->column('link', __('Link'));
         $grid->column('sort', __('Sort'))->sortable();
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
+        $grid->column('area', __('地区'));
 
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -67,11 +68,13 @@ class BannerCardCategoryController extends AdminController
     protected function form()
     {
         $form = new Form(new BannerCardCategory());
+        $form->hidden('area', __('Area'));
 
         $form->image('image', __('Image'));
         $form->textarea('link', __('Link'));
         $form->switch('is_display', __('Is display'))->default(1);
         $form->number('sort', __('Sort'))->default(0);
+        BannerCardCategory::baseBanner($form);
 
         return $form;
     }

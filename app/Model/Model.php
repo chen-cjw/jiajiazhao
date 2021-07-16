@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model as BaseModel;
 use Illuminate\Support\Str;
+use Encore\Admin\Form;
 
 class Model extends BaseModel
 {
@@ -44,4 +45,27 @@ class Model extends BaseModel
         return \Storage::disk('public')->url($image);
     }
 
+    protected function baseBanner($form)
+    {
+        $form->distpicker([
+            'province_id' => '省份',
+            'city_id' => '市',
+            'district_id' => '区'
+        ], '地域选择')->default([
+            'province' => 0,
+            'city'     => 0,
+            'district' => 0,
+        ]);
+
+        $form->saving(function (Form $form) {
+            $chinaArea = ChinaArea::where('code',$form->district_id)->first();
+            if ($chinaArea) {
+                $form->area = $chinaArea->name;
+            }else {
+                $form->area = null;
+            }
+        });
+
+
+    }
 }

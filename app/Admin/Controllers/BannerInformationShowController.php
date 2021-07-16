@@ -37,6 +37,8 @@ class BannerInformationShowController extends AdminController
         $grid->column('link', __('Link'))->link();
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
         $grid->column('sort', __('Sort'))->sortable()->editable();
+        $grid->column('area', __('地区'));
+
 //        $grid->column('type', __('Type'))->display(function ($type) {
 //            return $type == 'one' ? '第一部分' : '第二部分';
 //        });
@@ -77,14 +79,17 @@ class BannerInformationShowController extends AdminController
     protected function form()
     {
         $form = new Form(new BannerInformationShow());
+        $form->hidden('area', __('Area'));
 
-        $form->display('content', __('Content'))->default(0);
+//        $form->display('content', __('Content'))->default(0);
         $form->image('image', __('Image'));
         $form->textarea('link', __('Link'));
         $form->switch('is_display', __('Is display'))->default(1);
         $form->number('sort', __('Sort'))->default(0);
 //        $form->text('type', __('Type'));
         $form->display('type', __('Type'))->default('two');
+        BannerInformationShow::baseBanner($form);
+
 //        $form->select('type', __('Type'))->options(['one' => '第一部分', 'two' => '第二部分']);
         $form->footer(function ($footer) {
             // 去掉`重置`按钮

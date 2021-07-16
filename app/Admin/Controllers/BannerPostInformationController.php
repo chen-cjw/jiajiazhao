@@ -31,6 +31,8 @@ class BannerPostInformationController extends AdminController
         $grid->column('link', __('Link'));
         $grid->column('is_display', __('Is display'));
         $grid->column('sort', __('Sort'));
+        $grid->column('area', __('地区'));
+
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -66,11 +68,13 @@ class BannerPostInformationController extends AdminController
     protected function form()
     {
         $form = new Form(new BannerPostInformation());
+        $form->hidden('area', __('Area'));
 
         $form->image('image', __('Image'));
         $form->textarea('link', __('Link'));
         $form->switch('is_display', __('Is display'))->default(1);
         $form->number('sort', __('Sort'))->default(0);
+        BannerPostInformation::baseBanner($form);
 
         return $form;
     }

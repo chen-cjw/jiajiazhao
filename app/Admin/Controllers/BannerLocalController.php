@@ -31,6 +31,8 @@ class BannerLocalController extends AdminController
         $grid->column('link', __('Link'));
         $grid->column('is_display', __('Is display'));
         $grid->column('sort', __('Sort'))->editable();
+        $grid->column('area', __('地区'));
+
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -66,11 +68,14 @@ class BannerLocalController extends AdminController
     protected function form()
     {
         $form = new Form(new BannerLocal());
+        $form->hidden('area', __('Area'));
 
         $form->image('image', __('Image'));
         $form->textarea('link', __('Link'));
         $form->switch('is_display', __('Is display'))->default(1);
         $form->number('sort', __('Sort'))->default(0);
+        BannerLocal::baseBanner($form);
+
         $form->footer(function ($footer) {
             // 去掉`重置`按钮
             $footer->disableReset();

@@ -8,6 +8,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\Facades\Log;
 
 class PartnerBannerController extends AdminController
 {
@@ -71,11 +72,24 @@ class PartnerBannerController extends AdminController
         $form->image('image', __('Image'));
         $form->hidden('area', __('Area'));
         $form->text('link_url', __('外链地址'));
-        $form->distpicker(['province_id', 'city_id', 'district_id'])->autoselect(1);
+//        $form->distpicker(['province_id', 'city_id', 'district_id'])->autoselect(1);
+
+        $form->distpicker([
+            'province_id' => '省份',
+            'city_id' => '市',
+            'district_id' => '区'
+        ], '地域选择')->default([
+            'province' => 0,
+            'city'     => 0,
+            'district' => 0,
+        ]);
 
         $form->saving(function (Form $form) {
-            $form->area = ChinaArea::where('code',$form->district_id)->value('name');
-//            dd([$form->area,$form->district_id]);
+            $chinaArea = ChinaArea::where('code',$form->district_id)->first();
+            if ($chinaArea) {
+                $form->area = $chinaArea->name;
+            }
+            Log::info([$form->area,$form->district_id]);
 
         });
         $form->switch('is_display', __('Is display'))->default(1);

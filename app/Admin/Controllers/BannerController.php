@@ -3,10 +3,12 @@
 namespace App\Admin\Controllers;
 
 use App\Model\Banner;
+use App\Model\ChinaArea;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\Facades\Log;
 
 class BannerController extends AdminController
 {
@@ -35,6 +37,8 @@ class BannerController extends AdminController
         $grid->column('type', __('Type'))->display(function ($type) {
             return $type == 'index_one' ? '第一部分广告' : '第二部分广告';
         });
+        $grid->column('area', __('地区'));
+
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -77,12 +81,14 @@ class BannerController extends AdminController
     protected function form()
     {
         $form = new Form(new Banner());
+        $form->hidden('area', __('Area'));
 
         $form->image('image', __('Image'));
         $form->textarea('link', __('Link'));
-        $form->switch('is_display', __('Is display'));
+        $form->switch('is_display', __('Is display'))->default(1);
         $form->number('sort', __('Sort'))->default(0);
-        $form->select('type', __('Type'))->options(['index_one' => '第一部分广告', 'index_two' => '第二部分广告']);
+        $form->select('type', __('Type'))->options(['index_one' => '第一部分广告', 'index_two' => '第二部分广告'])->default('index_one');
+        Banner::baseBanner($form);
 
         $form->footer(function ($footer) {
             // 去掉`重置`按钮

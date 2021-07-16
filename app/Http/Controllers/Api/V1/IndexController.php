@@ -18,8 +18,23 @@ class IndexController extends Controller
     public function index()
     {
         // 轮播图
-        $bannerOne = Banner::where('type','index_one')->where('is_display',1)->orderBy('sort','desc')->get();
-        $bannerTwo = Banner::where('type','index_two')->where('is_display',1)->orderBy('sort','desc')->get();
+        $area = \request('area');
+        $bannerOneQuery = Banner::where('type','index_one')->where('is_display',1)->orderBy('sort','desc');
+        if ($area) {
+//            $bannerOneQuery = $bannerOneQuery->where('area',$area)->orWhere('area',null);
+
+            $bannerOneQuery = $bannerOneQuery->where(function ($query) {
+                $query->where('area',\request('area'))->orWhere('area',null);
+            });
+        }
+        $bannerOne = $bannerOneQuery->get();
+        $bannerTwoQuery = Banner::where('type','index_two')->where('is_display',1)->orderBy('sort','desc');
+        if ($area) {
+            $bannerTwoQuery = $bannerTwoQuery->where(function ($query) {
+                $query->where('area',\request('area'))->orWhere('area',null);
+            });//->orWhere('area',null);
+        }
+        $bannerTwo = $bannerTwoQuery->get();
 
         // 公告
         $notice = Notice::where('is_display',1)->orderBy('sort','desc')->get();

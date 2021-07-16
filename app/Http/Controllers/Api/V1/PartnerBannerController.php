@@ -14,11 +14,11 @@ class PartnerBannerController extends Controller
     {
         // where('area',$area)->where('area',null);
         if (\request('area')) {
-            $res = PartnerBanner::where('area',\request('area'))->where(function ($query) {
-                $query->orWhere('area',null);
+            $res = PartnerBanner::where(function ($query) {
+                $query->where('area',\request('area'))->orWhere('area',null);
             })->where('is_display',1)->orderBy('updated_at','desc')->get();
         }else {
-            $res = PartnerBanner::where('is_display',1)->orderBy('updated_at','desc')->get();
+            $res = PartnerBanner::where('is_display',1)->orWhere('area',null)->orderBy('updated_at','desc')->get();
         }
 
         return $this->responseStyle('ok',200,$res);

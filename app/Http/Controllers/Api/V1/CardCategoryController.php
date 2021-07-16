@@ -128,7 +128,14 @@ class CardCategoryController extends Controller
             $information = $query->orderBy('sort','desc')->orderBy('created_at','desc')->paginate();
         }
 
-        $banner = BannerCardCategory::where('is_display',1)->orderBy('sort','desc')->get();
+        $banner = BannerCardCategory::where('is_display',1)->orderBy('sort','desc');
+
+        if (request('area')) {
+            $banner = $banner->where(function ($query) {
+                $query->where('area', \request('area'))->orWhere('area', null);
+            });
+        }
+        $banner = $banner->get();
         return $this->responseStyle('ok',200,[
             'information' => $information,
             'banner' => $banner

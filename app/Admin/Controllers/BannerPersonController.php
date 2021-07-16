@@ -32,6 +32,8 @@ class BannerPersonController extends AdminController
         $grid->column('link', __('Link'))->link();
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
         $grid->column('sort', __('Sort'))->sortable();
+        $grid->column('area', __('地区'));
+
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -67,11 +69,14 @@ class BannerPersonController extends AdminController
     protected function form()
     {
         $form = new Form(new BannerPerson());
+        $form->hidden('area', __('Area'));
 
         $form->image('image', __('Image'));
         $form->textarea('link', __('Link'));
         $form->switch('is_display', __('Is display'))->default(1);
         $form->number('sort', __('Sort'))->default(0);
+        BannerPerson::baseBanner($form);
+
         $form->footer(function ($footer) {
             // 去掉`重置`按钮
             $footer->disableReset();
