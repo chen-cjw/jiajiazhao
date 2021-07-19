@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Log;
 
 class ShopTopController extends Controller
 {
+    public function __construct()
+    {
+        $this->app = app('wechat.payment');
+    }
     // 置顶
     public function store($id)
     {
