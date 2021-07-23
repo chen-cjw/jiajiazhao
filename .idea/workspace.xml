@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerPostShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerPostShopController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,38 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CardCategoryController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1845">
-              <caret line="132" column="8" selection-start-line="132" selection-start-column="8" selection-end-line="136" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="37" column="85" selection-start-line="37" selection-start-column="85" selection-end-line="37" selection-end-column="85" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BannerPersonController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerPersonController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PersonalController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="216" selection-start-line="216" selection-end-line="216" />
+            <state relative-caret-position="252">
+              <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -72,7 +45,7 @@
       <file leaf-file-name="ShopTopController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopTopController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1431">
+            <state relative-caret-position="15">
               <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
               <folding>
                 <element signature="e#47#83#0#PHP" expanded="true" />
@@ -81,20 +54,56 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BannerPostShopController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerPostShopController.php">
+      <file leaf-file-name="BannerInformationShowController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerInformationShowController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="271">
-              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+              <caret line="50" selection-start-line="50" selection-end-line="51" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BannerPostShopController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerPostShopController.php">
+      <file leaf-file-name="BannerLocalController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerLocalController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="12" column="33" lean-forward="true" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="16" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2021_01_08_205919_create_advertising_spaces_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2021_01_08_205919_create_advertising_spaces_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="15" column="42" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2021_07_16_094034_add_area_to_banner_shop_shows.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2021_07_16_094034_add_area_to_banner_shop_shows.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="31" selection-start-line="31" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2021_07_23_092618_add_area_to_advertising_spaces.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2021_07_23_092618_add_area_to_advertising_spaces.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BannerPostShopController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerPostShopController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
               <folding>
                 <element signature="e#47#76#0#PHP" expanded="true" />
               </folding>
@@ -102,20 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbbrCategoryController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/AbbrCategoryController.php">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Admin/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BannerShopShowController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerShopShowController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="15" selection-end-column="9" />
+            <state relative-caret-position="154">
+              <caret line="37" column="44" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -124,8 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>city_shop_fee</find>
-      <find>$sunDay</find>
       <find>CityPartner</find>
       <find>district</find>
       <find>information</find>
@@ -152,8 +150,10 @@
       <find>BannerLocalController</find>
       <find>BannerPostInformationController</find>
       <find>BannerPostShopController</find>
-      <find>banner</find>
       <find>xufei</find>
+      <find>banners</find>
+      <find>banner</find>
+      <find>advertising_space</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -165,7 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2021_07_12_154934_create_china_areas_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/ChinaAreaSeeder.php" />
         <option value="$PROJECT_DIR$/app/Shop.php" />
         <option value="$PROJECT_DIR$/app/Model/PartnerBanner.php" />
@@ -212,10 +211,11 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerPostInformationController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerShopShowController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopTopController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerPostShopController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2021_07_23_092618_add_area_to_advertising_spaces.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" />
       </list>
     </option>
   </component>
@@ -455,6 +455,23 @@
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -532,12 +549,12 @@
       <workItem from="1621309126284" duration="21026000" />
       <workItem from="1621860995332" duration="49523000" />
       <workItem from="1624514132208" duration="83085000" />
-      <workItem from="1626694559503" duration="898000" />
+      <workItem from="1626694559503" duration="2025000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="756651000" />
+    <option name="totallyTimeSpent" value="757778000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -608,27 +625,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Model/ShopTop.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="86" selection-start-line="6" selection-start-column="86" selection-end-line="6" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/PaymentOrderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="17" column="61" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -729,13 +725,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2021_07_16_094009_add_area_to_banner_post_shop.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2021_07_16_094034_add_area_to_banner_shop_shows.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2021_07_16_094023_add_area_to_banner_post_shops.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -827,20 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerInformationShowController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="48" selection-start-line="48" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerLocalController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="16" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerPostInformationController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -876,13 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="37" column="85" selection-start-line="37" selection-start-column="85" selection-end-line="37" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerPersonController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
@@ -901,31 +869,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
           <caret line="216" selection-start-line="216" selection-end-line="216" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="30" column="3" selection-start-line="30" selection-start-column="3" selection-end-line="33" selection-end-column="5" />
-          <folding>
-            <element signature="e#47#81#0#PHP" expanded="true" />
-            <element signature="e#5404#12690#0#PHP" />
-            <element signature="e#12705#13853#0#PHP" />
-            <element signature="e#13869#18319#0#PHP" />
-            <element signature="e#20138#20822#0#PHP" />
-            <element signature="e#20841#21569#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopTopController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1431">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <element signature="e#47#83#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -952,11 +895,85 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerPostShopController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="33" lean-forward="true" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+        <state relative-caret-position="300">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
           <folding>
             <element signature="e#47#76#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="37" column="44" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2021_01_08_205919_create_advertising_spaces_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2021_07_16_094034_add_area_to_banner_shop_shows.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="31" selection-start-line="31" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2021_07_23_092618_add_area_to_advertising_spaces.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="30" column="3" selection-start-line="30" selection-start-column="3" selection-end-line="33" selection-end-column="5" />
+          <folding>
+            <element signature="e#47#81#0#PHP" expanded="true" />
+            <element signature="e#5404#12690#0#PHP" />
+            <element signature="e#12705#13853#0#PHP" />
+            <element signature="e#13869#18319#0#PHP" />
+            <element signature="e#20138#20822#0#PHP" />
+            <element signature="e#20841#21569#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopTopController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="e#47#83#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerInformationShowController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="50" selection-start-line="50" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerLocalController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="16" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
         </state>
       </provider>
     </entry>
