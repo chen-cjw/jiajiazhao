@@ -124,6 +124,13 @@ class CardCategoryController extends Controller
                 $query = $query->where('location', 'like', '%' . $area . '%');
             }
         }
+        if (request('area')) {
+            $query = $query->where(function ($query) {
+//                $query->where('area', \request('area'))->orWhere('area', null);
+                $query->where('area','like',\request('area').'%')->orWhere('area',null);
+
+            });
+        }
         if ($id == 'new') {
             $information = $query->orderBy('sort','desc')->orderBy('created_at','desc')->paginate();
         }else {
@@ -134,7 +141,6 @@ class CardCategoryController extends Controller
         Log::info('BannerCardCategory');
         Log::info(request()->all());
         Log::info(request('area'));
-        Log::info(request('card_id'));
 
         Log::info('BannerCardCategory');
 
