@@ -12,6 +12,7 @@ use App\Model\Setting;
 use App\Transformers\CardCategoryTransformer;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class CardCategoryController extends Controller
@@ -129,7 +130,11 @@ class CardCategoryController extends Controller
         }
 
         $banner = BannerCardCategory::where('is_display',1);
+        Log::info('BannerCardCategory');
+        Log::info(request()->all());
+        Log::info(request('area'));
 
+        Log::info('BannerCardCategory');
         if (request('area')) {
             $banner = $banner->where(function ($query) {
                 $query->where('area','like',\request('area').'%')->orWhere('area',null);
