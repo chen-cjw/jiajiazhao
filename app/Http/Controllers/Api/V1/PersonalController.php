@@ -214,6 +214,9 @@ class PersonalController extends Controller
     public function banner()
     {
         $resQuery = BannerPerson::where('is_display',1);
+        Log::info('个人中心轮播图');
+        Log::info(\request('area'));
+        Log::info('个人中心轮播图');
         if (request('area')) {
             $resQuery = $resQuery->where(function ($query) {
 //                $query->where('area', \request('area'))->orWhere('area', null);
