@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Model\AbbrCategory;
 use App\Transformers\AbbrCategoryTransformer;
+use Illuminate\Support\Facades\Log;
 
 class AbbrCategoryController extends Controller
 {
@@ -14,9 +15,7 @@ class AbbrCategoryController extends Controller
             $abbrCategory = AbbrCategory::where('type','shop')->where('is_display',1)->where('parent_id',null);
         }else {
             $abbrCategory = AbbrCategory::where('type','shop')->where('is_display',1)->take(5)->where('parent_id',null);
-            $abbrCategory = $abbrCategory->where(function ($query) {
-                $query->where('area','like',\request('area').'%')->orWhere('area',null);
-            });
+
         }
         if (request('area')) {
             $abbrCategory = $abbrCategory->where(function ($query) {
@@ -25,6 +24,11 @@ class AbbrCategoryController extends Controller
 
             });
         }
+        Log::info('AbbrCategoryController');
+        Log::info(request('area'));
+        Log::info(22222);
+        Log::info(request('area'));
+        Log::info('AbbrCategoryController');
         $abbrCategory = $abbrCategory->orderBy('sort','desc')->get();
         return $this->responseStyle('ok',200,$abbrCategory);
         return $this->response->collection($abbrCategory,new AbbrCategoryTransformer());
