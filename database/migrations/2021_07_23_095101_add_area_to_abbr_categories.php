@@ -14,7 +14,10 @@ class AddAreaToAbbrCategories extends Migration
     public function up()
     {
         Schema::table('abbr_categories', function (Blueprint $table) {
-            //
+            $table->string('area')->nullable()->comment('城市下面的区域');
+            $table->string('province_id')->nullable();
+            $table->string('city_id')->nullable();
+            $table->string('district_id')->nullable();
         });
     }
 
@@ -26,7 +29,7 @@ class AddAreaToAbbrCategories extends Migration
     public function down()
     {
         Schema::table('abbr_categories', function (Blueprint $table) {
-            //
+            $table->dropForeign(['area','province_id','city_id','district_id']);
         });
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 class AbbrCategory extends Model
 {
     // 行业分类(后台)
-    protected $fillable = ['abbr','sort','logo','parent_id','type','local'];
+    protected $fillable = ['abbr','sort','logo','parent_id','type','local','area'];
 
 
     public function abbrs()
