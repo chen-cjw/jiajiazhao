@@ -8,7 +8,7 @@ class BannerShopShowController extends Controller
 {
     public function index()
     {
-        $resQuery = BannerShopShow::where('is_display',1)->orderBy('sort','desc');
+        $resQuery = BannerShopShow::where('is_display',1);
         if (request('area')) {
             $resQuery = $resQuery->where(function ($query) {
                 $query->where('area','like',\request('area').'%')->orWhere('area',null);
@@ -16,7 +16,7 @@ class BannerShopShowController extends Controller
 //                $query->where('area', \request('area'))->orWhere('area', null);
             });
         }
-        $res = $resQuery->get();
+        $res = $resQuery->orderBy('sort','desc')->get();
         return $this->responseStyle('ok',200,$res);
     }
 }
