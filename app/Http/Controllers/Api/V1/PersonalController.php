@@ -213,7 +213,7 @@ class PersonalController extends Controller
     }
     public function banner()
     {
-        $resQuery = BannerPerson::where('is_display',1)->orderBy('sort','desc');
+        $resQuery = BannerPerson::where('is_display',1);
         if (request('area')) {
             $resQuery = $resQuery->where(function ($query) {
 //                $query->where('area', \request('area'))->orWhere('area', null);
@@ -221,7 +221,7 @@ class PersonalController extends Controller
 
             });
         }
-        $res = $resQuery->get();
+        $res = $resQuery->orderBy('sort','desc')->get();
         return $this->responseStyle('ok',200,$res);
     }
 
