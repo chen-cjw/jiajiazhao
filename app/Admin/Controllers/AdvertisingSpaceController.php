@@ -27,12 +27,13 @@ class AdvertisingSpaceController extends AdminController
         $grid = new Grid(new AdvertisingSpace());
 
         $grid->column('id', __('Id'));
-        $grid->column('area', __('地区'));
 
         $grid->column('image', __('Image'))->image('',50,50);
         $grid->column('link', __('Link'));
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
         $grid->column('sort', __('Sort'));
+        $grid->column('area', __('地区'));
+
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 

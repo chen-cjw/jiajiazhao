@@ -19,6 +19,7 @@ class IndexController extends Controller
     {
         // 轮播图
         $area = \request('area');
+        Log::info(\request()->all());
         $bannerOneQuery = Banner::where('type','index_one')->where('is_display',1)->orderBy('sort','desc');
         if ($area) {
 //            $bannerOneQuery = $bannerOneQuery->where('area',$area)->orWhere('area',null);
