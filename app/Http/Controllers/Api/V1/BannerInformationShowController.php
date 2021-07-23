@@ -45,7 +45,11 @@ class BannerInformationShowController extends Controller
             $bannerInformationShowOne = $bannerInformationShowOneQuery->get();
         }
         $bannerInformationShowTwoQuery = BannerInformationShow::where('is_display',1)->where('type','two');
-
+        Log::info('$bannerInformationShowTwoQuery');
+        Log::info(request()->all());
+        Log::info(request('area'));
+        Log::info('$bannerInformationShowTwoQuery');
+        Log::info('$bannerInformationShowTwoQuery');
         if ($area) {
             $bannerInformationShowTwoQuery = $bannerInformationShowTwoQuery->where(function ($query) {
                 $query->where('area','like',\request('area').'%')->orWhere('area',null);

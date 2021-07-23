@@ -105,6 +105,7 @@ class CardCategoryController extends Controller
 //                ],
 //                'banner' => $banner
 //        ]);
+        Log::info(123);
         $day = strtotime("-".Setting::where('key','timeSearch')->value('value')." day");
         $query = ConvenientInformationHtml::query()->whereNotNull('paid_at')->where('is_display',1);
         $query = $query->whereBetween('created_at',[ date("Y-m-d H:i:s",$day),date('Y-m-d H:i:s')]);
