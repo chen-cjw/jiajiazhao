@@ -10,7 +10,7 @@ class BannerPostShopController extends Controller
     public function index()
     {
         Log::info(123);
-        Log::info(request('area'));
+        Log::info(request()->all());
         Log::info(123);
         $resQuery = BannerPostShop::where('is_display',1)->orderBy('sort','desc');
         if (request('area')) {
