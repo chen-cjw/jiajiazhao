@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,11 +16,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
               <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BannerCardCategoryController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerCardCategoryController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="70" selection-start-line="70" selection-end-line="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbbrCategoryController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BannerController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="358">
+              <caret line="39" selection-start-line="39" selection-end-line="40" />
+              <folding>
+                <element signature="e#41#62#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -72,15 +102,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2021_01_08_205919_create_advertising_spaces_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2021_01_08_205919_create_advertising_spaces_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="15" column="42" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="2021_07_16_094034_add_area_to_banner_shop_shows.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2021_07_16_094034_add_area_to_banner_shop_shows.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -95,27 +116,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
               <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BannerPostShopController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerPostShopController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-              <folding>
-                <element signature="e#47#76#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Admin/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="37" column="44" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -165,7 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/seeds/ChinaAreaSeeder.php" />
         <option value="$PROJECT_DIR$/app/Shop.php" />
         <option value="$PROJECT_DIR$/app/Model/PartnerBanner.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" />
@@ -216,6 +215,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerPostShopController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_07_23_092618_add_area_to_advertising_spaces.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" />
+        <option value="$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php" />
       </list>
     </option>
   </component>
@@ -426,6 +426,13 @@
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -549,12 +556,12 @@
       <workItem from="1621309126284" duration="21026000" />
       <workItem from="1621860995332" duration="49523000" />
       <workItem from="1624514132208" duration="83085000" />
-      <workItem from="1626694559503" duration="2025000" />
+      <workItem from="1626694559503" duration="2184000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="757778000" />
+    <option name="totallyTimeSpent" value="757937000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -625,16 +632,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="303">
-            <caret line="51" column="2" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="24" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2021_02_08_134112_create_share_homes_table.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -774,13 +771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/Model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -827,13 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1470">
           <caret line="99" column="22" selection-start-line="99" selection-start-column="16" selection-end-line="99" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerCardCategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="76" column="32" selection-start-line="76" selection-end-line="77" />
         </state>
       </provider>
     </entry>
@@ -974,6 +957,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerCardCategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="70" selection-start-line="70" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="39" selection-start-line="39" selection-end-line="40" />
+          <folding>
+            <element signature="e#41#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
