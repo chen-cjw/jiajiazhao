@@ -57,7 +57,7 @@ class ConvenientInformationController extends Controller
         $advertisingSpaceQuery = AdvertisingSpace::orderBy('sort','desc')->where('is_display',1);
         if (request('area')) {
             $advertisingSpaceQuery = $advertisingSpaceQuery->where(function ($query) {
-                $query->where('area', \request('area'))->orWhere('area', null);
+                $query->where('area', 'like',\request('area').'%')->orWhere('area', null);
             });
         }
         $advertisingSpace = $advertisingSpaceQuery->take(3)->get();
