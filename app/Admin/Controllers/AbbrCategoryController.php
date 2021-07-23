@@ -45,7 +45,6 @@ class AbbrCategoryController extends AdminController
         $grid->column('type', __('Type'))->using(['shop' => '商铺', 'other' => '跳转']);
         $grid->column('local', __('Local'))->using(['one' => '第一部分', 'two' => '第二部分']);
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
-        $grid->column('area', __('地区'));
 
         $grid->column('add_two_category', __('添加'))->display(function () {
             if($this->parent_id == null) {
@@ -121,8 +120,6 @@ class AbbrCategoryController extends AdminController
     protected function form()
     {
         $form = new Form(new AbbrCategory());
-        $form->hidden('area', __('Area'));
-
         $form->text('abbr', __('Abbr'));
         $form->multipleImage('image', __('分类列表广告位'))->removable();
         $form->image('logo', __('分类图标'));
@@ -137,7 +134,6 @@ class AbbrCategoryController extends AdminController
 
         }
         $form->switch('is_display', __('Is display'))->default(1);
-        AbbrCategory::baseBanner($form);
 
         $form->footer(function ($footer) {
 
