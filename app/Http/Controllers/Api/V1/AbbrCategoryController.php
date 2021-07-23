@@ -11,14 +11,21 @@ class AbbrCategoryController extends Controller
     public function index()
     {
         if (config('app.city') == 1) {
-            $abbrCategory = AbbrCategory::orderBy('sort','desc')->where('type','shop')->where('is_display',1)->where('parent_id',null);
+            $abbrCategory = AbbrCategory::where('type','shop')->where('is_display',1)->where('parent_id',null);
         }else {
-            $abbrCategory = AbbrCategory::orderBy('sort','desc')->where('type','shop')->where('is_display',1)->take(5)->where('parent_id',null);
+            $abbrCategory = AbbrCategory::where('type','shop')->where('is_display',1)->take(5)->where('parent_id',null);
             $abbrCategory = $abbrCategory->where(function ($query) {
                 $query->where('area','like',\request('area').'%')->orWhere('area',null);
             });
         }
-        $abbrCategory = $abbrCategory->get();
+        if (request('area')) {
+            $abbrCategory = $abbrCategory->where(function ($query) {
+//                $query->where('area', \request('area'))->orWhere('area', null);
+                $query->where('area','like',\request('area').'%')->orWhere('area',null);
+
+            });
+        }
+        $abbrCategory = $abbrCategory->orderBy('sort','desc')->get();
         return $this->responseStyle('ok',200,$abbrCategory);
         return $this->response->collection($abbrCategory,new AbbrCategoryTransformer());
     }
