@@ -595,9 +595,9 @@ class ShopController extends Controller
             // 校验权限
             $shop = auth('api')->user()->shop()->where('id', $id)->firstOrFail();
             // bcsub — 减法
-            if (bcsub(time(), strtotime($shop->created_at)) > 3600) {
-                throw new ResourceException('此订单已过期，请删除此订单重新付款！');
-            }
+//            if (bcsub(time(), strtotime($shop->created_at)) > 3600) {
+//                throw new ResourceException('此订单已过期，请删除此订单重新付款！');
+//            }
             // 校验订单状态
             if ($shop->paid_at || $shop->closed) {
                 throw new ResourceException('订单状态不正确');
