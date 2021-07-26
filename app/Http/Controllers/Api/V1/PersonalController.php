@@ -257,7 +257,7 @@ class PersonalController extends Controller
     // 商铺管理不可以删除
     public function shopManage()
     {
-        $res = auth('api')->user()->shop()->where('paid_at','!=',null)->first();
+        $res = auth('api')->user()->shop()->where('payment_no','!=',null)->first();
         return $this->responseStyle('ok', 200,$res);
     }
 
