@@ -8,6 +8,7 @@ use App\Model\CityPartner;
 use App\Model\CityPartnerPaymentOrder;
 use App\Model\InformationCommission;
 use App\Model\PaymentOrder;
+use App\Model\Setting;
 use App\Model\ShopCommission;
 use App\Model\TransactionRecord;
 use Carbon\Carbon;
