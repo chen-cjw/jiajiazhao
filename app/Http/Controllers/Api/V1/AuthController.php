@@ -227,7 +227,7 @@ class AuthController extends Controller
 
         $res['with_balance']=bcadd(PaymentOrder::where('user_id',$res->id)->sum('amount'),Withdrawal::where('user_id',$res->id)->sum('amount'));//;
         $res['all_balance']=bcadd($res['with_balance'],$res->balance,3);
-        $res['is_shop']=Shop::where('user_id',$res->id)->whereNotNull('paid_at')->first()?1:0;
+        $res['is_shop']=Shop::where('user_id',$res->id)->whereNotNull('payment_no')->first()?1:0;
         $res['withdrawal_low'] = Setting::where('key','withdrawal_low')->value('value');
 
         $resCityPartner = auth('api')->user()->cityPartner()->whereNotNull('paid_at')->first();
