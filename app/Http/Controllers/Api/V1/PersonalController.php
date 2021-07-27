@@ -196,8 +196,8 @@ class PersonalController extends Controller
     // 我邀请的人
     public function refUser()
     {
-        $user = User::where('parent_id',auth('api')->id())->orderBy('created_at','desc')->whereHas('shops',function ($query) {
-            $query->whereNotNull('payment_no');
+        $user = User::where('parent_id',auth('api')->id())->whereHas('shops',function ($query) {
+            $query->whereNotNull('payment_no')->orderBy('updated_at','desc');
         });
 //        $user['data']['ref_user_count']=User::where('parent_id',auth('api')->id())->count();
 //        $ref_user_count = Shop::where('user_id',auth('api')->id())->whereNotNull('payment_no')->count();
