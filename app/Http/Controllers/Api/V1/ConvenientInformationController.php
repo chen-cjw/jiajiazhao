@@ -147,7 +147,8 @@ class ConvenientInformationController extends Controller
 //        ]);
 
         $echostr = $request->title;
-        $res = ConvenientInformation::whereNotNull('paid_at')->where('area','like','%'.$request->area.'%')->where('is_display',1)->where('title','like','%'.$echostr.'%')->orderBy('sort','desc')->paginate();
+        Log::info($request->all());
+        $res = ConvenientInformation::whereNotNull('paid_at')->where('location','like','%'.$request->area.'%')->where('is_display',1)->where('title','like','%'.$echostr.'%')->orderBy('sort','desc')->paginate();
         return $this->responseStyle('ok',200,$res);
     }
     // 发布
