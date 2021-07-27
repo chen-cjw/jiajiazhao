@@ -11,10 +11,13 @@ class ShopCommission extends Model
 
     public function getAmountAttribute()
     {
+        return 1;
         return $this->attributes['commissions'];
     }
     public function getCommissionsAttribute()
     {
+        return 2;
+
         return $this->attributes['amount'];
     }
 
