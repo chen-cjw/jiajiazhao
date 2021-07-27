@@ -32,7 +32,7 @@ class CityPartnerController extends Controller
     // 商户抽成明细
     public function shopHistory()
     {
-        $res = ShopCommission::where('is_pay',1)->where('parent_id',auth('api')->id())->with('shop')->orderBy('id','desc')->paginate(10);
+        $res = \App\Model\AB\ShopCommission::where('is_pay',1)->where('parent_id',auth('api')->id())->with('shop')->orderBy('id','desc')->paginate(10);
         return ['code'=>200,'msg'=>'ok','data'=>$res];
     }
     // 商户入住费 city_shop_fee
@@ -239,7 +239,7 @@ class CityPartnerController extends Controller
     // 商户抽成 -- 合伙人的抽成
     public function shopIndex()
     {
-        $res = \App\Model\AB\ShopCommission::where('is_pay',1)->where('parent_id',auth('api')->id())->paginate();
+        $res = ShopCommission::where('is_pay',1)->where('parent_id',auth('api')->id())->paginate();
         return ['code'=>200,'msg'=>'ok','data'=>$res];
     }
 
