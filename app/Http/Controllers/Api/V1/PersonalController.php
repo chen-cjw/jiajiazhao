@@ -199,9 +199,15 @@ class PersonalController extends Controller
         $userId = auth('api')->id();
         $user = User::where('parent_id',auth('api')->id())->whereHas('shops',function ($query) {
             $query->whereNotNull('payment_no');
+//            $query->orderBy('created_at','desc');
         });
-        $shop = Shop::whereNotNull('payment_no')->where('parent_id',auth('api')->id())->orderBy('created_at','desc');
-//        $userRes = User::where('id',$userId)->first();
+//            ->with(['shops'=>function($query){ return $query->orderBy('id','desc');  }]);
+//        $shop = Shop::whereNotNull('payment_no')->where('parent_id',auth('api')->id())->orderBy('created_at','desc');
+//        foreach ($shop as $key=>$value) {
+//            $key['avatar'] = 1;
+//        }
+//        return $shop->paginate();
+        //        $userRes = User::where('id',$userId)->first();
 //        $shop->avatar = $userRes->avatar;
 //        $shop->nickname = $userRes->nickname;
 //        $shop->phone = $userRes->phone;
