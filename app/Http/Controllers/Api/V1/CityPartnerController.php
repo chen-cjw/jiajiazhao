@@ -239,7 +239,7 @@ class CityPartnerController extends Controller
     // 商户抽成 -- 合伙人的抽成
     public function shopIndex()
     {
-        $res = ShopCommission::where('is_pay',1)->where('parent_id',auth('api')->id())->paginate();
+        $res = \App\Model\AB\ShopCommission::where('is_pay',1)->where('parent_id',auth('api')->id())->paginate();
         return ['code'=>200,'msg'=>'ok','data'=>$res];
     }
 
