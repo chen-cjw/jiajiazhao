@@ -158,7 +158,7 @@ class ShopController extends Controller
     public function searchInformation(Request $request)
     {
         $echostr = $request->title;
-        $res = Shop::where('title','like','%'.$echostr.'%')->paginate();
+        $res = Shop::where('title','like','%'.$echostr.'%')->where('area','like','%'.$request->area.'%')->paginate();
         return $this->responseStyle('ok',200,$res);
     }
 
