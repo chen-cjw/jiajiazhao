@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CityPartnerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CityPartnerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/AB/ShopCommission.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/AB/ShopCommission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,7 +34,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShopCommission.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShopCommission.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/AB/ShopCommission.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -43,6 +42,27 @@
               <folding>
                 <element signature="e#32#52#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="135" column="50" lean-forward="true" selection-start-line="135" selection-start-column="50" selection-end-line="135" selection-end-column="50" />
+              <folding>
+                <element signature="e#41#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvenientInformation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Model/ConvenientInformation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-366">
+              <caret line="7" column="41" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -68,16 +88,6 @@
               <caret line="15" column="40" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="40" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminUser.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Model/AdminUser.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="AdvertisingSpace.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Model/AdvertisingSpace.php">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="PartnerBanner.php" pinned="false" current-in-tab="false">
@@ -139,7 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2021_05_29_173050_create_partner_banners_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_07_15_203933_add_area_to_banner.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_07_15_204733_add_area_to_banners.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_07_16_093759_add_area_to_banner_card_categories.php" />
@@ -190,6 +199,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CityPartnerController.php" />
         <option value="$PROJECT_DIR$/app/Model/AB/ShopCommission.php" />
+        <option value="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" />
       </list>
     </option>
   </component>
@@ -400,6 +410,13 @@
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -530,12 +547,12 @@
       <workItem from="1621309126284" duration="21026000" />
       <workItem from="1621860995332" duration="49523000" />
       <workItem from="1624514132208" duration="83085000" />
-      <workItem from="1626694559503" duration="26146000" />
+      <workItem from="1626694559503" duration="26805000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="781899000" />
+    <option name="totallyTimeSpent" value="782558000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -606,16 +623,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/PaymentOrderRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopCommentRequest.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopTopController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-854">
@@ -914,6 +921,23 @@
           <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#32#52#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/ConvenientInformation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-366">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="135" column="50" lean-forward="true" selection-start-line="135" selection-start-column="50" selection-end-line="135" selection-end-column="50" />
+          <folding>
+            <element signature="e#41#68#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

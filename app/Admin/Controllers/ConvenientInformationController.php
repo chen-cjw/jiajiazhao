@@ -132,10 +132,10 @@ class ConvenientInformationController extends AdminController
         $form->hidden('lng', __('Lng'))->default(0);
         $form->hidden('lat', __('Lat'))->default(0);
         $form->hidden('view', __('View'))->default(0);
-        $form->select('card_id', __('Card id'))->options(CardCategory::where('is_display',1)->orderBy('id','desc')->pluck('name','id'));
-        $form->number('user_id', __('User id'));
+//        $form->select('card_id', __('Card id'))->options(CardCategory::where('is_display',1)->orderBy('id','desc')->pluck('name','id'));
+//        $form->number('user_id', __('User id'));
         $form->hidden('no', __('No'))->default('j'.time().rand(1111,9999));
-        $form->multipleImage('images', __('图片'));
+//        $form->multipleImage('images', __('图片'));
         $form->hidden('card_fee', __('Card fee'))->default(0.01);
         $form->hidden('top_fee', __('Top fee'))->default(0.01);
         $form->hidden('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
