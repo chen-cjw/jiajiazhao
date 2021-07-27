@@ -200,15 +200,15 @@ class PersonalController extends Controller
         $user = User::where('parent_id',auth('api')->id())->whereHas('shops',function ($query) {
             $query->whereNotNull('payment_no');
         });
-        $shop = Shop::whereNotNull('payment_no')->where('user_id',auth('api')->id())->orderBy('created_at','desc');
-        $userRes = User::where('id',$userId)->first();
-        $shop->avatar = $userRes->avatar;
-        $shop->nickname = $userRes->nickname;
-        $shop->phone = $userRes->phone;
+        $shop = Shop::whereNotNull('payment_no')->where('parent_id',auth('api')->id())->orderBy('created_at','desc');
+//        $userRes = User::where('id',$userId)->first();
+//        $shop->avatar = $userRes->avatar;
+//        $shop->nickname = $userRes->nickname;
+//        $shop->phone = $userRes->phone;
 //        $user['data']['ref_user_count']=User::where('parent_id',auth('api')->id())->count();
 //        $ref_user_count = Shop::where('user_id',auth('api')->id())->whereNotNull('payment_no')->count();
 
-        return $this->responseStyle('ok',200,['ref_user'=>$shop->paginate(),'ref_user_count'=>$user->count()]);
+        return $this->responseStyle('ok',200,['ref_user'=>$user->paginate(),'ref_user_count'=>$user->count()]);
     }
     // 发帖抽成
     public function informationCommission()
