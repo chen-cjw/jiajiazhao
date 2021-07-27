@@ -27,7 +27,7 @@ class CreateCityPartnersTable extends Migration
             $table->decimal('amount', 10, 2)->comment('费用');
             $table->decimal('balance', 10, 3)->default(0)->comment('可提金额');
             $table->decimal('total_balance', 10, 3)->default(0)->comment('总金额');
-;
+
             $table->dateTime('paid_at')->nullable()->comment('支付时间');
             $table->string('payment_method')->default('wechat')->nullable()->comment('支付方式');
             $table->string('payment_no')->nullable()->comment('支付平台订单号');

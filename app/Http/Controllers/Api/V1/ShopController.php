@@ -314,7 +314,7 @@ class ShopController extends Controller
                 $amount = bcadd($res->amount,$res->top_amount,4);
                 ShopCommission::create([
                     'amount'=>$amount,// 商户入住金额
-                    'commissions'=>Setting::where('key', 'city_partner_rate')->value('value')?:38,//bcmul($rate,$amount,4),// 佣金
+                    'commissions'=>Setting::where('key', 'city_shop_fee')->value('value')?:38,//bcmul($rate,$amount,4),// 佣金
                     'rate'=>0,// 比例
                     'user_id'=>$res->user_id, // 用户
                     'parent_id'=>$cityPartner->user_id,// 城市合伙人ID
