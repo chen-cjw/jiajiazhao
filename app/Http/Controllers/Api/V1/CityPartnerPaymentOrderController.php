@@ -17,7 +17,7 @@ class CityPartnerPaymentOrderController extends Controller
     public function allIndex()
     {
 //        $query = CityPartnerPaymentOrder::with('user')->where('status',1);
-        $query = CityPayOrder::with('user')->where('status',2);
+        $query = CityPayOrder::with('user')->where('status',1);
         if($status = \request('status')) {
             $query = $query->where('status',$status);
         }
