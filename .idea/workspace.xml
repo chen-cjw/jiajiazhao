@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CityPartnerPaymentOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CityPartnerPaymentOrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,11 +34,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CityPartnerPaymentOrderController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CityPartnerPaymentOrderController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/CityPartnerPaymentOrderController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
               <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="55" lean-forward="true" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -48,18 +57,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-593">
               <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShopCommission.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Model/AB/ShopCommission.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="e#32#52#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -119,7 +116,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>BannerInformationShowController</find>
       <find>BannerLocalController</find>
       <find>BannerPostInformationController</find>
       <find>BannerPostShopController</find>
@@ -149,6 +145,7 @@
       <find>searchInformation</find>
       <find>area</find>
       <find>city_partner_payment_order_all</find>
+      <find>allIndex</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -202,7 +199,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AuthController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MakeQrCodeController.php" />
         <option value="$PROJECT_DIR$/vendor/psr/cache/src/CacheItemInterface.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/database/migrations/2021_05_28_114105_create_city_partners_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/PersonalController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CityPartnerController.php" />
@@ -211,6 +207,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ConvenientInformationController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CityPartnerPaymentOrderController.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
       </list>
     </option>
   </component>
@@ -534,12 +531,12 @@
       <workItem from="1621309126284" duration="21026000" />
       <workItem from="1621860995332" duration="49523000" />
       <workItem from="1624514132208" duration="83085000" />
-      <workItem from="1626694559503" duration="28743000" />
+      <workItem from="1626694559503" duration="28910000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="784496000" />
+    <option name="totallyTimeSpent" value="784663000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -551,7 +548,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.16848485" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.31030303" />
       <window_info anchor="right" id="Remote Host" order="3" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3211731" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -750,13 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -920,6 +910,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="55" lean-forward="true" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
         </state>
       </provider>
     </entry>
