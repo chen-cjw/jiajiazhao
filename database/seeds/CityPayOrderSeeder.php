@@ -15,8 +15,9 @@ class CityPayOrderSeeder extends Seeder
             if ($user = \App\User::where('id',$x)->first()) {
                 \App\Model\CityPayOrder::create([
                     'user_id'=>$x,
-                    'amount'=>rand(50,500).'0',
-                    'intro'=>'ceshi'
+                    'amount'=>rand(10,300).'0',
+                    'intro'=>rand(36,3294),
+                    'status'=>2
                 ]);
             }
         }
