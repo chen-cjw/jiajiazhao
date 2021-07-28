@@ -28,4 +28,9 @@ class ShareHomeController extends Controller
     {
         return $this->responseStyle('ok',200 , ShareHome::find(5));
     }
+    // 合伙人分享页
+    public function CityPartnerIndex()
+    {
+        return $this->responseStyle('ok',200 , ShareHome::find(6));
+    }
 }

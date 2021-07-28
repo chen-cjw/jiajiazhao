@@ -271,5 +271,6 @@ $api->version('v1', [
     $api->get('/information_share_index', 'ShareHomeController@informationShareIndex')->name('api.share_home.informationShareIndex'); // 信息分享页面
     $api->get('/local_share_index', 'ShareHomeController@LocalShareIndex')->name('api.share_home.LocalShareIndex'); // 拼车
     $api->get('/all_share_index', 'ShareHomeController@AllShareIndex')->name('api.share_home.AllShareIndex'); // 拼车
+    $api->get('/city_partner_index', 'ShareHomeController@CityPartnerIndex')->name('api.share_home.CityPartnerIndex'); // 拼车
 
 });
