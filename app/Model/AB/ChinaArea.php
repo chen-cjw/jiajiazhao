@@ -9,7 +9,7 @@ class ChinaArea extends Model
     protected $table = 'china_areas';
     public function getNicknameAttribute()
     {
-        return $this->attributes['name'];
+        return $this->attributes['name'].'合伙人';
     }
     protected $appends = ['nickname'];
 }
