@@ -212,7 +212,7 @@ class PersonalController extends Controller
 //        return $user->paginate()->toarray();
         $page = $page;
         $data = $user->offset($page)->limit($limit)->pluck('id');
-        $shop = \App\Shop::whereIn('user_id',$data)->orderBY('updated_at','desc')->get();
+        $shop = \App\Shop::whereIn('user_id',$data)->whereNotNull('payment_no')->orderBY('updated_at','desc')->get();
 //        "first_page_url": "http://api.jiajiazhao.dev/ref_user?page=1",
 //    "from": 1,
 //    "last_page": 1,
