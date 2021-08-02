@@ -21,6 +21,19 @@ class Shop extends Model
         'no','amount','lng','lat','user_id','due_date'
     ];
 
+    public function getNicknameAttribute()
+    {
+        $userId = $this->attributes['user_id'];
+        return User::where('id',$userId)->value('nickname');
+
+    }
+    public function getAvatarAttribute()
+    {
+        $userId = $this->attributes['user_id'];
+        return User::where('id',$userId)->value('avatar');
+
+    }
+    protected $appends = ['nickname','avatar'];
     public function adminUser()
     {
         return $this->belongsToMany(AdminUser::class,'admin_shops','shop_id','admin_id');

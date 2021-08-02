@@ -201,6 +201,42 @@ class PersonalController extends Controller
             $query->whereNotNull('payment_no');
 //            $query->orderBy('created_at','desc');
         });
+        $pagenNum=request('page')?:1;
+        $limit=request('limit')?:15;
+        $page=$pagenNum-1;
+        if ($page != 0) {
+            $page = $limit * $page;
+            $limit=$limit * $page;
+        }
+
+//        return $user->paginate()->toarray();
+        $page = $page;
+        $data = $user->offset($page)->limit($limit)->pluck('id');
+        $shop = \App\Shop::whereIn('user_id',$data)->orderBY('updated_at','desc')->get();
+//        "first_page_url": "http://api.jiajiazhao.dev/ref_user?page=1",
+//    "from": 1,
+//    "last_page": 1,
+//    "last_page_url": "http://api.jiajiazhao.dev/ref_user?page=1",
+//    "next_page_url": null,
+//    "path": "http://api.jiajiazhao.dev/ref_user",
+//    "per_page": 15,
+//    "prev_page_url": null,
+//    "to": 2,
+//    "total": 2
+        $res = [
+
+            'current_page'=>$user->paginate()->toarray()['current_page'],
+            'data'=>$shop,
+            'from'=>$user->paginate()->toarray()['from'],
+            'last_page'=>$user->paginate()->toarray()['last_page'],
+            'last_page_url'=>$user->paginate()->toarray()['last_page_url'],
+            'next_page_url'=>$user->paginate()->toarray()['next_page_url'],
+            'per_page'=>$user->paginate()->toarray()['per_page'],
+            'prev_page_url'=>$user->paginate()->toarray()['prev_page_url'],
+            'to'=>$user->paginate()->toarray()['to'],
+            'total'=>$user->paginate()->toarray()['total'],
+            'first_page_url'=>$user->paginate()->toarray()['first_page_url'],
+        ];
 //            ->with(['shops'=>function($query){ return $query->orderBy('id','desc');  }]);
 //        $shop = Shop::whereNotNull('payment_no')->where('parent_id',auth('api')->id())->orderBy('created_at','desc');
 //        foreach ($shop as $key=>$value) {
@@ -214,6 +250,7 @@ class PersonalController extends Controller
 //        $user['data']['ref_user_count']=User::where('parent_id',auth('api')->id())->count();
 //        $ref_user_count = Shop::where('user_id',auth('api')->id())->whereNotNull('payment_no')->count();
 
+        return $this->responseStyle('ok',200,['ref_user'=>$res,'ref_user_count'=>$user->count()]);
         return $this->responseStyle('ok',200,['ref_user'=>$user->paginate(),'ref_user_count'=>$user->count()]);
     }
     // 发帖抽成
