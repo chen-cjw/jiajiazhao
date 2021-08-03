@@ -45,6 +45,9 @@ class ShareHomeController extends AdminController
             if($this->id == 5) {
                 return '总的分享';
             }
+            if($this->id == 6) {
+                return '合伙人分享页';
+            }
         });
         $grid->actions(function ($actions) {
             //关闭行操作 删除

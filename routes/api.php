@@ -44,7 +44,7 @@ $api->version('v1', [
         $api->get('/city_partner/pay_by_wechat/{id}', 'CityPartnerController@payByWechat')->name('api.city_partner.payByWechat'); // 唤起支付
 
         $api->post('city_partner/update_partner', 'CityPartnerController@updatePartner')->name('api.city_partner.update_partner');// 入住
-      // 提现记录
+       // 提现记录
         $api->get('city_partner_payment_order', 'CityPartnerPaymentOrderController@index')->name('api.city_partner_payment_order.index');
         $api->post('city_partner_payment_order', 'CityPartnerPaymentOrderController@store')->name('api.city_partner_payment_order.store');
 
@@ -264,7 +264,7 @@ $api->version('v1', [
 
     $api->get('/card_category', 'CardCategoryController@index')->name('api.card_category.index'); // 帖子分类
     $api->get('/card_category/{id}/convenient_information', 'CardCategoryController@cardInformation')->name('api.card_category.cardInformation'); // 帖子分类
-    // 搜索
+    // city_partner_payment_order
     $api->get('/search_information', 'ConvenientInformationController@searchInformation')->name('api.search_information.searchInformation'); // 发布
     $api->get('/share_home', 'ShareHomeController@index')->name('api.share_home.index'); // 分享页面
     $api->get('/shop_share_index', 'ShareHomeController@shopShareIndex')->name('api.share_home.shopShareIndex'); // 商铺分享页
