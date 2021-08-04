@@ -10,6 +10,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Encore\Admin\Facades\Admin;
 
 class UserController extends AdminController
 {
@@ -73,9 +74,11 @@ class UserController extends AdminController
         });
 
         $grid->disableCreateButton();
-        $grid->disableExport();
+//        $grid->disableExport();
 //        $grid->disableActions();
-
+        if (!Admin::user()->can('Administrator')) {
+            $grid->disableExport();
+        }
         return $grid;
     }
 

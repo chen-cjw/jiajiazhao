@@ -31,6 +31,7 @@ class AbbrCategory extends Model
 
     public function setImageAttribute($images)
     {
+        return BannerShopCategory::where('abbr_category_id',$this->attributes['id'])->get();
 //        dd($images);
         if (is_array($images)) {
             $this->attributes['image'] = json_encode($images);
@@ -39,6 +40,15 @@ class AbbrCategory extends Model
 
     public function getImageAttribute($pictures)
     {
+        $bannerShopCategoryQuery = BannerShopCategory::where('abbr_category_id',$this->attributes['id']);
+        if (request('area')) {
+            $bannerShopCategoryQuery = $bannerShopCategoryQuery->where(function ($query) {
+                $query->where('area','like',\request('area').'%')->orWhere('area',null);
+
+//                $query->where('area', \request('area'))->orWhere('area', null);
+            });
+        }
+        return $bannerShopCategoryQuery->pluck('image');
         if (!$pictures) {
             return $pictures;
         }

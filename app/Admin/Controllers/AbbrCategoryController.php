@@ -32,7 +32,12 @@ class AbbrCategoryController extends AdminController
         $grid->column('id', __('Id'));
 
         $grid->column('logo', __('分类图标'))->image('',50,50);
-        $grid->column('image', '分类列表广告位')->image('',50,50);
+//        $grid->column('image', '分类列表广告位')->image('',50,50);
+        $grid->column('image', '分类列表广告位')->display(function () {
+            if($this->parent_id==null) {
+                return "<a href='/admin/banner_shop_category'>添加轮播图</a>";//'/admin/banner_shop_category';
+            }
+        });
 
         $grid->column('abbr', __('Abbr'))->display(function ($abbr) {
 //            $abb = AbbrCategory::where('abbr',$abbr)->first();
@@ -125,7 +130,7 @@ class AbbrCategoryController extends AdminController
         $form->text('abbr', __('Abbr'));
         $form->hidden('area', __('Area'));
 
-        $form->multipleImage('image', __('分类列表广告位'))->removable();
+//        $form->multipleImage('image', __('分类列表广告位'))->removable();
         $form->image('logo', __('分类图标'));
         $form->select('type', __('Type'))->default('shop')->options(['shop' => '商铺', 'other' => '跳转']);
         $form->select('local', __('Local'))->default('one')->options(['one' => '第一部分', 'two' => '第二部分']);
