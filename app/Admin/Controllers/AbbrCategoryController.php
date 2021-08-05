@@ -35,7 +35,7 @@ class AbbrCategoryController extends AdminController
 //        $grid->column('image', '分类列表广告位')->image('',50,50);
         $grid->column('image', '分类列表广告位')->display(function () {
             if($this->parent_id==null) {
-                return "<a href='/admin/banner_shop_category' target='_blank'>添加轮播图</a>";//'/admin/banner_shop_category';
+                return "<a href='/admin/banner_shop_category?abbr_category_id={$this->id }' target='_blank'>我的轮播图</a>";//'/admin/banner_shop_category';
             }
         });
 

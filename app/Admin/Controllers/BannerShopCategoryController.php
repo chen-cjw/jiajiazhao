@@ -46,7 +46,7 @@ class BannerShopCategoryController extends AdminController
         $grid->column('updated_at', __('Updated at'));
         $grid->filter(function ($filter) {
             $filter->like('area', __('Area'));
-
+            $filter->equal('abbr_category_id',__('行业分类ID'));
             // 查询过滤
                 // 关联关系查询
                 $filter->where(function ($query) {
