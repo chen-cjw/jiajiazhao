@@ -143,7 +143,7 @@ class AbbrCategoryController extends AdminController
 
         }
         $form->switch('is_display', __('Is display'))->default(1);
-        AbbrCategory::baseBanner($form);
+//        AbbrCategory::baseBanner($form);
 
         $form->footer(function ($footer) {
 
