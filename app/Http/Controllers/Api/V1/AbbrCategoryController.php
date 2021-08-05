@@ -29,7 +29,9 @@ class AbbrCategoryController extends Controller
         Log::info(22222);
         Log::info(request('area'));
         Log::info('AbbrCategoryController');
-        $abbrCategory = $abbrCategory->orderBy('sort','desc')->get();
+        $abbrCategory = $abbrCategory->orderBy('sort','desc')->with(['bannerShopCate'=>function($query) {
+            $query->where('area','like',\request('area').'%')->orWhere('area',null);
+        }])->get();
         return $this->responseStyle('ok',200,$abbrCategory);
         return $this->response->collection($abbrCategory,new AbbrCategoryTransformer());
     }

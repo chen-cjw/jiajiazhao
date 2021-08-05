@@ -9,7 +9,10 @@ class AbbrCategory extends Model
     // 行业分类(后台)
     protected $fillable = ['abbr','sort','logo','parent_id','type','local','area'];
 
-
+    public function bannerShopCate()
+    {
+        return $this->hasMany(BannerShopCategory::class);
+    }
     public function abbrs()
     {
         return $this->hasMany(AbbrCategory::class,'parent_id','id');
