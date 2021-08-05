@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/BannerShopCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/BannerShopCategoryController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BannerShopCategoryController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BannerShopCategoryController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerShopCategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="39" column="39" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="39" />
+            <state relative-caret-position="334">
+              <caret line="56" column="115" selection-start-line="56" selection-start-column="115" selection-end-line="56" selection-end-column="115" />
               <folding>
                 <element signature="e#41#68#0#PHP" expanded="true" />
               </folding>
@@ -61,10 +60,10 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="AbbrCategoryController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AbbrCategoryController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
+            <state relative-caret-position="-1198">
               <caret line="37" column="77" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
             </state>
           </provider>
@@ -200,8 +199,8 @@
         <option value="$PROJECT_DIR$/database/seeds/CityPayOrderSeeder.php" />
         <option value="$PROJECT_DIR$/app/Model/AB/ChinaArea.php" />
         <option value="$PROJECT_DIR$/app/Model/AbbrCategory.php" />
-        <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerShopCategoryController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php" />
+        <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerShopCategoryController.php" />
       </list>
     </option>
   </component>
@@ -542,12 +541,12 @@
       <workItem from="1621309126284" duration="21026000" />
       <workItem from="1621860995332" duration="49523000" />
       <workItem from="1624514132208" duration="83085000" />
-      <workItem from="1626694559503" duration="51432000" />
+      <workItem from="1626694559503" duration="51927000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="807185000" />
+    <option name="totallyTimeSpent" value="807680000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -904,20 +903,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerShopCategoryController.php">
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="39" column="39" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="39" />
-          <folding>
-            <element signature="e#41#68#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1198">
+          <caret line="37" column="77" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php">
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerShopCategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="37" column="77" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
+        <state relative-caret-position="334">
+          <caret line="56" column="115" selection-start-line="56" selection-start-column="115" selection-end-line="56" selection-end-column="115" />
+          <folding>
+            <element signature="e#41#68#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
