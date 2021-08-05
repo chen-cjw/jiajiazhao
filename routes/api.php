@@ -176,8 +176,9 @@ $api->version('v1', [
 
         // 要授权手机号
         $api->group(['middleware' => ['phone.verify']], function ($api) {
-            $api->post('/auth/update','AuthController@update')->name('api.auth.update');
-
+            $api->group(['middleware' => ['wx_avatar','wx_username']], function ($api) {
+                $api->post('/auth/update', 'AuthController@update')->name('api.auth.update');
+            });
             $api->post('xufei/{id}','ShopController@xufei')->name('api.shop.xufei');
 
             $api->put('/local_carpooling/{id}', 'LocalCarpoolingController@update')->name('api.local_carpooling.update'); // 确认发车
