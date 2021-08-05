@@ -52,7 +52,7 @@ class BannerShopCategoryController extends AdminController
                 $filter->where(function ($query) {
                     $input = $this->input;
                     $query->whereHas('abbCategory', function ($query) use ($input) {
-                                $query->where('abbr_category_id',  'like', "%$input%");
+                                $query->where('abbr_category_id', $input);
                             });
                 }, '行业分类名')->select(AbbrCategory::whereNull('parent_id')->where('is_display',1)->where('type','shop')->pluck('abbr','id'));
 //            $filter->equal('province_id', '谨慎')->select(ChinaArea:: where('pid',0)->orderBy('name')->pluck('name', 'id'));
