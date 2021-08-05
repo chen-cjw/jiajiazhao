@@ -102,7 +102,8 @@ class BannerShopCategoryController extends AdminController
     protected function form()
     {
         $form = new Form(new BannerShopCategory());
-        $form->select('abbr_category_id', __('行业分类名'))->options(AbbrCategory::where('is_display',1)->whereNull('parent_id')->pluck('abbr','id'));
+        $form->select('abbr_category_id', __('行业分类名'))->options(AbbrCategory::where('is_display',1)->whereNull('parent_id')->pluck('abbr','id'))
+            ->rules('required');
 
         $form->image('image', __('Image'));
         $form->switch('is_display', __('Is display'))->default(1);

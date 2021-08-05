@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Model/AbbrCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/AbbrCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/BannerShopCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/BannerShopCategoryController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbbrCategory.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AbbrCategory.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/AbbrCategory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="56" selection-end-column="25" />
+            <state relative-caret-position="366">
+              <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -37,8 +37,20 @@
       <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="143" column="30" lean-forward="true" selection-start-line="143" selection-start-column="30" selection-end-line="143" selection-end-column="30" />
+            <state relative-caret-position="165">
+              <caret line="72" column="56" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BannerShopCategoryController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerShopCategoryController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="254">
+              <caret line="107" column="42" lean-forward="true" selection-start-line="107" selection-start-column="42" selection-end-line="107" selection-end-column="42" />
+              <folding>
+                <element signature="e#41#68#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -48,15 +60,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="181">
               <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CityPayOrderSeeder.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/CityPayOrderSeeder.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -126,7 +129,6 @@
       <find>city_information_fee</find>
       <find>ref_user</find>
       <find>searchInformation</find>
-      <find>area</find>
       <find>city_partner_payment_order_all</find>
       <find>index</find>
       <find>share_home</find>
@@ -138,6 +140,7 @@
       <find>city_partner_index</find>
       <find>CityPartnerIndex</find>
       <find>$grid-&gt;disableActions()</find>
+      <find>area</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -193,13 +196,13 @@
         <option value="$PROJECT_DIR$/database/migrations/2021_08_04_221656_create_banner_shop_categories_table.php" />
         <option value="$PROJECT_DIR$/app/Admin/routes.php" />
         <option value="$PROJECT_DIR$/app/Model/BannerShopCategory.php" />
-        <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerShopCategoryController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/AbbrCategoryController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/AbbrCategoryController.php" />
         <option value="$PROJECT_DIR$/database/seeds/CityPayOrderSeeder.php" />
         <option value="$PROJECT_DIR$/app/Model/AB/ChinaArea.php" />
         <option value="$PROJECT_DIR$/app/Model/AbbrCategory.php" />
+        <option value="$PROJECT_DIR$/app/Admin/Controllers/BannerShopCategoryController.php" />
       </list>
     </option>
   </component>
@@ -540,12 +543,12 @@
       <workItem from="1621309126284" duration="21026000" />
       <workItem from="1621860995332" duration="49523000" />
       <workItem from="1624514132208" duration="83085000" />
-      <workItem from="1626694559503" duration="50132000" />
+      <workItem from="1626694559503" duration="50907000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="805885000" />
+    <option name="totallyTimeSpent" value="806660000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -557,9 +560,9 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.31030303" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.31030303" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3211731" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3211731" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32969698" />
@@ -800,16 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerShopCategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="54" column="63" selection-start-line="54" selection-start-column="63" selection-end-line="54" selection-end-column="63" />
-          <folding>
-            <element signature="e#41#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/encore/laravel-admin/src/Facades/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
@@ -909,17 +902,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
+    <entry file="file://$PROJECT_DIR$/app/Model/AbbrCategory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="143" column="30" lean-forward="true" selection-start-line="143" selection-start-column="30" selection-end-line="143" selection-end-column="30" />
+        <state relative-caret-position="366">
+          <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/AbbrCategory.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="56" selection-end-column="25" />
+        <state relative-caret-position="165">
+          <caret line="72" column="56" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/BannerShopCategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="107" column="42" lean-forward="true" selection-start-line="107" selection-start-column="42" selection-end-line="107" selection-end-column="42" />
+          <folding>
+            <element signature="e#41#68#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
