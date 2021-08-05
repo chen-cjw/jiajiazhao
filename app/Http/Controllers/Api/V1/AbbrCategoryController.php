@@ -17,13 +17,13 @@ class AbbrCategoryController extends Controller
             $abbrCategory = AbbrCategory::where('type','shop')->where('is_display',1)->take(5)->where('parent_id',null);
 
         }
-        if (request('area')) {
-            $abbrCategory = $abbrCategory->where(function ($query) {
-//                $query->where('area', \request('area'))->orWhere('area', null);
-                $query->where('area','like',\request('area').'%')->orWhere('area',null);
-
-            });
-        }
+//        if (request('area')) {
+//            $abbrCategory = $abbrCategory->where(function ($query) {
+////                $query->where('area', \request('area'))->orWhere('area', null);
+//                $query->where('area','like',\request('area').'%')->orWhere('area',null);
+//
+//            });
+//        }
         Log::info('AbbrCategoryController');
         Log::info(request('area'));
         Log::info(22222);
