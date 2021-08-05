@@ -40,6 +40,9 @@ class AbbrCategory extends Model
 
     public function getImageAttribute($pictures)
     {
+        if (BannerShopCategory::where('abbr_category_id',$this->attributes['id'])->first()){
+            return [];
+        }
         $bannerShopCategoryQuery = BannerShopCategory::where('abbr_category_id',$this->attributes['id']);
         if (request('area')) {
             $bannerShopCategoryQuery = $bannerShopCategoryQuery->where(function ($query) {
