@@ -142,6 +142,10 @@ class ShopController extends Controller
         $shop['data'] = $query;
         $shop['total'] = $total;
         $shop['image'] = AbbrCategory::where('id',$one_abbr)->value('image');
+        $shop['banner_shop_cate'] = AbbrCategory::where('id',$one_abbr)->orderBy('sort','desc')->with(['bannerShopCate'=>function($query) {
+            $query->where('area','like',\request('area').'%')->orWhere('area',null);
+        }])->get();
+
         return $this->responseStyle('ok',200,$shop);
     }
     // 身份证不显示出来
