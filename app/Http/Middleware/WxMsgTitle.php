@@ -24,7 +24,7 @@ class WxMsgTitle
         if ($res['errcode'] == 0) {
             return $next($request);
         }else {
-            throw new \Exception('请输入健康积极向上的内容！');
+            throw new \Exception('您提交的内容含有违规信息！');
         }
 //        return $next($request);
     }
