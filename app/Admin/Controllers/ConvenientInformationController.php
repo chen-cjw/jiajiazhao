@@ -145,6 +145,9 @@ class ConvenientInformationController extends AdminController
         $form->switch('is_display', __('Is display'))->default(1);
         $form->hidden('comment_count', __('Comment count'))->default(0);
         $form->switch('is_top', __('Is top'));
+//        $form->map('localhost', __('Location'));
+//        $form->latlong('latitude', 'longitude', 'Position')->height(500);
+
         $form->footer(function ($footer) {
             // 去掉`重置`按钮
             $footer->disableReset();

@@ -413,6 +413,37 @@ return [
 
             // 如果要关掉这个扩展，设置为false
             'enable' => true,
+        ],'latlong' => [
+
+            // Whether to enable this extension, defaults to true
+            'enable' => true,
+
+            // Specify the default provider
+            'default' => 'tencent',
+
+            // According to the selected provider above, fill in the corresponding api_key
+            'providers' => [
+
+                'google' => [
+                    'api_key' => '',
+                ],
+
+                'yandex' => [
+                    'api_key' => '',
+                ],
+
+                'baidu' => [
+                    'api_key' => 'xck5u2lga9n1bZkiaXIHtMufWXQnVhdx',
+                ],
+
+                'tencent' => [
+                    'api_key' => 'VVYBZ-HRJCX-NOJ4Z-ZO3PU-ZZA2J-QPBBT',
+                ],
+
+                'amap' => [
+                    'api_key' => '3693fe745aea0df8852739dac08a22fb',
+                ],
+            ]
         ]
     ],
 ];
