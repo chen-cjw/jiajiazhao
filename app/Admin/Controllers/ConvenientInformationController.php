@@ -167,7 +167,7 @@ class ConvenientInformationController extends AdminController
         }
 //        $form->select('card_id', __('Card id'))->options(CardCategory::where('is_display',1)->orderBy('id','desc')->pluck('name','id'));
 //        $form->select('card_id',__('Card id'))->options(admin_base_path('/admin/admin/information'));
-        $form->select('card_id',__('Card id'))->options(ConvenientInformation::getSelectOptions());
+        $form->select('card_id',__('Card id'))->options(ConvenientInformation::getSelectOptions())->rules('required');
         $form->text('title', __('Title'));
         $form->UEditor('content', __('Content'));
         if(request()->route('information')) {
