@@ -53,9 +53,7 @@ class ConvenientInformationController extends AdminController
         });
 
         $grid->column('title', __('Title'));
-        $grid->column('content', __('Content'))->display(function ($content) {
-            return Str::limit($content, 50, '....');
-        });
+
         $grid->column('location', __('Location'));
         $grid->column('area', __('Area'));
 //        $grid->column('lng', __('Lng'));
@@ -73,6 +71,9 @@ class ConvenientInformationController extends AdminController
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
         $grid->column('comment_count', __('Comment count'))->sortable();
 //        $grid->column('is_top', __('Is top'));
+        $grid->column('content', __('Content'))->display(function ($content) {
+            return Str::limit($content, 50, '....');
+        });
         $grid->column('created_at', __('Created at'))->sortable();
 //        $grid->column('updated_at', __('Updated at'));
 
@@ -188,7 +189,7 @@ class ConvenientInformationController extends AdminController
             }
         }
         $form->hidden('no', __('No'))->default('j'.time().rand(1111,9999));
-//        $form->multipleImage('images', __('图片'));
+        $form->multipleImage('images', __('图片'));
         $form->hidden('card_fee', __('Card fee'))->default(0.01);
         $form->hidden('top_fee', __('Top fee'))->default(0.01);
         $form->hidden('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
