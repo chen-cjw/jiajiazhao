@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Model\AdminInformation;
+use App\Model\AdminUser;
 use App\Model\CardCategory;
 use App\Model\ConvenientInformation;
 use App\User;
@@ -38,6 +39,12 @@ class ConvenientInformationController extends AdminController
             $grid->model()->whereIn('id',$shopID);
         }
         $grid->column('id', __('Id'));
+
+        $grid->column('admin_user', __('管理员'))->display(function ($adminUser) {
+            $adminInformation = AdminInformation::where('information_id',$this->id)->value('admin_id');
+            return $adminInformation ? AdminUser::where('id',$adminInformation)->value('username') : "";
+        });
+
         $grid->column('user_id', __('User id'))->display(function ($userId){
             return User::where('id',$userId)->value('nickname');
         });
