@@ -45,6 +45,34 @@ class ConvenientInformation extends Model
 return $matches;
 
     }
+    public function getAreaAttribute()
+    {
+        $address =  $this->attributes['location'];
+
+        preg_match('/(.*?(省|自治区|北京市|天津市))/', $address, $matches);
+
+        if (count($matches) > 1) {
+            $province = $matches[count($matches) - 2];
+
+            $address = str_replace($province, '', $address);
+
+        }
+
+        preg_match('/(.*?(市|自治州|地区|区划|县))/', $address, $matches);
+
+        if (count($matches) > 1) {
+            $city = $matches[count($matches) - 2];
+
+            $address = str_replace($city, '', $address);
+
+        }
+        return $address;
+        preg_match('/(.*?(省|自治区|北京市|天津市))/', $this->attributes['location'], $matches);
+        return $matches;
+
+    }
+
+
     public function comments()
     {
         return $this->hasMany(Comment::class,'information_id','id');

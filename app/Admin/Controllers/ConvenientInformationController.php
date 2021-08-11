@@ -57,6 +57,7 @@ class ConvenientInformationController extends AdminController
             return Str::limit($content, 50, '....');
         });
         $grid->column('location', __('Location'));
+        $grid->column('area', __('Area'));
 //        $grid->column('lng', __('Lng'));
 //        $grid->column('lat', __('Lat'));
         $grid->column('view', __('View'))->sortable();
