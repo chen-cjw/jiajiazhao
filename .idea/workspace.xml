@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/ConvenientInformation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/ConvenientInformation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/ConvenientInformationHtml.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/ConvenientInformationHtml.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,15 +16,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/api.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Admin/routes.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -35,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+            <state relative-caret-position="228">
+              <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
               <folding>
                 <element signature="e#41#72#0#PHP" expanded="true" />
               </folding>
@@ -47,20 +37,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/UserController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4" />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ConvenientInformation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/ConvenientInformation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="60" column="10" lean-forward="true" selection-start-line="60" selection-start-column="10" selection-end-line="67" selection-end-column="9" />
+            <state relative-caret-position="48">
+              <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="72" selection-end-column="5" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvenientInformationHtml.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Model/ConvenientInformationHtml.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="88" column="5" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvenientInformationComment.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Model/ConvenientInformationComment.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="UserAdminSeeder.php" pinned="false" current-in-tab="false">
@@ -124,7 +121,6 @@
       <find>city_partner_index</find>
       <find>CityPartnerIndex</find>
       <find>$grid-&gt;disableActions()</find>
-      <find>area</find>
       <find>title</find>
       <find>content_security</find>
       <find>wx_msg_title</find>
@@ -144,6 +140,7 @@
       <find>infor</find>
       <find>admin/information</find>
       <find>ShopController</find>
+      <find>area</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -155,7 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerInformationShowController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/BannerShopShowController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_07_23_095101_add_area_to_abbr_categories.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CardCategoryController.php" />
@@ -204,8 +200,9 @@
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Admin/routes.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/ShopController.php" />
-        <option value="$PROJECT_DIR$/app/Model/ConvenientInformation.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" />
+        <option value="$PROJECT_DIR$/app/Model/ConvenientInformation.php" />
+        <option value="$PROJECT_DIR$/app/Model/ConvenientInformationHtml.php" />
       </list>
     </option>
   </component>
@@ -416,6 +413,12 @@
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -504,12 +507,12 @@
       <workItem from="1621309126284" duration="21026000" />
       <workItem from="1621860995332" duration="49523000" />
       <workItem from="1624514132208" duration="83085000" />
-      <workItem from="1626694559503" duration="74594000" />
+      <workItem from="1626694559503" duration="74948000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="830347000" />
+    <option name="totallyTimeSpent" value="830701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -580,12 +583,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/SuggestionRequest.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopUpdateRequest.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/ShopRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6" />
@@ -867,20 +864,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/ConvenientInformation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="60" column="10" lean-forward="true" selection-start-line="60" selection-start-column="10" selection-end-line="67" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+        <state relative-caret-position="228">
+          <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
           <folding>
             <element signature="e#41#72#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/ConvenientInformationComment.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/ConvenientInformation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="72" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/ConvenientInformationHtml.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="88" column="5" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
         </state>
       </provider>
     </entry>
