@@ -77,6 +77,22 @@ class ConvenientInformationController extends AdminController
 
 
         $grid->filter(function ($filter) {
+
+            $filter->where(function ($query) {
+
+                $input = $this->input;
+                if ($input == '超级管理员') {
+                    $query->whereNotIn('id',AdminInformation::pluck('information_id'));
+                }else {
+                    $adminUserId = AdminUser::where('username',$input)->value('id');
+                    $adminShopId = AdminInformation::where('admin_id',$adminUserId)->pluck('information_id');
+                    $query->whereIn('id',$adminShopId);
+                }
+
+            }, '管理员')->select((array_merge(['超级管理员'=>'超级管理员'],json_decode(AdminUser::pluck('username','username'),true))));
+
+
+
             $filter->column(1/2, function ($filter) {
                 $filter->like('title', __('Title'));
                 $filter->like('no', __('No'));
