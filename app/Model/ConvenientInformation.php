@@ -13,7 +13,38 @@ class ConvenientInformation extends Model
         'title','content','location','lng','lat','view','card_id','user_id','no','images','area',
         'card_fee','top_fee','paid_at','payment_method','payment_no','sort','is_display','is_top'
     ];
+    public static function getSelectOptions()
+    {
+        return \App\Model\CardCategory::where('is_display',1)->orderBy('id','desc')->pluck('name','id');
 
+    }
+
+    public function getLocationAttribute()
+    {
+        $address =  $this->attributes['location'];
+
+        preg_match('/(.*?(省|自治区|北京市|天津市))/', $address, $matches);
+
+        if (count($matches) > 1) {
+            $province = $matches[count($matches) - 2];
+
+            $address = str_replace($province, '', $address);
+
+        }
+
+//        preg_match('/(.*?(市|自治州|地区|区划|县))/', $address, $matches);
+//
+//        if (count($matches) > 1) {
+//            $city = $matches[count($matches) - 2];
+//
+//            $address = str_replace($city, '', $address);
+//
+//        }
+        return $address;
+         preg_match('/(.*?(省|自治区|北京市|天津市))/', $this->attributes['location'], $matches);
+return $matches;
+
+    }
     public function comments()
     {
         return $this->hasMany(Comment::class,'information_id','id');

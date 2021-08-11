@@ -20,7 +20,6 @@ Route::group([
         $router->resource('banners', 'BannerController');// 轮播图
         $router->resource('card_category', 'CardCategoryController');//便民信息的分类
         $router->resource('carpooling', 'CarpoolingController');// 拼车协议
-        $router->resource('information', 'ConvenientInformationController');// 便民信息
         $router->resource('driver_certifications', 'DriverCertificationController');// 司机身份认证
         $router->resource('local_carpooling', 'LocalCarpoolingController');// 本地拼车
         $router->resource('notices', 'NoticeController');// 公告
@@ -55,6 +54,9 @@ Route::group([
     });
 
     $router->resource('shops', 'ShopController');// 商户
+    $router->resource('information', 'ConvenientInformationController');// 便民信息
 
-
+    $router->get('/admin/information',function () {
+        return \App\Model\CardCategory::where('is_display',1)->orderBy('id','desc')->pluck('name','id');
+    });
 });

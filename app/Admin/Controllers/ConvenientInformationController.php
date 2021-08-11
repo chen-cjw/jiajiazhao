@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Model\AdminInformation;
 use App\Model\CardCategory;
 use App\Model\ConvenientInformation;
 use App\User;
@@ -10,6 +11,8 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 use Illuminate\Support\Str;
+use Encore\Admin\Facades\Admin;
+use Illuminate\Support\Facades\Auth;
 
 class ConvenientInformationController extends AdminController
 {
@@ -29,7 +32,11 @@ class ConvenientInformationController extends AdminController
     {
         $grid = new Grid(new ConvenientInformation());
         $grid->model()->orderBy('id','desc');
-
+        if (!Admin::user()->can('Administrator')) {
+            //
+            $shopID = AdminInformation::where('admin_id',Admin::user()->id)->get('information_id');
+            $grid->model()->whereIn('id',$shopID);
+        }
         $grid->column('id', __('Id'));
         $grid->column('user_id', __('User id'))->display(function ($userId){
             return User::where('id',$userId)->value('nickname');
@@ -113,7 +120,10 @@ class ConvenientInformationController extends AdminController
         $show->field('is_top', __('Is top'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
-
+        $show->panel()
+            ->tools(function ($tools) {
+                $tools->disableDelete();
+            });;
         return $show;
     }
 
@@ -125,15 +135,34 @@ class ConvenientInformationController extends AdminController
     protected function form()
     {
         $form = new Form(new ConvenientInformation());
-
+        if(request()->route('information')) {
+            $form->text('location', __('Location'));
+        }else {
+            $form->html(view('information'), __('Location'));
+        }
+//        $form->select('card_id', __('Card id'))->options(CardCategory::where('is_display',1)->orderBy('id','desc')->pluck('name','id'));
+//        $form->select('card_id',__('Card id'))->options(admin_base_path('/admin/admin/information'));
+        $form->select('card_id',__('Card id'))->options(ConvenientInformation::getSelectOptions());
         $form->text('title', __('Title'));
         $form->UEditor('content', __('Content'));
-        $form->text('location', __('Location'));
+        if(request()->route('information')) {
+
+        }else {
+            $form->hidden('location', __('Location'));
+        }
         $form->hidden('lng', __('Lng'))->default(0);
         $form->hidden('lat', __('Lat'))->default(0);
         $form->hidden('view', __('View'))->default(0);
-//        $form->select('card_id', __('Card id'))->options(CardCategory::where('is_display',1)->orderBy('id','desc')->pluck('name','id'));
-//        $form->number('user_id', __('User id'));
+        // 判断前端用户是否有此用户
+        if (!User::where('id',Admin::user()->id)->first()) {
+            throw new \Exception('请联系管理员开通前段测试人员');
+        }else {
+            if(request()->route('information')) {
+
+            }else {
+                $form->hidden('user_id', __('User id'))->default(Admin::user()->id);
+            }
+        }
         $form->hidden('no', __('No'))->default('j'.time().rand(1111,9999));
 //        $form->multipleImage('images', __('图片'));
         $form->hidden('card_fee', __('Card fee'))->default(0.01);
@@ -145,9 +174,15 @@ class ConvenientInformationController extends AdminController
         $form->switch('is_display', __('Is display'))->default(1);
         $form->hidden('comment_count', __('Comment count'))->default(0);
         $form->switch('is_top', __('Is top'));
-//        $form->map('localhost', __('Location'));
-//        $form->latlong('latitude', 'longitude', 'Position')->height(500);
+        if(request()->route('information')) {
 
+
+        }else {
+            $form->saving(function (Form $form) {
+                $form->location = request('address');
+//            dd($form);
+            });
+        }
         $form->footer(function ($footer) {
             // 去掉`重置`按钮
             $footer->disableReset();
@@ -158,6 +193,16 @@ class ConvenientInformationController extends AdminController
             // 去掉`继续创建`checkbox
             $footer->disableCreatingCheck();
         });
+
+        if (request()->isMethod('POST')) {
+
+            $form->saved(function (Form $form) {
+                AdminInformation::create([
+                    'admin_id' => Auth::guard('admin')->id(),
+                    'information_id' => $form->model()->id,
+                ]);
+            });
+        };
         return $form;
     }
 }

@@ -1,0 +1,190 @@
+﻿/*页面弹窗公共部分css  start*/
+.popup{
+   z-index: 29991017;
+}
+.tangram-suggestion-main {
+    z-index: 39991017;
+}
+
+.popup .popup-mask{
+   position: fixed;
+   left: 0;
+   top:0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(255,255,255,.3);
+   z-index: 150;
+}
+.popup .popup-box{
+    height: auto;
+    font-size: 14px;
+    color: #666;
+    position: fixed;
+    border: 1px solid #e5e5e5;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    z-index: 200;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.6);
+    padding-top: 0;
+}
+.popup .popup-box .popup-title{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 700;
+    border-bottom: 1px solid #e5e5e5;
+    border-top: 1px solid transparent;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.popup .popup-box .popup-title b{
+    font-weight: 700;
+    margin-right: 5px;
+}
+.popup .popup-box .popup-title span{
+    /*text-decoration: underline;*/
+    color: #0000ff;
+    font-weight: normal;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.popup .popup-box .popup-title span:hover{
+    text-decoration: underline;
+}
+.popup .popup-box .popup-title em{
+    color: #ff0000;
+}
+.popup .popup-box .popup-title i{
+    color: #333;
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+    transform:rotate(0deg);
+    transition:all 0.3s ease;
+}
+.popup .popup-box .popup-title i:hover{
+    transform:rotate(180deg);
+    transition:all 0.3s ease;
+}
+.popup .popup-box .popup-msg{
+    width: 100%;
+    height: 28px;
+}
+
+.popup .popup-box .popup-content .content-item .btn-box{
+    display: inline-block;
+    vertical-align: top;
+    height: 28px;
+}
+.popup .popup-box .popup-content .item-btn{
+    margin-top: 20px;
+}
+.popup .popup-box .popup-content .content-item .btn-box button{
+    display: inline-block;
+    vertical-align: top;
+    height: 28px;
+    width: 50px;
+    border:1px solid #e5e5e5;
+    text-align: center;
+    background-color: #f2f2f2;
+    margin-right: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #666;
+}
+.popup .popup-box .popup-content .content-item .btn-box button:hover{
+    background-color: #e9e8e8;
+    /*border-color: #0095d9;*/
+    /*color: #fff;*/
+}
+.popup .popup-box .popup-content .content-item .btn-box span{
+    display: inline-block;
+    vertical-align: top;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border:1px solid #e5e5e5;
+    text-align: center;
+    margin-right: 20px;
+    background-color: #f2f2f2;
+    width: 48px;
+    margin-top: 20px;
+}
+/*页面弹窗公共部分css  ed*/
+
+
+/*地图搜索弹窗 css start*/
+.mapsearch-popup{
+  display: block;
+  position: fixed;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.mapsearch-popup:after{
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  width: 0;
+  content: "";
+  visibility: hidden;
+}
+.mapsearch-popup .popup-box{
+  display: inline-block;
+  vertical-align: middle;
+  width: 700px;
+  height: auto;
+  position: relative;
+}
+.mapsearch-popup .popup-box .content-map{
+  padding: 0 10px;
+  height: auto;
+  text-align: left;
+}
+.mapsearch-popup .popup-box .content-map .search-box{
+ width: 100%;
+ height: auto;
+ margin-bottom: 10px;
+}
+.mapsearch-popup .popup-box .content-map .search-box span{
+ display: inline-block;
+ vertical-align: middle;
+ height: 30px;
+ line-height: 30px;
+ font-size: 14px;
+ color: #333;
+}
+.mapsearch-popup .popup-box .content-map .search-box input{
+ display: inline-block;
+ vertical-align: middle;
+ width: 318px;
+ height: 28px;
+ border:1px solid #e5e5e5;
+ box-sizing: border-box;
+ font-size: 14px;
+ color: #333;
+ padding: 0 5px;
+ margin:0 5px;
+}
+.mapsearch-popup .popup-box .content-map .map-box{
+ width: 100%;
+ height: 500px;
+}
+.mapsearch-popup .popup-box .content-map .positionmsg-box{
+ width: 100%;
+ height: auto;
+ line-height: 18px;
+ font-size: 12px;
+ padding: 6px 0;
+ color: #333;
+}
+/*地图搜索弹窗 css end*/
