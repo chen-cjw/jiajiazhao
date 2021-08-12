@@ -271,7 +271,7 @@ class ShopController extends AdminController
                 $form->number('comment_count', __('Comment count'))->default(0);
                 $form->number('good_comment_count', __('Good comment count'))->default(0);
                 $form->number('user_id', __('User id'))->default(1);
-                $form->text('no', __('No'))->default('j'.time().rand(1111,9999));
+                $form->text('no', __('No'))->default('j'.time().rand(1,10).rand(1,10).rand(1,10));
                 $form->decimal('amount', __('Amount'))->default(299);
                 $form->decimal('top_amount', __('Top amount'))->default(0);
                 $form->number('platform_licensing', __('Platform licensing'))->default(0);
@@ -297,7 +297,7 @@ class ShopController extends AdminController
             $form->hidden('platform_licensing', __('Platform licensing'))->default(0);
             $form->hidden('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
             $form->hidden('payment_method', __('Payment method'))->default('wechat');
-            $form->hidden('payment_no', __('Payment no'))->default('jp' . time());
+            $form->hidden('payment_no', __('Payment no'))->default('jp' . time().rand(1,10).rand(1,10).rand(1,10));
 //            $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s', strtotime("+1year", time())));
             $form->hidden('sort', __('Sort'))->default(0);
             $form->hidden('view', __('View'))->default(1);
