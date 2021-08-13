@@ -96,6 +96,12 @@ return $matches;
     {
         return Comment::where('information_id',$this->attributes['id'])->count();
     }
+    public function setImagesAttribute($pictures)
+    {
+        if (is_array($pictures)) {
+            $this->attributes['images'] = json_encode($pictures);
+        }
+    }
     public function getImagesAttribute($pictures)
     {
         if ($pictures==null) {
