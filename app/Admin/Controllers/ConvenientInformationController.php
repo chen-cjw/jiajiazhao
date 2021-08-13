@@ -159,12 +159,13 @@ class ConvenientInformationController extends AdminController
      */
     protected function form()
     {
-        \Encore\Admin\Facades\Admin::disablePjax();
         $form = new Form(new ConvenientInformation());
 
         if(request()->route('information')) {
             $form->text('location', __('Location'));
         }else {
+            \Encore\Admin\Facades\Admin::disablePjax();
+
             $form->html(view('information'), __('Location'));
         }
 //        $form->select('card_id', __('Card id'))->options(CardCategory::where('is_display',1)->orderBy('id','desc')->pluck('name','id'));
@@ -199,9 +200,11 @@ class ConvenientInformationController extends AdminController
         $form->hidden('payment_method', __('Payment method'))->default('wechat');
         $form->hidden('payment_no', __('Payment no'))->default('jp'.time().rand(1,10).rand(1,10).rand(1,10));
         $form->number('sort', __('Sort'))->default(0);
-        $form->switch('is_display', __('Is display'))->default(1);
         $form->hidden('comment_count', __('Comment count'))->default(0);
-        $form->switch('is_top', __('Is top'));
+        if(request()->route('information')) {
+            $form->switch('is_top', __('Is top'))->default(0);
+            $form->switch('is_display', __('Is display'))->default(1);
+        }
         if(request()->route('information')) {
 
 
