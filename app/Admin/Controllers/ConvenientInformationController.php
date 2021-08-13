@@ -159,7 +159,9 @@ class ConvenientInformationController extends AdminController
      */
     protected function form()
     {
+        \Encore\Admin\Facades\Admin::disablePjax();
         $form = new Form(new ConvenientInformation());
+
         if(request()->route('information')) {
             $form->text('location', __('Location'));
         }else {
@@ -175,6 +177,7 @@ class ConvenientInformationController extends AdminController
         }else {
             $form->hidden('location', __('Location'));
         }
+
         $form->hidden('lng', __('Lng'))->default(0);
         $form->hidden('lat', __('Lat'))->default(0);
         $form->hidden('view', __('View'))->default(0);
