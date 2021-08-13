@@ -15,6 +15,7 @@ Route::group([
 
 
         $router->get('/', 'HomeController@index')->name('admin.home');
+        $router->resource('/auth/users', 'UserAdminController');
         $router->resource('users', 'UserController');
         $router->resource('abbr_category', 'AbbrCategoryController');// 行业分类
         $router->resource('banners', 'BannerController');// 轮播图
