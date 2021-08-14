@@ -105,6 +105,8 @@ class ConvenientInformationController extends AdminController
             $filter->column(1/2, function ($filter) {
                 $filter->like('payment_no', __('Payment no'));
                 $filter->equal('is_display',__('Is display'))->select([true=>'是',false=>'否']);
+                $filter->like('location', __('Location'));
+
             });
 
 //            $filter->equal('city_partner','城市合伙人')->select([true=>'是',false=>'否']);
@@ -168,10 +170,11 @@ class ConvenientInformationController extends AdminController
 
             $form->html(view('information'), __('Location'));
         }
+        $form->text('title', __('Title'));
+
 //        $form->select('card_id', __('Card id'))->options(CardCategory::where('is_display',1)->orderBy('id','desc')->pluck('name','id'));
 //        $form->select('card_id',__('Card id'))->options(admin_base_path('/admin/admin/information'));
         $form->select('card_id',__('Card id'))->options(ConvenientInformation::getSelectOptions())->rules('required');
-        $form->text('title', __('Title'));
         $form->UEditor('content', __('Content'));
         if(request()->route('information')) {
 

@@ -63,7 +63,12 @@ class ConvenientInformationHtml extends Model
     }
     public function getAreaAttribute()
     {
+        if ($this->attributes['area']) {
+            return $this->attributes['area'];
+        }
+
         $address =  $this->attributes['location'];
+
 
         preg_match('/(.*?(省|自治区|北京市|天津市))/', $address, $matches);
 
