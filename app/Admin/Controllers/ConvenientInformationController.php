@@ -69,11 +69,15 @@ class ConvenientInformationController extends AdminController
         $grid->column('payment_no', __('Payment no'));
         $grid->column('sort', __('Sort'))->sortable();
         $grid->column('is_display', __('Is display'))->using([1 => '是', 0 => '否']);
+//        $grid->column('content', __('Content'))->display(function ($content) {
+//            $content = htmlspecialchars_decode($content);
+//            $content = Str::limit($content, 50, '....');
+//
+//            return $content;
+//        });
         $grid->column('comment_count', __('Comment count'))->sortable();
 //        $grid->column('is_top', __('Is top'));
-        $grid->column('content', __('Content'))->display(function ($content) {
-            return Str::limit($content, 50, '....');
-        });
+
         $grid->column('created_at', __('Created at'))->sortable();
 //        $grid->column('updated_at', __('Updated at'));
 
