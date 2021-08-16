@@ -125,7 +125,7 @@ class UserAdminController extends AdminController
         $form->saved(function (Form $form) {
 
             $userAdmin = $form->model();
-            if ($userAdmin->id<30) {
+            if ($userAdmin->id<49) {
 
                 // 无用户添加用户，有用户修改用户
 //                dd(User::where('id',$userAdmin)->first());
@@ -152,7 +152,7 @@ class UserAdminController extends AdminController
                     User::create($data);
                 }
             }else {
-                throw new \Exception('此前添加的用户只能添加30个，如需继续添加请联系开发人员！');
+                throw new \Exception('此前添加的用户只能添加48个，如需继续添加请联系开发人员！');
             }
 
         });
