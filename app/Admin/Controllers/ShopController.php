@@ -224,7 +224,7 @@ class ShopController extends AdminController
                 'two_abbr0','/abbr'
             // AbbrCategory::where('parent_id',request('one_abbr0'))->get(['abbr','id'])
             );
-            $form->select('two_abbr0', __('二级分类'))->options(AbbrCategory::where('parent_id','!=',null)->pluck('abbr','id'));
+            $form->select('two_abbr0', __('二级分类'))->options(AbbrCategory::where('parent_id','!=',null)->orderBy('sort','desc')->pluck('abbr','id'));
 
         }
 
