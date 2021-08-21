@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/abbr', function () {
-    return \App\Model\AbbrCategory::where('parent_id',request('q'))->get(['id',\Illuminate\Support\Facades\DB::raw('abbr as text')]);// ['id','abbr']
+    return \App\Model\AbbrCategory::where('parent_id',request('q'))->orderBy('sort','desc')->get(['id',\Illuminate\Support\Facades\DB::raw('abbr as text')]);// ['id','abbr']
 });
