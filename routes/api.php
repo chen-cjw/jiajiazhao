@@ -274,4 +274,34 @@ $api->version('v1', [
     $api->get('/all_share_index', 'ShareHomeController@AllShareIndex')->name('api.share_home.AllShareIndex'); // 拼车
     $api->get('/city_partner_index', 'ShareHomeController@CityPartnerIndex')->name('api.share_home.CityPartnerIndex'); // 拼车
 
+
+});
+// 商城
+$api->version('v1', [
+    'namespace' => 'App\Http\Controllers\Api\V1\Shop',
+    'middleware' => ['serializer:array']
+], function ($api) {
+    $api->get('/own_banner', 'OwnBannerIndexController@index')->name('api.own_banner.index');    // 首页轮播图
+    // 收获地址
+    $api->group(['middleware' => ['auth:api']], function ($api) {
+
+        $api->get('/own_user_address', 'OwnUserAddressController@index')->name('api.own_banner.index'); // 我的地址
+        $api->post('/own_user_address', 'OwnUserAddressController@store')->name('api.own_banner.store');// 添加地址
+        $api->put('/own_user_address/{id}', 'OwnUserAddressController@update')->name('api.own_banner.update');// 修改地址
+        $api->delete('/own_user_address/{id}', 'OwnUserAddressController@destroy')->name('api.own_banner.destroy');// 删除
+        $api->put('/own_user_address/{id}/default', 'OwnUserAddressController@updateDefault')->name('api.own_banner.updateDefault');// 设置默认
+
+        $api->post('own_product/{own_product}/favorite', 'OwnProductController@favor')->name('api.own_products.favor'); // 收藏
+        $api->delete('own_product/{own_product}/favorite', 'OwnProductController@disfavor')->name('api.own_products.disfavor'); // 取消收藏
+
+        $api->post('own_cart', 'OwnCartController@add')->name('api.own_cart.add');// 加入购物车
+        $api->get('own_cart', 'OwnCartController@index')->name('api.own_cart.index');// 我的购物车
+        $api->delete('own_cart/{sku}', 'OwnCartController@remove')->name('cart.remove');// 移除购物车
+    });
+    $api->get('/own_product', 'OwnProductController@index')->name('api.own_product.index');// 商品
+    $api->get('/own_product/favorites', 'OwnProductController@favorites')->name('api.own_product.favorites');//我的收藏
+    $api->get('/own_product/{id}', 'OwnProductController@show')->name('api.own_product.show');// 商品详情
+
+
+
 });

@@ -51,6 +51,10 @@ Route::group([
         $router->resource('city_partner_payment_order', 'CityPartnerPaymentOrderController'); // 城市合伙人-提现
         $router->resource('banner_shop_category', 'BannerShopCategoryController'); // 商户分类-轮播图
 
+        // 商城
+        $router->resource('own_banners', 'Shop\OwnBannerIndexController');
+        $router->resource('own_category', 'Shop\OwnCategoryController');
+        $router->resource('own_product', 'Shop\OwnProductController');
 //    $router->resource('users', \App\Admin\Controllers\UserController::class);
     });
 

@@ -180,5 +180,21 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(CityPartnerPaymentOrder::class);
     }
+    // 用户地址
+    public function ownUserAddresses()
+    {
+        return $this->hasMany(Shop\OwnUserAddress::class);
+    }
+    // 我的收藏 favoriteProducts
+    public function favoriteProducts()
+    {
+        return $this->belongsToMany(Shop\OwnProduct::class, 'own_user_favorite_products')
+            ->withTimestamps()
+            ->orderBy('own_user_favorite_products.created_at', 'desc');
+    }
 
+    public function OwnCartItems()
+    {
+        return $this->hasMany(Shop\OwnCartItem::class,'user_id','id');
+    }
 }

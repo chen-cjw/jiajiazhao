@@ -188,7 +188,7 @@ class ConvenientInformationController extends AdminController
 
         $form->hidden('lng', __('Lng'))->default(0);
         $form->hidden('lat', __('Lat'))->default(0);
-        $form->hidden('view', __('View'))->default(0);
+//        $form->hidden('view', __('View'))->default(0);
         // 判断前端用户是否有此用户
         if (!User::where('id',Admin::user()->id)->first()) {
             throw new \Exception('请联系管理员开通前段测试人员');
@@ -207,7 +207,11 @@ class ConvenientInformationController extends AdminController
         $form->hidden('payment_method', __('Payment method'))->default('wechat');
         $form->hidden('payment_no', __('Payment no'))->default('jp'.time().rand(1,10).rand(1,10).rand(1,10));
         $form->number('sort', __('Sort'))->default(0);
+
         $form->hidden('comment_count', __('Comment count'))->default(0);
+
+        $form->number('view', __('帖子浏览量'))->default(rand(10,500));
+
         if(request()->route('information')) {
             $form->switch('is_top', __('Is top'))->default(0);
             $form->switch('is_display', __('Is display'))->default(1);
