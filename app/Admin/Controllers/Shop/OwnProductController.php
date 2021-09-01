@@ -107,8 +107,11 @@ class OwnProductController extends AdminController
         $form->text('title', '商品名称')->rules('required');
 
         // 创建一个选择图片的框
-        $form->multipleImage('image', '封面图片')->rules('required|image');
-
+        if(request()->route('own_product')) {
+            $form->multipleImage('image', '封面图片')->rules('image');
+        }else {
+            $form->multipleImage('image', '封面图片')->rules('required|image');
+        }
         // 创建一个富文本编辑器
         $form->UEditor('description', '商品描述')->rules('required');
 
@@ -130,5 +133,9 @@ class OwnProductController extends AdminController
         });
 
         return $form;
+    }
+    public function store()
+    {
+        return $this->form()->store();
     }
 }

@@ -55,6 +55,8 @@ Route::group([
         $router->resource('own_banners', 'Shop\OwnBannerIndexController');
         $router->resource('own_category', 'Shop\OwnCategoryController');
         $router->resource('own_product', 'Shop\OwnProductController');
+        $router->resource('own_coupon_codes', 'Shop\OwnCouponCodesController');// 优惠券
+
 //    $router->resource('users', \App\Admin\Controllers\UserController::class);
     });
 

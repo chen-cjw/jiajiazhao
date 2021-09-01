@@ -264,7 +264,7 @@ class ShopController extends AdminController
                 $form->text('payment_method', __('Payment method'))->default('wechat');
                 $form->text('payment_no', __('Payment no'))->default('jp'.time().rand(1111,9999));
                 $form->number('sort', __('Sort'))->default(0);
-                $form->number('view', __('View'))->default(1);
+//                $form->number('view', __('View'))->default(1);
                 $form->switch('is_top', __('Is top'));
                 $form->switch('is_accept', __('Is accept'))->default(1);
 //            $form->text('type', __('Type'))->default('one');
@@ -300,10 +300,11 @@ class ShopController extends AdminController
             $form->hidden('payment_no', __('Payment no'))->default('jp' . time().rand(1,10).rand(1,10).rand(1,10));
 //            $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s', strtotime("+1year", time())));
             $form->hidden('sort', __('Sort'))->default(0);
-            $form->hidden('view', __('View'))->default(1);
+//            $form->hidden('view', __('View'))->default(1);
         }
         $form->select('type', __('Type'))->default('one')->options(['one'=>'第一部份','two'=>'第二部分']);
         $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s',strtotime("+1year",time())));
+        $form->number('view', __('帖子浏览量'))->default(rand(10,500));
 
 
         if (request()->isMethod('PUT')) {

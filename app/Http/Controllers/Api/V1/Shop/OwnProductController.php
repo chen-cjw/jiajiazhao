@@ -52,7 +52,7 @@ class OwnProductController extends Controller
 
     public function show($id)
     {
-        $product = OwnProduct::where('id',$id)->firstOrFail();
+        $product = OwnProduct::where('id',$id)->with('skus')->firstOrFail();
         if (!$product->on_sale) {
             throw new InvalidResourceException('商品未上架');
         }

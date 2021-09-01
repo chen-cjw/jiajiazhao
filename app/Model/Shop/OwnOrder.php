@@ -119,6 +119,6 @@ class OwnOrder extends Model
 
     public function couponCode()
     {
-//        return $this->belongsTo(CouponCode::class);
+        return $this->belongsTo(OwnCouponCode::class);
     }
 }
