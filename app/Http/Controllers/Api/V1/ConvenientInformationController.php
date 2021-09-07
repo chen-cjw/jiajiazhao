@@ -215,7 +215,7 @@ class ConvenientInformationController extends Controller
 
                     // 形成一个订单 ，支付成功修改这个订单状态，然后钱到会员余额
                     TransactionRecord::create([
-                        'amount' => Setting::where('key', 'information_fee')->value('value')?:0.3,
+                        'amount' => Setting::where('key', 'information_fee')->value('value')?:0,
                         'come_from' => auth('api')->user()->nickname . '发布了一条便民信息',
                         'user_id' => auth()->id(),
                         'parent_id' => $parentId,
@@ -242,7 +242,7 @@ class ConvenientInformationController extends Controller
 //                $amount = bcadd($res->amount,$res->top_amount,4);
                 InformationCommission::create([
                     'amount'=>$amount,// 商户入住金额
-                    'commissions'=>Setting::where('key', 'city_information_fee')->value('value')?:0.3,//bcmul($rate,$amount,4),// 佣金
+                    'commissions'=>Setting::where('key', 'city_information_fee')->value('value')?:0,//bcmul($rate,$amount,4),// 佣金
                     'rate'=>0,// 比例
                     'user_id'=>auth('api')->id(), // 用户
                     'parent_id'=>$cityPartner->user_id,// 城市合伙人ID
@@ -343,7 +343,7 @@ class ConvenientInformationController extends Controller
                     Log::info(ConvenientInformation::class);
                     if ($record = TransactionRecord::where('model_id',$order->id)->where('model_type',ConvenientInformation::class)->first()) {
                         Log::info(99999);
-                        User::where('id',$record->parent_id)->increment('balance',Setting::where('key','information_fee')->value('value')?:0.3);
+                        User::where('id',$record->parent_id)->increment('balance',Setting::where('key','information_fee')->value('value')?:0);
                         TransactionRecord::where('model_id',$order->id)->where('model_type',ConvenientInformation::class)->update([
                              'is_pay'=>1
                         ]);
