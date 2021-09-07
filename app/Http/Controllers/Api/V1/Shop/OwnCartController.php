@@ -21,7 +21,9 @@ class OwnCartController extends Controller
     public function index()
     {
         $cartItems = $this->cartService->get();
+
         $addresses = auth('api')->user()->ownUserAddresses()->orderBy('last_used_at', 'desc')->get();
+
         return $this->responseStyle('ok',200,['cartItems' => $cartItems, 'addresses' => $addresses]);
 
         return view('cart.index', ['cartItems' => $cartItems, 'addresses' => $addresses]);

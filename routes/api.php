@@ -297,11 +297,18 @@ $api->version('v1', [
         $api->post('own_cart', 'OwnCartController@add')->name('api.own_cart.add');// 加入购物车
         $api->get('own_cart', 'OwnCartController@index')->name('api.own_cart.index');// 我的购物车
         $api->delete('own_cart/{sku}', 'OwnCartController@remove')->name('cart.remove');// 移除购物车
+        // 我的优惠券
+        $api->get('coupon_codes', 'CouponCodesController@index')->name('api.coupon_codes.index');
+        // 检查优惠券
+        $api->get('coupon_codes/{code}', 'CouponCodesController@show')->name('api.coupon_codes.show');
+        // 下单
+        $api->post('own_orders', 'OwnOrdersController@store')->name('api.own_orders.store');
     });
     $api->get('/own_product', 'OwnProductController@index')->name('api.own_product.index');// 商品
     $api->get('/own_product/favorites', 'OwnProductController@favorites')->name('api.own_product.favorites');//我的收藏
     $api->get('/own_product/{id}', 'OwnProductController@show')->name('api.own_product.show');// 商品详情
 
-
+    // 优惠券 OwnCouponCode
+    $api->get('/own_product', 'OwnProductController@index')->name('api.own_product.index');// 商品
 
 });

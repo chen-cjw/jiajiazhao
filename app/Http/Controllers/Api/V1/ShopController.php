@@ -316,6 +316,16 @@ class ShopController extends Controller
                 Log::info('新沂1');
                 $rate = Setting::where('key', 'city_partner_rate')->value('value')?:0;
                 $amount = bcadd($res->amount,$res->top_amount,4);
+                Log::info([
+                    'amount'=>$amount,// 商户入住金额
+                    'commissions'=>Setting::where('key', 'city_shop_fee')->value('value')?:0.01,//bcmul($rate,$amount,4),// 佣金
+                    'rate'=>0,// 比例
+                    'user_id'=>$res->user_id, // 用户
+                    'parent_id'=>$cityPartner->user_id,// 城市合伙人ID
+                    'shop_id'=>$res->id,// 那个店铺
+//                    'district'=>$request->district// 区域(例如：新沂市)
+                    'district'=>$request->district// 区域(例如：新沂市)
+                ]);
                 ShopCommission::create([
                     'amount'=>$amount,// 商户入住金额
                     'commissions'=>Setting::where('key', 'city_shop_fee')->value('value')?:0.01,//bcmul($rate,$amount,4),// 佣金

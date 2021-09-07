@@ -10,17 +10,17 @@ class OwnOrderItem extends Model
     protected $dates = ['reviewed_at'];
     public $timestamps = false;
 
-    public function product()
+    public function ownProduct()
     {
         return $this->belongsTo(OwnProduct::class);
     }
 
-    public function productSku()
+    public function ownProductSku()
     {
         return $this->belongsTo(OwnProductSku::class);
     }
 
-    public function order()
+    public function ownOrder()
     {
         return $this->belongsTo(OwnOrder::class);
     }

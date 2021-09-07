@@ -193,7 +193,7 @@ class User extends Authenticatable implements JWTSubject
             ->orderBy('own_user_favorite_products.created_at', 'desc');
     }
 
-    public function OwnCartItems()
+    public function ownCartItems()
     {
         return $this->hasMany(Shop\OwnCartItem::class,'user_id','id');
     }

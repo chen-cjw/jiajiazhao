@@ -25,11 +25,16 @@ class OwnUserAddressController extends Controller
             'address',
             'zip',
             'contact_name',
-            'contact_phone'
+            'contact_phone',
+            'default'
         ]);
         $data['user_id'] = auth('api')->id();
         $res = OwnUserAddress::create($data);
-
+        if ($res->default == 1) {
+            auth('api')->user()->ownUserAddresses()->update([
+                'default'=>0
+            ]);
+        }
         return ['code'=>200,'msg'=>'ok','data'=>$res];
 
     }
