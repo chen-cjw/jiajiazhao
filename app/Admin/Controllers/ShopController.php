@@ -304,7 +304,7 @@ class ShopController extends AdminController
         }
         $form->select('type', __('Type'))->default('one')->options(['one'=>'第一部份','two'=>'第二部分']);
         $form->datetime('due_date', __('Due date'))->default(date('Y-m-d H:i:s',strtotime("+1year",time())));
-        $form->number('view', __('帖子浏览量'))->default(rand(10,500));
+        $form->number('view', __('人气'))->default(rand(10,500));
 
 
         if (request()->isMethod('PUT')) {

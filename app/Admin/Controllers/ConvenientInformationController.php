@@ -168,9 +168,16 @@ class ConvenientInformationController extends AdminController
         $form = new Form(new ConvenientInformation());
 
         if(request()->route('information')) {
+//            $form->text('card_id');
+//            $form->display('card_id',__('Card id'));
+//
+        }else {
+            $form->select('card_id',__('Card id'))->options(ConvenientInformation::getSelectOptions())->rules('required');
+        }
+        if(request()->route('information')) {
             $form->text('location', __('Location'));
         }else {
-            \Encore\Admin\Facades\Admin::disablePjax();
+//            \Encore\Admin\Facades\Admin::disablePjax();
 
             $form->html(view('information'), __('Location'));
         }
@@ -178,7 +185,9 @@ class ConvenientInformationController extends AdminController
 
 //        $form->select('card_id', __('Card id'))->options(CardCategory::where('is_display',1)->orderBy('id','desc')->pluck('name','id'));
 //        $form->select('card_id',__('Card id'))->options(admin_base_path('/admin/admin/information'));
-        $form->select('card_id',__('Card id'))->options(ConvenientInformation::getSelectOptions())->rules('required');
+//        $form->select('card_id',__('Card id'))->options(ConvenientInformation::getSelectOptions())->rules('required');
+
+
         $form->UEditor('content', __('Content'));
         if(request()->route('information')) {
 
@@ -210,7 +219,7 @@ class ConvenientInformationController extends AdminController
 
         $form->hidden('comment_count', __('Comment count'))->default(0);
 
-        $form->number('view', __('帖子浏览量'))->default(rand(10,500));
+        $form->number('view', __('人气'))->default(rand(10,500));
 
         if(request()->route('information')) {
             $form->switch('is_top', __('Is top'))->default(0);
