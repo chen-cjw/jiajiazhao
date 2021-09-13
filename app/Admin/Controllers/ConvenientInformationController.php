@@ -169,7 +169,7 @@ class ConvenientInformationController extends AdminController
 
         if(request()->route('information')) {
 //            $form->text('card_id');
-//            $form->display('card_id',__('Card id'));
+////            $form->display('card_id',__('Card id'));
 //
         }else {
             $form->select('card_id',__('Card id'))->options(ConvenientInformation::getSelectOptions())->rules('required');
@@ -177,7 +177,7 @@ class ConvenientInformationController extends AdminController
         if(request()->route('information')) {
             $form->text('location', __('Location'));
         }else {
-//            \Encore\Admin\Facades\Admin::disablePjax();
+            \Encore\Admin\Facades\Admin::disablePjax();
 
             $form->html(view('information'), __('Location'));
         }

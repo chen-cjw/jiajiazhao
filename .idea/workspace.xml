@@ -4,8 +4,6 @@
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/ShopController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/zh-CN.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/zh-CN.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,31 +18,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ShopController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-395">
-              <caret line="170" column="5" selection-start-line="170" selection-start-column="5" selection-end-line="170" selection-end-column="5" />
-              <folding>
-                <element signature="e#47#81#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ShopController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="217" column="8" selection-start-line="217" selection-start-column="8" selection-end-line="228" selection-end-column="9" />
+            <state relative-caret-position="222">
+              <caret line="223" column="34" selection-start-line="223" selection-start-column="30" selection-end-line="223" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Admin/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="57" column="85" selection-start-line="57" selection-start-column="82" selection-end-line="57" selection-end-column="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvenientInformationController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="171" column="46" lean-forward="true" selection-start-line="171" selection-start-column="46" selection-end-line="171" selection-end-column="46" />
+            <state relative-caret-position="304">
+              <caret line="180" lean-forward="true" selection-start-line="180" selection-end-line="180" />
             </state>
           </provider>
         </entry>
@@ -52,7 +47,7 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
+            <state relative-caret-position="15">
               <caret line="265" column="65" lean-forward="true" selection-start-line="265" selection-start-column="65" selection-end-line="265" selection-end-column="65" />
             </state>
           </provider>
@@ -61,8 +56,8 @@
       <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" selection-start-line="15" selection-end-line="17" selection-end-column="3" />
+            <state relative-caret-position="285">
+              <caret line="19" column="17" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -85,7 +80,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zh-CN.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="zh-CN.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/lang/zh-CN.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="157">
@@ -122,7 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addresses</find>
       <find>OwnCartItems</find>
       <find>favorites</find>
       <find>sku_id</find>
@@ -147,11 +141,12 @@
       <find>Illuminate\Support\Str</find>
       <find>merchant_introduction</find>
       <find>0.3</find>
-      <find>浏览量</find>
       <find>0.0</find>
-      <find>帖子</find>
+      <find>浏览量</find>
       <find>card_id</find>
       <find>CardC</find>
+      <find>帖子</find>
+      <find>abbr</find>
     </findStrings>
     <replaceStrings>
       <replace>$file</replace>
@@ -212,8 +207,8 @@
         <option value="$PROJECT_DIR$/vendor/encore/laravel-admin/src/Form/Field/Select.php" />
         <option value="$PROJECT_DIR$/app/Model/CardCategory.php" />
         <option value="$PROJECT_DIR$/app/Model/ConvenientInformation.php" />
-        <option value="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php" />
       </list>
     </option>
   </component>
@@ -433,89 +428,12 @@
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-              <item name="V1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-              <item name="V1" type="462c0819:PsiDirectoryNode" />
-              <item name="Shop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Requests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Shop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
               <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jiajiazhao" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jiajiazhao" type="b2602c69:ProjectViewProjectNode" />
@@ -599,12 +517,12 @@
       <workItem from="1624514132208" duration="83085000" />
       <workItem from="1626694559503" duration="80252000" />
       <workItem from="1628817548633" duration="26317000" />
-      <workItem from="1629689035349" duration="42583000" />
+      <workItem from="1629689035349" duration="43373000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="904905000" />
+    <option name="totallyTimeSpent" value="905695000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -711,13 +629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="17" column="77" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="57" column="85" selection-start-line="57" selection-start-column="82" selection-end-line="57" selection-end-column="85" />
         </state>
       </provider>
     </entry>
@@ -1022,24 +933,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ShopController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="217" column="8" selection-start-line="217" selection-start-column="8" selection-end-line="228" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/CardCategory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
           <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="17" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1050,24 +947,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php">
+    <entry file="file://$PROJECT_DIR$/resources/lang/zh-CN.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="171" column="46" lean-forward="true" selection-start-line="171" selection-start-column="46" selection-end-line="171" selection-end-column="46" />
+        <state relative-caret-position="157">
+          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
+        <state relative-caret-position="15">
           <caret line="265" column="65" lean-forward="true" selection-start-line="265" selection-start-column="65" selection-end-line="265" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/zh-CN.json">
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ShopController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+        <state relative-caret-position="222">
+          <caret line="223" column="34" selection-start-line="223" selection-start-column="30" selection-end-line="223" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="57" column="85" selection-start-line="57" selection-start-column="82" selection-end-line="57" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ConvenientInformationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="180" lean-forward="true" selection-start-line="180" selection-end-line="180" />
         </state>
       </provider>
     </entry>
