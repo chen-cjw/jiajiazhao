@@ -26,8 +26,9 @@ class SuggestionsController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Suggestions());
+        $grid->model()->orderBy('id','desc');//
 
-        $grid->column('id', __('Id'));
+        $grid->column('id', __('Id'))->sortable();
         $grid->column('content', __('Content'));
         $grid->column('username', __('User id'))->display(function ($userId){
             return User::where('id',$this->user_id)->value('nickname');
