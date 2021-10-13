@@ -34,7 +34,7 @@ class ShopController extends AdminController
     {
         $grid = new Grid(new Shop());
 
-        $grid->model()->orderBy('id','desc');//->where('paid_at','!=',null);
+        $grid->model()->orderBy('paid_at','desc');//->where('paid_at','!=',null);
         if (!Admin::user()->can('Administrator')) {
             //
             $shopID = AdminShop::where('admin_id',Admin::user()->id)->get('shop_id');
@@ -99,15 +99,36 @@ class ShopController extends AdminController
 //        $grid->column('updated_at', __('Updated at'));
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();
+//            $filter->where(function ($query) {
+//                return $query->whereHas('adminShops', function ($query) {
+//                    return $query->whereHas('adminUser', function ($query) {
+//                        return $query->where('username', 'like',"%$this->input%");
+//                    });
+//                });
+//            }, '管理员')->select((array_merge(['超级管理员'=>'超级管理员'],json_decode(AdminUser::pluck('username','username'),true))));
+
             $filter->where(function ($query) {
 
                 $input = $this->input;
+
+//                dd($input);
                 if ($input == '超级管理员') {
-                    $query->whereNotIn('id',AdminShop::pluck('shop_id'));
+                    $query->where('payment_no','like','42'.'%')->orWhere('payment_no',null);
+//                    $query->whereHas('AdminUser',function ($query) use ($input) {
+//                        $query->where('id',$input);
+//                    });
+//
+//                    $query->whereNotIn('id',AdminShop::pluck('shop_id'));
                 }else {
-                    $adminUserId = AdminUser::where('username',$input)->value('id');
-                    $adminShopId = AdminShop::where('admin_id',$adminUserId)->pluck('shop_id');
-                    $query->whereIn('id',$adminShopId);
+//                    $adminUserId = AdminUser::where('username',$input)->value('id');
+//
+//                    $adminShopId = AdminShop::where('admin_id',$adminUserId)->pluck('shop_id');
+//                    $query->whereIn('id',$adminShopId);
+                        return $query->whereHas('adminShops', function ($query) {
+                            return $query->whereHas('adminUser', function ($query) {
+                                return $query->where('username',$this->input);
+                            });
+                        });
                 }
 
                 }, '管理员')->select((array_merge(['超级管理员'=>'超级管理员'],json_decode(AdminUser::pluck('username','username'),true))));

@@ -7,6 +7,10 @@ class CityPartner extends Model
 {
     protected $fillable = ['name','phone','IDCard','in_city','user_id','no','amount','paid_at','payment_no'];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     // 支付订单的随机数
     public static function findAvailableNo()
     {

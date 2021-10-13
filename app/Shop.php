@@ -38,6 +38,10 @@ class Shop extends Model
     {
         return $this->belongsToMany(AdminUser::class,'admin_shops','shop_id','admin_id');
     }
+    public function adminShops()
+    {
+        return $this->hasMany(AdminShop::class);
+    }
     public function user()
     {
         return $this->belongsTo(User::class);

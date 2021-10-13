@@ -33,7 +33,8 @@ class CityPartnerController extends AdminController
         $grid->column('phone', __('Phone'));
         $grid->column('IDCard', __('IDCard'));
         $grid->column('in_city', __('In city'));
-        $grid->column('is_partners', __('Is partners'))->using([0 => '未付款',1 => '已付款', 2=>'审核通过',3=>'运行中']);
+        // 2自动成为合伙人 4运行中
+        $grid->column('is_partners', __('Is partners'))->using([0 => '未付款',1 => '已付款', 2=>'是',3=>'否']);
         $grid->column('user_id', __('User id'))->display(function ($userId) {
             return User::where('id',$userId)->value('nickname');
         });
@@ -46,7 +47,24 @@ class CityPartnerController extends AdminController
         $grid->column('payment_no', __('Payment no'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
+        $grid->filter(function ($filter) {
+            $filter->column(1/2, function ($filter) {
 
+                $filter->like('name', __('姓名'));
+                $filter->like('phone', __('Phone'));
+                $filter->where(function ($query) {
+                    $input = $this->input;
+                    $query->whereHas('user', function ($query) use ($input) {
+                        $query->where('nickname', 'like', "%$input%");
+                    });
+                }, '用户名');
+            });
+            $filter->column(1/2, function ($filter) {
+                $filter->equal('is_partners', __('Is partners'))->select([0 => '未付款', 1 => '已付款', 2 => '是', 3 => '否']);
+                $filter->between('paid_at', '支付时间查询')->datetime();
+            });
+
+        });
         return $grid;
     }
 
@@ -93,10 +111,12 @@ class CityPartnerController extends AdminController
         $form->mobile('phone', __('Phone'));
         $form->text('IDCard', __('IDCard'));
         $form->text('in_city', __('In city'));
+        // 0 未付款/取消合伙人资格
         $form->select('is_partners', __('Is partners'))->options([
-            '0'=>'未付款',
-            '1'=>'已付款',
-            '2'=>'审核通过',
+            '0'=>'取消合伙人身份',
+//            '1'=>'已付款',
+            '2'=>'是',
+            '3'=>'否'
         ]);
         $form->number('user_id', __('User id'));
         $form->text('no', __('No'));
