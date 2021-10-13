@@ -60,7 +60,7 @@ class CityPartnerController extends AdminController
                 }, '用户名');
             });
             $filter->column(1/2, function ($filter) {
-                $filter->equal('is_partners', __('Is partners'))->select([0 => '未付款', 1 => '已付款', 2 => '是', 3 => '否']);
+                $filter->equal('is_partners', __('Is partners'))->select([0 => '未付款', 2 => '是', 3 => '否']);
                 $filter->between('paid_at', '支付时间查询')->datetime();
             });
 
