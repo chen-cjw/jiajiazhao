@@ -78,7 +78,7 @@ class ShopController extends AdminController
             return Str::limit($content, 50, '....');
         });
         $grid->column('sort', __('Sort'))->sortable()->editable();
-        $grid->column('view', __('View'))->sortable();
+        $grid->column('view', __('View'))->sortable()->editable();
         $grid->column('is_top', __('Is top'))->using([1 => '是', 0 => '否']);
         $grid->column('is_accept', __('Is accept'))->using([1 => '是', 0 => '否']);
         $grid->column('type', __('Type'))->display(function ($type) {
