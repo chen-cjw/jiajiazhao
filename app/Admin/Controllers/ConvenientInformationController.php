@@ -58,7 +58,7 @@ class ConvenientInformationController extends AdminController
         $grid->column('area', __('Area'));
 //        $grid->column('lng', __('Lng'));
 //        $grid->column('lat', __('Lat'));
-        $grid->column('view', __('View'))->sortable();
+        $grid->column('view', __('View'))->sortable()->editable();
 
         $grid->column('no', __('No'));
         $grid->column('images', __('图片'))->image('',50,50);
