@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3c602984-2e3b-41f1-9949-108339054fb6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/ShopController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ShopController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="142" column="26" selection-start-line="142" selection-start-column="26" selection-end-line="144" selection-end-column="23" />
+            <state relative-caret-position="71">
+              <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="83" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -510,12 +509,12 @@
       <workItem from="1626694559503" duration="80252000" />
       <workItem from="1628817548633" duration="26317000" />
       <workItem from="1629689035349" duration="43969000" />
-      <workItem from="1633746734978" duration="16817000" />
+      <workItem from="1633746734978" duration="17072000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="923108000" />
+    <option name="totallyTimeSpent" value="923363000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -909,8 +908,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ShopController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="142" column="26" selection-start-line="142" selection-start-column="26" selection-end-line="144" selection-end-column="23" />
+        <state relative-caret-position="71">
+          <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="83" selection-end-column="13" />
         </state>
       </provider>
     </entry>

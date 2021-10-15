@@ -79,16 +79,16 @@ class ShopController extends AdminController
         $grid->column('logo', __('Logo'))->image('',50,50);
 
         $grid->column('service_price', __('Service price'))->image('',25,25);
-        $grid->column('merchant_introduction', __('Merchant introduction'))->display(function ($content) {
-            return Str::limit($content, 50, '....');
-        });
+//        $grid->column('merchant_introduction', __('Merchant introduction'))->display(function ($content) {
+//            return Str::limit($content, 50, '....');
+//        });
         $grid->column('sort', __('Sort'))->sortable()->editable();
         $grid->column('view', __('View'))->sortable()->editable();
         $grid->column('is_top', __('Is top'))->using([1 => '是', 0 => '否']);
         $grid->column('is_accept', __('Is accept'))->using([1 => '是', 0 => '否']);
-        $grid->column('type', __('Type'))->display(function ($type) {
-            return $type == 'one' ? '第一部分':'第二部分';
-        });
+//        $grid->column('type', __('Type'))->display(function ($type) {
+//            return $type == 'one' ? '第一部分':'第二部分';
+//        });
         $grid->column('comment_count', __('Comment count'))->sortable();
         $grid->column('good_comment_count', __('Good comment count'))->sortable();
 
