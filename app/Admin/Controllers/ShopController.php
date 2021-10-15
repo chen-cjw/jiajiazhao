@@ -50,6 +50,11 @@ class ShopController extends AdminController
         $grid->column('user_id', __('User id'))->display(function ($userId) {
             return User::where('id',$userId)->value('nickname');
         });
+        $grid->column('user_parent', __('邀请人'))->display(function ($userId) {
+            $thisUser=User::where('id',$this->user_id)->value('parent_id');
+                return User::where('id',$thisUser)->value('nickname');
+        });
+
         $grid->column('one_abbr0', __('一级分类'));
         $grid->column('two_abbr0', __('二级分类'));//->display(function () {
 //            $query = AbbrCategory::where('id',$this->two_abbr0)->value('abbr');
@@ -132,6 +137,17 @@ class ShopController extends AdminController
                 }
 
                 }, '管理员')->select((array_merge(['超级管理员'=>'超级管理员'],json_decode(AdminUser::pluck('username','username'),true))));
+            $filter->where(function ($query) {
+
+                return $query->whereHas('user', function ($query) {
+                    return $query->whereHas('parentUser', function ($query) {
+                        return $query->where('phone',$this->input);
+                    });
+                });
+
+            }, '邀请人(输入手机号码)');//->select(json_decode(AdminUser::pluck('username','username'),true));
+
+
             $filter->where(function ($query) {
                 $input = $this->input;
                 $query->whereHas('user', function ($query) use ($input) {
