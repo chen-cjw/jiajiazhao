@@ -110,6 +110,7 @@ class ConvenientInformationController extends AdminController
                 $filter->like('payment_no', __('Payment no'));
                 $filter->equal('is_display',__('Is display'))->select([true=>'是',false=>'否']);
                 $filter->like('location', __('Location'));
+                $filter->between('paid_at', '支付时间查询')->datetime();
 
             });
 

@@ -170,6 +170,7 @@ class ShopController extends AdminController
                 $filter->equal('type', __('Type'))->select(['one'=>'第一部分','two'=>'第二部分']);
                 $filter->like('area', '地址');
                 $filter->lt('due_date', '过期时间查询')->datetime();
+                $filter->between('paid_at', '支付时间查询')->datetime();
 
             });
 
