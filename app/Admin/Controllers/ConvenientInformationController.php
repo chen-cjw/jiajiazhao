@@ -32,7 +32,7 @@ class ConvenientInformationController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new ConvenientInformation());
-        $grid->model()->orderBy('id','desc');
+        $grid->model()->orderBy('paid_at','desc');
         if (!Admin::user()->can('Administrator')) {
             //
             $shopID = AdminInformation::where('admin_id',Admin::user()->id)->get('information_id');
@@ -100,8 +100,15 @@ class ConvenientInformationController extends AdminController
 
 
             $filter->column(1/2, function ($filter) {
+                $filter->where(function ($query) {
+                    $input = $this->input;
+                    $query->whereHas('user', function ($query) use ($input) {
+                        $query->where('nickname', 'like', "%$input%");
+                    });
+                }, '用户名');
                 $filter->like('title', __('Title'));
                 $filter->like('no', __('No'));
+
             });
             // 去掉默认的id过滤器
 //            $filter->disableIdFilter();

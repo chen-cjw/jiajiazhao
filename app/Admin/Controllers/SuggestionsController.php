@@ -50,10 +50,20 @@ class SuggestionsController extends AdminController
             }
         });
 
-        $grid->column('is_accept', __('Is accept'))->using([1 => '是', 0 => '否']);
+        $grid->column('is_accept', __('是否处理'))->using([1 => '已处理', 0 => '待处理']);
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
+        $grid->filter(function ($filter) {
 
+            $filter->where(function ($query) {
+                $input = $this->input;
+                $query->whereHas('user', function ($query) use ($input) {
+                    $query->where('nickname', 'like', "%$input%");
+                });
+            }, '用户名');
+            $filter->equal('is_accept', __('是否处理'))->select(['0'=>'待处理','1'=>'已处理']);
+
+        });
         return $grid;
     }
 

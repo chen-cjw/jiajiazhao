@@ -83,7 +83,6 @@ class ShopController extends AdminController
 //            return Str::limit($content, 50, '....');
 //        });
         $grid->column('sort', __('Sort'))->sortable()->editable();
-        $grid->column('view', __('View'))->sortable()->editable();
         $grid->column('is_top', __('Is top'))->using([1 => '是', 0 => '否']);
         $grid->column('is_accept', __('Is accept'))->using([1 => '是', 0 => '否']);
 //        $grid->column('type', __('Type'))->display(function ($type) {
@@ -94,6 +93,8 @@ class ShopController extends AdminController
 
 //        $grid->column('no', __('No'));
         $grid->column('amount', __('Amount'))->sortable();
+        $grid->column('view', __('View'))->sortable()->editable();
+
         $grid->column('top_amount', __('Top amount'))->sortable();
         $grid->column('platform_licensing', __('Platform licensing'));
         $grid->column('paid_at', __('Paid at'))->sortable();
@@ -298,9 +299,9 @@ class ShopController extends AdminController
 
 
             if (Admin::user()->can('Administrator')) {
-                $form->datetime('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
-                $form->text('payment_method', __('Payment method'))->default('wechat');
-                $form->text('payment_no', __('Payment no'))->default('jp'.time().rand(1111,9999));
+                $form->display('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
+                $form->display('payment_method', __('Payment method'))->default('wechat');
+                $form->display('payment_no', __('Payment no'))->default('jp'.time().rand(1111,9999));
                 $form->number('sort', __('Sort'))->default(0);
 //                $form->number('view', __('View'))->default(1);
                 $form->switch('is_top', __('Is top'));
@@ -309,9 +310,9 @@ class ShopController extends AdminController
                 $form->number('comment_count', __('Comment count'))->default(0);
                 $form->number('good_comment_count', __('Good comment count'))->default(0);
                 $form->number('user_id', __('User id'))->default(1);
-                $form->text('no', __('No'))->default('j'.time().rand(1,10).rand(1,10).rand(1,10));
-                $form->decimal('amount', __('Amount'))->default(299);
-                $form->decimal('top_amount', __('Top amount'))->default(0);
+                $form->display('no', __('No'))->default('j'.time().rand(1,10).rand(1,10).rand(1,10));
+                $form->display('amount', __('Amount'))->default(299);
+                $form->display('top_amount', __('Top amount'))->default(0);
                 $form->number('platform_licensing', __('Platform licensing'))->default(0);
             }
 
