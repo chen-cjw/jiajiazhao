@@ -98,7 +98,9 @@ class SuggestionsController extends AdminController
 
         $form->UEditor('content', __('Content'));
         $form->number('user_id', __('User id'));
-        $form->switch('is_accept', __('Is accept'));
+//        $form->switch('is_accept', __('是否处理'));
+        $form->select('is_accept', __('是否处理'))->default('0')->options(['0'=>'待处理','1'=>'已处理']);
+
         $form->footer(function ($footer) {
             // 去掉`重置`按钮
             $footer->disableReset();
