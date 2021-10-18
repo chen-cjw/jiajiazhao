@@ -313,7 +313,7 @@ class ShopController extends AdminController
                 $form->display('no', __('No'))->default('j'.time().rand(1,10).rand(1,10).rand(1,10));
                 $form->display('amount', __('Amount'))->default(299);
                 $form->display('top_amount', __('Top amount'))->default(0);
-                $form->number('platform_licensing', __('Platform licensing'))->default(0);
+                $form->display('platform_licensing', __('Platform licensing'))->default(0);
             }
 
 
