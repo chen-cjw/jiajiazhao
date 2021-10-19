@@ -39,9 +39,9 @@ class CityPartnerController extends AdminController
             return User::where('id',$userId)->value('nickname');
         });
         $grid->column('no', __('No'));
-        $grid->column('amount', __('Amount'));
-        $grid->column('balance', __('Balance'));
-        $grid->column('total_balance', __('Total balance'));
+        $grid->column('amount', __('加盟费'));
+        $grid->column('balance', __('可提现余额'));
+        $grid->column('total_balance', __('收益总额'));
         $grid->column('paid_at', __('Paid at'));
 //        $grid->column('payment_method', __('Payment method'));
         $grid->column('payment_no', __('Payment no'));
@@ -120,9 +120,9 @@ class CityPartnerController extends AdminController
         ]);
         $form->number('user_id', __('User id'));
         $form->text('no', __('No'));
-        $form->decimal('amount', __('Amount'));
-        $form->decimal('balance', __('Balance'))->default(0.000);
-        $form->decimal('total_balance', __('Total balance'))->default(0.000);
+        $form->decimal('amount', __('加盟费'));
+        $form->decimal('balance', __('可提现余额'))->default(0.000);
+        $form->decimal('total_balance', __('收益总额'))->default(0.000);
         $form->datetime('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
         $form->text('payment_method', __('Payment method'))->default('wechat');
         $form->text('payment_no', __('Payment no'));
