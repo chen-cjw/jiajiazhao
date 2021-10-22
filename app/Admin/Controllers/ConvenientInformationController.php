@@ -220,7 +220,7 @@ class ConvenientInformationController extends AdminController
         $form->multipleImage('images', __('图片'));
         $form->hidden('card_fee', __('Card fee'))->default(0.01);
         $form->hidden('top_fee', __('Top fee'))->default(0.01);
-        $form->hidden('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
+        $form->datetime('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
         $form->hidden('payment_method', __('Payment method'))->default('wechat');
         $form->hidden('payment_no', __('Payment no'))->default('jp'.time().rand(1,10).rand(1,10).rand(1,10));
         $form->number('sort', __('Sort'))->default(0);

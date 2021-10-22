@@ -309,7 +309,7 @@ class ShopController extends AdminController
 //            $form->text('type', __('Type'))->default('one');
                 $form->number('comment_count', __('Comment count'))->default(0);
                 $form->number('good_comment_count', __('Good comment count'))->default(0);
-                $form->number('user_id', __('User id'))->default(1);
+                $form->display('user_id', __('User id'))->default(1);
                 $form->display('no', __('No'))->default('j'.time().rand(1,10).rand(1,10).rand(1,10));
                 $form->display('amount', __('Amount'))->default(299);
                 $form->display('top_amount', __('Top amount'))->default(0);
