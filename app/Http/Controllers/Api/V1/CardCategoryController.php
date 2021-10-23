@@ -126,9 +126,9 @@ class CardCategoryController extends Controller
         }
         
         if ($id == 'new') {
-            $information = $query->orderBy('sort','desc')->orderBy('created_at','desc')->paginate();
+            $information = $query->orderBy('sort','desc')->orderBy('paid_at','desc')->paginate();
         }else {
-            $information = $query->orderBy('sort','desc')->orderBy('created_at','desc')->paginate();
+            $information = $query->orderBy('sort','desc')->orderBy('paid_at','desc')->paginate();
         }
 
         $banner = BannerCardCategory::where('is_display',1);

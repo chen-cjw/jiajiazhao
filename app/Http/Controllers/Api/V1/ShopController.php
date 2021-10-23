@@ -106,7 +106,7 @@ class ShopController extends Controller
             $sql = $sql." order by juli ".\request('lat_lng');
 
         }else{
-            $sql = $sql." order by sort DESC,juli asc,created_at DESC";//created_at
+            $sql = $sql." order by sort DESC,juli asc,paid_at DESC";//created_at
         }
 //        if (\request('lat')) {
 //            $sql = $sql." order by ROUND(subtotal) ".\request('lat');
