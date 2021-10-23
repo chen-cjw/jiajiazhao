@@ -25,8 +25,8 @@ class CityPartnerRequest extends FormRequest
                 }
             }],
             'in_city'=>'required|min:2|max:10',
-            'market'=>'required|min:2|max:10',
             'agree'=>'required|in:1',
+            'market'=>'required|min:2|max:10',
         ];
     }
 
@@ -44,6 +44,7 @@ class CityPartnerRequest extends FormRequest
             'phone'=>'手机号',
             'IDCard'=>'身份证号',
             'in_city'=>'所在城市',
+            'market'=>'所在城市',
             'agree'=>'请阅读协议'
         ];
     }
