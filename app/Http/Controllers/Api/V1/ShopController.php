@@ -324,7 +324,8 @@ class ShopController extends Controller
                     'parent_id'=>$cityPartner->user_id,// 城市合伙人ID
                     'shop_id'=>$res->id,// 那个店铺
 //                    'district'=>$request->district// 区域(例如：新沂市)
-                    'district'=>$request->district// 区域(例如：新沂市)
+                    'district'=>$request->district,// 区域(例如：新沂市)
+                    'market'=>$request->market// 区域(例如：新沂市)
                 ]);
                 ShopCommission::create([
                     'amount'=>$amount,// 商户入住金额
@@ -334,7 +335,8 @@ class ShopController extends Controller
                     'parent_id'=>$cityPartner->user_id,// 城市合伙人ID
                     'shop_id'=>$res->id,// 那个店铺
 //                    'district'=>$request->district// 区域(例如：新沂市)
-                    'district'=>$request->district// 区域(例如：新沂市)
+                    'district'=>$request->district,// 区域(例如：新沂市)
+                    'market'=>$request->market// 区域(例如：新沂市)
                 ]);
             }
 

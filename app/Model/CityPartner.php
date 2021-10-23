@@ -5,7 +5,7 @@ namespace App\Model;
 
 class CityPartner extends Model
 {
-    protected $fillable = ['name','phone','IDCard','in_city','user_id','no','amount','paid_at','payment_no'];
+    protected $fillable = ['name','phone','IDCard','in_city','market','user_id','no','amount','paid_at','payment_no'];
 
     public function user()
     {
