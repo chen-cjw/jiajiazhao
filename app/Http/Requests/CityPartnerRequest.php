@@ -25,6 +25,7 @@ class CityPartnerRequest extends FormRequest
                 }
             }],
             'in_city'=>'required|min:2|max:10',
+            'market'=>'required|min:2|max:10',
             'agree'=>'required|in:1',
         ];
     }

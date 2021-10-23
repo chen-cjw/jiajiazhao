@@ -104,7 +104,7 @@ class CityPartnerController extends Controller
         if(CityPartner::where('in_city',$request->in_city)->whereNotNull('paid_at')->first()) {
             throw new ResourceException('该地区已有合伙人，请联系我们！');
         }
-        $data = $request->only('name','phone','IDCard','in_city');
+        $data = $request->only('name','phone','IDCard','in_city','market');
         $data['no'] = CityPartner::findAvailableNo();
         $data['user_id'] = auth('api')->id();
         $data['amount'] =  Setting::where('key','city_partner_amount')->value('value')?:0.01;// todo 获取默认配置

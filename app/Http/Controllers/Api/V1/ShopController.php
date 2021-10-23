@@ -309,8 +309,8 @@ class ShopController extends Controller
 //            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_partners','>',1)->first()) {
             Log::info('新沂0');
             Log::info($request->district);
-            // todo 这里最好是模糊查找城市
-            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_partners','>',1)->whereNotNull('paid_at')->first()) {
+            // todo 这里最好是模糊查找城市 2021.10.23 加了一个市
+            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('market',$request->market)->where('is_partners','>',1)->whereNotNull('paid_at')->first()) {
                 Log::info(13);
 
                 Log::info('新沂1');
@@ -711,7 +711,7 @@ class ShopController extends Controller
 //                    }
                     // todo 第二期项目---------------- 城市合伙人入账，这里比以前多了一个新沂市的区在里面,后台审核通过才可以获取佣金 ----------
                     if ($cityPartner = ShopCommission::where('shop_id',$order->id)->first()) {
-                        CityPartner::where('in_city','like',$cityPartner->district.'%')->increment('balance',$cityPartner->commissions);
+                        CityPartner::where('in_city','like',$cityPartner->district.'%')->where('market',$cityPartner->market)->increment('balance',$cityPartner->commissions);
                         ShopCommission::where('shop_id',$order->id)->update([
                             'is_pay'=>1
                         ]);
