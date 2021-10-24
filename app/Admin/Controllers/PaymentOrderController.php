@@ -38,7 +38,7 @@ class PaymentOrderController extends AdminController
         $grid->column('amount', __('Amount'));
         $grid->column('payment_no', __('Payment no'));
         $grid->column('status', __('Status'))->using([1 => '付款成功', 2 => '待付款',3 => '付款失败']);//     // 提现到零钱 1付款成功,2待付款,3付款失败
-        $grid->column('intro', __('Intro'));
+        $grid->column('intro', __('微信返回'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
