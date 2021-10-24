@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Model\ChinaArea;
 use App\Model\CityPartner;
 use App\User;
 use Encore\Admin\Controllers\AdminController;
@@ -32,7 +33,8 @@ class CityPartnerController extends AdminController
         $grid->column('name', __('姓名'));
         $grid->column('phone', __('Phone'));
         $grid->column('IDCard', __('IDCard'));
-        $grid->column('in_city', __('In city'));
+        $grid->column('market', __('城市'));
+        $grid->column('in_city', __('县级市'));
         // 2自动成为合伙人 4运行中
         $grid->column('is_partners', __('Is partners'))->using([0 => '未付款',1 => '已付款', 2=>'是',3=>'否']);
         $grid->column('user_id', __('User id'))->display(function ($userId) {
@@ -50,17 +52,23 @@ class CityPartnerController extends AdminController
         $grid->filter(function ($filter) {
             $filter->column(1/2, function ($filter) {
 
-                $filter->like('name', __('姓名'));
                 $filter->like('phone', __('Phone'));
+                $filter->like('market', __('城市'));
+
+                $filter->like('in_city', __('县级市'));
+
+            });
+            $filter->column(1/2, function ($filter) {
+                $filter->like('name', __('姓名'));
                 $filter->where(function ($query) {
                     $input = $this->input;
                     $query->whereHas('user', function ($query) use ($input) {
                         $query->where('nickname', 'like', "%$input%");
                     });
                 }, '用户名');
-            });
-            $filter->column(1/2, function ($filter) {
                 $filter->equal('is_partners', __('Is partners'))->select([0 => '未付款', 2 => '是', 3 => '否']);
+
+
                 $filter->between('paid_at', '支付时间查询')->datetime();
             });
 
@@ -82,7 +90,7 @@ class CityPartnerController extends AdminController
         $show->field('name', __('姓名'));
         $show->field('phone', __('Phone'));
         $show->field('IDCard', __('IDCard'));
-        $show->field('in_city', __('In city'));
+        $show->field('in_city', __('县级市'));
         $show->field('is_partners', __('Is partners'));
         $show->field('user_id', __('User id'));
         $show->field('no', __('No'));
@@ -110,7 +118,7 @@ class CityPartnerController extends AdminController
         $form->text('name', __('姓名'));
         $form->mobile('phone', __('Phone'));
         $form->text('IDCard', __('IDCard'));
-        $form->text('in_city', __('In city'));
+//        $form->text('in_city', __('县级市'));
         // 0 未付款/取消合伙人资格
         $form->select('is_partners', __('Is partners'))->options([
             '0'=>'取消合伙人身份',
@@ -126,7 +134,34 @@ class CityPartnerController extends AdminController
         $form->datetime('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
         $form->text('payment_method', __('Payment method'))->default('wechat');
         $form->text('payment_no', __('Payment no'));
+        CityPartner::baseCity($form);
 
+        $form->distpicker([
+            'province_id' => '省份',
+            'city_id' => '市',
+            'district_id' => '区'
+        ], '地域选择')->default([
+            'province' => 0,
+            'city'     => 0,
+            'district' => 0,
+        ]);
+
+        $form->saving(function (Form $form) {
+            $chinaArea = ChinaArea::where('code',$form->district_id)->first();
+            $chinaMarket = ChinaArea::where('code',$form->city_id)->first();
+            if ($chinaMarket) {
+
+                $form->market = $chinaMarket->name;
+            }else {
+
+                $form->market = null;
+            }
+            if ($chinaArea) {
+                $form->in_city = $chinaArea->name;
+            }else {
+                $form->in_city = null;
+            }
+        });
         return $form;
     }
 }

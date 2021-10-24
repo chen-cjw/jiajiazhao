@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use Encore\Admin\Form;
 
 class CityPartner extends Model
 {
@@ -27,5 +28,34 @@ class CityPartner extends Model
         \Log::warning('find order no failed');
 
         return false;
+    }
+
+    public static function baseCity($form)
+    {
+        $form->distpicker([
+            'province_id' => '省份',
+            'city_id' => '市',
+            'district_id' => '区'
+        ], '地域选择')->default([
+            'province' => 0,
+            'city'     => 0,
+            'district' => 0,
+        ]);
+
+        $form->saving(function (Form $form) {
+            $chinaArea = ChinaArea::where('code',$form->district_id)->first();
+            $chinaMarket = ChinaArea::where('code',$form->city_id)->first();
+            if ($chinaMarket) {
+                $form->market = $chinaMarket->name;
+            }else {
+                $form->market = null;
+            }
+            if ($chinaArea) {
+                $form->in_city = $chinaArea->name;
+            }else {
+                $form->in_city = null;
+            }
+        });
+        return $form;
     }
 }
