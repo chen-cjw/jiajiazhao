@@ -228,6 +228,7 @@ class ConvenientInformationController extends AdminController
         $form->hidden('comment_count', __('Comment count'))->default(0);
 
         $form->number('view', __('人气'))->default(rand(10,500));
+        $form->datetime('created_at', __('创建时间'))->default(date('Y-m-d H:i:s'));
 
         if(request()->route('information')) {
             $form->switch('is_top', __('Is top'))->default(0);
