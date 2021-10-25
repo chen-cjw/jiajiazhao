@@ -36,7 +36,7 @@ class CityPartnerController extends AdminController
         $grid->column('market', __('城市'));
         $grid->column('in_city', __('县级市'));
         // 2自动成为合伙人 4运行中
-        $grid->column('is_partners', __('Is partners'))->using([0 => '未付款',1 => '已付款', 2=>'审核',3=>'是']);
+        $grid->column('is_partners', __('Is partners'))->using([0 => '未付款',1 => '已付款', 2=>'审核中',3=>'是']);
         $grid->column('user_id', __('User id'))->display(function ($userId) {
             return User::where('id',$userId)->value('nickname');
         });
@@ -123,7 +123,7 @@ class CityPartnerController extends AdminController
         $form->select('is_partners', __('Is partners'))->options([
             '0'=>'取消合伙人身份',
 //            '1'=>'已付款',
-            '2'=>'审核',
+            '2'=>'审核中',
             '3'=>'是'
         ]);
         $form->number('user_id', __('User id'));
