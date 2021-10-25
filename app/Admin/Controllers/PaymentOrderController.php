@@ -34,8 +34,8 @@ class PaymentOrderController extends AdminController
         $grid->column('user_id', __('User id'))->display(function ($userId) {
             return User::where('id',$userId)->value('nickname');
         });
-        $grid->column('user_id', __('User id'))->display(function ($userId) {
-            return User::where('id',$userId)->value('phone');
+        $grid->column('phone', __('手机号'))->display(function ($userId) {
+            return User::where('id',$this->user_id)->value('phone');
         });
         $grid->column('order_number', __('Order number'));
         $grid->column('amount', __('Amount'));
