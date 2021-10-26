@@ -134,7 +134,7 @@ class CityPartnerController extends AdminController
         $form->datetime('paid_at', __('Paid at'))->default(date('Y-m-d H:i:s'));
         $form->text('payment_method', __('Payment method'))->default('wechat');
         $form->text('payment_no', __('Payment no'));
-        CityPartner::baseCity($form);
+//        CityPartner::baseCity($form);
 
         $form->distpicker([
             'province_id' => '省份',
@@ -147,17 +147,19 @@ class CityPartnerController extends AdminController
         ]);
 
         $form->saving(function (Form $form) {
+//            dd($form);
             $chinaArea = ChinaArea::where('code',$form->district_id)->first();
             $chinaMarket = ChinaArea::where('code',$form->city_id)->first();
+//            dd($chinaArea);
             if ($chinaMarket) {
 
-                $form->market = $chinaMarket->name;
+                $form->model()->market = $chinaMarket->name;
             }else {
 
                 $form->market = null;
             }
             if ($chinaArea) {
-                $form->in_city = $chinaArea->name;
+                $form->model()->in_city = $chinaArea->name;
             }else {
                 $form->in_city = null;
             }
