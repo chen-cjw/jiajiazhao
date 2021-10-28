@@ -311,7 +311,7 @@ class ShopController extends Controller
             Log::info($request->district);
             Log::info($request->market);
             // todo 这里最好是模糊查找城市 2021.10.23 加了一个市
-            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('market',$request->market)->where('is_partners','>',1)->whereNotNull('paid_at')->first()) {
+            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('market',$request->market)->where('is_partners',3)->whereNotNull('paid_at')->first()) {
                 Log::info(13);
 
                 Log::info('新沂1');
