@@ -233,7 +233,7 @@ class ConvenientInformationController extends Controller
             Log::info('新沂0');
             Log::info($request->district);
             // todo 这里最好是模糊查找城市
-            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_partners','>',1)->whereNotNull('paid_at')->first()) {
+            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('market',$request->market)->where('is_partners',3)->whereNotNull('paid_at')->first()) {
                 Log::info(13);
 
                 Log::info('新沂1');
@@ -357,7 +357,8 @@ class ConvenientInformationController extends Controller
                     if ($cityPartner = InformationCommission::where('information_id',$order->id)->first()) {
                         Log::info(333333333);
 
-                        CityPartner::where('in_city','like',$cityPartner->district.'%')->increment('balance',$cityPartner->commissions);
+                        CityPartner::where('in_city','like',$cityPartner->district.'%')->where('is_partners',3)->whereNotNull('paid_at')->where('market',$cityPartner->market)->increment('balance',$cityPartner->commissions);
+
                         InformationCommission::where('information_id',$order->id)->update([
                             'is_pay'=>1
                         ]);
