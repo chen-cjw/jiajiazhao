@@ -66,7 +66,7 @@ class CityPartnerController extends AdminController
                         $query->where('nickname', 'like', "%$input%");
                     });
                 }, '用户名');
-                $filter->equal('is_partners', __('Is partners'))->select([0 => '未付款', 2 => '是', 3 => '否']);
+                $filter->equal('is_partners', __('Is partners'))->select([0 => '未付款', 2 => '审核中', 3 => '是']);
 
 
                 $filter->between('paid_at', '支付时间查询')->datetime();
