@@ -78,7 +78,7 @@ class ConvenientInformationController extends AdminController
         $grid->column('comment_count', __('Comment count'))->sortable();
 //        $grid->column('is_top', __('Is top'));
 
-        $grid->column('created_at', __('Created at'))->sortable();
+        $grid->column('created_at', __('Created at'))->sortable()->editable('datetime');
 //        $grid->column('updated_at', __('Updated at'));
 
 

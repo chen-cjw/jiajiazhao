@@ -100,7 +100,7 @@ class ShopController extends AdminController
         $grid->column('paid_at', __('Paid at'))->sortable();
 //        $grid->column('payment_method', __('Payment method'));
         $grid->column('payment_no', __('Payment no'));
-        $grid->column('due_date', __('Due date'));
+        $grid->column('due_date', __('Due date'))->editable('datetime');
 //        $grid->column('created_at', __('Created at'));
 //        $grid->column('updated_at', __('Updated at'));
         $grid->filter(function ($filter) {
