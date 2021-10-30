@@ -232,8 +232,8 @@ class ConvenientInformationController extends Controller
             // todo 合伙人获得收入
             Log::info('新沂0');
             Log::info($request->district);
-            // todo 这里最好是模糊查找城市
-            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('market',$request->market)->where('is_partners',3)->whereNotNull('paid_at')->first()) {
+            // todo 这里最好是模糊查找城市 // todo ->where('market',$request->market)
+            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_partners',3)->whereNotNull('paid_at')->first()) {
                 Log::info(13);
 
                 Log::info('新沂1');
