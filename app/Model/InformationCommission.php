@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class InformationCommission extends Model
 {
     // 发帖抽成/合伙人
-    protected $fillable = ['amount','commissions','rate','user_id','parent_id','information_id','district','is_pay'];
+    protected $fillable = ['amount','commissions','rate','user_id','parent_id','information_id','district','market','is_pay'];
 
     public function information()
     {

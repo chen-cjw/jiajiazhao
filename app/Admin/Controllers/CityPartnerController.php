@@ -36,7 +36,7 @@ class CityPartnerController extends AdminController
         $grid->column('market', __('城市'));
         $grid->column('in_city', __('县级市'));
         // 2自动成为合伙人 4运行中
-        $grid->column('is_partners', __('Is partners'))->using([0 => '未付款',1 => '已付款', 2=>'审核中',3=>'是']);
+        $grid->column('is_partners', __('Is partners'))->using([0 => '未付款',1 => '取消合伙人', 2=>'审核中',3=>'是']);
         $grid->column('user_id', __('User id'))->display(function ($userId) {
             return User::where('id',$userId)->value('nickname');
         });
@@ -66,7 +66,7 @@ class CityPartnerController extends AdminController
                         $query->where('nickname', 'like', "%$input%");
                     });
                 }, '用户名');
-                $filter->equal('is_partners', __('Is partners'))->select([0 => '未付款', 2 => '审核中', 3 => '是']);
+                $filter->equal('is_partners', __('Is partners'))->select([0 => '未付款',1 => '取消合伙人', 2 => '审核中', 3 => '是']);
 
 
                 $filter->between('paid_at', '支付时间查询')->datetime();

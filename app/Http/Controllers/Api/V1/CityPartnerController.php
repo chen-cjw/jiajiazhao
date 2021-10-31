@@ -101,7 +101,7 @@ class CityPartnerController extends Controller
     public function store(CityPartnerRequest $request)
     {
         // 判断这个城市是否已经有了合伙人 todo 这里用is_partners
-        if(CityPartner::where('in_city',$request->in_city)->where('market',$request->market)->whereNotNull('paid_at')->first()) {
+        if(CityPartner::where('in_city',$request->in_city)->where('market',$request->market)->whereNotNull('paid_at')->where('is_partners','>',1)->first()) {
             throw new ResourceException('该地区已有合伙人，请联系我们！');
         }
         $data = $request->only('name','phone','IDCard','in_city','market');

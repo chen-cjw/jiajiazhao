@@ -233,7 +233,14 @@ class ConvenientInformationController extends Controller
             Log::info('新沂0');
             Log::info($request->district);
             // todo 这里最好是模糊查找城市 // todo ->where('market',$request->market)
-            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_partners',3)->whereNotNull('paid_at')->first()) {
+            $market =  $this->market($request->area);
+            Log::info(111);
+
+            Log::info($request->district.'-'.$market);
+
+            Log::info(111);
+
+            if ($cityPartner = CityPartner::where('in_city',$request->district)->where('is_partners',3)->whereNotNull('paid_at')->where('market',$market)->first()) {
                 Log::info(13);
 
                 Log::info('新沂1');
@@ -248,7 +255,9 @@ class ConvenientInformationController extends Controller
                     'parent_id'=>$cityPartner->user_id,// 城市合伙人ID
                     'information_id'=>$res->id,// 那个店铺
 //                    'district'=>$request->district// 区域(例如：新沂市)
-                    'district'=>$request->district// 区域(例如：新沂市) todo
+                    'district'=>$request->district,// 区域(例如：新沂市) todo
+                    'market'=>$market// 区域(例如：新沂市)
+
                 ]);
             }
 
@@ -258,6 +267,31 @@ class ConvenientInformationController extends Controller
             DB::rollback();
             throw new \Exception($ex); // 报错原因大多是因为taskFlowCollections表，name和user_id一致
         }
+    }
+
+    public function market($address)
+    {
+        preg_match('/(.*?(省|自治区|北京市|天津市))/', $address, $matches);
+        if (count($matches) > 1) {
+            $province = $matches[count($matches) - 2];
+            $address = str_replace($province, '', $address);
+        }
+        preg_match('/(.*?(市|自治州|地区|区划|县))/', $address, $matches);
+        if (count($matches) > 1) {
+            $city = $matches[count($matches) - 2];
+            $address = str_replace($city, '', $address);
+        }
+        preg_match('/(.*?(区|县|镇|乡|街道))/', $address, $matches);
+        if (count($matches) > 1) {
+            $area = $matches[count($matches) - 2];
+            $address = str_replace($area, '', $address);
+        }
+        return isset($city) ? $city : '';
+        return [
+            'province' => isset($province) ? $province : '',
+            'city' => isset($city) ? $city : '',
+            'area' => isset($area) ? $area : '',
+        ];
     }
 
 
@@ -356,8 +390,8 @@ class ConvenientInformationController extends Controller
                     Log::info(2222222);
                     if ($cityPartner = InformationCommission::where('information_id',$order->id)->first()) {
                         Log::info(333333333);
-
-                        CityPartner::where('in_city','like',$cityPartner->district.'%')->where('is_partners',3)->whereNotNull('paid_at')->where('market',$cityPartner->market)->increment('balance',$cityPartner->commissions);
+                        // ->where('market',$cityPartner->market)
+                        CityPartner::where('in_city','like',$cityPartner->district.'%')->where('market',$cityPartner->market)->where('is_partners',3)->whereNotNull('paid_at')->increment('balance',$cityPartner->commissions);
 
                         InformationCommission::where('information_id',$order->id)->update([
                             'is_pay'=>1
