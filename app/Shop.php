@@ -148,6 +148,19 @@ class Shop extends Model
     {
         parent::boot();
 
+
+        // updating creating saving 这几个方法你自己选择，打印一下$model看看你就知道怎么取出数据了
+//        static::creating(function ($model) {
+//            $hostUrl= \env("ALIYUN_OSS_URL");
+//            $model->store_logo = $hostUrl . $model->store_logo;
+//            $model->with_iD_card = $hostUrl . $model->with_iD_card;
+//        });
+//
+//        static::updating(function ($model) {
+//            $hostUrl = \env("ALIYUN_OSS_URL");
+//            $model->store_logo = $hostUrl . str_replace($hostUrl,"", $model->store_logo);
+//            $model->with_iD_card = $hostUrl . str_replace($hostUrl,"", $model->with_iD_card);
+//        });
         static::deleting(function ($model)
         {
             //这样可以拿到当前操作id

@@ -365,27 +365,33 @@ class ShopController extends AdminController
 //            dd($form) ;
                 $data = [];
                 if(request('store_logo')) {
-                    $file = request('store_logo');
-                    $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
-                    // 如果 image 字段本身就已经是完整的 url 就直接返回
-                    if (Str::startsWith($path, ['http://', 'https://'])) {
-                        return $path;
-                    }
-                    $store_logo = \Storage::disk('public')->url($path);
-                    $data['logo']['store_logo']=$store_logo;//request('store_logo');
+//                    $file = request('store_logo');
+//                    $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
+//                    // 如果 image 字段本身就已经是完整的 url 就直接返回
+//                    if (Str::startsWith($path, ['http://', 'https://'])) {
+//                        return $path;
+//                    }
+//                    $store_logo = \Storage::disk('public')->url($path);
+//                    $data['logo']['store_logo']=$store_logo;//request('store_logo');
+
+                    $store_logo = \Storage::disk('oss')->put('jiajiazhao',request('store_logo'));
+                    $data['logo']['store_logo']=\Storage::disk('oss')->url($store_logo);//request('store_logo');
                 }else {
                     $data['logo']['store_logo']=$form->model()->logo['store_logo'];//request('with_iD_card');
 //                $data['logo']['store_logo']=$form->model()->logo['with_iD_card'];//request('with_iD_card');
                 }
                 if(request('with_iD_card')) {
-                    $file = request('with_iD_card');
-                    $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
-                    // 如果 image 字段本身就已经是完整的 url 就直接返回
-                    if (Str::startsWith($path, ['http://', 'https://'])) {
-                        return $path;
-                    }
-                    $with_iD_card = \Storage::disk('public')->url($path);
-                    $data['logo']['with_iD_card']=$with_iD_card;//request('with_iD_card');
+//                    $file = request('with_iD_card');
+//                    $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
+//                    // 如果 image 字段本身就已经是完整的 url 就直接返回
+//                    if (Str::startsWith($path, ['http://', 'https://'])) {
+//                        return $path;
+//                    }
+//                    $with_iD_card = \Storage::disk('public')->url($path);
+//                    $data['logo']['with_iD_card']=$with_iD_card;//request('with_iD_card');
+
+                    $with_iD_card = \Storage::disk('oss')->put('jiajiazhao',request('with_iD_card'));
+                    $data['logo']['with_iD_card']=\Storage::disk('oss')->url($with_iD_card);//request('store_logo');
                 }else {
                     $data['logo']['with_iD_card']=$form->model()->logo['with_iD_card'];//request('with_iD_card');
                 }
@@ -418,22 +424,26 @@ class ShopController extends AdminController
                 $data = [];
 
                 $file = request('store_logo');
-                $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
+//                $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
                 // 如果 image 字段本身就已经是完整的 url 就直接返回
-                if (Str::startsWith($path, ['http://', 'https://'])) {
-                    return $path;
-                }
-                $store_logo = \Storage::disk('public')->url($path);
-                $data['logo']['store_logo']=$store_logo;
+//                if (Str::startsWith($path, ['http://', 'https://'])) {
+//                    return $path;
+//                }
+//                if (Str::startsWith($file, ['http://', 'https://'])) {
+//                    return $file;
+//                }
+                $disk = \Storage::disk('oss');
+                $store_logo = $disk->put('jiajiazhao',$file);
+                $data['logo']['store_logo']=$disk->url($store_logo);
 
                 $file = request('with_iD_card');
-                $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
+//                $path = \Storage::disk('public')->putFile(date('Ymd') , $file);
                 // 如果 image 字段本身就已经是完整的 url 就直接返回
-                if (Str::startsWith($path, ['http://', 'https://'])) {
-                    return $path;
-                }
-                $with_iD_card = \Storage::disk('public')->url($path);
-                $data['logo']['with_iD_card']=$with_iD_card;//request('with_iD_card');
+//                if (Str::startsWith($path, ['http://', 'https://'])) {
+//                    return $path;
+//                }
+                $with_iD_card = \Storage::disk('oss')->put('jiajiazhao',$file);
+                $data['logo']['with_iD_card']=$disk->url($with_iD_card);//request('with_iD_card');
                 $form->logo = json_encode($data['logo']);
 
             });

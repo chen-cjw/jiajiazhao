@@ -4,8 +4,55 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab4357b7980d7b16e86b9bf5484e8600",
+    "content-hash": "403b4d65e994a6b1e355e95475a6022e",
     "packages": [
+        {
+            "name": "aliyuncs/oss-sdk-php",
+            "version": "v2.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aliyun/aliyun-oss-php-sdk.git",
+                "reference": "4ccead614915ee6685bf30016afb01aabd347e46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aliyun/aliyun-oss-php-sdk/zipball/4ccead614915ee6685bf30016afb01aabd347e46",
+                "reference": "4ccead614915ee6685bf30016afb01aabd347e46",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*",
+                "satooshi/php-coveralls": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "OSS\\": "src/OSS"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aliyuncs",
+                    "homepage": "http://www.aliyun.com"
+                }
+            ],
+            "description": "Aliyun OSS SDK for PHP",
+            "homepage": "http://www.aliyun.com/product/oss/",
+            "time": "2021-08-25T13:03:58+00:00"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.0.3",
@@ -175,6 +222,7 @@
                 }
             ],
             "description": "UEditor integration for Laravel.",
+            "abandoned": true,
             "time": "2020-11-17T11:45:07+00:00"
         },
         {
@@ -1636,6 +1684,63 @@
             "time": "2021-06-30T20:03:07+00:00"
         },
         {
+            "name": "jacobcyl/ali-oss-storage",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jacobcyl/Aliyun-oss-storage.git",
+                "reference": "c0cb9ba1d3faf22a1e04a03602aac90a187b5959"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jacobcyl/Aliyun-oss-storage/zipball/c0cb9ba1d3faf22a1e04a03602aac90a187b5959",
+                "reference": "c0cb9ba1d3faf22a1e04a03602aac90a187b5959",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "aliyuncs/oss-sdk-php": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Jacobcyl\\AliOSS\\AliOssServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jacobcyl\\AliOSS\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "jacobcyl",
+                    "email": "cyl.jacob@gmail.com"
+                }
+            ],
+            "description": "aliyun oss filesystem storage for laravel 5+",
+            "homepage": "http://jacobcyl.github.io/Aliyun-oss-storage/",
+            "keywords": [
+                "aliyun",
+                "filesystems",
+                "laravel",
+                "oss",
+                "storage"
+            ],
+            "time": "2018-04-02T03:44:01+00:00"
+        },
+        {
             "name": "laravel-admin-ext/china-distpicker",
             "version": "v1.4.1",
             "source": {
@@ -1693,64 +1798,6 @@
                 "laravel-admin"
             ],
             "time": "2020-09-09T17:07:05+00:00"
-        },
-        {
-            "name": "laravel-admin-ext/latlong",
-            "version": "v1.2.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel-admin-extensions/latlong.git",
-                "reference": "5d9b6c0b7af07cd51542c62d902f2402be98b3f8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel-admin-extensions/latlong/zipball/5d9b6c0b7af07cd51542c62d902f2402be98b3f8",
-                "reference": "5d9b6c0b7af07cd51542c62d902f2402be98b3f8",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "encore/laravel-admin": "~1.6",
-                "php": ">=7.0.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~6.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Encore\\Admin\\Latlong\\LatlongServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Encore\\Admin\\Latlong\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "z-song",
-                    "email": "zosong@126.com"
-                }
-            ],
-            "description": "Latitude & Longitude selector",
-            "homepage": "https://github.com/laravel-admin-ext/latlong",
-            "keywords": [
-                "extension",
-                "laravel-admin"
-            ],
-            "time": "2020-09-28T07:18:29+00:00"
         },
         {
             "name": "laravel-lang/lang",
@@ -7914,6 +7961,64 @@
                 "test"
             ],
             "time": "2020-07-09T08:09:16+00:00"
+        },
+        {
+            "name": "laravel-admin-ext/latlong",
+            "version": "v1.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/latlong.git",
+                "reference": "5d9b6c0b7af07cd51542c62d902f2402be98b3f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/latlong/zipball/5d9b6c0b7af07cd51542c62d902f2402be98b3f8",
+                "reference": "5d9b6c0b7af07cd51542c62d902f2402be98b3f8",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "encore/laravel-admin": "~1.6",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\Latlong\\LatlongServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\Latlong\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "z-song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Latitude & Longitude selector",
+            "homepage": "https://github.com/laravel-admin-ext/latlong",
+            "keywords": [
+                "extension",
+                "laravel-admin"
+            ],
+            "time": "2020-09-28T07:18:29+00:00"
         },
         {
             "name": "mockery/mockery",

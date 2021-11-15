@@ -137,6 +137,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/jacobcyl/ali-oss-storage" />
+      <path value="$PROJECT_DIR$/vendor/aliyuncs/oss-sdk-php" />
     </include_path>
   </component>
   <component name="PhpUnit">
